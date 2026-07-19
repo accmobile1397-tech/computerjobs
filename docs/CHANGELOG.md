@@ -2,6 +2,30 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
+## [0.6.0] — 1404/04/29 — Phase 5 Resume Builder
+
+### Added
+
+- Resume builder — one resume per user; sections (education, experience, skills, technologies, languages, certificates, projects)
+- ResumeStatus DRAFT/ACTIVE; visibility PUBLIC/EMPLOYERS_ONLY/PRIVATE
+- User-owned slug public resume; employer applicant resume API
+- Application `resumeId` auto-link on apply
+- Reserved nullable: profileStrength, aiSummary, aiKeywords (unused)
+- Migration `20260719220000_phase5_resume_builder`
+- 25 unit tests; CI green
+
+### CTO
+
+- **APPROVE** — Phase 5 closed
+- Tag: `v0.6-phase-5`
+- Debt: TD-P5-1 Application Resume Snapshot (P1)
+
+### Phase 6
+
+- Spec generated — **awaiting CTO review** (no implementation)
+- Scope: Job Search, Resume Search, Filters, Rule-Based Matching, Match Score
+- Excluded: LLM, Agents, RAG, Prompting, AI Recommendations
+
 ## [0.5.0] — 1404/04/29 — Phase 4 Jobs Core
 
 ### Added

@@ -1,29 +1,18 @@
 # Phase Review Index
 
-# Phase 1–4 — Closed
+# Phase 1–5 — Closed
 
-`v0.2-phase-1` · `v0.3-phase-2` · `v0.4-phase-3` · `v0.5-phase-4`
+`v0.2-phase-1` · `v0.3-phase-2` · `v0.4-phase-3` · `v0.5-phase-4` · `v0.6-phase-5`
 
 ---
 
-# Phase 5 — Resume Builder (Review)
+# Phase 6 — Search & Matching (Spec)
 
-**Status:** ⏳ Awaiting CTO Review  
-**Migration:** `20260719220000_phase5_resume_builder`
+**Status:** ⏳ Awaiting CTO Spec Review · **no implementation**
 
 | Document | Path |
 |----------|------|
-| **CTO Report** | [docs/phase-5/CTO_REPORT.md](./phase-5/CTO_REPORT.md) |
-| Spec approval | [docs/phase-5/CTO_SPEC_APPROVAL.md](./phase-5/CTO_SPEC_APPROVAL.md) |
-| Technical Spec | [docs/phase-5/TECHNICAL_SPEC.fa.md](./phase-5/TECHNICAL_SPEC.fa.md) |
-| Tests | [docs/phase-5/TEST_COVERAGE.md](./phase-5/TEST_COVERAGE.md) |
+| **Technical Spec** | [docs/phase-6/TECHNICAL_SPEC.fa.md](./phase-6/TECHNICAL_SPEC.fa.md) |
 
-## Module
-
-`src/modules/resumes/`
-
-## API
-
-- Owner: `GET/PATCH /users/me/resume` + section routes
-- Public: `GET /users/by-slug/:slug/resume` (user slug)
-- Employer: `GET /jobs/:id/applications/:applicationId/resume`
+Scope: Job Search · Resume Search · Filters · Rule-Based Matching · Match Score  
+Excluded: LLM · Agents · RAG · Prompting · AI Recommendations

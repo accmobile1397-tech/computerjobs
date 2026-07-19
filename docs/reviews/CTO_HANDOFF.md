@@ -42,7 +42,8 @@ Extra docs (Guardian, Index, TEST_COVERAGE, DATABASE/API designs) **only if CTO 
 | 2 | 🟢 Closed — `v0.3-phase-2` |
 | 3 | 🟢 Closed — `v0.4-phase-3` |
 | 4 | 🟢 Closed — `v0.5-phase-4` |
-| 5 | ⏳ Implementation review — **awaiting CTO** |
+| 5 | 🟢 Closed — `v0.6-phase-5` |
+| 6 | ⏳ Spec review — **no implementation** |
 
 ---
 

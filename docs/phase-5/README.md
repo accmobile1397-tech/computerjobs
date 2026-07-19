@@ -1,9 +1,6 @@
 # Phase 5 — Resume Builder
 
-**Status:** ⏳ Implementation complete — awaiting CTO review  
-**Spec:** [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md) · [CTO_REPORT.md](./CTO_REPORT.md)
+**Status:** 🟢 **CLOSED** — APPROVE · Tag `v0.6-phase-5`  
+**Implementation:** [`cf68aa5..fe0df57`](https://github.com/accmobile1397-tech/computerjobs/compare/cf68aa5...fe0df57)
 
-## Rules
-
-One resume/user · User owns slug · No upload · No AI · No templates · No PDF  
-**TD-P5-1** Application Resume Snapshot — P1 deferred
+Next: [Phase 6 TECHNICAL_SPEC](../phase-6/TECHNICAL_SPEC.fa.md)

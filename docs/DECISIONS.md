@@ -34,7 +34,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-032 | Phase 4 spec — **APPROVE WITH MINOR CONDITIONS** | **Closed** |
 | 2026-07-19 | D-033 | **Phase 4 CLOSED** — APPROVE · tag `v0.5-phase-4` | **Closed** |
 | 2026-07-19 | D-034 | Phase 5 spec — **APPROVE WITH MINOR CONDITIONS** | **Closed** |
-| 2026-07-19 | D-035 | Phase 5 implementation — **awaiting CTO review** | Active |
+| 2026-07-19 | D-035 | **Phase 5 CLOSED** — APPROVE · tag `v0.6-phase-5` | **Closed** |
+| 2026-07-19 | D-036 | Phase 6 spec — Search & Matching (spec only) | Active |
 | 2026-07-19 | TD-P5-1 | Application Resume Snapshot | Active (P1) |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
@@ -59,13 +60,24 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-035: Phase 5 Implementation
+## D-036: Phase 6 Spec — Search & Matching
 
-**Decision:** Implementation complete — **awaiting CTO review**  
-**Tag (after APPROVE):** `v0.6-phase-5`  
-**Record:** [docs/phase-5/CTO_REPORT.md](./phase-5/CTO_REPORT.md)
+**Decision:** Spec generated — **awaiting CTO review**  
+**Status:** Implementation **blocked** until CTO approves  
+**Scope:** Job Search · Resume Search · Search Filters · Rule-Based Matching Foundation · Match Score  
+**Excluded:** LLM · AI Agents · RAG · Prompting · AI Recommendations  
 
-**Technical debt:** TD-P5-1 Application Resume Snapshot (P1)
+**Document:** [docs/phase-6/TECHNICAL_SPEC.fa.md](./phase-6/TECHNICAL_SPEC.fa.md)
+
+---
+
+## D-035: Phase 5 Closed
+
+**Decision:** ☑ **APPROVE** (CTO 2026-07-19)  
+**Tag:** `v0.6-phase-5` · **Implementation:** [`cf68aa5..fe0df57`](https://github.com/accmobile1397-tech/computerjobs/compare/cf68aa5...fe0df57)  
+**Record:** [docs/phase-5/CTO_IMPLEMENTATION_APPROVAL.md](./phase-5/CTO_IMPLEMENTATION_APPROVAL.md)
+
+**Technical debt (accepted/carried):** TD-P5-1, TD-P2-1
 
 ---
 
