@@ -1,10 +1,9 @@
 # Phase Review Index — Phase 1: IAM
 
 **Branch:** `main`  
-**Latest commit:** [`392310c`](https://github.com/accmobile1397-tech/computerjobs/commit/392310c)  
-**IAM implementation:** [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)  
-**Status:** Implementation complete — awaiting CTO review  
-**Handoff:** commit link — [CTO_HANDOFF.md](./CTO_HANDOFF.md)
+**Implementation commit:** [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)  
+**Status:** ⏳ Awaiting CTO approval  
+**Start review:** [docs/phase-1/CTO_REPORT.md](./phase-1/CTO_REPORT.md)
 
 ---
 
@@ -12,6 +11,7 @@
 
 | Document | Path |
 |----------|------|
+| **CTO Report** | [docs/phase-1/CTO_REPORT.md](./phase-1/CTO_REPORT.md) |
 | Technical Spec (FA) | [docs/phase-1/TECHNICAL_SPEC.fa.md](./phase-1/TECHNICAL_SPEC.fa.md) |
 | Architecture | [docs/phase-1/ARCHITECTURE.md](./phase-1/ARCHITECTURE.md) |
 | Database Design | [docs/phase-1/DATABASE_DESIGN.md](./phase-1/DATABASE_DESIGN.md) |
@@ -24,58 +24,29 @@
 
 | Report | Path |
 |--------|------|
-| **CTO Report (start here)** | [docs/phase-1/CTO_REPORT.md](./phase-1/CTO_REPORT.md) |
-| Architecture Guardian | [docs/reviews/ARCHITECTURE_GUARDIAN.md](../reviews/ARCHITECTURE_GUARDIAN.md) (Phase 1 section) |
+| Architecture Guardian | [docs/reviews/ARCHITECTURE_GUARDIAN.md](../reviews/ARCHITECTURE_GUARDIAN.md) (Phase 1) |
 | Threat Model | [docs/security-threat-model/phase-1.md](../security-threat-model/phase-1.md) |
 | Test Coverage | [docs/phase-1/TEST_COVERAGE.md](./phase-1/TEST_COVERAGE.md) |
+| Handoff guide | [docs/reviews/CTO_HANDOFF.md](../reviews/CTO_HANDOFF.md) |
 
 ## ADRs
 
-- [0001-feature-first.md](../adr/0001-feature-first.md)
-- [0002-prisma.md](../adr/0002-prisma.md)
-- [0006-iam-authorization-module.md](../adr/0006-iam-authorization-module.md) _(new)_
+- [0006-iam-authorization-module.md](../adr/0006-iam-authorization-module.md)
 
-## RFCs
-
-- No new RFCs Phase 1
-
-## Database Changes
+## Database
 
 - Migration: `prisma/migrations/20260719140000_phase1_iam/`
-- Models: User, profiles, RBAC, tokens, audit, Company, CompanyMember
 - Seed: roles, permissions, SuperAdmin
 
-## API Changes
+## API (Phase 1)
 
-| Endpoint | New |
-|----------|-----|
-| POST /auth/register/job-seeker | ✅ |
-| POST /auth/register/employer | ✅ |
-| POST /auth/login | ✅ (identifier: email/mobile-ready) |
-| POST /auth/refresh | ✅ |
-| POST /auth/logout | ✅ |
-| POST /auth/logout-all | ✅ |
-| POST /auth/forgot-password | ✅ |
-| POST /auth/reset-password | ✅ |
-| GET/POST /auth/verify-email | ✅ |
-| GET/PATCH /users/me | ✅ |
+Auth: register (job-seeker/employer), login, refresh, logout, logout-all, forgot/reset password, verify-email  
+Users: GET/PATCH `/users/me`
 
-## Security Changes
+## Security
 
-- argon2id password hashing
-- JWT access + refresh (httpOnly cookie)
-- DB-driven RBAC via `modules/authorization/`
-- Audit log events expanded
-- Account lock + LOCKED status
-- [SECURITY_DECISIONS.md](../SECURITY_DECISIONS.md) updated
+argon2id · JWT + httpOnly refresh · DB RBAC · audit log · account lock · no OAuth
 
-## SEO Changes
+## SEO
 
-- None (auth pages noindex in SEO_STRATEGY)
-
-## Known Risks
-
-- Mobile login schema ready — not enabled
-- Email/SMS stub only
-- Rate limit skeleton
-- See [RISKS_AND_ASSUMPTIONS.md](./phase-1/RISKS_AND_ASSUMPTIONS.md)
+None (auth pages noindex)

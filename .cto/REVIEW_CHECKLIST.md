@@ -39,4 +39,4 @@
 
 ## Phase 1 Status
 
-**Awaiting CTO review** — commit `66e08b9` on `main`
+**Awaiting CTO approval** — handoff via commit link on `main`
