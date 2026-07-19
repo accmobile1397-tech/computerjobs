@@ -33,7 +33,9 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-031 | **Phase 3 CLOSED** — APPROVE · tag `v0.4-phase-3` | **Closed** |
 | 2026-07-19 | D-032 | Phase 4 spec — **APPROVE WITH MINOR CONDITIONS** | **Closed** |
 | 2026-07-19 | D-033 | **Phase 4 CLOSED** — APPROVE · tag `v0.5-phase-4` | **Closed** |
-| 2026-07-19 | D-034 | Phase 5 spec — Resume Builder (spec only) | Active |
+| 2026-07-19 | D-034 | Phase 5 spec — **APPROVE WITH MINOR CONDITIONS** | **Closed** |
+| 2026-07-19 | D-035 | Phase 5 implementation — **awaiting CTO review** | Active |
+| 2026-07-19 | TD-P5-1 | Application Resume Snapshot | Active (P1) |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
@@ -57,15 +59,21 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-034: Phase 5 Spec — Resume Builder
+## D-035: Phase 5 Implementation
 
-**Decision:** Spec generated — **awaiting CTO review**  
-**Status:** Implementation **blocked** until CTO approves  
-**Spec commit:** [`5724527`](https://github.com/accmobile1397-tech/computerjobs/commit/5724527)  
-**Scope:** Resume Builder, Education, Experience, Skills, Technologies, Languages, Certificates, Projects, Candidate Resume Visibility  
-**Rules:** One active resume per user · no upload · no AI · no matching engine  
+**Decision:** Implementation complete — **awaiting CTO review**  
+**Tag (after APPROVE):** `v0.6-phase-5`  
+**Record:** [docs/phase-5/CTO_REPORT.md](./phase-5/CTO_REPORT.md)
 
-**Documents:** `docs/phase-5/`
+**Technical debt:** TD-P5-1 Application Resume Snapshot (P1)
+
+---
+
+## D-034: Phase 5 Spec — APPROVE WITH MINOR CONDITIONS
+
+**Decision:** ☑ **APPROVE WITH MINOR CONDITIONS** (CTO 2026-07-19)  
+**Status:** **Closed** — see D-035  
+**Record:** [docs/phase-5/CTO_SPEC_APPROVAL.md](./phase-5/CTO_SPEC_APPROVAL.md)
 
 ---
 
