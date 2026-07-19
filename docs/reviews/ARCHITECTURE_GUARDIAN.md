@@ -374,3 +374,31 @@ DECISIONS D-043…045 · BILLING_AUDIT_MODEL · PAYMENT_SECURITY_CHECKLIST · RFC-002
 ## Recommendation
 
 Tag `v0.8-phase-7B`. Freeze RFC-002 before Phase 8 implementation.
+
+---
+
+# Phase 8 — Architecture Guardian (Pre-close)
+
+**Date:** 2026-07-19  
+**Phase:** 8 — AI Gateway & Features  
+**Status:** ? Awaiting CTO Review
+
+## 1. Technical Debt
+
+TD-P8-1 Local provider (P2). AiProviderHealth table still reserved. TD-P7A-4 credit stress open.
+
+## 2. Rulebook
+
+Gateway-only providers · prompt registry · estimateCost/402 · mandatory moderate. ?
+
+## 3. Refactor before next phase?
+
+None blocking. Resume Suggest deferred to 8.1 by design.
+
+## 4. Future impact
+
+AI-Native path unlocked without blocking search/apply. Model routing + fallback ready for prod keys.
+
+## 5. Recommendation
+
+Review CTO_REPORT. Tag `v0.9-phase-8` after APPROVE.
