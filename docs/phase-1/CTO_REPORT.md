@@ -4,7 +4,7 @@
 **فاز:** 1 — IAM  
 **Branch:** `main`  
 **Implementation commit:** [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)  
-**Handoff commit:** _(this document — see commit link provided to CTO)_  
+**Handoff commit:** [`06f72dd`](https://github.com/accmobile1397-tech/computerjobs/commit/06f72dd)  
 **تاریخ:** 1404/04/29  
 **وضعیت:** ⏳ **Awaiting CTO Approval**
 
@@ -15,7 +15,7 @@
 ```text
 Phase 1 IAM — آماده review و approval.
 
-Commit: {HANDOFF_COMMIT_LINK}
+Commit: https://github.com/accmobile1397-tech/computerjobs/commit/06f72dd
 گزارش: docs/phase-1/CTO_REPORT.md
 فهرست: docs/reviews/PHASE_REVIEW_INDEX.md
 ```
