@@ -1,0 +1,25 @@
+import { NextRequest, NextResponse } from "next/server";
+import {
+  getRequestMeta,
+  mapErrorToResponse,
+  successResponse,
+} from "@/modules/auth/utils/api.util";
+import {
+  listCategories,
+  TaxonomyError,
+} from "@/modules/taxonomy/services/taxonomy.service";
+
+export async function GET(request: NextRequest) {
+  const { requestId } = getRequestMeta(request);
+
+  try {
+    const categories = await listCategories();
+    return NextResponse.json(successResponse(categories, requestId));
+  } catch (error) {
+    if (error instanceof TaxonomyError) {
+      const mapped = mapErrorToResponse(error.code, requestId, error.message);
+      return NextResponse.json(mapped.body, { status: mapped.status });
+    }
+    throw error;
+  }
+}
