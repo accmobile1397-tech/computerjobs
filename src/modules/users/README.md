@@ -1,10 +1,11 @@
-# Users Module — Phase 1 (IAM)
+# Users Module — Phase 2
 
-User profile and identity data — separate from auth session/token logic.
+User profiles and slug — separate from auth and companies.
 
 | Concern | Module |
 |---------|--------|
-| Login, JWT, refresh, RBAC | `auth/` |
-| User profile, type (seeker/employer), status | `users/` |
+| Login, JWT, refresh | `auth/` |
+| Job seeker / employer profiles | `users/` |
+| Company CRUD, members | `companies/` |
 
-**Phase:** 1 — Identity & Access Management
+**Phase 2:** profile services, completion score, public profile by slug

@@ -8,6 +8,7 @@ import {
   normalizeEmail,
 } from "@/modules/auth/utils/crypto.util";
 import { DEFAULT_ROLE_SLUG_BY_PRIMARY_TYPE } from "@/modules/shared/config/role-defaults";
+import { slugFromName } from "@/modules/shared/utils/slug.util";
 
 export async function registerUser(params: {
   email: string;
@@ -51,9 +52,11 @@ export async function registerUser(params: {
     if (params.primaryType === UserPrimaryType.EMPLOYER) {
       let companyId: string | undefined;
       if (params.companyName) {
+        const companySlug = slugFromName(params.companyName, created.id.slice(0, 6));
         const company = await tx.company.create({
           data: {
             name: params.companyName,
+            slug: companySlug,
             ownerId: created.id,
           },
         });
