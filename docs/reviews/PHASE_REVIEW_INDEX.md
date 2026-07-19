@@ -12,29 +12,36 @@
 
 ---
 
-# Phase 4 — Jobs Core (Review)
+# Phase 4 — Jobs Core (Closed) · `v0.5-phase-4`
 
-**Status:** ⏳ Awaiting CTO Review  
-**Migration:** `20260719200000_phase4_jobs_core`
+[CTO_IMPLEMENTATION_APPROVAL.md](./phase-4/CTO_IMPLEMENTATION_APPROVAL.md)
+
+---
+
+# Phase 5 — Resume Builder (Spec Review)
+
+**Status:** ⏳ Awaiting CTO Spec Review  
+**Implementation:** **blocked**
 
 ## Start Here
 
 | Document | Path |
 |----------|------|
-| **CTO Report** | [docs/phase-4/CTO_REPORT.md](./phase-4/CTO_REPORT.md) |
-| Spec approval | [docs/phase-4/CTO_SPEC_APPROVAL.md](./phase-4/CTO_SPEC_APPROVAL.md) |
-| Technical Spec | [docs/phase-4/TECHNICAL_SPEC.fa.md](./phase-4/TECHNICAL_SPEC.fa.md) |
-| Database | [docs/phase-4/DATABASE_DESIGN.md](./phase-4/DATABASE_DESIGN.md) |
-| API | [docs/phase-4/API_DESIGN.md](./phase-4/API_DESIGN.md) |
-| Tests | [docs/phase-4/TEST_COVERAGE.md](./phase-4/TEST_COVERAGE.md) |
+| **Technical Spec** | [docs/phase-5/TECHNICAL_SPEC.fa.md](./phase-5/TECHNICAL_SPEC.fa.md) |
+| Database | [docs/phase-5/DATABASE_DESIGN.md](./phase-5/DATABASE_DESIGN.md) |
+| API | [docs/phase-5/API_DESIGN.md](./phase-5/API_DESIGN.md) |
+| Acceptance | [docs/phase-5/ACCEPTANCE_CRITERIA.md](./phase-5/ACCEPTANCE_CRITERIA.md) |
+| Security | [docs/phase-5/SECURITY_REVIEW.md](./phase-5/SECURITY_REVIEW.md) |
+| Risks | [docs/phase-5/RISKS_AND_ASSUMPTIONS.md](./phase-5/RISKS_AND_ASSUMPTIONS.md) |
 
-## Module
+## Scope
 
-`src/modules/jobs/` — jobs + applications
+Resume Builder · Education · Experience · Skills · Technologies · Languages · Certificates · Projects · Candidate Resume Visibility
 
-## API
+## Rules
 
-Public: `GET /jobs`, `GET /jobs/by-slug/:slug`  
-Employer: CRUD + publish/pause/close  
-Applications: apply, withdraw, employer manage  
-Admin: `POST /admin/jobs/:id/approve`
+One active resume per user · No upload · No AI · No matching engine
+
+## Module (planned)
+
+`src/modules/resumes/`

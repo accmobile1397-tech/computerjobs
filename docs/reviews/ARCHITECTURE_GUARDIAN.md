@@ -309,6 +309,32 @@ Submit implementation for CTO review. Tag `v0.5-phase-4` after APPROVE.
 ## Sign-off
 
 - [x] Architecture Guardian (Agent)  
-- [ ] CTO — Phase 4 implementation review pending
+- [x] CTO — Phase 4 **APPROVE** (2026-07-19)
 
 ---
+
+# Phase 5 Preview — Architecture Guardian (Pre-implementation)
+
+**Date:** 2026-07-19  
+**Phase:** 5 — Resume Builder (spec only)  
+**Status:** ⏳ Awaiting CTO Spec Review
+
+## 1. Technical Debt from Phase 4
+
+Carry TD-P2-1, TD-P3-1, TD-P4-1.
+
+## 2. Rulebook
+
+Dedicated `resumes/` module — separate from jobs and users profiles.
+
+## 3. Refactor before implementation?
+
+Wire `JobApplication.resumeId` in application service — minimal jobs module touch only.
+
+## 4. Future impact
+
+Unblocks Search & Matching (6). Taxonomy FK reuse from Phase 3. No AI endpoints per spec.
+
+## 5. Recommendation
+
+Review Phase 5 spec. **Do not implement until CTO APPROVE.**

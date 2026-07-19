@@ -30,7 +30,8 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 1 IAM | 🟢 Closed (`v0.2-phase-1`) |
 | 2 Profiles & Companies | 🟢 Closed (`v0.3-phase-2`) |
 | 3 Location & Taxonomy | 🟢 Closed (`v0.4-phase-3`) |
-| 4 Jobs Core | ⏳ Implementation — **awaiting CTO review** |
+| 4 Jobs Core | 🟢 Closed (`v0.5-phase-4`) |
+| 5 Resume Builder | ⏳ Spec — **awaiting CTO review** |
 
 ---
 

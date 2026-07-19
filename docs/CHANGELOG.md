@@ -2,6 +2,28 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
+## [0.5.0] — 1404/04/29 — Phase 4 Jobs Core
+
+### Added
+
+- Jobs module — CRUD, lifecycle (DRAFT → PENDING_REVIEW → PUBLISHED), slug
+- Public job list/detail APIs with filters (incl. experienceLevel)
+- Job applications foundation — apply, withdraw, employer manage, VIEWED status
+- SalaryType enum; reserved isRemote, isUrgent, isFeatured fields
+- Admin job approval endpoint
+- Migration `20260719200000_phase4_jobs_core`
+- 19 unit tests; CI green
+
+### CTO
+
+- **APPROVE** — Phase 4 closed
+- Tag: `v0.5-phase-4`
+
+### Phase 5
+
+- Spec package generated — **awaiting CTO review** (no implementation)
+- Scope: Resume Builder, Education, Experience, Skills, Technologies, Languages, Certificates, Projects, Candidate Resume Visibility
+
 ## [0.4.0] — 1404/04/29 — Phase 3 Location & Taxonomy
 
 ### Added

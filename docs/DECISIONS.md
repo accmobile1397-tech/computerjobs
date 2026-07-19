@@ -32,7 +32,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-030 | Phase 3 spec — **APPROVE** · implementation authorized | **Closed** |
 | 2026-07-19 | D-031 | **Phase 3 CLOSED** — APPROVE · tag `v0.4-phase-3` | **Closed** |
 | 2026-07-19 | D-032 | Phase 4 spec — **APPROVE WITH MINOR CONDITIONS** | **Closed** |
-| 2026-07-19 | D-033 | Phase 4 implementation — **awaiting CTO review** | Active |
+| 2026-07-19 | D-033 | **Phase 4 CLOSED** — APPROVE · tag `v0.5-phase-4` | **Closed** |
+| 2026-07-19 | D-034 | Phase 5 spec — Resume Builder (spec only) | Active |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
@@ -56,11 +57,24 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-033: Phase 4 Implementation
+## D-034: Phase 5 Spec — Resume Builder
 
-**Decision:** Implementation complete — **awaiting CTO review**  
-**Tag (after APPROVE):** `v0.5-phase-4`  
-**Record:** [docs/phase-4/CTO_REPORT.md](./phase-4/CTO_REPORT.md)
+**Decision:** Spec generated — **awaiting CTO review**  
+**Status:** Implementation **blocked** until CTO approves  
+**Scope:** Resume Builder, Education, Experience, Skills, Technologies, Languages, Certificates, Projects, Candidate Resume Visibility  
+**Rules:** One active resume per user · no upload · no AI · no matching engine  
+
+**Documents:** `docs/phase-5/`
+
+---
+
+## D-033: Phase 4 Closed
+
+**Decision:** ☑ **APPROVE** (CTO 2026-07-19)  
+**Tag:** `v0.5-phase-4` · **Implementation:** [`a1378ed..23342ba`](https://github.com/accmobile1397-tech/computerjobs/compare/a1378ed...23342ba)  
+**Record:** [docs/phase-4/CTO_IMPLEMENTATION_APPROVAL.md](./phase-4/CTO_IMPLEMENTATION_APPROVAL.md)
+
+**Technical debt (accepted):** TD-P2-1, TD-P3-1, TD-P4-1
 
 ---
 
