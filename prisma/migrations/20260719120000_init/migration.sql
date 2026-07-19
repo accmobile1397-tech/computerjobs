@@ -1,0 +1,1 @@
+-- Phase 0: foundation only — no business tables yet

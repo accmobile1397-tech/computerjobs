@@ -1,0 +1,14 @@
+FROM node:20-alpine AS base
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm ci --omit=dev
+
+COPY prisma ./prisma
+RUN npx prisma generate
+
+COPY . .
+
+# Phase 0: BullMQ worker skeleton — no business jobs yet
+CMD ["node", "-e", "console.log('BullMQ worker skeleton ready (Phase 0)')"]
