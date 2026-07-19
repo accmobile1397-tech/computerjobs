@@ -36,7 +36,7 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 6 Search & Matching | ⏳ Implementation — **awaiting CTO review** |
 | 7A Entitlements | 🟢 Closed (`v0.7-phase-7A`) |
 | 7B Payment Gateway | 🟢 Closed (`v0.8-phase-7B`) |
-| 8 AI Gateway & Features | 🟢 Spec APPROVED · **implementation AUTHORIZED** (`v0.8-ai-rfc`) |
+| 8 AI Gateway & Features | 🟡 Implementation in progress (`v0.8-ai-rfc`) |
 
 ---
 
