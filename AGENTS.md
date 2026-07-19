@@ -2,27 +2,24 @@
 
 ## Mandatory: Read Before Any Work
 
-1. Read [`.cto/RULEBOOK.md`](.cto/RULEBOOK.md) — **Rulebook takes precedence**
-2. Read the current phase docs in `docs/phase-{N}/`
-3. Never start the next phase without explicit human approval after CTO review
+1. Read [`.cto/RULEBOOK.md`](.cto/RULEBOOK.md) and relevant `.cto/*_RULES.md` files
+2. Check [`docs/DECISIONS.md`](docs/DECISIONS.md) and [`docs/adr/`](docs/adr/)
+3. Never start the next phase without CTO approval
 
-## Phase Completion Checklist
+## Code Structure
 
-Generate in `docs/phase-{N}/`:
+- Business logic: `src/modules/{feature}/`
+- Infrastructure: `src/modules/shared/` (env, logger, prisma, redis, queue, storage)
+- **Do not** use `src/lib/` for new code
+- API routes in `src/app/api/` — thin handlers delegating to module services
 
-- TECHNICAL_SPEC.md, ARCHITECTURE.md, DATABASE_DESIGN.md, API_DESIGN.md
-- SECURITY_REVIEW.md, SEO_REVIEW.md, PHASE_SUMMARY.md
-- **CTO_REPORT.md** (for human CTO review)
+## Git Workflow
 
-Then: Conventional Commit → push → **stop and wait for review**
+`main` → production | `develop` → integration | `feature/*` → phase work
 
-## Architecture
+## Phase 1
 
-Use `src/modules/{feature}/` — see Rulebook. Phase 0 used `src/lib/`; migrate from Phase 1.
-
-## Deployment
-
-OpenShip self-hosted VPS — see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)
+**Identity & Access Management (IAM)** — see [`docs/phase-1/README.md`](docs/phase-1/README.md)
 
 ---
 

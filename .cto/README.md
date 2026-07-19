@@ -1,17 +1,29 @@
-# CTO Process — ComputerJobs.ir
-
-This folder contains mandatory engineering governance for the project.
+# CTO Governance — ComputerJobs.ir
 
 | File | Purpose |
 |------|---------|
-| [RULEBOOK.md](./RULEBOOK.md) | Mandatory standards — **read before every phase** |
-| Phase reports live in `docs/phase-{N}/CTO_REPORT.md` |
+| [RULEBOOK.md](./RULEBOOK.md) | **Start here** — index + core principles |
+| [ARCHITECTURE_RULES.md](./ARCHITECTURE_RULES.md) | Modules, domain, queue |
+| [DATABASE_RULES.md](./DATABASE_RULES.md) | UUID, audit, taxonomy, location |
+| [PRISMA_RULES.md](./PRISMA_RULES.md) | Migrations, client, seeds |
+| [NEXTJS_RULES.md](./NEXTJS_RULES.md) | App Router, API, UI |
+| [AI_RULES.md](./AI_RULES.md) | Gateway, degradation |
+| [SECURITY_RULES.md](./SECURITY_RULES.md) | Auth, validation, headers |
+| [SEO_RULES.md](./SEO_RULES.md) | Metadata, structured data |
+| [DEPLOYMENT_RULES.md](./DEPLOYMENT_RULES.md) | OpenShip, Git branches |
+| [CODE_STYLE.md](./CODE_STYLE.md) | Naming, module layout |
+| [REVIEW_CHECKLIST.md](./REVIEW_CHECKLIST.md) | Phase + CTO report checklist |
 
-## Workflow
+## Related
 
-1. Read `RULEBOOK.md`
-2. Write phase specs → wait for approval
-3. Implement phase
-4. Generate `CTO_REPORT.md` + required phase docs
-5. Commit & push → **CTO human review**
-6. Apply feedback → next phase only after explicit approval
+- [docs/adr/](../docs/adr/) — Architecture Decision Records
+- [docs/rfc/](../docs/rfc/) — Feature RFCs
+- [docs/DECISIONS.md](../docs/DECISIONS.md) — Decision log
+
+## Phase 0
+
+**Approved** 2026-07-19 — see `docs/DECISIONS.md` D-005
+
+## Phase 1
+
+**Identity & Access Management (IAM)** — awaiting spec approval

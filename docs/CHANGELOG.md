@@ -2,6 +2,18 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
+## [0.1.1] — 1404/04/29
+
+### Phase 0 Closeout — CTO Conditions
+
+- Refactor to `src/modules/` feature-first architecture
+- Migrate infrastructure to `src/modules/shared/`
+- AI, taxonomy, location module skeletons with subfolders
+- Split `.cto/RULEBOOK` into specialized rule files
+- Added `docs/adr/`, `docs/rfc/`, `docs/DECISIONS.md`
+- Created `develop` branch workflow
+- Phase 1 renamed to Identity & Access Management (IAM)
+
 ## [0.1.0] — 1404/04/28
 
 ### Phase 0: Foundation & Architecture

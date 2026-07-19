@@ -1,44 +1,39 @@
 ---
-description: Mandatory CTO Rulebook — read before each phase; produce CTO_REPORT before completion
+description: Mandatory CTO rules — read .cto/RULEBOOK.md and specialized files before each phase
 alwaysApply: true
 ---
 
-# ComputerJobs CTO Process (Mandatory)
+# ComputerJobs CTO Process
 
-## Before starting ANY task or phase
+## Before ANY task
 
-1. Read `.cto/RULEBOOK.md` in full
-2. Rulebook overrides conflicting instructions
-3. If a conflict is unavoidable, document it in the phase `CTO_REPORT.md`
+1. Read `.cto/RULEBOOK.md` (index)
+2. Read relevant specialized files in `.cto/`:
+   - ARCHITECTURE_RULES, DATABASE_RULES, PRISMA_RULES, NEXTJS_RULES
+   - AI_RULES, SECURITY_RULES, SEO_RULES, DEPLOYMENT_RULES
+   - CODE_STYLE, REVIEW_CHECKLIST
+3. Check `docs/adr/` and `docs/DECISIONS.md` for prior decisions
+4. Rulebook wins over conflicting instructions
 
-## Phase workflow
+## Code structure (mandatory)
 
-```
-Spec → Human approval → Implementation → CTO_REPORT → Commit → CTO review → Next phase
-```
+- `src/modules/{feature}/` — all business logic
+- `src/modules/shared/` — env, logger, prisma, redis, queue, storage only
+- **Never** add new code to `src/lib/`
+- AI: `src/modules/ai/{gateway,providers,...}/`
+- Taxonomy & location: use mandated subfolders
 
-Never start the next phase without explicit human approval after CTO review.
+## Git workflow
 
-## Before completing ANY phase
+- `main` — production
+- `develop` — integration
+- `feature/*` — e.g. `feature/auth`
+- Conventional Commits
 
-Generate in `docs/phase-{N}/`:
+## Phase completion
 
-- `TECHNICAL_SPEC.md`
-- `ARCHITECTURE.md`
-- `DATABASE_DESIGN.md`
-- `API_DESIGN.md`
-- `SECURITY_REVIEW.md`
-- `SEO_REVIEW.md`
-- `PHASE_SUMMARY.md`
-- `CTO_REPORT.md` (Architecture, Security, Database, SEO, Risks, Technical Debt, Recommendations)
+Generate `docs/phase-{N}/CTO_REPORT.md` + required docs → commit → **stop for CTO review**
 
-## Git
+## Phase 1 name
 
-- Branches: `main`, `develop`, `feature/*`
-- Commits: Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`)
-- Never commit secrets; only `.env.example`
-
-## Architecture reminder
-
-Use `src/modules/{feature}/` — not large global `lib/`, `services/`, or `helpers/` folders.
-Business logic never in pages, UI components, or API route handlers.
+**Identity & Access Management (IAM)** — not auth-only

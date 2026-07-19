@@ -1,6 +1,6 @@
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
-import { successResponse } from "@/lib/api/response";
+import { successResponse } from "@/modules/shared/api/response";
 
 export async function GET() {
   const requestId = randomUUID();

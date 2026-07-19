@@ -1,8 +1,8 @@
 import { randomUUID } from "crypto";
 import { NextResponse } from "next/server";
-import { errorResponse, successResponse } from "@/lib/api/response";
-import { checkDatabaseConnection } from "@/lib/db/prisma";
-import { checkRedisConnection } from "@/lib/redis/client";
+import { errorResponse, successResponse } from "@/modules/shared/api/response";
+import { checkDatabaseConnection } from "@/modules/shared/prisma/client";
+import { checkRedisConnection } from "@/modules/shared/redis/client";
 
 export async function GET() {
   const requestId = randomUUID();

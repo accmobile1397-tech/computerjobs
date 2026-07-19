@@ -1,5 +1,5 @@
 import { S3Client } from "@aws-sdk/client-s3";
-import { env } from "@/lib/env";
+import { env } from "@/modules/shared/env";
 
 let s3Client: S3Client | null = null;
 

@@ -76,13 +76,38 @@ curl http://localhost:3000/api/v1/health/deep
 
 ---
 
+## Git Workflow
+
+```text
+main          ← production
+develop       ← integration
+feature/auth  ← Phase 1 IAM
+feature/location
+feature/taxonomy
+```
+
+## Module Structure
+
+```text
+src/modules/
+  shared/       # env, logger, prisma, redis, queue, storage
+  auth/         # Phase 1 IAM
+  location/     # province, city, seed
+  taxonomy/     # category, subcategory, skill, technology, approval, suggestion
+  ai/           # gateway, providers, health, prompts, token, fallback, queue, matching
+  jobs/ resumes/ companies/ search/ payments/ notifications/ advertisements/ admin/
+```
+
 ## Documentation
 
 | Document | Description |
 |----------|-------------|
-| [.cto/RULEBOOK.md](.cto/RULEBOOK.md) | **Mandatory CTO standards** |
-| [docs/phase-0/CTO_REPORT.md](docs/phase-0/CTO_REPORT.md) | Phase 0 CTO review report |
-| [docs/phase-0/TECHNICAL_SPEC.md](docs/phase-0/TECHNICAL_SPEC.md) | مشخصات فنی |
+| [.cto/RULEBOOK.md](.cto/RULEBOOK.md) | **CTO rules index** |
+| [docs/DECISIONS.md](docs/DECISIONS.md) | Decision log |
+| [docs/adr/](docs/adr/) | Architecture Decision Records |
+| [docs/rfc/](docs/rfc/) | Feature RFCs |
+| [docs/phase-0/CTO_REPORT.md](docs/phase-0/CTO_REPORT.md) | Phase 0 — **Approved** |
+| [docs/phase-1/README.md](docs/phase-1/README.md) | Phase 1 IAM (next) |
 | [docs/phase-0/ARCHITECTURE.md](docs/phase-0/ARCHITECTURE.md) | معماری |
 | [docs/phase-0/DATABASE_DESIGN.md](docs/phase-0/DATABASE_DESIGN.md) | طراحی DB |
 | [docs/phase-0/API_DESIGN.md](docs/phase-0/API_DESIGN.md) | طراحی API |
@@ -109,7 +134,7 @@ curl http://localhost:3000/api/v1/health/deep
 2. Agent produces [`docs/phase-0/CTO_REPORT.md`](docs/phase-0/CTO_REPORT.md) at phase end
 3. Human CTO reviews → feedback → fixes → approval → next phase
 
-**Current status:** Phase 0 awaiting CTO review
+**Current status:** Phase 0 **Approved** — Phase 1 IAM spec next
 
 ---
 
