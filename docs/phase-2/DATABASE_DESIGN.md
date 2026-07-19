@@ -20,7 +20,24 @@ erDiagram
 
 ---
 
-## ۲. New Enums
+## ۲. User (alter) — slug
+
+```prisma
+model User {
+  // ... Phase 1 fields ...
+  slug String? @unique @db.VarChar(220)
+
+  @@index([slug])
+}
+```
+
+Future URL: `/profiles/{slug}`
+
+---
+
+## ۳. Enums
+
+### ProfileVisibility (unchanged)
 
 ```prisma
 enum ProfileVisibility {
@@ -28,35 +45,51 @@ enum ProfileVisibility {
   EMPLOYERS_ONLY
   PRIVATE
 }
+```
 
-enum EmployeeCountRange {
-  SIZE_1_10
-  SIZE_11_50
-  SIZE_51_200
-  SIZE_201_500
-  SIZE_501_1000
-  SIZE_1000_PLUS
-}
+### EmployerVerificationStatus (CTO — migrate Phase 1)
 
-enum CompanyVerificationStatus {
-  PENDING
+```prisma
+enum EmployerVerificationStatus {
+  PENDING        // was PENDING_REVIEW in Phase 1
+  UNDER_REVIEW
   VERIFIED
   REJECTED
 }
+```
 
-enum CompanyInviteStatus {
+**Migration:** `PENDING_REVIEW` → `PENDING`
+
+### CompanyVerificationStatus
+
+```prisma
+enum CompanyVerificationStatus {
   PENDING
-  ACCEPTED
-  EXPIRED
-  REVOKED
+  UNDER_REVIEW
+  VERIFIED
+  REJECTED
 }
 ```
 
-`EmployerVerificationStatus` — unchanged from Phase 1.
+### CompanyStatus (new — CTO Condition 3)
+
+```prisma
+enum CompanyStatus {
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+```
+
+Default: `ACTIVE`. Admin can `SUSPEND`. Soft delete sets `status=DELETED` + `deletedAt`.
+
+### EmployeeCountRange, CompanyInviteStatus
+
+_(unchanged from v2.0 spec)_
 
 ---
 
-## ۳. JobSeekerProfile (alter)
+## ۴. JobSeekerProfile (alter)
 
 ```prisma
 model JobSeekerProfile {
@@ -79,35 +112,18 @@ model JobSeekerProfile {
 }
 ```
 
-> `cityId` UUID FK deferred until Location Phase 3 — use `cityLabel` interim.
+> **avatarUrl:** URL string only — no upload table Phase 2  
+> **cityLabel:** interim until Phase 3 `cityId` FK
 
 ---
 
-## ۴. EmployerProfile (alter)
+## ۵. EmployerProfile (alter)
 
-```prisma
-model EmployerProfile {
-  id                 String                     @id @default(uuid())
-  userId             String                     @unique @map("user_id")
-  displayName        String?                    @map("display_name") @db.VarChar(120)
-  jobTitle           String?                    @map("job_title") @db.VarChar(120)
-  bio                String?                    @db.Text
-  verificationStatus EmployerVerificationStatus @default(PENDING_REVIEW) @map("verification_status")
-  companyId          String?                    @map("company_id")
-  createdAt          DateTime                   @default(now()) @map("created_at")
-  updatedAt          DateTime                   @updatedAt @map("updated_at")
-  deletedAt          DateTime?                  @map("deleted_at")
-
-  user    User     @relation(fields: [userId], references: [id])
-  company Company? @relation(fields: [companyId], references: [id])
-
-  @@map("employer_profiles")
-}
-```
+Uses updated `EmployerVerificationStatus` enum (§۳).
 
 ---
 
-## ۵. Company (alter)
+## ۶. Company (alter)
 
 ```prisma
 model Company {
@@ -120,6 +136,7 @@ model Company {
   employeeCountRange EmployeeCountRange?       @map("employee_count_range")
   industryLabel      String?                   @map("industry_label") @db.VarChar(200)
   verificationStatus CompanyVerificationStatus @default(PENDING) @map("verification_status")
+  status             CompanyStatus             @default(ACTIVE)
   verifiedAt         DateTime?                 @map("verified_at")
   ownerId            String                    @map("owner_id")
   createdAt          DateTime                  @default(now()) @map("created_at")
@@ -134,42 +151,50 @@ model Company {
   @@index([ownerId])
   @@index([slug])
   @@index([verificationStatus])
+  @@index([status])
   @@map("companies")
 }
 ```
 
+> **logoUrl:** URL string only — no upload logic Phase 2
+
 ---
 
-## ۶. CompanyInvite (new)
+## ۷. Future Taxonomy Migration (CTO Condition 7)
 
-```prisma
-model CompanyInvite {
-  id         String              @id @default(uuid())
-  companyId  String              @map("company_id")
-  email      String              @db.VarChar(255)
-  role       CompanyMemberRole   @default(MEMBER)
-  tokenHash  String              @map("token_hash") @db.VarChar(64)
-  status     CompanyInviteStatus @default(PENDING)
-  invitedBy  String              @map("invited_by")
-  expiresAt  DateTime            @map("expires_at")
-  acceptedAt DateTime?           @map("accepted_at")
-  createdAt  DateTime            @default(now()) @map("created_at")
+Phase 2:
 
-  company Company @relation(fields: [companyId], references: [id])
-  inviter User    @relation(fields: [invitedBy], references: [id])
-
-  @@index([companyId])
-  @@index([tokenHash])
-  @@index([email])
-  @@map("company_invites")
-}
+```sql
+industry_label VARCHAR(200) NULL
 ```
 
-Add `User.companyInvitesSent CompanyInvite[]` relation.
+Phase 3 (planned):
+
+```sql
+ALTER TABLE companies ADD industry_id CHAR(36) NULL;
+-- FK → taxonomy_industries(id)
+-- Optional backfill: match industry_label → taxonomy slug
+-- Deprecate industry_label after migration
+```
+
+Document in Phase 3 spec — **no `industryId` in Phase 2 migration**.
 
 ---
 
-## ۷. AuditAction extensions
+## ۸. Future Location Migration
+
+Phase 2: `job_seeker_profiles.city_label`  
+Phase 3: `city_id UUID FK` — nullable during transition
+
+---
+
+## ۹. CompanyInvite
+
+_(unchanged — see prior spec)_
+
+---
+
+## ۱۰. AuditAction extensions (CTO Condition 5)
 
 ```prisma
 enum AuditAction {
@@ -178,43 +203,43 @@ enum AuditAction {
   COMPANY_CREATED
   COMPANY_UPDATED
   COMPANY_DELETED
-  COMPANY_MEMBER_ADDED
-  COMPANY_MEMBER_REMOVED
-  COMPANY_INVITE_SENT
-  COMPANY_OWNERSHIP_TRANSFERRED
+  MEMBER_INVITED
+  MEMBER_ACCEPTED
+  MEMBER_REMOVED
+  OWNERSHIP_TRANSFERRED
   EMPLOYER_VERIFICATION_UPDATED
+  COMPANY_VERIFICATION_UPDATED
+  COMPANY_STATUS_CHANGED
 }
 ```
 
 ---
 
-## ۸. Permission seeds (new)
+## ۱۱. Permission seeds
 
-| slug | name_fa |
-|------|---------|
-| profile:read:own | خواندن پروفایل خود |
-| profile:update:own | ویرایش پروفایل خود |
-| profile:read:any | خواندن پروفایل (admin) |
-| company:read:own | خواندن شرکت خود |
-| company:update:own | ویرایش شرکت |
-| company:members:manage | مدیریت اعضا |
-| company:invite | دعوت عضو |
-| company:verify | تأیید شرکت (admin) |
+_(unchanged — profile:*, company:*)_
+
+Add optional: `company:suspend` (admin)
 
 ---
 
-## ۹. Migration
+## ۱۲. Migration
 
 **Name:** `20260719160000_phase2_profiles_companies`
 
-- ALTER job_seeker_profiles, employer_profiles, companies
-- CREATE company_invites
-- Seed permissions + role_permissions updates
+1. ADD `users.slug`
+2. ALTER job_seeker_profiles (new fields)
+3. ALTER employer_profiles
+4. Migrate `EmployerVerificationStatus` values
+5. ALTER companies (slug, status, verification, industryLabel, …)
+6. CREATE company_invites
+7. Seed permissions
+8. Extend AuditAction enum
 
 ---
 
-## ۱۰. Indexes & constraints
+## ۱۳. Indexes
 
-- `companies.slug` unique among non-deleted (app-level or partial index note)
-- `company_members` unique (companyId, userId) — existing
-- Invite: one PENDING invite per (companyId, email)
+- `users.slug` unique
+- `companies.slug` unique
+- Public query: `verificationStatus=VERIFIED AND status=ACTIVE AND deletedAt IS NULL`

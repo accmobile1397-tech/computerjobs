@@ -1,6 +1,6 @@
 # Risks and Assumptions — Phase 2: Profiles & Companies
 
-**فاز:** 2 — Spec
+**فاز:** 2 — Approved spec
 
 ---
 
@@ -8,68 +8,52 @@
 
 | ID | Assumption |
 |----|------------|
-| A-1 | One primary company per employer in Phase 2 |
-| A-2 | `cityLabel` free text until Location Phase 3 |
-| A-3 | `industryLabel` free text until Taxonomy Phase 3 |
-| A-4 | Avatar/logo as URL string — upload API deferred |
-| A-5 | Invite email via console/queue stub (same as Phase 1) |
-| A-6 | Company public page API-only — no Next.js UI required Phase 2 |
-| A-7 | Slug generated server-side from name if omitted |
-| A-8 | Persian slug transliteration library acceptable |
+| A-1 | `users.slug` globally unique — one slug per user account |
+| A-2 | `cityLabel` until Phase 3 — **CTO confirmed** |
+| A-3 | `industryLabel` until Phase 3 — migrates to `industryId` |
+| A-4 | **avatarUrl / logoUrl URL only — no upload Phase 2** (CTO) |
+| A-5 | Company `status` separate from `verificationStatus` |
+| A-6 | UNDER_REVIEW requires admin action |
+| A-7 | Profile visibility enum unchanged (CTO approved) |
 
 ---
 
 ## ۲. Risks
 
-| ID | Risk | Likelihood | Impact | Mitigation |
-|----|------|------------|--------|------------|
-| R1 | IDOR on company routes | Med | High | membership middleware + tests |
-| R2 | Slug collision / squatting | Med | Med | reserved slugs list; admin override |
-| R3 | Invite sent to wrong email | Low | Med | confirm email match on accept |
-| R4 | Ownership transfer abuse | Low | High | OWNER-only + audit + confirm body |
-| R5 | Profile visibility misconfiguration | Med | Med | explicit enum; default PRIVATE |
-| R6 | Schema drift vs Location Phase 3 | Med | Med | document cityId migration path |
-| R7 | Over-permissive company:members | Med | Med | minimal seed; CTO review permissions |
+| ID | Risk | Mitigation |
+|----|------|------------|
+| R1 | User slug collision | unique index; reserved slugs |
+| R2 | industryLabel → industryId migration | documented Phase 3 path |
+| R3 | cityLabel → cityId migration | Phase 3 FK nullable transition |
+| R4 | SUSPENDED company still in search cache | invalidate on status change (future) |
+
+**Overall technical debt:** 🟢 Low (CTO assessment)
 
 ---
 
-## ۳. Dependencies
+## ۳. Phase 3 Roadmap (CTO)
 
-| Dependency | Required for |
-|------------|--------------|
-| Phase 1 IAM | JWT, RBAC, User profiles skeleton |
-| Phase 1 Company skeleton | extend, not replace |
-| modules/authorization | all write paths |
-| modules/shared/storage | future logo upload |
+| In Phase 3 | Not in Phase 3 |
+|------------|----------------|
+| Location | Jobs |
+| Taxonomy | |
+| Skills | |
+| Technologies | |
 
----
-
-## ۴. CTO Conditions (from Phase 1 closure)
-
-| Condition | Phase 2 impact |
-|-----------|----------------|
-| Shared module migration continues | use `modules/shared/` only |
-| Taxonomy skeleton planned | `industryLabel` string only |
-| Location skeleton planned | `cityLabel` string only |
+Dependency chain: **Jobs → Taxonomy → Location**
 
 ---
 
-## ۵. Deferred to Later Phases
+## ۴. CTO Minor Conditions (applied 2026-07-19)
 
-| Item | Phase |
-|------|-------|
-| cityId FK | 3 Location |
-| industryTaxonomyId FK | 3 Taxonomy |
-| S3 presigned upload | storage hardening |
-| Company SEO pages | SEO phase |
-| Job posting by company | Jobs phase |
+- [x] User slug (`users.slug`)
+- [x] Company status (ACTIVE/SUSPENDED/DELETED)
+- [x] UNDER_REVIEW in verification workflows
+- [x] Complete audit event list
+- [x] industryLabel → industryId migration note
 
 ---
 
-## ۶. Open Questions for CTO
+## ۵. Open Questions
 
-| # | Question | Default |
-|---|----------|---------|
-| Q1 | Allow employer without company initially? | yes — create later |
-| Q2 | Multiple companies per user Phase 2? | no |
-| Q3 | Admin verify employer + company separately? | yes — two statuses |
+_All resolved by CTO 2026-07-19 — APPROVE WITH MINOR CONDITIONS._

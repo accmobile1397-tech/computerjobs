@@ -24,8 +24,9 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ### Phase 2
 
-- Spec package generated (`docs/phase-2/`) — **User Profiles & Company Management**
-- Implementation **not started** — awaiting CTO spec approval
+- Spec approved — APPROVE WITH MINOR CONDITIONS (CTO 2026-07-19)
+- Conditions: user slug, company status, UNDER_REVIEW, audit events, industryLabel migration path
+- **Authorized for implementation on `main`**
 
 ## [0.1.2] — 1404/04/29
 

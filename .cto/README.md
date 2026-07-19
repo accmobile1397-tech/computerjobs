@@ -33,4 +33,4 @@
 
 ## Phase 2
 
-**User Profiles & Company Management** — spec at `docs/phase-2/` — **awaiting CTO approval — no code**
+**User Profiles & Company Management** — 🟢 approved — implementation on `main`

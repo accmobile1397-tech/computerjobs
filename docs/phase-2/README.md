@@ -1,39 +1,34 @@
 # Phase 2 — User Profiles & Company Management
 
-**Status:** 📋 Spec generated — awaiting CTO approval  
-**Branch (after approval):** `main`  
-**Implementation:** ❌ **NOT STARTED — spec only**
+**Status:** 🟢 **Approved for Implementation** — CTO APPROVE WITH MINOR CONDITIONS (2026-07-19)  
+**Branch:** `main`  
+**Implementation:** ⏳ **Ready to start — not yet coded**
 
 ## Documents
 
 | File | Purpose |
 |------|---------|
-| [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) | **مشخصات فنی فارسی — CTO review** |
+| [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) | مشخصات فنی (v2.1 — CTO conditions applied) |
 | [DATABASE_DESIGN.md](./DATABASE_DESIGN.md) | Schema extensions |
 | [API_DESIGN.md](./API_DESIGN.md) | Endpoints |
 | [SECURITY_REVIEW.md](./SECURITY_REVIEW.md) | Security spec |
 | [ACCEPTANCE_CRITERIA.md](./ACCEPTANCE_CRITERIA.md) | Test checklist |
-| [RISKS_AND_ASSUMPTIONS.md](./RISKS_AND_ASSUMPTIONS.md) | Risks & assumptions |
+| [RISKS_AND_ASSUMPTIONS.md](./RISKS_AND_ASSUMPTIONS.md) | Risks & Phase 3 roadmap |
 
-## Gate
+## CTO Minor Conditions (applied)
 
-🔴 **Phase 2 Approved for Implementation** — only after CTO approves TECHNICAL_SPEC + DATABASE + API
+1. `users.slug` for future `/profiles/{slug}`
+2. Company `status`: ACTIVE / SUSPENDED / DELETED
+3. Verification: PENDING → UNDER_REVIEW → VERIFIED / REJECTED
+4. Audit events: PROFILE_*, COMPANY_*, MEMBER_*, OWNERSHIP_TRANSFERRED
+5. `industryLabel` → `industryId` migration path (Phase 3)
+6. `avatarUrl` / `logoUrl` — URL only, no upload
+7. `cityLabel` retained until Phase 3 Location
 
-## Builds on Phase 1
+## Phase 3 (planned — not started)
 
-- `JobSeekerProfile`, `EmployerProfile` (extend fields)
-- `Company`, `CompanyMember` (full CRUD + invites)
-- `users/` + new `companies/` module
+Location · Taxonomy · Skills · Technologies
 
-## Out of Scope (Phase 2)
+## Out of Scope Phase 2
 
-- Location module implementation (skeleton only — free-text city until Phase 3)
-- Taxonomy module implementation (industry as optional string stub)
-- Job posting, resume builder, search
-- OAuth, 2FA, real email delivery
-
-## CTO Conditions from Phase 1 (still active)
-
-- Shared module migration continues in future phases
-- Taxonomy skeleton remains planned
-- Location skeleton remains planned
+Upload logic · Location FK · Taxonomy FK · Jobs

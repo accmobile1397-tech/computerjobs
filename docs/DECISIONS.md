@@ -26,7 +26,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-020 | Phase 1 IAM spec — CTO approved for implementation | **Closed** |
 | 2026-07-19 | D-021 | Phase 1 IAM implemented | **Closed** |
 | 2026-07-19 | D-026 | **Phase 1 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.2-phase-1` | **Closed** |
-| 2026-07-19 | D-027 | Phase 2 spec: **User Profiles & Company Management** — awaiting CTO | Pending |
+| 2026-07-19 | D-027 | Phase 2 spec approved — **APPROVE WITH MINOR CONDITIONS** | Active → implement |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
@@ -34,9 +34,20 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 ---
 
-## D-027: Phase 2 Spec — User Profiles & Company Management (Pending)
+## D-027: Phase 2 Spec — Approved for Implementation
 
-Documents in `docs/phase-2/`. **No implementation** until CTO approves TECHNICAL_SPEC + DATABASE + API.
+**Decision:** APPROVE WITH MINOR CONDITIONS (CTO 2026-07-19)
+
+**Conditions applied to spec:**
+1. `users.slug` for `/profiles/{slug}`
+2. Company `status`: ACTIVE / SUSPENDED / DELETED
+3. Verification workflow includes UNDER_REVIEW
+4. Complete audit event list
+5. `industryLabel` → `industryId` migration documented for Phase 3
+
+**Phase 3 roadmap (CTO):** Location · Taxonomy · Skills · Technologies — not Jobs.
+
+**Gate:** Implementation on `main` — authorized.
 
 ---
 

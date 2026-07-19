@@ -1,19 +1,15 @@
-# Review Checklist
-
-**CTO handoff:** [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md)
-
-## Phase 1 Status
-
-🟢 **CLOSED** — APPROVE WITH CONDITIONS — tag `v0.2-phase-1`
-
 ## Phase 2 Status
 
-📋 Spec generated — **awaiting CTO spec approval** — **no implementation**
+🟢 **Approved for Implementation** — CTO APPROVE WITH MINOR CONDITIONS (2026-07-19)
 
-See [docs/phase-2/README.md](../docs/phase-2/README.md)
+Spec updated: `docs/phase-2/` v2.1
 
-## Before Phase 2 Implementation
+## Before Phase 2 Code Complete
 
-- [ ] CTO approves Phase 2 TECHNICAL_SPEC + DATABASE + API
-- [ ] Update DECISIONS D-027 → Closed
-- [ ] Implement on `main` only
+- [ ] Implement on `main`
+- [ ] All ACCEPTANCE_CRITERIA §2–§8
+- [ ] CTO final review via commit link
+
+## Phase 3 (planned)
+
+Location · Taxonomy · Skills · Technologies

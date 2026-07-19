@@ -1,111 +1,81 @@
 # Acceptance Criteria — Phase 2: Profiles & Companies
 
 **فاز:** 2  
-**وضعیت:** Spec approval pending
+**وضعیت:** 🟢 **Approved for Implementation** (CTO 2026-07-19)
 
 ---
 
-## ۱. Documentation (Pre-Implementation)
+## ۱. Documentation
 
-- [ ] `TECHNICAL_SPEC.fa.md` — CTO approved
-- [ ] `DATABASE_DESIGN.md` — CTO approved
-- [ ] `API_DESIGN.md` — CTO approved
-- [ ] `SECURITY_REVIEW.md`
-- [ ] `ACCEPTANCE_CRITERIA.md`
-- [ ] `RISKS_AND_ASSUMPTIONS.md`
-
-**Gate:** 🟢 Phase 2 Approved for Implementation
+- [x] CTO APPROVE WITH MINOR CONDITIONS applied to spec
+- [x] TECHNICAL_SPEC.fa.md
+- [x] DATABASE_DESIGN.md
+- [x] API_DESIGN.md
 
 ---
 
 ## ۲. Database
 
-- [ ] Migration `phase2_profiles_companies` applies cleanly
-- [ ] JobSeekerProfile extended fields
-- [ ] Company extended fields + slug unique
+- [ ] `users.slug` unique nullable
+- [ ] JobSeekerProfile extended fields + cityLabel
+- [ ] EmployerVerificationStatus: PENDING, UNDER_REVIEW, VERIFIED, REJECTED
+- [ ] CompanyVerificationStatus + CompanyStatus (ACTIVE/SUSPENDED/DELETED)
 - [ ] CompanyInvite table
-- [ ] New permissions seeded
-- [ ] AuditAction enum extended
+- [ ] AuditAction enum (§ CTO list)
+- [ ] industryLabel only (no industryId Phase 2)
 
 ---
 
-## ۳. Job Seeker Profile
+## ۳. User slug
 
-- [ ] GET/PATCH `/users/me/job-seeker-profile`
-- [ ] completionScore computed on save
-- [ ] profileVisibility enforced on read paths
-- [ ] cityLabel stored (no Location FK yet)
-
----
-
-## ۴. Employer Profile
-
-- [ ] GET/PATCH `/users/me/employer-profile`
-- [ ] Link to company after company create
+- [ ] PATCH `/users/me/slug`
+- [ ] GET `/profiles/by-slug/:slug` (visibility enforced)
+- [ ] Slug unique + reserved words
 
 ---
 
-## ۵. Company CRUD
+## ۴. Profiles
 
-- [ ] POST `/companies` creates company + OWNER member
-- [ ] GET/PATCH/DELETE `/companies/:id` with authz
-- [ ] GET `/companies/by-slug/:slug` public (verified only)
-- [ ] Slug validation + uniqueness
+- [ ] GET/PATCH job-seeker profile
+- [ ] GET/PATCH employer profile
+- [ ] avatarUrl / logoUrl — URL only, **no upload endpoints**
+- [ ] profileVisibility: PUBLIC / EMPLOYERS_ONLY / PRIVATE
+
+---
+
+## ۵. Company
+
+- [ ] CRUD with status + verification
+- [ ] Public slug: VERIFIED + ACTIVE only
+- [ ] industryLabel stored (migration path to industryId documented)
 
 ---
 
 ## ۶. Members & Invites
 
-- [ ] List/remove/update member roles
-- [ ] Invite create / accept / revoke
-- [ ] Cannot remove OWNER via DELETE member
-- [ ] Transfer ownership endpoint
+- [ ] Invite / accept / remove
+- [ ] Audit: MEMBER_INVITED, MEMBER_ACCEPTED, MEMBER_REMOVED
+- [ ] OWNERSHIP_TRANSFERRED audit
 
 ---
 
 ## ۷. Admin
 
-- [ ] PATCH admin company verification (stub OK)
-- [ ] Requires `company:verify` permission
+- [ ] Employer verification workflow with UNDER_REVIEW
+- [ ] Company verification + status (SUSPEND)
 
 ---
 
-## ۸. Authorization
+## ۸. Security & CI
 
-- [ ] All routes use authorization.service
-- [ ] No hardcoded role checks in routes
-- [ ] New permissions in seed
-
----
-
-## ۹. Security
-
-- [ ] Plain-text bio (no HTML) or sanitize
-- [ ] websiteUrl scheme validation
-- [ ] Invite token hashed
-- [ ] Audit events for profile/company changes
+- [ ] All authz via authorization module
+- [ ] Audit events complete
+- [ ] npm test + build green
 
 ---
 
-## ۱۰. Tests & CI
+## ۹. Definition of Done
 
-- [ ] Unit tests for slug generator, completion score
-- [ ] `npm test` green
-- [ ] `npm run build` green
-- [ ] CI green on `main`
+Phase 2 done when §2–§8 pass + CTO final review on `main`.
 
----
-
-## ۱۱. Code Quality
-
-- [ ] Logic in `modules/users/` and `modules/companies/`
-- [ ] Thin API routes
-- [ ] Conventional commits on `main`
-
----
-
-## ۱۲. Definition of Done
-
-Phase 2 **Done** when §2–§11 pass + CTO final review via commit link on `main`.
-
-**Do NOT start Phase 3** without explicit approval.
+**Phase 3 (planned):** Location · Taxonomy · Skills · Technologies — not Jobs.

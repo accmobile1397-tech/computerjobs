@@ -1,23 +1,34 @@
 # API Design — Phase 2: Profiles & Companies
 
 **Base URL:** `/api/v1`  
-**فاز:** 2 — **Spec only**
-
-Envelope & errors: [Phase 0 API_DESIGN.md](../phase-0/API_DESIGN.md)  
-Auth: JWT Bearer (Phase 1)
+**فاز:** 2 — **Approved spec — implementation on `main`**
 
 ---
 
-## ۱. Profiles — Job Seeker
+## ۱. User Slug
+
+### PATCH `/users/me/slug`
+
+**Body:** `{ "slug": "ali-rezaei" }`  
+**Auth:** ACTIVE user  
+**Errors:** `SLUG_TAKEN`, `SLUG_RESERVED`, `VALIDATION_ERROR`
+
+Auto-generate from displayName if omitted on first profile save.
+
+---
+
+### GET `/profiles/by-slug/:slug` (public)
+
+**Auth:** none (respects profileVisibility + user ACTIVE)  
+**Future SEO:** `/profiles/{slug}`
+
+Returns job-seeker or employer public profile summary + `user.slug`.
+
+---
+
+## ۲. Job Seeker Profile
 
 ### GET `/users/me/job-seeker-profile`
-
-**Auth:** JOB_SEEKER, ACTIVE  
-**Permission:** `profile:read:own`
-
-**Success:** `200` — full profile + `completionScore`
-
----
 
 ### PATCH `/users/me/job-seeker-profile`
 
@@ -26,195 +37,118 @@ Auth: JWT Bearer (Phase 1)
 ```json
 {
   "displayName": "علی رضایی",
+  "slug": "ali-rezaei",
   "headline": "توسعه‌دهنده Backend",
   "bio": "...",
-  "avatarUrl": "https://...",
+  "avatarUrl": "https://cdn.example/avatar.jpg",
   "cityLabel": "تهران",
   "profileVisibility": "PUBLIC"
 }
 ```
 
-**Success:** `200`  
-**Errors:** `VALIDATION_ERROR`, `FORBIDDEN`, `USER_NOT_ACTIVE`
+> **avatarUrl:** external URL only — **no upload endpoint Phase 2**
+
+**Audit:** `PROFILE_UPDATED`
 
 ---
 
-## ۲. Profiles — Employer
+## ۳. Employer Profile
 
-### GET `/users/me/employer-profile`
+### GET/PATCH `/users/me/employer-profile`
 
-**Auth:** EMPLOYER
-
-### PATCH `/users/me/employer-profile`
-
-**Body:**
-
-```json
-{
-  "displayName": "سارا احمدی",
-  "jobTitle": "مدیر منابع انسانی",
-  "bio": "..."
-}
-```
+**verificationStatus** read-only for employer; admin changes via §۹.
 
 ---
 
-## ۳. Companies — Owner/Admin
+## ۴. Companies
 
 ### POST `/companies`
-
-**Auth:** EMPLOYER (no existing company or policy allows multiple — **one primary company Phase 2**)
-
-**Body:**
 
 ```json
 {
   "name": "شرکت فناوری آریا",
   "slug": "arya-tech",
-  "description": "...",
-  "websiteUrl": "https://arya.ir",
-  "employeeCountRange": "SIZE_11_50",
-  "industryLabel": "نرم‌افزار"
+  "logoUrl": "https://cdn.example/logo.png",
+  "industryLabel": "نرم‌افزار",
+  "employeeCountRange": "SIZE_11_50"
 }
 ```
 
-**Success:** `201` — creates Company + OWNER member + links employerProfile.companyId
+> **logoUrl:** URL only — no upload
 
-**Errors:** `SLUG_TAKEN`, `COMPANY_ALREADY_EXISTS`
-
----
-
-### GET `/companies/mine`
-
-List companies where user is member.
+**Defaults:** `verificationStatus=PENDING`, `status=ACTIVE`  
+**Audit:** `COMPANY_CREATED`
 
 ---
 
-### GET `/companies/:id`
+### GET `/companies/by-slug/:slug` (public)
 
-**Auth:** member or admin  
-**Permission:** `company:read:own` or admin
+Visible only if:
+- `verificationStatus=VERIFIED`
+- `status=ACTIVE`
+- `deletedAt IS NULL`
 
 ---
 
 ### PATCH `/companies/:id`
 
-**Permission:** OWNER or ADMIN + `company:update:own`
-
----
+**Audit:** `COMPANY_UPDATED`
 
 ### DELETE `/companies/:id`
 
-Soft delete. **OWNER only.**
+Sets `status=DELETED`, `deletedAt=now()`  
+**Audit:** `COMPANY_DELETED`
 
 ---
 
-## ۴. Public Company
+## ۵. Members & Invites
 
-### GET `/companies/by-slug/:slug`
-
-**Auth:** none  
-**Returns:** public fields only if company VERIFIED + not deleted  
-**Errors:** `NOT_FOUND` (also for unverified — no enumeration)
-
----
-
-## ۵. Members
-
-### GET `/companies/:id/members`
-
-**Auth:** company member
-
-### DELETE `/companies/:id/members/:userId`
-
-**Auth:** OWNER/ADMIN — cannot remove OWNER  
-**Permission:** `company:members:manage`
-
-### PATCH `/companies/:id/members/:userId`
-
-Change role (not OWNER). **OWNER only.**
+| Action | Audit |
+|--------|-------|
+| POST `/companies/:id/invites` | MEMBER_INVITED |
+| POST `/companies/invites/accept` | MEMBER_ACCEPTED |
+| DELETE `/companies/:id/members/:userId` | MEMBER_REMOVED |
+| POST `/companies/:id/transfer-ownership` | OWNERSHIP_TRANSFERRED |
 
 ---
 
-## ۶. Invites
+## ۶. Admin
 
-### POST `/companies/:id/invites`
+### PATCH `/admin/employers/:userId/verification`
 
-**Body:**
-
-```json
-{
-  "email": "colleague@example.com",
-  "role": "MEMBER"
-}
-```
-
-**Success:** `201` — email stub queued  
-**Errors:** `INVITE_ALREADY_PENDING`, `MEMBER_ALREADY_EXISTS`
-
----
-
-### POST `/companies/invites/accept`
-
-**Body:**
-
-```json
-{
-  "token": "plain-token-from-email"
-}
-```
-
-**Auth:** logged-in user, email must match invite
-
----
-
-### DELETE `/companies/:id/invites/:inviteId`
-
-Revoke pending invite.
-
----
-
-## ۷. Ownership
-
-### POST `/companies/:id/transfer-ownership`
-
-**Body:** `{ "newOwnerUserId": "uuid" }`  
-**Auth:** current OWNER only
-
----
-
-## ۸. Admin (stub)
+**Body:** `{ "status": "UNDER_REVIEW" | "VERIFIED" | "REJECTED" }`  
+Workflow: PENDING → UNDER_REVIEW → VERIFIED | REJECTED
 
 ### PATCH `/admin/companies/:id/verification`
 
-**Auth:** ADMIN/SUPER_ADMIN + `company:verify`
+Same enum for company verification.
 
-**Body:** `{ "status": "VERIFIED" | "REJECTED", "reason": "..." }`
+### PATCH `/admin/companies/:id/status`
 
----
-
-## ۹. Extended GET `/users/me`
-
-Include nested profile summary by `primaryType`:
-
-```json
-{
-  "id": "...",
-  "primaryType": "EMPLOYER",
-  "jobSeekerProfile": null,
-  "employerProfile": { "companyId": "...", "verificationStatus": "PENDING_REVIEW" }
-}
-```
+**Body:** `{ "status": "ACTIVE" | "SUSPENDED" | "DELETED" }`  
+**Audit:** `COMPANY_STATUS_CHANGED`
 
 ---
 
-## ۱۰. Error codes (new)
+## ۷. Extended GET `/users/me`
+
+Include `slug`, nested profile, verification statuses.
+
+---
+
+## ۸. Error codes (new)
 
 | Code | HTTP |
 |------|------|
 | SLUG_TAKEN | 409 |
-| COMPANY_ALREADY_EXISTS | 409 |
-| NOT_COMPANY_MEMBER | 403 |
-| INVITE_EXPIRED | 400 |
-| INVITE_ALREADY_PENDING | 409 |
-| CANNOT_REMOVE_OWNER | 400 |
+| SLUG_RESERVED | 400 |
+| COMPANY_SUSPENDED | 403 |
+| COMPANY_NOT_VERIFIED | 404 (public) |
+| USER_SLUG_REQUIRED | 400 (public profile without slug) |
+
+---
+
+## ۹. Out of Scope
+
+- POST `/upload/avatar` — **not in Phase 2**
+- POST `/upload/logo` — **not in Phase 2**
