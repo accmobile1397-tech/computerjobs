@@ -13,6 +13,14 @@ Never trust client input — validate server-side (body, params, query).
 
 Authentication ≠ authorization — check permissions on every protected action.
 
+**Module:** `src/modules/authorization/` — separate from `src/modules/auth/`.
+
+## No Hardcoded RBAC
+
+**Forbidden:** hardcoded role or permission strings in code (e.g. `if (role === 'admin')`).
+
+All authorization checks must query database-backed roles/permissions via `authorization` module services.
+
 ## Secrets
 
 Never commit `.env`, keys, tokens. Only `.env.example`.

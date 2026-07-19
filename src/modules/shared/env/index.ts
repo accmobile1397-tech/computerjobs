@@ -11,8 +11,14 @@ const envSchema = z.object({
   S3_SECRET_KEY: z.string().optional(),
   S3_BUCKET: z.string().default("computerjobs"),
   S3_REGION: z.string().default("us-east-1"),
-  JWT_ACCESS_SECRET: z.string().optional(),
-  JWT_REFRESH_SECRET: z.string().optional(),
+  JWT_ACCESS_SECRET: z.string().min(32).optional(),
+  JWT_REFRESH_SECRET: z.string().min(32).optional(),
+  JWT_ACCESS_TTL: z.coerce.number().default(900),
+  JWT_REFRESH_TTL: z.coerce.number().default(604800),
+  AUTH_MAX_FAILED_ATTEMPTS: z.coerce.number().default(5),
+  AUTH_LOCK_MINUTES: z.coerce.number().default(15),
+  SEED_SUPERADMIN_EMAIL: z.string().email().optional(),
+  SEED_SUPERADMIN_PASSWORD: z.string().optional(),
   APP_URL: z.string().url().default("http://localhost:3000"),
   LOG_LEVEL: z
     .enum(["fatal", "error", "warn", "info", "debug", "trace"])
