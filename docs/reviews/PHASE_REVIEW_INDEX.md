@@ -1,51 +1,40 @@
-# Phase Review Index — Phase 1: IAM
+# Phase Review Index
 
-**Status:** 🟢 **CLOSED** — APPROVE WITH CONDITIONS  
-**Tag:** `v0.2-phase-1`  
+---
+
+# Phase 1 — IAM (Closed)
+
+**Tag:** `v0.2-phase-1` · **Commit:** [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)
+
+[Full index — Phase 1 docs](./phase-1/CTO_REPORT.md)
+
+---
+
+# Phase 2 — Profiles & Companies (Review)
+
+**Status:** ⏳ Awaiting CTO Review  
 **Branch:** `main`  
-**Implementation commit:** [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)
+**Migration:** `20260719160000_phase2_profiles_companies`
 
----
-
-## Closure Verification
-
-| Check | Status |
-|-------|--------|
-| Tests (5) | ✅ |
-| Lint / typecheck / build | ✅ |
-| Prisma validate | ✅ |
-| Migration `20260719140000_phase1_iam` | ✅ |
-| Security (no critical open) | ✅ |
-| Rulebook | ✅ |
-
----
-
-## Documents
+## Start Here
 
 | Document | Path |
 |----------|------|
-| **CTO Report (final)** | [docs/phase-1/CTO_REPORT.md](./phase-1/CTO_REPORT.md) |
-| Technical Spec (FA) | [docs/phase-1/TECHNICAL_SPEC.fa.md](./phase-1/TECHNICAL_SPEC.fa.md) |
-| Database Design | [docs/phase-1/DATABASE_DESIGN.md](./phase-1/DATABASE_DESIGN.md) |
-| API Design | [docs/phase-1/API_DESIGN.md](./phase-1/API_DESIGN.md) |
-| Architecture | [docs/phase-1/ARCHITECTURE.md](./phase-1/ARCHITECTURE.md) |
-| Security Review | [docs/phase-1/SECURITY_REVIEW.md](./phase-1/SECURITY_REVIEW.md) |
-| Acceptance Criteria | [docs/phase-1/ACCEPTANCE_CRITERIA.md](./phase-1/ACCEPTANCE_CRITERIA.md) |
-| Risks | [docs/phase-1/RISKS_AND_ASSUMPTIONS.md](./phase-1/RISKS_AND_ASSUMPTIONS.md) |
-| Test Coverage | [docs/phase-1/TEST_COVERAGE.md](./phase-1/TEST_COVERAGE.md) |
+| **CTO Report** | [docs/phase-2/CTO_REPORT.md](./phase-2/CTO_REPORT.md) |
+| Spec | [docs/phase-2/TECHNICAL_SPEC.fa.md](./phase-2/TECHNICAL_SPEC.fa.md) |
+| Database | [docs/phase-2/DATABASE_DESIGN.md](./phase-2/DATABASE_DESIGN.md) |
+| API | [docs/phase-2/API_DESIGN.md](./phase-2/API_DESIGN.md) |
+| Security | [docs/phase-2/SECURITY_REVIEW.md](./phase-2/SECURITY_REVIEW.md) |
+| Tests | [docs/phase-2/TEST_COVERAGE.md](./phase-2/TEST_COVERAGE.md) |
+| Guardian | [ARCHITECTURE_GUARDIAN.md](./ARCHITECTURE_GUARDIAN.md) (Phase 2) |
 
-## Reports
+## Modules
 
-| Report | Path |
-|--------|------|
-| Architecture Guardian | [ARCHITECTURE_GUARDIAN.md](./ARCHITECTURE_GUARDIAN.md) (Phase 1) |
-| Threat Model | [../security-threat-model/phase-1.md](../security-threat-model/phase-1.md) |
-| Handoff guide | [CTO_HANDOFF.md](./CTO_HANDOFF.md) |
+- `src/modules/users/` — profiles, slug, completion score
+- `src/modules/companies/` — CRUD, members, invites
 
-## ADRs
+## API (new)
 
-- [0006-iam-authorization-module.md](../adr/0006-iam-authorization-module.md)
-
-## Next Phase
-
-**Phase 2 spec (no code):** [docs/phase-2/README.md](../phase-2/README.md) — User Profiles & Company Management
+Profiles: `/users/me/slug`, `/users/me/job-seeker-profile`, `/users/me/employer-profile`, `/profiles/by-slug/:slug`  
+Companies: `/companies`, `/companies/mine`, `/companies/:id`, `/companies/by-slug/:slug`, members, invites, transfer  
+Admin: `/admin/employers/:userId/verification`, `/admin/companies/:id/verification`, `/admin/companies/:id/status`

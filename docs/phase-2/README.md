@@ -1,8 +1,7 @@
 # Phase 2 — User Profiles & Company Management
 
-**Status:** 🟢 **Specification APPROVED** — Implementation Authorized (CTO 2026-07-19)  
-**Branch:** `main`  
-**Implementation:** ⏳ **In progress / not started** — code on `main`  
+**Status:** ⏳ Implementation complete — awaiting CTO review  
+**Implementation:** [`847fe54..main`](https://github.com/accmobile1397-tech/computerjobs/compare/847fe54...main)
 **Spec approval record:** [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md)
 
 ## Documents
