@@ -17,6 +17,7 @@ https://github.com/accmobile1397-tech/computerjobs/compare/b20693f...main
 |---|--------|-------|
 | 1 | `b20693f` | Search services + MatchScore v1 |
 | 2 | `8cee7b5` | API routes + permissions |
+| 3 | `14d42cb` | CTO report + index |
 ## Delivered
 
 | Item | ✅ |
