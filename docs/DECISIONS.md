@@ -61,6 +61,7 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 **Decision:** Spec generated — **awaiting CTO review**  
 **Status:** Implementation **blocked** until CTO approves  
+**Spec commit:** [`5724527`](https://github.com/accmobile1397-tech/computerjobs/commit/5724527)  
 **Scope:** Resume Builder, Education, Experience, Skills, Technologies, Languages, Certificates, Projects, Candidate Resume Visibility  
 **Rules:** One active resume per user · no upload · no AI · no matching engine  
 

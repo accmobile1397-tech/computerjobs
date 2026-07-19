@@ -1,6 +1,7 @@
 # Phase 5 — Resume Builder
 
 **Status:** ⏳ **Spec only** — awaiting CTO review  
+**Spec commit:** [`5724527`](https://github.com/accmobile1397-tech/computerjobs/commit/5724527)  
 **Implementation:** **blocked** until CTO approves spec
 
 ## Scope
