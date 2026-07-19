@@ -1,4 +1,5 @@
 import {
+  BillingOwnerType,
   CompanyMemberRole,
   CompanyStatus,
   CompanyVerificationStatus,
@@ -20,6 +21,11 @@ import {
 } from "@/modules/companies/services/company.service";
 import { assertActiveCity, LocationError } from "@/modules/location/services/location.service";
 import { assertActiveCategory, TaxonomyError } from "@/modules/taxonomy/services/taxonomy.service";
+import { FEATURE_KEYS } from "@/modules/billing/constants";
+import {
+  BillingError,
+} from "@/modules/billing/services/billing-core";
+import { consumeQuota } from "@/modules/billing/services/quota.service";
 import type {
   CreateJobInput,
   ListJobsQuery,
@@ -369,6 +375,23 @@ export async function publishJob(params: {
   }
 
   await assertCompanyPublishReady(job.companyId);
+
+  if (job.status === JobStatus.DRAFT) {
+    try {
+      await consumeQuota({
+        ownerType: BillingOwnerType.COMPANY,
+        ownerId: job.companyId,
+        featureKey: FEATURE_KEYS.JOB_POST_PER_MONTH,
+        defaultPlanSlug: "employer_free",
+        actorUserId: params.userId,
+        refType: "job",
+        refId: params.jobId,
+      });
+    } catch (error) {
+      if (error instanceof BillingError) throw new JobError(error.code);
+      throw error;
+    }
+  }
 
   const expiresAt = params.input?.expiresAt ?? defaultExpiresAt();
 

@@ -79,6 +79,8 @@ export function mapErrorToResponse(
     INVALID_DATE_RANGE: 400,
     SKILL_NOT_FOUND: 404,
     TECHNOLOGY_NOT_FOUND: 404,
+    QUOTA_EXCEEDED: 402,
+    PLAN_NOT_FOUND: 404,
   };
 
   const messageMap: Record<string, string> = {

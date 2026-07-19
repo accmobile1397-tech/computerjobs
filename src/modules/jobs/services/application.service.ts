@@ -1,5 +1,6 @@
 import {
   ApplicationStatus,
+  BillingOwnerType,
   CompanyStatus,
   CompanyVerificationStatus,
   JobStatus,
@@ -16,6 +17,9 @@ import {
   resolveResumeIdForApply,
   ResumeError,
 } from "@/modules/resumes/services/resume.service";
+import { FEATURE_KEYS } from "@/modules/billing/constants";
+import { BillingError } from "@/modules/billing/services/billing-core";
+import { consumeQuota } from "@/modules/billing/services/quota.service";
 import type {
   SubmitApplicationInput,
   UpdateApplicationStatusInput,
@@ -110,6 +114,21 @@ export async function submitApplication(params: {
     },
   });
   if (existing) throw new ApplicationError("ALREADY_APPLIED");
+
+  try {
+    await consumeQuota({
+      ownerType: BillingOwnerType.USER,
+      ownerId: params.userId,
+      featureKey: FEATURE_KEYS.APPLICATION_PER_MONTH,
+      defaultPlanSlug: "seeker_free",
+      actorUserId: params.userId,
+      refType: "job",
+      refId: params.jobId,
+    });
+  } catch (error) {
+    if (error instanceof BillingError) throw new ApplicationError(error.code);
+    throw error;
+  }
 
   let resumeId: string | null = null;
   try {
