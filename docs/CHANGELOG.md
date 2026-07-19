@@ -20,6 +20,11 @@ All notable changes to ComputerJobs.ir are documented here.
 - Tag: `v0.3-phase-2`
 - Conditions: integration tests + audit verification before Phase 3 close; rate limiting + SEO metadata deferred
 
+### Phase 3
+
+- Spec package generated — **awaiting CTO review** (no implementation)
+- Scope: Location, Taxonomy, Skills, Technologies, AI suggestion, Admin approval
+
 ## [0.2.0] — 1404/04/29 — Phase 1 IAM
 
 ### Added
