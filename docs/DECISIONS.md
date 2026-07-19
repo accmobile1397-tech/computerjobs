@@ -22,10 +22,19 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-016 | **Architecture Guardian** role + `docs/reviews/ARCHITECTURE_GUARDIAN.md` | Active |
 | 2026-07-19 | D-017 | `users/` module separate from `auth/` (Phase 1 IAM) | Active |
 | 2026-07-19 | D-018 | **Phase 0 final:** CTO APPROVE WITH CONDITIONS — all conditions met | **Closed** |
+| 2026-07-19 | D-019 | Phase 0 Closed — enter Phase 1 IAM | Active |
+| 2026-07-19 | D-020 | Phase 1 spec generated — awaiting CTO approval (no code) | Pending |
 
 ---
 
-## D-018: Phase 0 Final CTO Sign-off (2026-07-19)
+## D-020: Phase 1 IAM Spec (Pending CTO)
+
+Documents in `docs/phase-1/`:
+- TECHNICAL_SPEC.fa.md, DATABASE_DESIGN.md, API_DESIGN.md (+ supporting docs)
+- RBAC table-driven; User types: JOB_SEEKER, EMPLOYER, ADMIN, SUPER_ADMIN
+- JWT access + refresh; 2FA schema only; no OAuth Phase 1
+
+**Gate:** CTO approval of TECHNICAL_SPEC + DATABASE + API → implementation on `feature/auth`
 
 CTO rating: **9.5/10** — APPROVE WITH CONDITIONS.
 

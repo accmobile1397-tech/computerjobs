@@ -1,34 +1,24 @@
 # Phase 1 — Identity & Access Management (IAM)
 
-**Status:** Not started — awaiting spec approval  
-**Branch:** `feature/auth` (from `develop`)
+**Status:** 📋 Spec generated — awaiting CTO approval  
+**Branch (after approval):** `feature/auth` from `develop`
 
-## Scope (expanded from "Auth only")
+## Documents
 
-Phase 1 establishes the **full identity foundation** for all later phases:
+| File | Purpose |
+|------|---------|
+| [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) | **مشخصات فنی فارسی — CTO review** |
+| [DATABASE_DESIGN.md](./DATABASE_DESIGN.md) | **Schema — CTO review** |
+| [API_DESIGN.md](./API_DESIGN.md) | **Endpoints — CTO review** |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | Module architecture |
+| [SECURITY_REVIEW.md](./SECURITY_REVIEW.md) | Security spec |
+| [ACCEPTANCE_CRITERIA.md](./ACCEPTANCE_CRITERIA.md) | Test checklist |
+| [RISKS_AND_ASSUMPTIONS.md](./RISKS_AND_ASSUMPTIONS.md) | Risks & assumptions |
 
-- Registration & login (job seeker, employer)
-- JWT + refresh tokens
-- RBAC: roles, permissions, role assignments
-- User types: job seeker, employer, admin
-- Password hashing, session security baseline
-- Module: `src/modules/auth/`
+## Gate
+
+🟢 **Phase 1 Approved for Implementation** — only after CTO approves TECHNICAL_SPEC + DATABASE + API
 
 ## Out of Scope
 
-- OAuth/social login (future)
-- Full rate limiting (Phase 13 skeleton optional)
-- Location, taxonomy, jobs
-
-## Prerequisites
-
-- [x] Phase 0 approved
-- [x] `src/modules/` structure
-- [x] `develop` branch
-- [ ] Phase 1 TECHNICAL_SPEC.md — **pending approval**
-
-## References
-
-- `.cto/SECURITY_RULES.md`
-- `docs/adr/0001-feature-first.md`
-- `docs/DECISIONS.md` D-012
+OAuth, Social Login, 2FA implementation (schema ready)
