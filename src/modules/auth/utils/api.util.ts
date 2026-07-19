@@ -63,6 +63,12 @@ export function mapErrorToResponse(
     PARENT_NOT_FOUND: 400,
     MERGE_TARGET_INVALID: 400,
     CATEGORY_OFFICIAL_PROTECTED: 403,
+    JOB_NOT_FOUND: 404,
+    JOB_NOT_ACCEPTING: 409,
+    ALREADY_APPLIED: 409,
+    COMPANY_NOT_VERIFIED: 403,
+    INVALID_JOB_STATE: 409,
+    APPLICATION_NOT_FOUND: 404,
   };
 
   const messageMap: Record<string, string> = {

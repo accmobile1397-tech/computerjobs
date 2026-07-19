@@ -22,11 +22,16 @@ const PERMISSIONS = [
   { slug: "taxonomy:read", nameFa: "خواندن Taxonomy" },
   { slug: "taxonomy:write", nameFa: "مدیریت Taxonomy" },
   { slug: "taxonomy:approve", nameFa: "تأیید پیشنهاد Taxonomy" },
+  { slug: "job:create", nameFa: "ایجاد آگهی" },
+  { slug: "job:read", nameFa: "خواندن آگهی‌های عمومی" },
+  { slug: "job:read:own", nameFa: "خواندن آگهی‌های خود" },
+  { slug: "job:update:own", nameFa: "ویرایش آگهی خود" },
+  { slug: "job:apply", nameFa: "ارسال درخواست شغل" },
+  { slug: "job:applications:read:own", nameFa: "مشاهده درخواست‌های آگهی" },
+  { slug: "job:applications:manage:own", nameFa: "مدیریت وضعیت درخواست" },
+  { slug: "job:approve", nameFa: "تأیید آگهی (ادمین)" },
   { slug: "resumes:create", nameFa: "ایجاد رزومه" },
   { slug: "resumes:read:own", nameFa: "خواندن رزومه خود" },
-  { slug: "jobs:create", nameFa: "ایجاد آگهی" },
-  { slug: "jobs:read", nameFa: "خواندن آگهی‌ها" },
-  { slug: "jobs:update:own", nameFa: "ویرایش آگهی خود" },
   { slug: "admin:users:read", nameFa: "مشاهده کاربران" },
   { slug: "admin:users:suspend", nameFa: "تعلیق کاربر" },
   { slug: "admin:roles:manage", nameFa: "مدیریت نقش‌ها" },
@@ -43,6 +48,7 @@ const ROLES = [
       "profile:update:own",
       "resumes:create",
       "resumes:read:own",
+      "job:apply",
     ],
   },
   {
@@ -57,9 +63,11 @@ const ROLES = [
       "company:update:own",
       "company:members:manage",
       "company:invite",
-      "jobs:create",
-      "jobs:read",
-      "jobs:update:own",
+      "job:create",
+      "job:read:own",
+      "job:update:own",
+      "job:applications:read:own",
+      "job:applications:manage:own",
     ],
   },
   {
@@ -76,6 +84,7 @@ const ROLES = [
       "taxonomy:read",
       "taxonomy:write",
       "taxonomy:approve",
+      "job:approve",
     ],
   },
   {
@@ -86,7 +95,7 @@ const ROLES = [
 ];
 
 async function main() {
-  console.log("Seeding IAM + Phase 2/3 permissions...");
+  console.log("Seeding IAM + Phase 2/3/4 permissions...");
 
   for (const perm of PERMISSIONS) {
     await prisma.permission.upsert({
