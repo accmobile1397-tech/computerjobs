@@ -2,9 +2,10 @@
 
 ## Mandatory: Read Before Any Work
 
-1. Read [`.cto/RULEBOOK.md`](.cto/RULEBOOK.md) and relevant `.cto/*_RULES.md` files
-2. Check [`docs/DECISIONS.md`](docs/DECISIONS.md) and [`docs/adr/`](docs/adr/)
+1. Read [`.cto/RULEBOOK.md`](.cto/RULEBOOK.md) + relevant specialized files + [`.cto/TOKEN_OPTIMIZATION.md`](.cto/TOKEN_OPTIMIZATION.md)
+2. Check [`docs/DECISIONS.md`](docs/DECISIONS.md) and current phase docs only
 3. Never start implementation without CTO spec approval
+4. Default docs: `TECHNICAL_SPEC` (spec) · `CTO_REPORT` (handoff) — nothing else unless requested
 
 ## Code Structure
 

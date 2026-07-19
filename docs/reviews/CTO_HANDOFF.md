@@ -7,18 +7,16 @@
 ## چرخه (از Phase 2 به بعد)
 
 ```text
-Phase X Spec (در همان commit/spec package)
+Phase X TECHNICAL_SPEC
         ↓
-CTO Review → APPROVE (ثبت در spec/README — بدون commit جداگانه فقط برای approval)
+CTO Review → APPROVE
         ↓
-Implementation (commitهای کوچک incremental روی main)
+Implementation (incremental on main)
         ↓
-CTO_REPORT + Guardian + PHASE_REVIEW_INDEX + TEST_COVERAGE
-        ↓
-Tag Release
+CTO_REPORT (≤300 lines) → Tag
 ```
 
-**قانون:** Approval در مستندات فاز ثبت می‌شود — **commit جداگانه فقط برای اعلام approval لازم نیست.**
+Extra docs (Guardian, Index, TEST_COVERAGE, DATABASE/API designs) **only if CTO requests**. See `.cto/TOKEN_OPTIMIZATION.md`.
 
 ---
 

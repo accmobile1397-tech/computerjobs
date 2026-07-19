@@ -42,6 +42,7 @@ Never sacrifice higher-priority principles for lower ones.
 | [DEPLOYMENT_RULES.md](./DEPLOYMENT_RULES.md) | Docker, OpenShip, Git workflow |
 | [CODE_STYLE.md](./CODE_STYLE.md) | Naming, commits, modules |
 | [REVIEW_CHECKLIST.md](./REVIEW_CHECKLIST.md) | Phase completion, CTO report |
+| [TOKEN_OPTIMIZATION.md](./TOKEN_OPTIMIZATION.md) | Context load, docs scope, minimal tests |
 
 ---
 
@@ -55,9 +56,9 @@ Never sacrifice higher-priority principles for lower ones.
 
 ## Before Any Task
 
-1. Read `.cto/RULEBOOK.md` and relevant specialized files  
+1. Read `.cto/RULEBOOK.md` and relevant specialized files (see [TOKEN_OPTIMIZATION.md](./TOKEN_OPTIMIZATION.md))  
 2. Follow all rules; document conflicts in `CTO_REPORT.md`  
-3. Generate `docs/phase-{N}/CTO_REPORT.md` before phase completion  
+3. Spec phase → `TECHNICAL_SPEC` only (unless more requested). Closeout → `CTO_REPORT` (≤300 lines)  
 4. Hand off to CTO via commit link on `main` — see [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md)
 
 ---

@@ -1,5 +1,5 @@
 ---
-description: Mandatory CTO rules — read .cto/RULEBOOK.md and specialized files before each phase
+description: CTO process + token optimization — rulebook is single source of truth
 alwaysApply: true
 ---
 
@@ -7,33 +7,24 @@ alwaysApply: true
 
 ## Before ANY task
 
-1. Read `.cto/RULEBOOK.md` (index)
-2. Read relevant specialized files in `.cto/`:
-   - ARCHITECTURE_RULES, DATABASE_RULES, PRISMA_RULES, NEXTJS_RULES
-   - AI_RULES, SECURITY_RULES, SEO_RULES, DEPLOYMENT_RULES
-   - CODE_STYLE, REVIEW_CHECKLIST
-3. Check `docs/adr/` and `docs/DECISIONS.md` for prior decisions
+1. Read `.cto/RULEBOOK.md` + **relevant** specialized `.cto/*` files only
+2. Follow `.cto/TOKEN_OPTIMIZATION.md` (context load, docs scope, tests)
+3. Check `docs/DECISIONS.md` / current phase docs — not the full repo
 4. Rulebook wins over conflicting instructions
 
-## Code structure (mandatory)
+## Code structure
 
-- `src/modules/{feature}/` — all business logic
-- `src/modules/shared/` — env, logger, prisma, redis, queue, storage only
+- Business logic: `src/modules/{feature}/`
+- Infra only: `src/modules/shared/`
 - **Never** add new code to `src/lib/`
-- AI: `src/modules/ai/{gateway,providers,...}/`
-- Taxonomy & location: use mandated subfolders
 
-## Git workflow
+## Git
 
-- `main` — production
-- `develop` — integration
-- `feature/*` — e.g. `feature/auth`
-- Conventional Commits
+Commit on `main`. Conventional Commits.
 
-## Phase completion
+## Docs (default)
 
-Generate `docs/phase-{N}/CTO_REPORT.md` + `docs/reviews/ARCHITECTURE_GUARDIAN.md`
-
-## Phase 1 name
-
-**Identity & Access Management (IAM)** — not auth-only
+- Spec → `TECHNICAL_SPEC` only
+- Handoff → `CTO_REPORT` (≤300 lines)
+- Extra docs only if CTO requests
+- Do not repeat rulebook content in specs/reports
