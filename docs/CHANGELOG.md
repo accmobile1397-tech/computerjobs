@@ -2,6 +2,20 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
+## [Unreleased] — RFC-001 & Phase 7 Spec
+
+### RFC-001
+
+- Product Rules & Monetization — **APPROVE WITH CONDITIONS**
+- Data-driven entitlements; Admin-configurable plans/quotas/prices
+- Product invariants frozen (single resume, no upload, contact unlock, verified company, MatchScore not persisted, visibility model)
+- Docs: `docs/rfc/RFC-001-PRODUCT-RULES.md`, `docs/rfc/RFC-001-MONETIZATION.md`
+
+### Phase 7
+
+- TECHNICAL_SPEC generated — Payments, Plans, Quotas, Credits, Entitlements
+- **Awaiting CTO review** — no implementation
+
 ## [0.6.0] — 1404/04/29 — Phase 5 Resume Builder
 
 ### Added

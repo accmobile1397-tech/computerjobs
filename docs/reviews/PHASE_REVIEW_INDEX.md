@@ -1,19 +1,24 @@
 # Phase Review Index
 
-# Phase 1–5 — Closed
-
-`v0.2` … `v0.6-phase-5`
+# Phase 1–5 — Closed · Phase 6 — review/impl as applicable
 
 ---
 
-# Phase 6 — Search & Matching (Review)
+# RFC-001 — Product Rules & Monetization
 
-**Status:** ⏳ Awaiting CTO Review
+**Status:** ☑ APPROVED WITH CONDITIONS · frozen for Phase 7
 
 | Doc | Path |
 |-----|------|
-| **CTO Report** | [docs/phase-6/CTO_REPORT.md](./phase-6/CTO_REPORT.md) |
-| Spec | [docs/phase-6/TECHNICAL_SPEC.fa.md](./phase-6/TECHNICAL_SPEC.fa.md) |
-| Spec approval | [docs/phase-6/CTO_SPEC_APPROVAL.md](./phase-6/CTO_SPEC_APPROVAL.md) |
+| Product Rules | [docs/rfc/RFC-001-PRODUCT-RULES.md](./rfc/RFC-001-PRODUCT-RULES.md) |
+| Monetization | [docs/rfc/RFC-001-MONETIZATION.md](./rfc/RFC-001-MONETIZATION.md) |
 
-Module: `src/modules/search/`
+---
+
+# Phase 7 — Payments & Plans (Spec)
+
+**Status:** ⏳ Awaiting CTO Spec Review · **no implementation**
+
+| Doc | Path |
+|-----|------|
+| **Technical Spec** | [docs/phase-7/TECHNICAL_SPEC.fa.md](./phase-7/TECHNICAL_SPEC.fa.md) |

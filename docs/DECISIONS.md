@@ -62,15 +62,24 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-038: RFC-001 Product Rules & Monetization
+## D-039: Phase 7 Spec — Payments & Plans
 
-**Decision:** RFC generated — **awaiting CTO approval**  
-**Status:** Phase 7 TECHNICAL_SPEC **blocked** until RFC-001 APPROVE  
+**Decision:** Spec generated — **awaiting CTO review**  
+**Status:** Implementation **blocked** until CTO approves TECHNICAL_SPEC  
+**Document:** [docs/phase-7/TECHNICAL_SPEC.fa.md](./phase-7/TECHNICAL_SPEC.fa.md)  
+**Input:** RFC-001 APPROVED WITH CONDITIONS (data-driven entitlements)
+
+---
+
+## D-038: RFC-001 Product Rules & Monetization — APPROVED
+
+**Decision:** ☑ **APPROVE WITH CONDITIONS** (CTO 2026-07-19)  
+**Status:** **Closed** — product rules **frozen** for Phase 7  
 **Documents:**
 - [docs/rfc/RFC-001-PRODUCT-RULES.md](./rfc/RFC-001-PRODUCT-RULES.md)
 - [docs/rfc/RFC-001-MONETIZATION.md](./rfc/RFC-001-MONETIZATION.md)
 
-**After APPROVE:** generate Phase 7 spec only — no coding until Phase 7 spec APPROVE.
+**Conditions:** data-driven quotas/prices; no hardcoded business numbers; PlanDefinition/PlanFeature/ConsumableBalance/ConsumableTransaction/SystemSetting; Admin Panel without deploy; invariants non-configurable (§A).
 
 ---
 
