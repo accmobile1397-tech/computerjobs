@@ -1,10 +1,10 @@
 # Phase Review Index — Phase 1: IAM
 
-**Branch:** `feature/auth`  
-**Implementation commit:** `769b6de` (`769b6de0750b6a765ebd2b2508515ce97076e194`)  
+**Branch:** `develop`  
+**Latest commit:** [`89cbece`](https://github.com/accmobile1397-tech/computerjobs/commit/89cbece)  
+**IAM implementation:** [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)  
 **Status:** Implementation complete — awaiting CTO review  
-**Handoff method:** [CTO_HANDOFF.md](./CTO_HANDOFF.md) — `CTO_REPORT.md` + commit (PR optional)  
-**Compare (optional):** https://github.com/accmobile1397-tech/computerjobs/compare/develop...feature/auth
+**Handoff:** commit link — [CTO_HANDOFF.md](./CTO_HANDOFF.md)
 
 ---
 

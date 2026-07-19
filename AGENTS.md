@@ -15,12 +15,11 @@
 
 ## Git Workflow
 
-`main` → production | `develop` → integration | `feature/*` → phase work
+`main` → production | `develop` → integration (all phase work here)
 
-## CTO Handoff (required)
+## CTO Handoff
 
-At phase end: update `docs/phase-N/CTO_REPORT.md` with commit hash + copy-paste handoff block.  
-Product Owner sends report to CTO — **PR is optional**.  
+Push to `develop`, send **commit link** to CTO. No feature branches, no PR.  
 See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 
 ## Phase 1

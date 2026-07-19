@@ -17,9 +17,8 @@ See [docs/adr/0004-openship.md](../docs/adr/0004-openship.md).
 ## Git Workflow
 
 ```text
-main          # production-ready
-develop       # integration
-feature/*     # e.g. feature/auth, feature/location
+main     # production-ready
+develop  # integration — all phase commits here
 ```
 
 ## Commits
@@ -37,5 +36,4 @@ Every phase: specs + `CTO_REPORT.md` before merge to `develop`.
 
 ## CTO Handoff
 
-Official delivery: `docs/phase-N/CTO_REPORT.md` + commit hash on `feature/*`.  
-See [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md). Pull requests are optional.
+Official delivery: **commit link** on `develop`. See [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md).

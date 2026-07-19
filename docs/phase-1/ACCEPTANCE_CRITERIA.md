@@ -112,7 +112,7 @@
 
 - [ ] Logic in `modules/auth` and `modules/users` only
 - [ ] No business logic in API routes
-- [ ] Conventional commits on `feature/auth`
+- [ ] Conventional commits on `develop`
 - [ ] CI green
 - [ ] `CTO_REPORT.md` + `ARCHITECTURE_GUARDIAN.md` at phase end
 
@@ -120,6 +120,6 @@
 
 ## ۱۳. Definition of Done
 
-Phase 1 **Done** when all §2–§12 pass + CTO final review via `CTO_REPORT.md` + merge `feature/auth` → `develop` (PR optional).
+Phase 1 **Done** when all §2–§12 pass + CTO final review via commit link on `develop`.
 
 **Do NOT start Phase 2** without explicit approval.

@@ -24,19 +24,22 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-018 | **Phase 0 final:** CTO APPROVE WITH CONDITIONS — all conditions met | **Closed** |
 | 2026-07-19 | D-019 | Phase 0 Closed — enter Phase 1 IAM | Active |
 | 2026-07-19 | D-020 | Phase 1 IAM spec — CTO approved for implementation | **Closed** |
-| 2026-07-19 | D-021 | Phase 1 IAM implemented on `feature/auth` commit `769b6de` | Pending CTO |
-| 2026-07-19 | D-022 | **CTO handoff:** `CTO_REPORT.md` + commit hash; PR optional | Active |
+| 2026-07-19 | D-021 | Phase 1 IAM on `develop` commit `89cbece` | Pending CTO |
+| 2026-07-19 | D-022 | **CTO handoff:** commit link on `develop` | Active |
+| 2026-07-19 | D-023 | **No feature branches** — work on `develop` only (Phase 0 style) | Active |
+
+---
+
+## D-023: No Feature Branches
+
+Phase work commits directly to `develop`. CTO receives commit link only.  
+Removed `feature/auth` — content merged to `develop` 2026-07-19.
 
 ---
 
 ## D-022: CTO Handoff Workflow
 
-Official phase delivery to CTO:
-
-1. `docs/phase-N/CTO_REPORT.md` with implementation commit hash
-2. `docs/reviews/PHASE_REVIEW_INDEX.md` updated
-3. Product Owner sends report — no PR required
-4. After APPROVE: merge `feature/*` → `develop`
+Official delivery: **commit link** on `develop` (+ optional `CTO_REPORT.md`).
 
 See [docs/reviews/CTO_HANDOFF.md](./reviews/CTO_HANDOFF.md).
 
@@ -44,7 +47,7 @@ See [docs/reviews/CTO_HANDOFF.md](./reviews/CTO_HANDOFF.md).
 
 ## D-021: Phase 1 IAM Implementation (Pending CTO)
 
-Branch `feature/auth`, commit `769b6de`. Awaiting CTO review via [CTO_REPORT.md](./phase-1/CTO_REPORT.md).
+Branch `develop`, latest commit `89cbece`. Awaiting CTO review.
 
 ---
 

@@ -1,15 +1,15 @@
 # Phase 1 — Identity & Access Management (IAM)
 
 **Status:** ⏳ Implementation complete — awaiting CTO review  
-**Branch:** `feature/auth`  
-**Latest commit:** [`5f633d0`](https://github.com/accmobile1397-tech/computerjobs/commit/5f633d0)  
-**Handoff:** commit link + [CTO_REPORT.md](./CTO_REPORT.md) — see [CTO_HANDOFF.md](../reviews/CTO_HANDOFF.md)
+**Branch:** `develop`  
+**Commit:** [`89cbece`](https://github.com/accmobile1397-tech/computerjobs/commit/89cbece)  
+**Handoff:** لینک commit به CTO — [CTO_HANDOFF.md](../reviews/CTO_HANDOFF.md)
 
 ## Documents
 
 | File | Purpose |
 |------|---------|
-| [CTO_REPORT.md](./CTO_REPORT.md) | **شروع review — گزارش CTO** |
+| [CTO_REPORT.md](./CTO_REPORT.md) | گزارش CTO + پیام copy-paste |
 | [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) | مشخصات فنی فارسی |
 | [DATABASE_DESIGN.md](./DATABASE_DESIGN.md) | Schema |
 | [API_DESIGN.md](./API_DESIGN.md) | Endpoints |
@@ -20,7 +20,7 @@
 
 ## Gate
 
-🟢 Spec approved → implementation on `feature/auth` → **CTO final review** via commit link + [CTO_REPORT.md](./CTO_REPORT.md)
+🟢 Spec approved → implementation on `develop` → CTO review via commit link
 
 ## Out of Scope
 

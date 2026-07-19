@@ -79,11 +79,8 @@ curl http://localhost:3000/api/v1/health/deep
 ## Git Workflow
 
 ```text
-main          ← production
-develop       ← integration
-feature/auth  ← Phase 1 IAM
-feature/location
-feature/taxonomy
+main     ← production
+develop  ← integration (all phase work)
 ```
 
 ## Module Structure

@@ -1,23 +1,20 @@
 # CTO Report — Phase 1: IAM Implementation
 
 **Phase:** 1 — Identity & Access Management  
-**Branch:** `feature/auth`  
-**Implementation commit:** `769b6de` (`769b6de0750b6a765ebd2b2508515ce97076e194`)  
-**Status:** ⏳ Awaiting CTO Review  
-**Handoff:** [docs/reviews/CTO_HANDOFF.md](../reviews/CTO_HANDOFF.md) — PR not required
+**Branch:** `develop`  
+**Latest commit:** [`89cbece`](https://github.com/accmobile1397-tech/computerjobs/commit/89cbece)  
+**IAM implementation:** [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)  
+**Status:** ⏳ Awaiting CTO Review
 
 ---
 
 ## Handoff to CTO (copy-paste)
 
 ```text
-Phase 1 IAM — آماده review.
+Phase 1 IAM — review:
 
-گزارش CTO: docs/phase-1/CTO_REPORT.md
-فهرست: docs/reviews/PHASE_REVIEW_INDEX.md
-Commit: 769b6de
-Branch: feature/auth
-Compare (اختیاری): https://github.com/accmobile1397-tech/computerjobs/compare/develop...feature/auth
+https://github.com/accmobile1397-tech/computerjobs/commit/89cbece
+گزارش: docs/phase-1/CTO_REPORT.md
 ```
 
 ---
@@ -85,7 +82,7 @@ See [security-threat-model/phase-1.md](../security-threat-model/phase-1.md)
 
 ## CTO Checklist
 
-- [ ] APPROVE merge to develop
+- [ ] APPROVE
 - [ ] APPROVE WITH CONDITIONS
 - [ ] REJECT
 

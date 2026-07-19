@@ -117,7 +117,7 @@ Priority for Phase 1 spec:
 
 **Date:** 2026-07-19  
 **Phase:** 1 — IAM Implementation  
-**Branch:** `feature/auth`
+**Branch:** `develop`
 
 ## 1. Technical Debt introduced?
 
@@ -145,4 +145,4 @@ ADR-0006 added. DECISIONS D-021 Phase 1 implementation.
 
 ## Recommendation
 
-Merge to `develop` after CTO review via [CTO_REPORT.md](../phase-1/CTO_REPORT.md) (PR optional — see [CTO_HANDOFF.md](./CTO_HANDOFF.md)).
+Awaiting CTO review via commit link on `develop` — see [CTO_HANDOFF.md](./CTO_HANDOFF.md).
