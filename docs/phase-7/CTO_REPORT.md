@@ -8,25 +8,17 @@
 
 ```text
 Phase 7A implementation — review:
-https://github.com/accmobile1397-tech/computerjobs/compare/{FIRST}...main
+https://github.com/accmobile1397-tech/computerjobs/compare/f160270...main
 گزارش: docs/phase-7/CTO_REPORT.md
 ```
 
-## Delivered
+## Commits
 
-| Item | ✅ |
-|------|---|
-| PlanDefinition / PlanFeature (versioned) / PlanPrice (amount+currency) | ✅ |
-| Subscription + SubscriptionHistory | ✅ |
-| ConsumableBalance + ConsumableTransaction | ✅ |
-| QuotaUsage + periodKey reset strategy + job ownership doc | ✅ |
-| ContactUnlock source of truth | ✅ |
-| SystemSetting | ✅ |
-| Billing audit actions | ✅ |
-| Admin billing API (grant / setting / versionFeature) | ✅ |
-| Apply + publish quota gates | ✅ |
-| No PSP / checkout | ✅ |
+| # | Commit | Scope |
+|---|--------|-------|
+| 1 | `f160270` | Schema + migration + seed |
+| 2 | `a768e6b` | Services + gates + admin/unlock APIs |
 
 ## Verification
 
-`npm test` · typecheck · build (after push)
+`npm test` 33/33 · typecheck ✅
