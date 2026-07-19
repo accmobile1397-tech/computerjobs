@@ -29,7 +29,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-027 | Phase 2 spec — **APPROVE** · implementation authorized | **Closed** |
 | 2026-07-19 | D-028 | **Product roadmap** Phases 2–8 (CTO-approved order) | Active |
 | 2026-07-19 | D-029 | **Phase 2 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.3-phase-2` | **Closed** |
-| 2026-07-19 | D-030 | Phase 3 spec — Location · Taxonomy · Skills · Technologies (spec only) | Active |
+| 2026-07-19 | D-030 | Phase 3 spec — **APPROVE** · implementation authorized | **Closed** |
+| 2026-07-19 | D-031 | Phase 3 implementation — **awaiting CTO review** | Active |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
@@ -53,18 +54,21 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-030: Phase 3 Spec — Location & Taxonomy
+## D-031: Phase 3 Implementation
 
-**Decision:** Spec generated — **awaiting CTO review**  
-**Status:** Implementation **blocked** until CTO approves  
-**Scope:** Province, City, Category, SubCategory, Skill, Technology, AI suggestion workflow, Admin approval workflow  
-**Not in scope:** Jobs (Phase 4)
+**Decision:** Implementation complete — **awaiting CTO review**  
+**Tag (after APPROVE):** `v0.4-phase-3`  
+**Record:** [docs/phase-3/CTO_REPORT.md](./phase-3/CTO_REPORT.md)
 
-**Documents:** `docs/phase-3/`
+---
 
-**Carryover from Phase 2 (due before Phase 3 close):**
-1. API integration tests (Profile, Company, Invite, Ownership)
-2. Audit event coverage verification
+## D-030: Phase 3 Spec — APPROVE
+
+**Decision:** ☑ **APPROVE** (CTO 2026-07-19)  
+**Status:** **Closed** — implementation complete, see D-031  
+**Record:** [docs/phase-3/CTO_SPEC_APPROVAL.md](./phase-3/CTO_SPEC_APPROVAL.md)
+
+**Enhancements applied:** aliases, popularityScore, officialUrl, isOfficial, Employer source, JSON seed files.
 
 ---
 

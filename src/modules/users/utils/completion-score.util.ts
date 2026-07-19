@@ -6,6 +6,7 @@ type JobSeekerProfileFields = {
   bio?: string | null;
   avatarUrl?: string | null;
   cityLabel?: string | null;
+  cityId?: string | null;
   profileVisibility?: ProfileVisibility;
 };
 
@@ -18,7 +19,7 @@ export function computeJobSeekerCompletionScore(
     { filled: Boolean(profile.headline?.trim()), points: 20 },
     { filled: Boolean(profile.bio?.trim()), points: 25 },
     { filled: Boolean(profile.avatarUrl?.trim()), points: 15 },
-    { filled: Boolean(profile.cityLabel?.trim()), points: 10 },
+    { filled: Boolean(profile.cityLabel?.trim()) || Boolean(profile.cityId), points: 10 },
     { filled: hasSlug, points: 15 },
   ];
 

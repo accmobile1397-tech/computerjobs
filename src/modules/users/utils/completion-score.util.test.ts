@@ -22,4 +22,12 @@ describe("completion-score.util", () => {
     const score = computeJobSeekerCompletionScore({ displayName: "Ali" }, false);
     expect(score).toBe(15);
   });
+
+  it("counts cityId toward location score", () => {
+    const score = computeJobSeekerCompletionScore(
+      { cityId: "00000000-0000-4000-8000-000000000001" },
+      false,
+    );
+    expect(score).toBe(10);
+  });
 });

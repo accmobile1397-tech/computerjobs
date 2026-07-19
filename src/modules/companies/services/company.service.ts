@@ -13,6 +13,7 @@ import {
   validateWebsiteUrl,
 } from "@/modules/shared/utils/slug.util";
 import { writeAuditLog } from "@/modules/auth/services/audit.service";
+import { assertActiveCategory, TaxonomyError } from "@/modules/taxonomy/services/taxonomy.service";
 import type { CreateCompanyInput, UpdateCompanyInput } from "@/modules/companies/validators/company.schema";
 
 export class CompanyError extends Error {
@@ -167,6 +168,15 @@ export async function updateCompany(params: {
 
   if (params.input.websiteUrl && !validateWebsiteUrl(params.input.websiteUrl)) {
     throw new CompanyError("VALIDATION_ERROR");
+  }
+
+  if (params.input.categoryId) {
+    try {
+      await assertActiveCategory(params.input.categoryId);
+    } catch (error) {
+      if (error instanceof TaxonomyError) throw new CompanyError(error.code);
+      throw error;
+    }
   }
 
   const updated = await prisma.company.update({

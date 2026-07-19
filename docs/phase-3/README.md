@@ -1,39 +1,25 @@
 # Phase 3 — Location, Taxonomy, Skills & Technologies
 
-**Status:** ⏳ **Specification — awaiting CTO review**  
-**Implementation:** ❌ Blocked until CTO approves spec
-
-## Scope (CTO-approved roadmap)
-
-| Domain | Entities |
-|--------|----------|
-| **Location** | Province, City |
-| **Taxonomy** | Category, SubCategory, Skill, Technology |
-| **Governance** | AI suggestion workflow, Admin approval workflow |
-
-**Not in Phase 3:** Jobs, Resume, Search, Payments, full AI Gateway
+**Status:** ⏳ **Implementation complete** — awaiting CTO review  
+**Spec approval:** [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md)  
+**Implementation:** compare link in [CTO_REPORT.md](./CTO_REPORT.md)
 
 ## Documents
 
 | File | Purpose |
 |------|---------|
+| [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md) | CTO APPROVE + enhancements |
+| [CTO_REPORT.md](./CTO_REPORT.md) | Implementation report |
 | [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) | مشخصات فنی |
-| [DATABASE_DESIGN.md](./DATABASE_DESIGN.md) | Schema + migrations from Phase 2 labels |
-| [API_DESIGN.md](./API_DESIGN.md) | Public + admin endpoints |
-| [SECURITY_REVIEW.md](./SECURITY_REVIEW.md) | Security spec |
-| [ACCEPTANCE_CRITERIA.md](./ACCEPTANCE_CRITERIA.md) | Test checklist |
-| [RISKS_AND_ASSUMPTIONS.md](./RISKS_AND_ASSUMPTIONS.md) | Risks |
+| [DATABASE_DESIGN.md](./DATABASE_DESIGN.md) | Schema |
+| [API_DESIGN.md](./API_DESIGN.md) | Endpoints |
+| [TEST_COVERAGE.md](./TEST_COVERAGE.md) | Tests |
 
-## Dependencies
+## Seed files
 
-- Phase 2 closed (`v0.3-phase-2`)
-- Jobs (Phase 4) requires Location + Taxonomy from this phase
+`src/modules/location/seed/data/` — provinces.json, cities.json  
+`src/modules/taxonomy/seed/data/` — categories, subcategories, skills, technologies
 
-## Modules
+## After CTO APPROVE
 
-- `src/modules/location/` — province, city, seed
-- `src/modules/taxonomy/` — category, subcategory, skill, technology, suggestion, approval
-
-## After CTO Spec Approval
-
-Implementation on `main` (incremental commits) → `CTO_REPORT` → Guardian → Index → tag `v0.4-phase-3`
+Tag `v0.4-phase-3` → Phase 4 Jobs spec (blocked until approval)

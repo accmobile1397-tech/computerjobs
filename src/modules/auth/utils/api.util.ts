@@ -57,6 +57,12 @@ export function mapErrorToResponse(
     CANNOT_REMOVE_OWNER: 400,
     CANNOT_CHANGE_OWNER_ROLE: 400,
     USER_NOT_ACTIVE: 403,
+    LOCATION_NOT_FOUND: 404,
+    TAXONOMY_NOT_FOUND: 404,
+    SUGGESTION_NOT_PENDING: 409,
+    PARENT_NOT_FOUND: 400,
+    MERGE_TARGET_INVALID: 400,
+    CATEGORY_OFFICIAL_PROTECTED: 403,
   };
 
   const messageMap: Record<string, string> = {

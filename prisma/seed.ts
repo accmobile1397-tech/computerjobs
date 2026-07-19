@@ -1,5 +1,7 @@
 import { PrismaClient, UserPrimaryType, UserStatus } from "@prisma/client";
 import { hashPassword } from "@/modules/auth/utils/password.util";
+import { seedLocation } from "@/modules/location/seed";
+import { seedTaxonomy } from "@/modules/taxonomy/seed";
 
 const prisma = new PrismaClient();
 
@@ -15,6 +17,11 @@ const PERMISSIONS = [
   { slug: "company:invite", nameFa: "دعوت عضو به شرکت" },
   { slug: "company:verify", nameFa: "تأیید شرکت (ادمین)" },
   { slug: "company:suspend", nameFa: "تعلیق شرکت (ادمین)" },
+  { slug: "location:read", nameFa: "خواندن Location" },
+  { slug: "location:write", nameFa: "مدیریت Location (ادمین)" },
+  { slug: "taxonomy:read", nameFa: "خواندن Taxonomy" },
+  { slug: "taxonomy:write", nameFa: "مدیریت Taxonomy" },
+  { slug: "taxonomy:approve", nameFa: "تأیید پیشنهاد Taxonomy" },
   { slug: "resumes:create", nameFa: "ایجاد رزومه" },
   { slug: "resumes:read:own", nameFa: "خواندن رزومه خود" },
   { slug: "jobs:create", nameFa: "ایجاد آگهی" },
@@ -64,6 +71,11 @@ const ROLES = [
       "profile:read:any",
       "company:verify",
       "company:suspend",
+      "location:read",
+      "location:write",
+      "taxonomy:read",
+      "taxonomy:write",
+      "taxonomy:approve",
     ],
   },
   {
@@ -74,7 +86,7 @@ const ROLES = [
 ];
 
 async function main() {
-  console.log("Seeding IAM + Phase 2 permissions...");
+  console.log("Seeding IAM + Phase 2/3 permissions...");
 
   for (const perm of PERMISSIONS) {
     await prisma.permission.upsert({
@@ -129,6 +141,9 @@ async function main() {
     }
     console.log(`SuperAdmin seeded: ${superEmail}`);
   }
+
+  await seedLocation(prisma);
+  await seedTaxonomy(prisma);
 
   console.log("Seed completed");
 }

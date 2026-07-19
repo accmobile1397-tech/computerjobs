@@ -232,3 +232,39 @@ None required — ADR-0005 already covers taxonomy structure.
 ## Recommendation
 
 Review Phase 3 spec package. **Do not implement until CTO APPROVE.**
+
+---
+
+# Phase 3 Review — Architecture Guardian
+
+**Date:** 2026-07-19  
+**Phase:** 3 — Location & Taxonomy  
+**Branch:** `main`  
+**Status:** ⏳ Awaiting CTO Review
+
+## 1. Technical Debt
+
+| Debt | Priority |
+|------|----------|
+| TD-P2-1 Full HTTP integration tests | P1 — checklist added |
+| City seed 431 vs 1659 official cities | P2 — expand seed later |
+
+## 2. Rulebook
+
+Separate `location/` and `taxonomy/` — no God Module. ✅
+
+## 3. Refactor before Phase 4?
+
+None blocking. Jobs can consume `cityId`, `categoryId`, taxonomy IDs.
+
+## 4. Future impact
+
+Unblocks Phase 4 Jobs. Aliases + popularityScore ready for Search (Phase 6) and AI (Phase 8).
+
+## 5. PRD/ADR updates?
+
+None required.
+
+## Recommendation
+
+Submit implementation for CTO review. Tag `v0.4-phase-3` after APPROVE.

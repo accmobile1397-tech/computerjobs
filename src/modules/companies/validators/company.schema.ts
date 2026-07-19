@@ -19,6 +19,7 @@ export const createCompanySchema = z.object({
   websiteUrl: z.string().url().max(512).optional(),
   employeeCountRange: z.nativeEnum(EmployeeCountRange).optional(),
   industryLabel: z.string().max(200).optional(),
+  categoryId: z.string().uuid().optional(),
 });
 
 export const updateCompanySchema = createCompanySchema.partial().omit({ name: true }).extend({

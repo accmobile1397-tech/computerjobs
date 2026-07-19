@@ -28,6 +28,7 @@ export const updateJobSeekerProfileSchema = z.object({
   bio: z.string().max(2000).optional(),
   avatarUrl: urlOptional,
   cityLabel: z.string().max(120).optional(),
+  cityId: z.string().uuid().optional(),
   profileVisibility: z.nativeEnum(ProfileVisibility).optional(),
 });
 

@@ -14,6 +14,7 @@ import {
   validateSlugFormat,
 } from "@/modules/shared/utils/slug.util";
 import { writeAuditLog } from "@/modules/auth/services/audit.service";
+import { assertActiveCity, LocationError } from "@/modules/location/services/location.service";
 import {
   computeJobSeekerCompletionScore,
 } from "@/modules/users/utils/completion-score.util";
@@ -91,6 +92,15 @@ export async function updateJobSeekerProfile(params: {
   if (!user?.jobSeekerProfile) throw new ProfileError("NOT_FOUND");
   if (user.status !== UserStatus.ACTIVE) throw new ProfileError("USER_NOT_ACTIVE");
 
+  if (params.input.cityId) {
+    try {
+      await assertActiveCity(params.input.cityId);
+    } catch (error) {
+      if (error instanceof LocationError) throw new ProfileError(error.code);
+      throw error;
+    }
+  }
+
   let slug = user.slug;
   if (params.input.slug) {
     await assertSlugAvailable(params.input.slug, params.userId);
@@ -115,6 +125,7 @@ export async function updateJobSeekerProfile(params: {
     bio: params.input.bio ?? user.jobSeekerProfile.bio,
     avatarUrl: params.input.avatarUrl ?? user.jobSeekerProfile.avatarUrl,
     cityLabel: params.input.cityLabel ?? user.jobSeekerProfile.cityLabel,
+    cityId: params.input.cityId ?? user.jobSeekerProfile.cityId,
     profileVisibility:
       params.input.profileVisibility ?? user.jobSeekerProfile.profileVisibility,
   };

@@ -29,7 +29,7 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 0 Foundation | 🟢 Closed |
 | 1 IAM | 🟢 Closed (`v0.2-phase-1`) |
 | 2 Profiles & Companies | 🟢 Closed (`v0.3-phase-2`) |
-| 3 Location & Taxonomy | ⏳ Spec — **awaiting CTO review** |
+| 3 Location & Taxonomy | ⏳ Implementation — **awaiting CTO review** |
 
 ---
 
