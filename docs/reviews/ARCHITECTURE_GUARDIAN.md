@@ -160,7 +160,7 @@ ADR-0006 added. Phase 1 closed in DECISIONS D-026.
 **Date:** 2026-07-19  
 **Phase:** 2 — Profiles & Companies  
 **Branch:** `main`  
-**Status:** ⏳ Awaiting CTO Review
+**Status:** 🟢 **CLOSED** — `v0.3-phase-2`
 
 ## 1. Technical Debt introduced?
 
@@ -187,4 +187,48 @@ None required. Roadmap D-028 confirmed.
 
 ## Recommendation
 
-Submit implementation commit for CTO review. Tag `v0.3-phase-2` after APPROVE.
+🟢 **Phase 2 closed** — tag `v0.3-phase-2`. Proceed to Phase 3 spec review.
+
+**CTO conditions carry to Phase 3 close:** integration tests + audit verification.
+
+---
+
+## Sign-off
+
+- [x] Architecture Guardian (Agent) — submitted  
+- [x] CTO — Phase 2 **APPROVE WITH CONDITIONS** (2026-07-19)
+
+---
+
+# Phase 3 Preview — Architecture Guardian (Pre-implementation)
+
+**Date:** 2026-07-19  
+**Phase:** 3 — Location & Taxonomy (spec only)  
+**Status:** ⏳ Awaiting CTO Spec Review
+
+## 1. Technical Debt from Phase 2
+
+| Debt | Phase 3 action |
+|------|----------------|
+| TD-P2-1 Integration tests | Required before Phase 3 close |
+| TD-P2-2 Employer completion score | Accept — no blocker |
+
+## 2. Rulebook
+
+Spec maintains separate `location/` and `taxonomy/` modules — no God Module.
+
+## 3. Refactor before implementation?
+
+None — skeleton folders exist from Phase 0.
+
+## 4. Future impact
+
+Unblocks Phase 4 Jobs. `cityId` + `categoryId` FK migration path documented.
+
+## 5. PRD/ADR updates?
+
+None required — ADR-0005 already covers taxonomy structure.
+
+## Recommendation
+
+Review Phase 3 spec package. **Do not implement until CTO APPROVE.**

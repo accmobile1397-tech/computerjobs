@@ -26,8 +26,10 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-020 | Phase 1 IAM spec — CTO approved for implementation | **Closed** |
 | 2026-07-19 | D-021 | Phase 1 IAM implemented | **Closed** |
 | 2026-07-19 | D-026 | **Phase 1 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.2-phase-1` | **Closed** |
-| 2026-07-19 | D-027 | Phase 2 spec — **APPROVE** · implementation authorized | Active |
+| 2026-07-19 | D-027 | Phase 2 spec — **APPROVE** · implementation authorized | **Closed** |
 | 2026-07-19 | D-028 | **Product roadmap** Phases 2–8 (CTO-approved order) | Active |
+| 2026-07-19 | D-029 | **Phase 2 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.3-phase-2` | **Closed** |
+| 2026-07-19 | D-030 | Phase 3 spec — Location · Taxonomy · Skills · Technologies (spec only) | Active |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
@@ -51,10 +53,42 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
+## D-030: Phase 3 Spec — Location & Taxonomy
+
+**Decision:** Spec generated — **awaiting CTO review**  
+**Status:** Implementation **blocked** until CTO approves  
+**Scope:** Province, City, Category, SubCategory, Skill, Technology, AI suggestion workflow, Admin approval workflow  
+**Not in scope:** Jobs (Phase 4)
+
+**Documents:** `docs/phase-3/`
+
+**Carryover from Phase 2 (due before Phase 3 close):**
+1. API integration tests (Profile, Company, Invite, Ownership)
+2. Audit event coverage verification
+
+---
+
+## D-029: Phase 2 Closed
+
+**Decision:** ☑ **APPROVE WITH CONDITIONS** (CTO 2026-07-19)
+
+**Conditions (non-blocking):**
+1. API integration tests — before end of Phase 3
+2. Audit event coverage verification — before end of Phase 3
+3. Rate limiting (Invite + public slug APIs) — future phase
+4. Public profile/company SEO metadata — future phases
+
+**Tag:** `v0.3-phase-2` · **Implementation:** `847fe54..fe7bc85`  
+**Record:** [docs/phase-2/CTO_IMPLEMENTATION_APPROVAL.md](./phase-2/CTO_IMPLEMENTATION_APPROVAL.md)
+
+**Technical debt (accepted):** TD-P2-1, TD-P2-2
+
+---
+
 ## D-027: Phase 2 Spec — APPROVE
 
 **Decision:** ☑ **APPROVE** (CTO 2026-07-19) — no blockers  
-**Status:** Implementation authorized on `main`  
+**Status:** **Closed** — see D-029  
 **Record:** [docs/phase-2/CTO_SPEC_APPROVAL.md](./phase-2/CTO_SPEC_APPROVAL.md)
 
 **Implementation guidelines (non-blocking):** completionScore computed; stable slugs; soft delete; invite hash; public API fields only; avoid God Module in `users/`.

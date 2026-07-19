@@ -10,32 +10,44 @@
 
 ---
 
-# Phase 2 — Profiles & Companies (Review)
+# Phase 2 — Profiles & Companies (Closed)
 
-**Status:** ⏳ Awaiting CTO Review  
+**Tag:** `v0.3-phase-2`  
+**Implementation:** [`847fe54..fe7bc85`](https://github.com/accmobile1397-tech/computerjobs/compare/847fe54...fe7bc85)  
+**Decision:** APPROVE WITH CONDITIONS (2026-07-19)
+
+| Document | Path |
+|----------|------|
+| **Approval** | [docs/phase-2/CTO_IMPLEMENTATION_APPROVAL.md](./phase-2/CTO_IMPLEMENTATION_APPROVAL.md) |
+| CTO Report | [docs/phase-2/CTO_REPORT.md](./phase-2/CTO_REPORT.md) |
+| Tests | [docs/phase-2/TEST_COVERAGE.md](./phase-2/TEST_COVERAGE.md) |
+
+---
+
+# Phase 3 — Location & Taxonomy (Spec Review)
+
+**Status:** ⏳ Awaiting CTO Spec Review  
 **Branch:** `main`  
-**Implementation:** [`847fe54..c7a0544`](https://github.com/accmobile1397-tech/computerjobs/compare/847fe54...c7a0544) · **Review anchor:** [`c7a0544`](https://github.com/accmobile1397-tech/computerjobs/commit/c7a0544)  
-**Migration:** `20260719160000_phase2_profiles_companies`
+**Implementation:** ❌ Blocked
 
 ## Start Here
 
 | Document | Path |
 |----------|------|
-| **CTO Report** | [docs/phase-2/CTO_REPORT.md](./phase-2/CTO_REPORT.md) |
-| Spec | [docs/phase-2/TECHNICAL_SPEC.fa.md](./phase-2/TECHNICAL_SPEC.fa.md) |
-| Database | [docs/phase-2/DATABASE_DESIGN.md](./phase-2/DATABASE_DESIGN.md) |
-| API | [docs/phase-2/API_DESIGN.md](./phase-2/API_DESIGN.md) |
-| Security | [docs/phase-2/SECURITY_REVIEW.md](./phase-2/SECURITY_REVIEW.md) |
-| Tests | [docs/phase-2/TEST_COVERAGE.md](./phase-2/TEST_COVERAGE.md) |
-| Guardian | [ARCHITECTURE_GUARDIAN.md](./ARCHITECTURE_GUARDIAN.md) (Phase 2) |
+| **Technical Spec** | [docs/phase-3/TECHNICAL_SPEC.fa.md](./phase-3/TECHNICAL_SPEC.fa.md) |
+| Database | [docs/phase-3/DATABASE_DESIGN.md](./phase-3/DATABASE_DESIGN.md) |
+| API | [docs/phase-3/API_DESIGN.md](./phase-3/API_DESIGN.md) |
+| Security | [docs/phase-3/SECURITY_REVIEW.md](./phase-3/SECURITY_REVIEW.md) |
+| Acceptance | [docs/phase-3/ACCEPTANCE_CRITERIA.md](./phase-3/ACCEPTANCE_CRITERIA.md) |
+| Risks | [docs/phase-3/RISKS_AND_ASSUMPTIONS.md](./phase-3/RISKS_AND_ASSUMPTIONS.md) |
 
-## Modules
+## Scope
 
-- `src/modules/users/` — profiles, slug, completion score
-- `src/modules/companies/` — CRUD, members, invites
+Province · City · Category · SubCategory · Skill · Technology · AI suggestion · Admin approval
 
-## API (new)
+**Not in scope:** Jobs
 
-Profiles: `/users/me/slug`, `/users/me/job-seeker-profile`, `/users/me/employer-profile`, `/profiles/by-slug/:slug`  
-Companies: `/companies`, `/companies/mine`, `/companies/:id`, `/companies/by-slug/:slug`, members, invites, transfer  
-Admin: `/admin/employers/:userId/verification`, `/admin/companies/:id/verification`, `/admin/companies/:id/status`
+## Modules (planned)
+
+- `src/modules/location/`
+- `src/modules/taxonomy/`

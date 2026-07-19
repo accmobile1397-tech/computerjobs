@@ -2,6 +2,24 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
+## [0.3.0] — 1404/04/29 — Phase 2 Profiles & Companies
+
+### Added
+
+- User profiles & company management on `main`
+- `users.slug`, job-seeker/employer profiles, completion score
+- Company CRUD, members, invites, ownership transfer
+- Admin verification/status endpoints
+- Public profile + company slug endpoints
+- Migration `20260719160000_phase2_profiles_companies`
+- 11 unit tests; CI green
+
+### CTO
+
+- **APPROVE WITH CONDITIONS** — Phase 2 closed
+- Tag: `v0.3-phase-2`
+- Conditions: integration tests + audit verification before Phase 3 close; rate limiting + SEO metadata deferred
+
 ## [0.2.0] — 1404/04/29 — Phase 1 IAM
 
 ### Added
@@ -21,11 +39,6 @@ All notable changes to ComputerJobs.ir are documented here.
 - **APPROVE WITH CONDITIONS** — Phase 1 closed
 - Tag: `v0.2-phase-1`
 - Conditions: shared migration continues; taxonomy/location skeletons remain planned
-
-### Phase 2
-
-- Spec **APPROVE** (CTO 2026-07-19) — implementation authorized
-- Record: `docs/phase-2/CTO_SPEC_APPROVAL.md`
 
 ## [0.1.2] — 1404/04/29
 
