@@ -1,180 +1,136 @@
 # مشخصات فنی — Phase 7: Payments · Plans · Quotas · Credits · Entitlements
 
-**پروژه:** ComputerJobs.ir · **فاز:** 7 · **وضعیت:** ⏳ Spec — awaiting CTO review · **بدون پیاده‌سازی**
+**پروژه:** ComputerJobs.ir · **فاز:** 7 · **وضعیت:** ✅ Spec APPROVE WITH MINOR CONDITIONS — split 7A/7B
 
-**Frozen input:** RFC-001 APPROVED WITH CONDITIONS  
-→ [RFC-001-PRODUCT-RULES.md](../rfc/RFC-001-PRODUCT-RULES.md) · [RFC-001-MONETIZATION.md](../rfc/RFC-001-MONETIZATION.md)
-
----
-
-## ۱. Scope
-
-| In | Out |
-|----|-----|
-| PlanDefinition / PlanFeature catalog | AI provider calls (Phase 8) |
-| Subscriptions (seeker + company) | Banner ad network |
-| ConsumableBalance + ConsumableTransaction | Multi-resume product change |
-| Quota enforcement (data-driven) | Hardcoded limit constants |
-| AI credit ledger + reserve schema | MatchScore persistence |
-| Checkout + PaymentProvider abstraction | International PSP |
-| Admin APIs to edit plans/quotas/prices/settings | Full fiscal ERP |
-| Wire publish / apply / resume-view / unlock / search to entitlements | Changing product invariants |
+**Frozen input:** RFC-001 APPROVED WITH CONDITIONS
 
 ---
 
-## ۲. Architecture principles (CTO)
+## ۰. Split
 
-1. **DATA-DRIVEN** — all quotas, limits, entitlements, consumables, AI credits, featured/urgent slots, apply/search/view/unlock/alert limits from DB.
-2. **No business numbers in source** — only feature keys + lookups.
-3. Admin Panel (API first) mutates catalog **without deploy**.
-4. Honor RFC-001 **invariants** in code (not admin settings).
+| Sub-phase | Scope | Status |
+|-----------|--------|--------|
+| **7A** | Entitlements, Quotas, Wallet, Plans, ContactUnlock, Admin catalog | **Implement now** |
+| **7B** | Payment Gateway Integration (checkout, webhook, Payment*) | **Deferred** — no PSP in 7A |
 
 ---
 
-## ۳. Module
+## ۱. CTO Minor Conditions
+
+| # | Amendment |
+|---|-----------|
+| 1 | `SubscriptionHistory` entity |
+| 2 | `PlanFeature` versioning + effective dates |
+| 3 | Money: `amount` + `currency` (not `priceIrr`-only) |
+| 4 | `ContactUnlock` source of truth for unlocked contacts |
+| 5 | Quota reset strategy + scheduled job ownership documented |
+| 6 | Billing audit event catalog |
+| 7 | Split 7A / 7B |
+
+---
+
+## ۲. Scope 7A
+
+| In | Out (7B / later) |
+|----|------------------|
+| PlanDefinition, PlanFeature (versioned), PlanPrice (amount+currency) | IPG redirect / webhook |
+| Subscription + SubscriptionHistory | Payment / PaymentAttempt runtime |
+| ConsumableBalance + ConsumableTransaction | Auto-renew charge |
+| QuotaUsage + reset job ownership | — |
+| ContactUnlock | — |
+| SystemSetting | — |
+| Admin CRUD catalog + wallet grant | Checkout SKUs purchase flow |
+| Gate publish / apply / unlock / view / search via entitlements | — |
+
+---
+
+## ۳. Money abstraction
 
 ```text
-src/modules/billing/          # or payments/
-  services/
-    entitlement.service.ts    # resolve PlanFeature limits
-    wallet.service.ts         # ConsumableBalance + transactions
-    subscription.service.ts
-    checkout.service.ts
-    quota.service.ts          # consume plan period counters
-    ai-credit.service.ts      # reserve/capture/release (no AI call yet)
-  providers/
-    payment-provider.ts       # interface
-    zarinpal.provider.ts      # stub until PSP chosen
+amount: Int   // minor units (IRR has no decimals → amount = rials)
+currency: String  // ISO-like code, seed "IRR"
+```
+
+Never hardcode IRR amounts in TypeScript.
+
+---
+
+## ۴. PlanFeature versioning
+
+Each feature row: `version`, `effectiveFrom`, `effectiveTo` (null = open).  
+Resolve: active subscription plan → feature where `effectiveFrom <= now` AND (`effectiveTo` IS NULL OR `> now`) · highest `version`.
+
+Admin “edit limit” → insert new version row (do not mutate historical row in place).
+
+---
+
+## ۵. Quota reset strategy
+
+| Period | `periodKey` (Asia/Tehran via SystemSetting `billing.timezone`) |
+|--------|------------------------------------------------------------------|
+| DAY | `YYYY-MM-DD` |
+| MONTH | `YYYY-MM` |
+| YEAR | `YYYY` |
+| NONE | `lifetime` |
+
+**Reset:** counters are keyed by `periodKey` — new period ⇒ new row / zero usage (no destructive wipe required).
+
+**Scheduled job:** `billing.ensurePeriodBoundaries`  
+**Owner:** `src/modules/billing` · **Runner:** BullMQ worker (`modules/shared/queue`)  
+**Cadence:** hourly (seed SystemSetting `billing.quota_job_cron`)  
+**7A duty:** register job handler + compute periodKey; full worker deploy may already exist — wire processor.
+
+Rollover: if `PlanFeature.rollover=true`, copy unused into next period as wallet CREDIT (optional 7A.1 — flag supported, impl if time).
+
+---
+
+## ۶. ContactUnlock
+
+Source of truth: row `(companyId, targetUserId)` unique.  
+Unlock API creates row + debits quota/wallet.  
+Contact APIs check `ContactUnlock` existence — never infer from transactions alone.
+
+---
+
+## ۷. Billing audit catalog
+
+| AuditAction | When |
+|-------------|------|
+| `PLAN_CREATED` / `PLAN_UPDATED` | Admin plan |
+| `PLAN_FEATURE_VERSIONED` | New PlanFeature version |
+| `PLAN_PRICE_UPDATED` | Price metadata |
+| `SUBSCRIPTION_CREATED` / `CHANGED` / `CANCELED` | Lifecycle |
+| `SUBSCRIPTION_HISTORY_RECORDED` | History append |
+| `WALLET_CREDITED` / `WALLET_DEBITED` | Balance change |
+| `AI_CREDIT_RESERVED` / `CAPTURED` / `RELEASED` | AI ledger |
+| `QUOTA_CONSUMED` | Period counter++ |
+| `CONTACT_UNLOCKED` | ContactUnlock create |
+| `SYSTEM_SETTING_UPDATED` | Admin setting |
+| `BILLING_ADMIN_GRANT` | Manual wallet/quota grant |
+
+(7B adds `PAYMENT_*`.)
+
+---
+
+## ۸. Module (7A)
+
+```text
+src/modules/billing/
+  services/ entitlement · quota · wallet · subscription · contact-unlock · settings · ai-credit
+  jobs/ quota-period.job.ts
   validators/
-admin: src/app/api/v1/admin/billing/*
 ```
 
-Jobs / resumes / search modules call `entitlement` / `wallet` — no local magic numbers.
+No `providers/` PSP in 7A.
 
 ---
 
-## ۴. Data model (conceptual)
+## ۹. Invariants
 
-### PlanDefinition
-
-`id`, `slug`, `audience` (SEEKER|EMPLOYER), `nameFa`, `isActive`, `sortOrder`, timestamps
-
-### PlanFeature
-
-`id`, `planId`, `featureKey` (string), `limitValue` (int|null=unlimited), `period` (NONE|DAY|MONTH|YEAR), `rollover` bool
-
-### PlanPrice (SKU)
-
-`id`, `sku`, `planId?`, `consumableType?`, `packQuantity?`, `priceIrr`, `periodMonths`, `isActive`
-
-### Subscription
-
-`id`, `ownerType` (USER|COMPANY), `ownerId`, `planId`, `status`, `currentPeriodStart/End`, `cancelAtPeriodEnd`
-
-### ConsumableBalance
-
-`id`, `ownerType`, `ownerId`, `consumableType`, `available`, `reserved`, unique(owner, type)
-
-### ConsumableTransaction
-
-`id`, `ownerType`, `ownerId`, `consumableType`, `delta`, `kind` (CREDIT|DEBIT|RESERVE|CAPTURE|RELEASE), `refType`, `refId`, `requestId?`, `metadata`, `createdAt`
-
-### QuotaUsage (period counters for plan features)
-
-`ownerType`, `ownerId`, `featureKey`, `periodKey` (e.g. `2026-07`), `used`
-
-### SystemSetting
-
-`key`, `valueJson`, `updatedAt`, `updatedBy`
-
-### Payment / PaymentAttempt
-
-gateway refs, amountIrr, status, idempotency keys
-
-**Do not** create MatchScore table.  
-**Do not** admin-toggle invariants.
+RFC-001 §A.2 — enforced in code, not SystemSetting.
 
 ---
 
-## ۵. Feature keys (stable strings)
+## ۱۰. Gate
 
-Examples — limits always from `PlanFeature` / settings:
-
-`application.per_month`, `job_post.per_month`, `job.concurrent_published`, `resume_view.per_month`, `contact_unlock.per_month`, `resume_search.per_day`, `match_score.per_day`, `match_score.employer.per_day`, `company.seats`, `job.featured_slots`, `job.urgent_slots`, `saved_search.max`, `job_alert.max`, `ai_credit.included_period`
-
-Consumable types: `job_post`, `resume_view`, `contact_unlock`, `featured_day`, `ai_credit`
-
----
-
-## ۶. Runtime flows
-
-### Entitlement check
-
-```text
-resolveSubscription(owner) → plan
-getFeature(plan, key) → limit
-getQuotaUsage(owner, key, period) → used
-if used >= limit → try wallet consumable mapping → else QUOTA_EXCEEDED
-```
-
-### Wallet
-
-CREDIT on purchase/admin grant · DEBIT on consume · RESERVE/CAPTURE/RELEASE for AI
-
-### Checkout
-
-create PaymentAttempt → redirect IPG → webhook verify → activate Subscription and/or CREDIT wallet
-
-### Admin
-
-CRUD PlanDefinition, PlanFeature, PlanPrice, SystemSetting; adjust ConsumableBalance (audited); no endpoint to disable invariants.
-
----
-
-## ۷. Integration points (minimal)
-
-| Existing action | Gate |
-|-----------------|------|
-| Job publish | `job_post` + concurrent published |
-| Seeker apply | `application.per_month` |
-| Resume search | `resume_search.per_day` + verified company |
-| Resume full view (search) | `resume_view` |
-| Contact unlock | `contact_unlock` |
-| Featured / urgent | slots / `featured_day` |
-| MatchScore | per_day feature (still on-demand compute) |
-
----
-
-## ۸. Permissions
-
-`billing:read:own`, `billing:checkout`, `billing:admin`, `plan:admin`, `wallet:admin`
-
----
-
-## ۹. Invariants (must enforce in code)
-
-- One resume / user · no upload · contact until unlock · verified company gates · MatchScore not stored · visibility enum unchanged
-
----
-
-## ۱۰. Out of scope / debt
-
-| ID | Item |
-|----|------|
-| TD-P6-2 | Search rate limiting (may use SystemSetting later) |
-| TD-P5-1 | Application resume snapshot |
-| PSP pick | Zarinpal vs IDPay vs NextPay at impl start |
-| Phase 8 | AI gateway + capture on real calls |
-
----
-
-## ۱۱. Acceptance gate
-
-CTO APPROVE this TECHNICAL_SPEC → implementation on `main`.  
-**Do not implement until APPROVE.**
-
----
-
-## References
-
-RFC-001 · D-028 Phase 7 · Phase 6 search/match · `.cto/RULEBOOK.md` · `.cto/TOKEN_OPTIMIZATION.md`
+7A implementation authorized. 7B after separate CTO pass on gateway design.

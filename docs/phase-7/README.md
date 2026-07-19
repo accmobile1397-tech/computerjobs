@@ -1,8 +1,6 @@
 # Phase 7 — Payments & Plans
 
-**Status:** ⏳ Spec only — awaiting CTO review  
-**Implementation:** blocked until TECHNICAL_SPEC APPROVE  
+**7A:** Entitlements — ⏳ awaiting CTO review  
+**7B:** Payment Gateway — not started  
 
-Frozen rules: RFC-001 APPROVED WITH CONDITIONS (data-driven entitlements).
-
-Spec: [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md)
+[TECHNICAL_SPEC](./TECHNICAL_SPEC.fa.md) · [DATABASE_DESIGN](./DATABASE_DESIGN.md) · [CTO_REPORT](./CTO_REPORT.md)

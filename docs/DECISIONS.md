@@ -38,7 +38,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-036 | Phase 6 spec — **APPROVE WITH CONDITIONS** | **Closed** |
 | 2026-07-19 | D-037 | Phase 6 implementation — **awaiting CTO review** | Active |
 | 2026-07-19 | D-038 | RFC-001 — **APPROVE WITH CONDITIONS** · frozen for Phase 7 | **Closed** |
-| 2026-07-19 | D-039 | Phase 7 spec — Payments & Plans (spec only) | Active |
+| 2026-07-19 | D-039 | Phase 7 spec — **APPROVE WITH MINOR CONDITIONS** · 7A/7B split | **Closed** |
+| 2026-07-19 | D-040 | Phase 7A implementation — entitlements (no PSP) | Active |
 | 2026-07-19 | TD-P6-2 | Search Rate Limiting | Active (P1) |
 | 2026-07-19 | TD-P5-1 | Application Resume Snapshot | Active (P1) |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
@@ -64,12 +65,20 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-039: Phase 7 Spec — Payments & Plans
+## D-040: Phase 7A Implementation
 
-**Decision:** Spec generated — **awaiting CTO review**  
-**Status:** Implementation **blocked** until CTO approves TECHNICAL_SPEC  
-**Document:** [docs/phase-7/TECHNICAL_SPEC.fa.md](./phase-7/TECHNICAL_SPEC.fa.md)  
-**Input:** RFC-001 APPROVED WITH CONDITIONS (data-driven entitlements)
+**Decision:** Implementation authorized — Entitlements/Quotas/Wallet/Plans only  
+**No PSP / checkout in 7A** (Phase 7B)  
+**Record:** [docs/phase-7/CTO_REPORT.md](./phase-7/CTO_REPORT.md)
+
+---
+
+## D-039: Phase 7 Spec — APPROVE WITH MINOR CONDITIONS
+
+**Decision:** ☑ **APPROVE WITH MINOR CONDITIONS** (CTO 2026-07-19)  
+**Status:** **Closed** — 7A implementing · 7B deferred  
+**Amendments:** SubscriptionHistory · PlanFeature versioning · amount+currency · ContactUnlock · quota job ownership · billing audit catalog · 7A/7B split  
+**Docs:** TECHNICAL_SPEC · DATABASE_DESIGN · CTO_SPEC_APPROVAL
 
 ---
 

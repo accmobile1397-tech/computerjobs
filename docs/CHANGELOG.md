@@ -13,8 +13,8 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ### Phase 7
 
-- TECHNICAL_SPEC generated — Payments, Plans, Quotas, Credits, Entitlements
-- **Awaiting CTO review** — no implementation
+- TECHNICAL_SPEC APPROVE WITH MINOR CONDITIONS — split **7A** (entitlements) / **7B** (PSP)
+- 7A implementing: plans, quotas, wallet, ContactUnlock — no payment gateway
 
 ## [0.6.0] — 1404/04/29 — Phase 5 Resume Builder
 
