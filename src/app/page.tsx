@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { DEPLOYED_PHASE } from "@/modules/shared/config/deploy-phase";
 
 export const dynamic = "force-dynamic";
 
@@ -35,7 +36,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-border py-6 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} ComputerJobs.ir — Phase 0 Foundation
+        © {new Date().getFullYear()} ComputerJobs.ir — Phase {DEPLOYED_PHASE}
       </footer>
     </div>
   );
