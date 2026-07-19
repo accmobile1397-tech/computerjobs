@@ -377,11 +377,11 @@ Tag `v0.8-phase-7B`. Freeze RFC-002 before Phase 8 implementation.
 
 ---
 
-# Phase 8 — Architecture Guardian (Pre-close)
+# Phase 8 — Architecture Guardian
 
 **Date:** 2026-07-19  
 **Phase:** 8 — AI Gateway & Features  
-**Status:** ? Awaiting CTO Review
+**CTO Decision:** APPROVE ? CLOSED (`v0.9-phase-8`)
 
 ## 1. Technical Debt
 
@@ -389,7 +389,7 @@ TD-P8-1 Local provider (P2). AiProviderHealth table still reserved. TD-P7A-4 cre
 
 ## 2. Rulebook
 
-Gateway-only providers · prompt registry · estimateCost/402 · mandatory moderate. ?
+Gateway-only providers · prompt registry · estimateCost/402 · mandatory moderate. OK
 
 ## 3. Refactor before next phase?
 
@@ -401,4 +401,9 @@ AI-Native path unlocked without blocking search/apply. Model routing + fallback 
 
 ## 5. Recommendation
 
-Review CTO_REPORT. Tag `v0.9-phase-8` after APPROVE.
+Tag `v0.9-phase-8`. Phase closed.
+
+## Sign-off
+
+- [x] Architecture Guardian (Agent)  
+- [x] CTO — Phase 8 **APPROVE** (2026-07-19)

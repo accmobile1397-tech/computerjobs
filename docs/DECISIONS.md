@@ -44,7 +44,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-042 | Phase 7B implementation — Payment Gateway | **Closed** |
 | 2026-07-19 | D-043 | **Phase 7B CLOSED** — APPROVE WITH CONDITIONS · `v0.8-phase-7B` | **Closed** |
 | 2026-07-19 | D-044 | RFC-002 AI Architecture — **CLOSED** · tag `v0.8-ai-rfc` | **Closed** |
-| 2026-07-19 | D-045 | Phase 8 implementation — **awaiting CTO review** | Active |
+| 2026-07-19 | D-045 | **Phase 8 CLOSED** — APPROVE · tag `v0.9-phase-8` | **Closed** |
 | 2026-07-19 | TD-P8-1 | Local (Ollama) AI provider adapter | Active (P2) |
 | 2026-07-19 | TD-P7B-1 | Payment Reconciliation Job | Active (P1) |
 | 2026-07-19 | TD-P7B-2 | Webhook Replay Protection | Active (P1) |
@@ -78,14 +78,15 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-045: Phase 8 Implementation — Awaiting CTO Review
+## D-045: Phase 8 Closed
 
-**Decision:** Spec APPROVE WITH MINOR CONDITIONS (P8-1…4) · implementation on `main` · **awaiting CTO review**  
-**Handoff:** [docs/phase-8/CTO_REPORT.md](./phase-8/CTO_REPORT.md)  
-**Range:** [`855d230..63c6288`](https://github.com/accmobile1397-tech/computerjobs/compare/855d230^...63c6288)  
+**Decision:** ☑ **APPROVE** (CTO 2026-07-19)  
+**Tag:** `v0.9-phase-8`  
+**Approval:** [docs/phase-8/CTO_IMPLEMENTATION_APPROVAL.md](./phase-8/CTO_IMPLEMENTATION_APPROVAL.md)  
+**Implementation:** [`855d230..63c6288`](https://github.com/accmobile1397-tech/computerjobs/compare/855d230^...63c6288)  
 **Prerequisite:** RFC-002 CLOSED · `v0.8-ai-rfc` (D-044)
 
-**On APPROVE:** tag `v0.9-phase-8` · close Phase 8
+**Debt:** TD-P8-1 Local provider · TD-P7A-4 carry
 
 ---
 

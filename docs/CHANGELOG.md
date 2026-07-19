@@ -2,6 +2,28 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
+## [0.9.0-8] — 1404/04/29 — Phase 8 AI Gateway & Features
+
+### Added
+
+- AI Gateway (`complete` / estimate / moderate / routing / rate-limit)
+- Providers: stub · openrouter · gemini (HTTP adapters)
+- Features: `ai.match.explain` · `ai.job.improve_description`
+- Prompt registry · wallet RESERVE/CAPTURE for AI_CREDIT
+- APIs under `/api/v1/ai/*`
+
+### CTO
+
+- **APPROVE** — Phase 8 closed
+- Tag: `v0.9-phase-8`
+- Debt: TD-P8-1 Local provider
+
+## [Unreleased]
+
+### Next
+
+- Phase 8.1 Resume AI Suggest (deferred) — awaiting CTO roadmap
+
 ## [0.8.0-7B] — 1404/04/29 — Phase 7B Payment Gateway
 
 ### Added
@@ -22,23 +44,7 @@ All notable changes to ComputerJobs.ir are documented here.
 ### Next
 
 - RFC-002 CLOSED · tag `v0.8-ai-rfc`
-- Phase 8 implementation AUTHORIZED
-
-## [Unreleased] — Phase 8 AI (awaiting CTO review)
-
-### Implementation
-
-- Gateway + stub/OpenRouter/Gemini · match.explain · job.improve
-- Commits: `855d230`…`63c6288` · Handoff: `docs/phase-8/CTO_REPORT.md`
-- Tests: 44/44 unit · no live HTTP smoke in handoff
-
-### RFC-002
-
-- CLOSED · tag `v0.8-ai-rfc` (D-044)
-
-### Spec
-
-- APPROVE WITH MINOR CONDITIONS (P8-1…4) — was AUTHORIZED; now **awaiting implementation review**
+- Phase 8 CLOSED · `v0.9-phase-8`
 
 ## [0.7.0-7A] — 1404/04/29 — Phase 7A Entitlements
 
