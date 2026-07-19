@@ -35,7 +35,7 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 5 Resume Builder | 🟢 Closed (`v0.6-phase-5`) |
 | 6 Search & Matching | ⏳ Implementation — **awaiting CTO review** |
 | 7A Entitlements | 🟢 Closed (`v0.7-phase-7A`) |
-| 7B Payment Gateway | ⏳ Spec — **awaiting CTO review** |
+| 7B Payment Gateway | ⏳ Implementation — **awaiting CTO review** |
 
 ---
 

@@ -40,7 +40,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-038 | RFC-001 — **APPROVE WITH CONDITIONS** · frozen for Phase 7 | **Closed** |
 | 2026-07-19 | D-039 | Phase 7 spec — **APPROVE WITH MINOR CONDITIONS** · 7A/7B split | **Closed** |
 | 2026-07-19 | D-040 | **Phase 7A CLOSED** — APPROVE WITH CONDITIONS · `v0.7-phase-7A` | **Closed** |
-| 2026-07-19 | D-041 | Phase 7B spec — Payment Gateway (spec only) | Active |
+| 2026-07-19 | D-041 | Phase 7B spec — **APPROVE WITH MINOR CONDITIONS** | **Closed** |
+| 2026-07-19 | D-042 | Phase 7B implementation — Payment Gateway | Active |
 | 2026-07-19 | TD-P7A-1 | Entitlement Cache Layer | Active (P2) |
 | 2026-07-19 | TD-P7A-2 | Usage Analytics | Active (P2) |
 | 2026-07-19 | TD-P7A-3 | Feature Flag Framework | Active (P2) |
@@ -70,10 +71,18 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-041: Phase 7B Spec — Payment Gateway
+## D-042: Phase 7B Implementation
 
-**Decision:** Spec generated — **awaiting CTO review**  
-**Status:** Implementation **blocked** until TECHNICAL_SPEC APPROVE  
+**Decision:** Implementation on `main` — Payment Gateway  
+**Conditions:** full PaymentStatus lifecycle · PaymentProvider-only · PAYMENT_SETTLED · idempotent settle · refund fields · return URL no settle · `activePaymentProvider`  
+**Record:** [docs/phase-7b/CTO_REPORT.md](./phase-7b/CTO_REPORT.md)
+
+---
+
+## D-041: Phase 7B Spec — APPROVE WITH MINOR CONDITIONS
+
+**Decision:** ☑ **APPROVE WITH MINOR CONDITIONS** (CTO 2026-07-19)  
+**Status:** **Closed** — see D-042  
 **Document:** [docs/phase-7b/TECHNICAL_SPEC.fa.md](./phase-7b/TECHNICAL_SPEC.fa.md)
 
 ---

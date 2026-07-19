@@ -2,6 +2,19 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
+## [Unreleased] — Phase 7B Payment Gateway
+
+### Added
+
+- Payment + PaymentAttempt (status lifecycle PENDING→…→REFUNDED)
+- PaymentProvider abstraction (`stub` via `activePaymentProvider`)
+- Checkout / return (read-only) / webhook settle (idempotent)
+- Reserved refundAmount, refundedAt; audit PAYMENT_SETTLED
+
+### CTO
+
+- Spec **APPROVE WITH MINOR CONDITIONS** — implementation in progress
+
 ## [0.7.0-7A] — 1404/04/29 — Phase 7A Entitlements
 
 ### Added

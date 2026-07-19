@@ -22,14 +22,18 @@
 | `SYSTEM_SETTING_UPDATED` | SystemSetting write | key |
 | `BILLING_ADMIN_GRANT` | Admin wallet credit | consumableType, amount, ownerId |
 
-## Phase 7B (planned — not implemented)
+## Phase 7B
 
 | Event | When |
 |-------|------|
 | `PAYMENT_CREATED` | Checkout started |
-| `PAYMENT_SUCCEEDED` | IPG verify / webhook success |
-| `PAYMENT_FAILED` | Failed attempt |
-| `PAYMENT_REFUNDED` | Refund |
+| `PAYMENT_SUCCEEDED` | After successful settle grant |
+| `PAYMENT_FAILED` | Verify fail or unpaid webhook |
+| `PAYMENT_SETTLED` | Idempotent settle completed (source of truth marker) |
+| `PAYMENT_REFUNDED` | Refund (reserved) |
+| `PAYMENT_CANCELLED` | Cancelled (reserved) |
+
+**Security:** Return URL never settles — only verified webhook → `settlePaymentFromWebhook`.
 
 ## ContactUnlock uniqueness
 

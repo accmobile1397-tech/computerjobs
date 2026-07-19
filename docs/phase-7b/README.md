@@ -1,7 +1,6 @@
-# Phase 7B — Payment Gateway Integration
+# Phase 7B — Payment Gateway
 
-**Status:** ⏳ Spec only — awaiting CTO review  
-**Implementation:** blocked  
-**Prerequisite:** 7A closed · `v0.7-phase-7A`
+**Status:** ⏳ Implementation complete — awaiting CTO review  
+**Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) · [CTO_REPORT.md](./CTO_REPORT.md)
 
-Spec: [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md)
+Return URL = status only · Webhook = settle

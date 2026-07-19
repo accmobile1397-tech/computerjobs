@@ -1,96 +1,61 @@
 # مشخصات فنی — Phase 7B: Payment Gateway Integration
 
-**پروژه:** ComputerJobs.ir · **فاز:** 7B · **وضعیت:** ⏳ Spec — awaiting CTO review · **بدون پیاده‌سازی**
+**پروژه:** ComputerJobs.ir · **فاز:** 7B · **وضعیت:** ✅ Spec APPROVE WITH MINOR CONDITIONS — implementation authorized
 
-**Depends on:** Phase 7A closed (`v0.7-phase-7A`) — entitlements/wallet already live
-
----
-
-## ۱. Scope
-
-| In | Out |
-|----|-----|
-| PaymentProvider interface | Changing plan/quota engine (7A) |
-| Checkout session create | AI provider calls (Phase 8) |
-| IPG redirect + return URL | Banner ads |
-| Webhook verify (idempotent) | Hardcoded prices |
-| Activate Subscription / CREDIT wallet on success | Multi-currency FX engine |
-| Payment + PaymentAttempt tables | Card data on our servers |
-| PAYMENT_* audit events | — |
+**Depends on:** 7A (`v0.7-phase-7A`)
 
 ---
 
-## ۲. Principles
+## CTO Minor Conditions
 
-1. Reuse 7A `PlanPrice.amount` + `currency` — no `priceIrr`-only fields.
-2. On success: Subscription activate and/or `creditWallet` — never invent parallel balances.
-3. Webhook + return-URL both idempotent on `gatewayRef` / `idempotencyKey`.
-4. PSP chosen at impl start (Zarinpal | IDPay | NextPay) behind one interface.
-5. **Diff-only** implementation when approved — load only 7B spec + billing module.
-
----
-
-## ۳. Data model (7B migration)
-
-### Payment
-
-`id`, `ownerType`, `ownerId`, `sku`, `amount`, `currency`, `status` (PENDING|SUCCEEDED|FAILED|REFUNDED),  
-`gateway`, `gatewayRef?`, `idempotencyKey` unique, `metadata` Json?, timestamps
-
-### PaymentAttempt
-
-`id`, `paymentId`, `status`, `rawRequest?`, `rawResponse?`, `createdAt`
+| # | Amendment |
+|---|-----------|
+| 1 | Payment status: PENDING · PROCESSING · SUCCEEDED · FAILED · CANCELLED · REFUNDED |
+| 2 | PaymentProvider abstraction only — no PSP imports outside `providers/` |
+| 3 | Audit `PAYMENT_SETTLED` (+ PAYMENT_CREATED / FAILED / REFUNDED as needed) |
+| 4 | Settlement idempotent on `idempotencyKey` + `gatewayRef` |
+| 5 | Reserved: `refundAmount`, `refundedAt` |
+| 6 | **Return URL never settles** — only verified webhook settles |
+| 7 | SystemSetting `activePaymentProvider` |
 
 ---
 
-## ۴. Flows
+## Scope
+
+Checkout · Provider interface · Webhook settle · Subscription/wallet credit on success  
+
+**Out:** AI · changing 7A quota engine · card storage · FX
+
+---
+
+## Flows
 
 ```text
-POST /billing/checkout { sku }
-  → create Payment PENDING
-  → PaymentProvider.createPayment(amount, currency, callback)
-  → return redirectUrl
+POST /billing/checkout { sku, idempotencyKey? }
+  → Payment PENDING → provider.create → PROCESSING + gatewayRef
+  → { redirectUrl, paymentId }
 
-GET  /billing/return?...   → verify → settle
-POST /billing/webhook      → signature check → settle (idempotent)
+GET  /billing/return?paymentId=…   → read-only status (NO settle)
 
-settle:
-  if already SUCCEEDED → no-op
-  mark SUCCEEDED
-  if plan SKU → Subscription + SubscriptionHistory
-  if pack SKU → creditWallet(packQuantity)
-  audit PAYMENT_SUCCEEDED
+POST /billing/webhook
+  → provider.verifySignature + verifyPayment
+  → settlePayment (idempotent)
+      if SUCCEEDED/REFUNDED already → no-op
+      else SUCCEEDED → grant plan/pack → PAYMENT_SETTLED + PAYMENT_SUCCEEDED
 ```
 
 ---
 
-## ۵. Module additions
+## Data
 
-```text
-src/modules/billing/
-  providers/ payment-provider.ts · {psp}.provider.ts
-  services/ checkout.service.ts · payment.service.ts
-```
+Payment: ownerType/Id, sku, amount, currency, status, gateway, gatewayRef?, idempotencyKey unique,  
+refundAmount?, refundedAt?, metadata?, timestamps  
 
-Admin: list payments (read). Refunds: admin manual 7B.1 optional.
+PaymentAttempt: paymentId, status, rawRequest?, rawResponse?
 
 ---
 
-## ۶. Permissions
+## Provider
 
-`billing:checkout` · existing `billing:read:own` · `billing:admin`
-
----
-
-## ۷. Open before coding
-
-- [ ] Primary PSP
-- [ ] Sandbox credentials process
-- [ ] VAT / taxMode (SystemSetting)
-
----
-
-## ۸. Gate
-
-CTO APPROVE TECHNICAL_SPEC → implement on `main`.  
-**Do not implement until APPROVE.**
+`getActivePaymentProvider()` reads SystemSetting `activePaymentProvider` (seed: `stub`).  
+Implementations only under `src/modules/billing/providers/`.
