@@ -2,17 +2,18 @@
 
 # Phase 1–5 — Closed
 
-`v0.2-phase-1` · `v0.3-phase-2` · `v0.4-phase-3` · `v0.5-phase-4` · `v0.6-phase-5`
+`v0.2` … `v0.6-phase-5`
 
 ---
 
-# Phase 6 — Search & Matching (Spec)
+# Phase 6 — Search & Matching (Review)
 
-**Status:** ⏳ Awaiting CTO Spec Review · **no implementation**
+**Status:** ⏳ Awaiting CTO Review
 
-| Document | Path |
-|----------|------|
-| **Technical Spec** | [docs/phase-6/TECHNICAL_SPEC.fa.md](./phase-6/TECHNICAL_SPEC.fa.md) |
+| Doc | Path |
+|-----|------|
+| **CTO Report** | [docs/phase-6/CTO_REPORT.md](./phase-6/CTO_REPORT.md) |
+| Spec | [docs/phase-6/TECHNICAL_SPEC.fa.md](./phase-6/TECHNICAL_SPEC.fa.md) |
+| Spec approval | [docs/phase-6/CTO_SPEC_APPROVAL.md](./phase-6/CTO_SPEC_APPROVAL.md) |
 
-Scope: Job Search · Resume Search · Filters · Rule-Based Matching · Match Score  
-Excluded: LLM · Agents · RAG · Prompting · AI Recommendations
+Module: `src/modules/search/`

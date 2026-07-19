@@ -43,7 +43,7 @@ Extra docs (Guardian, Index, TEST_COVERAGE, DATABASE/API designs) **only if CTO 
 | 3 | 🟢 Closed — `v0.4-phase-3` |
 | 4 | 🟢 Closed — `v0.5-phase-4` |
 | 5 | 🟢 Closed — `v0.6-phase-5` |
-| 6 | ⏳ Spec review — **no implementation** |
+| 6 | ⏳ Implementation review — **awaiting CTO** |
 
 ---
 

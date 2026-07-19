@@ -1,11 +1,6 @@
 # Phase 6 — Search & Matching
 
-**Status:** ⏳ Spec only — awaiting CTO review  
-**Spec commit:** [`fd0207e`](https://github.com/accmobile1397-tech/computerjobs/commit/fd0207e)  
-**Implementation:** blocked  
+**Status:** ⏳ Implementation complete — awaiting CTO review  
+**Spec:** [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md) · [CTO_REPORT.md](./CTO_REPORT.md)
 
-Scope: Job Search · Resume Search · Filters · Rule-Based Matching · Match Score  
-
-**Excluded:** LLM · Agents · RAG · Prompting · AI Recommendations  
-
-Spec: [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md)
+SavedSearch / SearchQueryLog / rate limit — reserved or deferred (TD-P6-2).
