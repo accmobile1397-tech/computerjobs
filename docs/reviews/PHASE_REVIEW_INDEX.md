@@ -1,47 +1,29 @@
 # Phase Review Index
 
----
+# Phase 1–4 — Closed
 
-# Phase 1 — IAM (Closed) · `v0.2-phase-1`
-
-# Phase 2 — Profiles & Companies (Closed) · `v0.3-phase-2`
-
-# Phase 3 — Location & Taxonomy (Closed) · `v0.4-phase-3`
-
-[CTO_IMPLEMENTATION_APPROVAL.md](./phase-3/CTO_IMPLEMENTATION_APPROVAL.md)
+`v0.2-phase-1` · `v0.3-phase-2` · `v0.4-phase-3` · `v0.5-phase-4`
 
 ---
 
-# Phase 4 — Jobs Core (Closed) · `v0.5-phase-4`
+# Phase 5 — Resume Builder (Review)
 
-[CTO_IMPLEMENTATION_APPROVAL.md](./phase-4/CTO_IMPLEMENTATION_APPROVAL.md)
-
----
-
-# Phase 5 — Resume Builder (Spec Review)
-
-**Status:** ⏳ Awaiting CTO Spec Review  
-**Implementation:** **blocked**
-
-## Start Here
+**Status:** ⏳ Awaiting CTO Review  
+**Migration:** `20260719220000_phase5_resume_builder`
 
 | Document | Path |
 |----------|------|
-| **Technical Spec** | [docs/phase-5/TECHNICAL_SPEC.fa.md](./phase-5/TECHNICAL_SPEC.fa.md) |
-| Database | [docs/phase-5/DATABASE_DESIGN.md](./phase-5/DATABASE_DESIGN.md) |
-| API | [docs/phase-5/API_DESIGN.md](./phase-5/API_DESIGN.md) |
-| Acceptance | [docs/phase-5/ACCEPTANCE_CRITERIA.md](./phase-5/ACCEPTANCE_CRITERIA.md) |
-| Security | [docs/phase-5/SECURITY_REVIEW.md](./phase-5/SECURITY_REVIEW.md) |
-| Risks | [docs/phase-5/RISKS_AND_ASSUMPTIONS.md](./phase-5/RISKS_AND_ASSUMPTIONS.md) |
+| **CTO Report** | [docs/phase-5/CTO_REPORT.md](./phase-5/CTO_REPORT.md) |
+| Spec approval | [docs/phase-5/CTO_SPEC_APPROVAL.md](./phase-5/CTO_SPEC_APPROVAL.md) |
+| Technical Spec | [docs/phase-5/TECHNICAL_SPEC.fa.md](./phase-5/TECHNICAL_SPEC.fa.md) |
+| Tests | [docs/phase-5/TEST_COVERAGE.md](./phase-5/TEST_COVERAGE.md) |
 
-## Scope
-
-Resume Builder · Education · Experience · Skills · Technologies · Languages · Certificates · Projects · Candidate Resume Visibility
-
-## Rules
-
-One active resume per user · No upload · No AI · No matching engine
-
-## Module (planned)
+## Module
 
 `src/modules/resumes/`
+
+## API
+
+- Owner: `GET/PATCH /users/me/resume` + section routes
+- Public: `GET /users/by-slug/:slug/resume` (user slug)
+- Employer: `GET /jobs/:id/applications/:applicationId/resume`
