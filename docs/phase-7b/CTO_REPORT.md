@@ -7,22 +7,16 @@
 
 ```text
 Phase 7B implementation — review:
-https://github.com/accmobile1397-tech/computerjobs/compare/{FIRST}...main
+https://github.com/accmobile1397-tech/computerjobs/compare/3c19cb2^...main
 گزارش: docs/phase-7b/CTO_REPORT.md
 ```
 
-## Conditions
+## Commits
 
-| # | Status |
-|---|--------|
-| PaymentStatus full lifecycle | ✅ |
-| PaymentProvider abstraction | ✅ stub only outside providers/ |
-| PAYMENT_SETTLED | ✅ |
-| Idempotent settle (idempotencyKey + gatewayRef) | ✅ |
-| refundAmount / refundedAt | ✅ |
-| Return URL never settles | ✅ |
-| activePaymentProvider setting | ✅ |
+| # | Hash | Scope |
+|---|------|-------|
+| 1 | `3c19cb2` | Payment schema, providers, checkout/webhook |
 
 ## Verification
 
-`npm test` · typecheck
+`npm test` 37/37 · typecheck ✅
