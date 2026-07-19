@@ -12,7 +12,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-006 | Feature-first `src/modules/` from Phase 1 — no deferral | Active → ADR-0001 |
 | 2026-07-19 | D-007 | AI module subfolders (gateway, providers, …) from skeleton | Active → ADR-0003 |
 | 2026-07-19 | D-008 | Taxonomy subfolders + Location subfolders from skeleton | Active |
-| 2026-07-19 | D-009 | Git workflow: `main` / `develop` / `feature/*` | Active |
+| 2026-07-19 | D-009 | Git workflow: direct commits on `main` only | Active (supersedes develop/feature) |
 | 2026-07-19 | D-010 | Rulebook split into `.cto/*.md` specialized files | Active |
 | 2026-07-19 | D-011 | ADR + RFC process from Phase 0 closeout | Active |
 | 2026-07-19 | D-012 | Phase 1 renamed: **Identity & Access Management (IAM)** | Active |
@@ -24,22 +24,29 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-018 | **Phase 0 final:** CTO APPROVE WITH CONDITIONS — all conditions met | **Closed** |
 | 2026-07-19 | D-019 | Phase 0 Closed — enter Phase 1 IAM | Active |
 | 2026-07-19 | D-020 | Phase 1 IAM spec — CTO approved for implementation | **Closed** |
-| 2026-07-19 | D-021 | Phase 1 IAM on `develop` commit `392310c` | Pending CTO |
-| 2026-07-19 | D-022 | **CTO handoff:** commit link on `develop` | Active |
-| 2026-07-19 | D-023 | **No feature branches** — work on `develop` only (Phase 0 style) | Active |
+| 2026-07-19 | D-021 | Phase 1 IAM on `main` commit `66e08b9` | Pending CTO |
+| 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
+| 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
+| 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch for daily work | Active |
 
 ---
 
-## D-023: No Feature Branches
+## D-024: Direct Commits on `main`
 
-Phase work commits directly to `develop`. CTO receives commit link only.  
-Removed `feature/auth` — content merged to `develop` 2026-07-19.
+All phase work commits directly to `main`. CTO receives commit link only.  
+`develop` branch retained on remote for history only — do not use for new work.
+
+---
+
+## D-023: No Feature Branches (Superseded)
+
+Was: work on `develop`. Superseded by D-024 (2026-07-19).
 
 ---
 
 ## D-022: CTO Handoff Workflow
 
-Official delivery: **commit link** on `develop` (+ optional `CTO_REPORT.md`).
+Official delivery: **commit link** on `main` (+ optional `CTO_REPORT.md`).
 
 See [docs/reviews/CTO_HANDOFF.md](./reviews/CTO_HANDOFF.md).
 
@@ -47,7 +54,7 @@ See [docs/reviews/CTO_HANDOFF.md](./reviews/CTO_HANDOFF.md).
 
 ## D-021: Phase 1 IAM Implementation (Pending CTO)
 
-Branch `develop`, latest commit `392310c`. Awaiting CTO review.
+Branch `main`, latest commit `66e08b9`. Awaiting CTO review.
 
 ---
 

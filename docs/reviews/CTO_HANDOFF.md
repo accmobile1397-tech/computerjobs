@@ -1,7 +1,7 @@
 # CTO Handoff — روش رسمی تحویل فاز
 
-**Effective:** 2026-07-19 (D-022, D-023)  
-**Workflow:** commit روی `develop` + لینک commit به CTO (بدون PR، بدون feature branch)
+**Effective:** 2026-07-19 (D-024)  
+**Workflow:** commit مستقیم روی `main` + لینک commit به CTO
 
 ---
 
@@ -9,8 +9,8 @@
 
 | نقش | کار |
 |-----|-----|
-| **Agent** | پیاده‌سازی روی `develop` + `CTO_REPORT.md` + push |
-| **شما** | **فقط لینک commit** (+ در صورت نیاز `CTO_REPORT.md`) به CTO |
+| **Agent** | پیاده‌سازی روی `main` + `CTO_REPORT.md` + push |
+| **شما** | **فقط لینک commit** به CTO |
 | **CTO** | review commit → APPROVE / CONDITIONS / REJECT |
 
 ---
@@ -18,11 +18,10 @@
 ## Git
 
 ```text
-main     → production (بعد از تأیید CTO)
-develop  → integration — همهٔ کار فازها اینجا
+main  → تنها branch کاری — همهٔ فازها اینجا commit می‌شوند
 ```
 
-**feature branch نمی‌سازیم** — مثل Phase 0.
+بدون `develop`، بدون feature branch، بدون PR.
 
 ---
 
@@ -33,32 +32,22 @@ develop  → integration — همهٔ کار فازها اینجا
 ### ۲. Implementation
 
 ```powershell
-git checkout develop
-git pull origin develop
+git checkout main
+git pull origin main
 # Agent: کد + tests + CTO_REPORT.md
-git push origin develop
+git push origin main
 ```
 
 ### ۳. Handoff به CTO
 
-**فقط لینک commit:**
-
 ```text
 Phase N — review:
 https://github.com/accmobile1397-tech/computerjobs/commit/{hash}
-گزارش (اختیاری): docs/phase-N/CTO_REPORT.md
 ```
 
 ### ۴. بعد از APPROVE
 
-```powershell
-git checkout main
-git pull origin main
-git merge develop
-git push origin main
-```
-
-(یا merge به `main` وقتی CTO برای production آماده اعلام کند.)
+فاز بعد — باز هم روی `main`.
 
 ---
 
@@ -66,7 +55,7 @@ git push origin main
 
 | Item | Value |
 |------|-------|
-| Branch | `develop` |
-| Latest commit | [`392310c`](https://github.com/accmobile1397-tech/computerjobs/commit/392310c) |
-| IAM implementation | [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de) |
+| Branch | `main` |
+| Latest commit | `66e08b9` — https://github.com/accmobile1397-tech/computerjobs/commit/66e08b9 |
+| IAM implementation | `769b6de` — https://github.com/accmobile1397-tech/computerjobs/commit/769b6de |
 | CTO Report | [docs/phase-1/CTO_REPORT.md](../phase-1/CTO_REPORT.md) |

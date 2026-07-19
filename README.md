@@ -79,8 +79,7 @@ curl http://localhost:3000/api/v1/health/deep
 ## Git Workflow
 
 ```text
-main     ← production
-develop  ← integration (all phase work)
+main  ← all phase work (direct commits)
 ```
 
 ## Module Structure

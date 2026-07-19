@@ -17,8 +17,7 @@ See [docs/adr/0004-openship.md](../docs/adr/0004-openship.md).
 ## Git Workflow
 
 ```text
-main     # production-ready
-develop  # integration — all phase commits here
+main  # all phase commits — direct to main
 ```
 
 ## Commits
@@ -32,8 +31,8 @@ Conventional Commits: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`
 
 ## Documentation
 
-Every phase: specs + `CTO_REPORT.md` before merge to `develop`.
+Every phase: specs + `CTO_REPORT.md` on `main`.
 
 ## CTO Handoff
 
-Official delivery: **commit link** on `develop`. See [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md).
+Official delivery: **commit link** on `main`. See [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md).

@@ -1,6 +1,6 @@
 # Review Checklist
 
-**CTO handoff:** [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md) — commit link on `develop` (no PR, no feature branch)
+**CTO handoff:** [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md) — commit link on `main`
 
 ## Before Starting a Phase
 
@@ -14,8 +14,8 @@
 - [ ] `CTO_REPORT.md` with commit hash + copy-paste handoff block
 - [ ] `docs/reviews/PHASE_REVIEW_INDEX.md` updated  
 - [ ] `docs/reviews/ARCHITECTURE_GUARDIAN.md` — 5 guardian questions answered  
-- [ ] Conventional Commit(s) on `develop`  
-- [ ] Push `develop` to origin  
+- [ ] Conventional Commit(s) on `main`  
+- [ ] Push `main` to origin  
 - [ ] **Stop — wait for CTO review** (commit link)
 
 ## Product Owner → CTO
@@ -30,8 +30,8 @@
 
 ## After APPROVE
 
-- [ ] Merge `develop` → `main` when ready for production
 - [ ] Update `docs/DECISIONS.md` phase status
+- [ ] Proceed to next phase (still on `main`)
 
 ## Phase 0 Status
 
@@ -39,4 +39,4 @@
 
 ## Phase 1 Status
 
-**Awaiting CTO review** — commit [`392310c`](https://github.com/accmobile1397-tech/computerjobs/commit/392310c) on `develop`
+**Awaiting CTO review** — commit `66e08b9` on `main`

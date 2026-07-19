@@ -27,4 +27,4 @@
 
 ## CI
 
-GitHub Actions runs `npm test` on push/PR to main, develop, feature/*.
+GitHub Actions runs `npm test` on push to `main`.

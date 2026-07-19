@@ -15,11 +15,11 @@
 
 ## Git Workflow
 
-`main` → production | `develop` → integration (all phase work here)
+**Commit directly on `main`.** No `develop`, no feature branches, no PR.
 
 ## CTO Handoff
 
-Push to `develop`, send **commit link** to CTO. No feature branches, no PR.  
+Push to `main`, send **commit link** to CTO.  
 See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 
 ## Phase 1
