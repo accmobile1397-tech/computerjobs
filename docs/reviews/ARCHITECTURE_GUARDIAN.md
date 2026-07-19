@@ -145,4 +145,4 @@ ADR-0006 added. DECISIONS D-021 Phase 1 implementation.
 
 ## Recommendation
 
-Merge to `develop` after CTO PR review.
+Merge to `develop` after CTO review via [CTO_REPORT.md](../phase-1/CTO_REPORT.md) (PR optional — see [CTO_HANDOFF.md](./CTO_HANDOFF.md)).

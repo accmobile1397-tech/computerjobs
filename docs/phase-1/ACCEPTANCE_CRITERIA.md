@@ -120,6 +120,6 @@
 
 ## ۱۳. Definition of Done
 
-Phase 1 **Done** when all §2–§12 pass + CTO final review + merge `feature/auth` → `develop`.
+Phase 1 **Done** when all §2–§12 pass + CTO final review via `CTO_REPORT.md` + merge `feature/auth` → `develop` (PR optional).
 
 **Do NOT start Phase 2** without explicit approval.

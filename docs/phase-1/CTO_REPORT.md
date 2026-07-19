@@ -2,7 +2,23 @@
 
 **Phase:** 1 — Identity & Access Management  
 **Branch:** `feature/auth`  
-**Status:** ⏳ Awaiting CTO Review
+**Implementation commit:** `769b6de` (`769b6de0750b6a765ebd2b2508515ce97076e194`)  
+**Status:** ⏳ Awaiting CTO Review  
+**Handoff:** [docs/reviews/CTO_HANDOFF.md](../reviews/CTO_HANDOFF.md) — PR not required
+
+---
+
+## Handoff to CTO (copy-paste)
+
+```text
+Phase 1 IAM — آماده review.
+
+گزارش CTO: docs/phase-1/CTO_REPORT.md
+فهرست: docs/reviews/PHASE_REVIEW_INDEX.md
+Commit: 769b6de
+Branch: feature/auth
+Compare (اختیاری): https://github.com/accmobile1397-tech/computerjobs/compare/develop...feature/auth
+```
 
 ---
 

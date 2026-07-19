@@ -17,6 +17,12 @@
 
 `main` → production | `develop` → integration | `feature/*` → phase work
 
+## CTO Handoff (required)
+
+At phase end: update `docs/phase-N/CTO_REPORT.md` with commit hash + copy-paste handoff block.  
+Product Owner sends report to CTO — **PR is optional**.  
+See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
+
 ## Phase 1
 
 **Identity & Access Management (IAM)** — see [`docs/phase-1/README.md`](docs/phase-1/README.md)

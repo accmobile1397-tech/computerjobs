@@ -34,3 +34,8 @@ Conventional Commits: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`
 ## Documentation
 
 Every phase: specs + `CTO_REPORT.md` before merge to `develop`.
+
+## CTO Handoff
+
+Official delivery: `docs/phase-N/CTO_REPORT.md` + commit hash on `feature/*`.  
+See [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md). Pull requests are optional.

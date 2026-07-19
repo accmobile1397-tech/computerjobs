@@ -23,11 +23,32 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-017 | `users/` module separate from `auth/` (Phase 1 IAM) | Active |
 | 2026-07-19 | D-018 | **Phase 0 final:** CTO APPROVE WITH CONDITIONS — all conditions met | **Closed** |
 | 2026-07-19 | D-019 | Phase 0 Closed — enter Phase 1 IAM | Active |
-| 2026-07-19 | D-020 | Phase 1 spec generated — awaiting CTO approval (no code) | Pending |
+| 2026-07-19 | D-020 | Phase 1 IAM spec — CTO approved for implementation | **Closed** |
+| 2026-07-19 | D-021 | Phase 1 IAM implemented on `feature/auth` commit `769b6de` | Pending CTO |
+| 2026-07-19 | D-022 | **CTO handoff:** `CTO_REPORT.md` + commit hash; PR optional | Active |
 
 ---
 
-## D-020: Phase 1 IAM Spec (Pending CTO)
+## D-022: CTO Handoff Workflow
+
+Official phase delivery to CTO:
+
+1. `docs/phase-N/CTO_REPORT.md` with implementation commit hash
+2. `docs/reviews/PHASE_REVIEW_INDEX.md` updated
+3. Product Owner sends report — no PR required
+4. After APPROVE: merge `feature/*` → `develop`
+
+See [docs/reviews/CTO_HANDOFF.md](./reviews/CTO_HANDOFF.md).
+
+---
+
+## D-021: Phase 1 IAM Implementation (Pending CTO)
+
+Branch `feature/auth`, commit `769b6de`. Awaiting CTO review via [CTO_REPORT.md](./phase-1/CTO_REPORT.md).
+
+---
+
+## D-020: Phase 1 IAM Spec (Closed)
 
 Documents in `docs/phase-1/`:
 - TECHNICAL_SPEC.fa.md, DATABASE_DESIGN.md, API_DESIGN.md (+ supporting docs)

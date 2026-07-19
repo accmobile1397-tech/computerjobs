@@ -58,6 +58,7 @@ Never sacrifice higher-priority principles for lower ones.
 1. Read `.cto/RULEBOOK.md` and relevant specialized files  
 2. Follow all rules; document conflicts in `CTO_REPORT.md`  
 3. Generate `docs/phase-{N}/CTO_REPORT.md` before phase completion  
+4. Hand off to CTO via report + commit — see [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md) (PR optional)
 
 ---
 

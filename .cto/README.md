@@ -16,6 +16,8 @@
 
 ## Related
 
+- [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md) — **official phase delivery to CTO**
+
 - [docs/adr/](../docs/adr/) — Architecture Decision Records
 - [docs/rfc/](../docs/rfc/) — Feature RFCs
 - [docs/SECURITY_DECISIONS.md](../docs/SECURITY_DECISIONS.md) — Security decision log
@@ -28,4 +30,4 @@
 
 ## Phase 1
 
-**Identity & Access Management (IAM)** — awaiting spec approval
+**Identity & Access Management (IAM)** — implementation on `feature/auth` (`769b6de`) — awaiting CTO review via [CTO_REPORT.md](../docs/phase-1/CTO_REPORT.md)

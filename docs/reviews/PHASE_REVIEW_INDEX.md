@@ -1,8 +1,10 @@
 # Phase Review Index — Phase 1: IAM
 
-**Commit:** _(see git log on `feature/auth`)_  
+**Branch:** `feature/auth`  
+**Implementation commit:** `769b6de` (`769b6de0750b6a765ebd2b2508515ce97076e194`)  
 **Status:** Implementation complete — awaiting CTO review  
-**PR:** `feature/auth` → `develop`
+**Handoff method:** [CTO_HANDOFF.md](./CTO_HANDOFF.md) — `CTO_REPORT.md` + commit (PR optional)  
+**Compare (optional):** https://github.com/accmobile1397-tech/computerjobs/compare/develop...feature/auth
 
 ---
 
@@ -22,7 +24,7 @@
 
 | Report | Path |
 |--------|------|
-| CTO Report | [docs/phase-1/CTO_REPORT.md](./phase-1/CTO_REPORT.md) |
+| **CTO Report (start here)** | [docs/phase-1/CTO_REPORT.md](./phase-1/CTO_REPORT.md) |
 | Architecture Guardian | [docs/reviews/ARCHITECTURE_GUARDIAN.md](../reviews/ARCHITECTURE_GUARDIAN.md) (Phase 1 section) |
 | Threat Model | [docs/security-threat-model/phase-1.md](../security-threat-model/phase-1.md) |
 | Test Coverage | [docs/phase-1/TEST_COVERAGE.md](./phase-1/TEST_COVERAGE.md) |
