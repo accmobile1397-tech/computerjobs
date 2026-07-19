@@ -2,7 +2,7 @@
 
 **Phase:** 1 — Identity & Access Management  
 **Branch:** `develop`  
-**Latest commit:** [`89cbece`](https://github.com/accmobile1397-tech/computerjobs/commit/89cbece)  
+**Latest commit:** [`2c10d71`](https://github.com/accmobile1397-tech/computerjobs/commit/2c10d71)  
 **IAM implementation:** [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)  
 **Status:** ⏳ Awaiting CTO Review
 
@@ -13,7 +13,7 @@
 ```text
 Phase 1 IAM — review:
 
-https://github.com/accmobile1397-tech/computerjobs/commit/89cbece
+https://github.com/accmobile1397-tech/computerjobs/commit/2c10d71
 گزارش: docs/phase-1/CTO_REPORT.md
 ```
 
