@@ -17,6 +17,7 @@
   - Risks  
   - Technical Debt  
   - Recommendations  
+- [ ] `docs/reviews/ARCHITECTURE_GUARDIAN.md` — 5 guardian questions answered  
 - [ ] Conventional Commit(s)  
 - [ ] Push to `develop` (or feature branch → PR → develop)  
 - [ ] **Stop — wait for CTO human review**  
@@ -29,7 +30,7 @@
 
 ## Phase 0 Status
 
-**Approved** (2026-07-19) with conditions — see `docs/DECISIONS.md`
+**Closed** (2026-07-19) — APPROVE WITH CONDITIONS, all met — see D-018
 
 ## Phase 1 Name
 

@@ -5,7 +5,8 @@
 ```text
 src/modules/
   shared/          # infra only — no business logic
-  auth/            # Phase 1 IAM
+  auth/            # Phase 1 IAM — sessions, JWT, RBAC
+  users/           # Phase 1 IAM — user profiles, types
   location/
   taxonomy/
   jobs/

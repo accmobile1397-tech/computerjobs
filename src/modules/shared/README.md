@@ -5,6 +5,7 @@ Cross-cutting infrastructure used by all feature modules.
 | Path | Purpose |
 |------|---------|
 | `env/` | Environment validation (zod) |
+| `config/` | App constants (non-secret) |
 | `logger/` | Structured logging (pino) |
 | `prisma/` | Database client |
 | `redis/` | Cache & session client |

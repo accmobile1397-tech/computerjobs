@@ -12,7 +12,7 @@
 |------|--------|--------|
 | Security Headers | ✅ Partial | CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy در `src/middleware.ts` |
 | Secret Management | ✅ | `.env` در gitignore؛ فقط `.env.example` commit شده |
-| Env Validation | ✅ | zod در `src/lib/env.ts` |
+| Env Validation | ✅ | zod در `src/modules/shared/env` |
 | API Error Envelope | ✅ | بدون stack trace در response |
 | Health Endpoints | ✅ | بدون expose اطلاعات حساس |
 

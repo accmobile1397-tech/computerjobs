@@ -21,7 +21,9 @@
 - [ ] `docs/phase-0/SEO_REVIEW.md` — بررسی SEO
 - [ ] `docs/phase-0/PHASE_SUMMARY.md` — خلاصه فاز
 - [ ] `docs/phase-0/CTO_REPORT.md` — گزارش CTO برای review
-- [ ] `.cto/RULEBOOK.md` — استانداردهای اجباری
+- [ ] `docs/reviews/ARCHITECTURE_GUARDIAN.md` — Architecture Guardian review
+- [ ] `docs/SECURITY_DECISIONS.md` — تصمیم‌های امنیتی
+- [ ] `docs/SEO_STRATEGY.md` — نقشه URL از روز اول
 
 ### ۲. Scaffolding پروژه
 

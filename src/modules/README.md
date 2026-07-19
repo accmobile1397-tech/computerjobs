@@ -10,6 +10,7 @@ Each module owns: API handlers (via app routes importing services), business log
 |--------|-------|--------|
 | [shared](./shared/) | 0 | Active |
 | [auth](./auth/) | 1 IAM | Skeleton |
+| [users](./users/) | 1 IAM | Skeleton |
 | [location](./location/) | 2 | Skeleton |
 | [taxonomy](./taxonomy/) | 3 | Skeleton |
 | [jobs](./jobs/) | 4 | Skeleton |

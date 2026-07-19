@@ -18,7 +18,9 @@
 
 - [docs/adr/](../docs/adr/) — Architecture Decision Records
 - [docs/rfc/](../docs/rfc/) — Feature RFCs
-- [docs/DECISIONS.md](../docs/DECISIONS.md) — Decision log
+- [docs/SECURITY_DECISIONS.md](../docs/SECURITY_DECISIONS.md) — Security decision log
+- [docs/SEO_STRATEGY.md](../docs/SEO_STRATEGY.md) — URL strategy
+- [docs/reviews/](../docs/reviews/) — Architecture Guardian reviews
 
 ## Phase 0
 

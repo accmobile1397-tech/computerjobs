@@ -2,6 +2,16 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
+## [0.1.2] — 1404/04/29
+
+### Phase 0 CTO Closeout
+
+- CTO APPROVE WITH CONDITIONS (9.5/10) — all conditions met
+- Added docs/SECURITY_DECISIONS.md, docs/SEO_STRATEGY.md
+- Added ADR-0005-taxonomy, docs/rfc/payments.md
+- Added Architecture Guardian role + docs/reviews/ARCHITECTURE_GUARDIAN.md
+- Added modules/users, shared/config
+
 ## [0.1.1] — 1404/04/29
 
 ### Phase 0 Closeout — CTO Conditions

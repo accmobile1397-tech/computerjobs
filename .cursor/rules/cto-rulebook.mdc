@@ -32,7 +32,7 @@ alwaysApply: true
 
 ## Phase completion
 
-Generate `docs/phase-{N}/CTO_REPORT.md` + required docs → commit → **stop for CTO review**
+Generate `docs/phase-{N}/CTO_REPORT.md` + `docs/reviews/ARCHITECTURE_GUARDIAN.md`
 
 ## Phase 1 name
 

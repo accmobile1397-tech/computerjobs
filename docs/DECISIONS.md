@@ -15,11 +15,32 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-009 | Git workflow: `main` / `develop` / `feature/*` | Active |
 | 2026-07-19 | D-010 | Rulebook split into `.cto/*.md` specialized files | Active |
 | 2026-07-19 | D-011 | ADR + RFC process from Phase 0 closeout | Active |
-| 2026-07-19 | D-012 | Phase 1 renamed: **Identity & Access Management (IAM)** | Planned |
+| 2026-07-19 | D-012 | Phase 1 renamed: **Identity & Access Management (IAM)** | Active |
+| 2026-07-19 | D-013 | `docs/SECURITY_DECISIONS.md` — security decision log | Active |
+| 2026-07-19 | D-014 | `docs/SEO_STRATEGY.md` — URL map from day one | Active |
+| 2026-07-19 | D-015 | ADR-0005 taxonomy module structure | Active |
+| 2026-07-19 | D-016 | **Architecture Guardian** role + `docs/reviews/ARCHITECTURE_GUARDIAN.md` | Active |
+| 2026-07-19 | D-017 | `users/` module separate from `auth/` (Phase 1 IAM) | Active |
+| 2026-07-19 | D-018 | **Phase 0 final:** CTO APPROVE WITH CONDITIONS — all conditions met | **Closed** |
 
 ---
 
-## D-005: Phase 0 Approval Conditions (Completed 2026-07-19)
+## D-018: Phase 0 Final CTO Sign-off (2026-07-19)
+
+CTO rating: **9.5/10** — APPROVE WITH CONDITIONS.
+
+All conditions verified:
+
+1. ✅ `src/modules/` + `modules/shared/` (env, logger, prisma, redis, queue, storage, config)
+2. ✅ AI / taxonomy / location skeletons
+3. ✅ `develop` branch
+4. ✅ `docs/adr/` (0001–0005), `docs/rfc/`, `docs/DECISIONS.md`
+5. ✅ Split Rulebook (`.cto/*.md`)
+6. ✅ `docs/SECURITY_DECISIONS.md`
+7. ✅ `docs/SEO_STRATEGY.md`
+8. ✅ Architecture Guardian review
+
+**Authorized to proceed:** Phase 1 IAM spec
 
 CTO approved Phase 0 with these conditions — **implemented in commit following approval**:
 

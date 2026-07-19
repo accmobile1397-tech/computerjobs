@@ -2,10 +2,10 @@
 
 **پروژه:** ComputerJobs.ir  
 **نسخه:** 0.1.0  
-**Commit:** `4ae895a`  
-**تاریخ:** 1404/04/28  
+**Commit:** `a2f7350` (+ closeout docs)  
+**تاریخ:** 1404/04/29  
 **تهیه‌کننده:** Cursor Agent  
-**وضعیت:** ✅ **Approved** (2026-07-19) — conditions implemented
+**وضعیت:** 🟢 **APPROVE WITH CONDITIONS** — CTO sign-off 2026-07-19 (9.5/10) — **all conditions met**
 
 ---
 
@@ -216,17 +216,16 @@ AI Gateway spec در ARCHITECTURE.md — پیاده‌سازی Phase 7.
 
 ## 11. CTO Decision Checklist
 
-- [x] **APPROVE** Phase 0 foundation — 2026-07-19
-- [x] **Conditions implemented** — see `docs/DECISIONS.md` D-005 through D-011
+- [x] **APPROVE WITH CONDITIONS** — CTO 2026-07-19 (9.5/10)
+- [x] All conditions implemented — see `docs/DECISIONS.md` D-018
+- [x] Architecture Guardian review — `docs/reviews/ARCHITECTURE_GUARDIAN.md`
 
 ### CTO Comments (recorded)
 
 ```
-Phase 0 Approved with conditions:
-- src/modules from Phase 1 (not deferred)
-- AI/taxonomy/location subfolder skeletons
-- develop branch + ADR/RFC + split Rulebook
-- Phase 1 = IAM (Identity & Access Management)
+APPROVE WITH CONDITIONS — Phase 0 approved, proceed to Phase 1 IAM.
+Conditions: modules structure, SECURITY_DECISIONS, SEO_STRATEGY,
+ADR-0005, Architecture Guardian role — all completed.
 ```
 
 ---

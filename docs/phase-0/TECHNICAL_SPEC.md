@@ -184,7 +184,7 @@ deletedAt DateTime? // soft delete
 
 ## ۷. Environment Variables
 
-تمام متغیرها در `.env.example` مستند شده‌اند. validation با zod در `src/lib/env.ts` — fail fast در boot.
+تمام متغیرها در `.env.example` مستند شده‌اند. validation با zod در `src/modules/shared/env` — fail fast در boot.
 
 **هرگز secret واقعی commit نشود.**
 
