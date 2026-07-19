@@ -33,4 +33,4 @@
 
 ## Phase 2
 
-**User Profiles & Company Management** — 🟢 approved — implementation on `main`
+**User Profiles & Company Management** — 🟢 spec APPROVE — implementation on `main`

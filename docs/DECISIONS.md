@@ -26,7 +26,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-020 | Phase 1 IAM spec — CTO approved for implementation | **Closed** |
 | 2026-07-19 | D-021 | Phase 1 IAM implemented | **Closed** |
 | 2026-07-19 | D-026 | **Phase 1 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.2-phase-1` | **Closed** |
-| 2026-07-19 | D-027 | Phase 2 spec approved — **APPROVE WITH MINOR CONDITIONS** | Active → implement |
+| 2026-07-19 | D-027 | Phase 2 spec — **APPROVE** · implementation authorized | Active |
+| 2026-07-19 | D-028 | **Product roadmap** Phases 2–8 (CTO-approved order) | Active |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
@@ -34,20 +35,29 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 ---
 
-## D-027: Phase 2 Spec — Approved for Implementation
+## D-028: Product Roadmap (CTO-Approved)
 
-**Decision:** APPROVE WITH MINOR CONDITIONS (CTO 2026-07-19)
+| Phase | Scope |
+|-------|--------|
+| 2 | User Profiles & Company Management |
+| 3 | Location · Taxonomy · Skills · Technologies |
+| 4 | Jobs |
+| 5 | Resume Builder |
+| 6 | Search & Matching |
+| 7 | Payments & Plans |
+| 8 | AI Layer |
 
-**Conditions applied to spec:**
-1. `users.slug` for `/profiles/{slug}`
-2. Company `status`: ACTIVE / SUSPENDED / DELETED
-3. Verification workflow includes UNDER_REVIEW
-4. Complete audit event list
-5. `industryLabel` → `industryId` migration documented for Phase 3
+Dependency note: Jobs (4) after Taxonomy + Location (3).
 
-**Phase 3 roadmap (CTO):** Location · Taxonomy · Skills · Technologies — not Jobs.
+---
 
-**Gate:** Implementation on `main` — authorized.
+## D-027: Phase 2 Spec — APPROVE
+
+**Decision:** ☑ **APPROVE** (CTO 2026-07-19) — no blockers  
+**Status:** Implementation authorized on `main`  
+**Record:** [docs/phase-2/CTO_SPEC_APPROVAL.md](./phase-2/CTO_SPEC_APPROVAL.md)
+
+**Implementation guidelines (non-blocking):** completionScore computed; stable slugs; soft delete; invite hash; public API fields only; avoid God Module in `users/`.
 
 ---
 

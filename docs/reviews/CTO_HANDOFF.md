@@ -1,6 +1,6 @@
 # CTO Handoff — روش رسمی تحویل فاز
 
-**Workflow:** commit مستقیم روی `main` + لینک commit به CTO
+**Workflow:** commit on `main` → CTO review via commit link
 
 ---
 
@@ -9,23 +9,19 @@
 | Phase | Status |
 |-------|--------|
 | 0 Foundation | 🟢 Closed |
-| 1 IAM | 🟢 Closed — tag `v0.2-phase-1` |
-| 2 Profiles & Companies | 📋 Spec only — awaiting CTO |
+| 1 IAM | 🟢 Closed — `v0.2-phase-1` |
+| 2 Profiles & Companies | 🟢 Spec **APPROVE** — **implementing on `main`** |
 
 ---
 
-## Phase 2 Handoff (next)
+## Phase 2
 
-When spec approved by CTO, implementation on `main` — then commit link for final review.
+**Spec approval:** [docs/phase-2/CTO_SPEC_APPROVAL.md](../phase-2/CTO_SPEC_APPROVAL.md)
 
-**Spec:** [docs/phase-2/README.md](../phase-2/README.md)
-
----
-
-## Git
+**After implementation:**
 
 ```text
-main  → تنها branch — همهٔ کار فازها
+Commit → CTO_REPORT → ARCHITECTURE_GUARDIAN → PHASE_REVIEW_INDEX → CTO Review → Tag
 ```
 
 ---

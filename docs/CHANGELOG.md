@@ -24,9 +24,8 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ### Phase 2
 
-- Spec approved — APPROVE WITH MINOR CONDITIONS (CTO 2026-07-19)
-- Conditions: user slug, company status, UNDER_REVIEW, audit events, industryLabel migration path
-- **Authorized for implementation on `main`**
+- Spec **APPROVE** (CTO 2026-07-19) — implementation authorized
+- Record: `docs/phase-2/CTO_SPEC_APPROVAL.md`
 
 ## [0.1.2] — 1404/04/29
 

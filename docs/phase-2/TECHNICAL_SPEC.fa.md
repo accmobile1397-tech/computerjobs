@@ -3,7 +3,7 @@
 **پروژه:** ComputerJobs.ir  
 **نسخه:** 2.1.0-spec  
 **فاز:** 2  
-**وضعیت:** 🟢 **Approved for Implementation** — CTO APPROVE WITH MINOR CONDITIONS (2026-07-19)
+**وضعیت:** 🟢 **APPROVED** — CTO full APPROVE (2026-07-19) — implementation in progress
 
 ---
 
@@ -183,13 +183,35 @@ src/modules/companies/ — company, members, invites
 
 ## ۱۱. Gate
 
-🟢 **Approved for Implementation** — commit on `main`.
+🟢 **APPROVED** — CTO full APPROVE (2026-07-19) — implementation authorized on `main`.
+
+See [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md).
 
 ---
 
-## ۱۲. Phase 3 (CTO roadmap — spec only)
+## ۱۲. Implementation Guidelines (CTO — execution)
+
+| # | Rule |
+|---|------|
+| 1 | `completionScore` در backend محاسبه شود — نه مقدار دستی در DB (cache مجاز) |
+| 2 | Slug از ابتدا unique، URL-safe، stable |
+| 3 | Soft delete مثل Phase 1 |
+| 4 | Invite token فقط hash |
+| 5 | Public company — فقط فیلدهای public |
+
+**معماری:** `users/` نباید God Module شود — profiles و companies مستقل بمانند.
+
+---
+
+## ۱۳. Phase Roadmap (CTO-approved)
 
 بعد از Phase 2:
 
-| Phase 3 scope | Location · Taxonomy · Skills · Technologies |
-| Jobs | Phase 4+ (depends on Taxonomy + Location) |
+| Phase | Scope |
+|-------|--------|
+| 3 | Location · Taxonomy · Skills · Technologies |
+| 4 | Jobs |
+| 5 | Resume Builder |
+| 6 | Search & Matching |
+| 7 | Payments & Plans |
+| 8 | AI Layer |

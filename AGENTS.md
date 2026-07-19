@@ -28,7 +28,7 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 |-------|--------|
 | 0 Foundation | 🟢 Closed |
 | 1 IAM | 🟢 Closed (`v0.2-phase-1`) |
-| 2 Profiles & Companies | 🟢 Spec approved — **ready to implement** |
+| 2 Profiles & Companies | 🟢 Spec APPROVE — **implement on `main`** |
 
 ---
 
