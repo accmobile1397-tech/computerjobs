@@ -35,7 +35,9 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-033 | **Phase 4 CLOSED** — APPROVE · tag `v0.5-phase-4` | **Closed** |
 | 2026-07-19 | D-034 | Phase 5 spec — **APPROVE WITH MINOR CONDITIONS** | **Closed** |
 | 2026-07-19 | D-035 | **Phase 5 CLOSED** — APPROVE · tag `v0.6-phase-5` | **Closed** |
-| 2026-07-19 | D-036 | Phase 6 spec — Search & Matching (spec only) | Active |
+| 2026-07-19 | D-036 | Phase 6 spec — **APPROVE WITH CONDITIONS** | **Closed** |
+| 2026-07-19 | D-037 | Phase 6 implementation — **awaiting CTO review** | Active |
+| 2026-07-19 | TD-P6-2 | Search Rate Limiting | Active (P1) |
 | 2026-07-19 | TD-P5-1 | Application Resume Snapshot | Active (P1) |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
@@ -60,14 +62,21 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-036: Phase 6 Spec — Search & Matching
+## D-037: Phase 6 Implementation
 
-**Decision:** Spec generated — **awaiting CTO review**  
-**Status:** Implementation **blocked** until CTO approves  
-**Scope:** Job Search · Resume Search · Search Filters · Rule-Based Matching Foundation · Match Score  
-**Excluded:** LLM · AI Agents · RAG · Prompting · AI Recommendations  
+**Decision:** Implementation complete — **awaiting CTO review**  
+**Tag (after APPROVE):** `v0.7-phase-6`  
+**Record:** [docs/phase-6/CTO_REPORT.md](./phase-6/CTO_REPORT.md)
 
-**Document:** [docs/phase-6/TECHNICAL_SPEC.fa.md](./phase-6/TECHNICAL_SPEC.fa.md)
+**Debt:** TD-P6-2 Search Rate Limiting (P1)
+
+---
+
+## D-036: Phase 6 Spec — APPROVE WITH CONDITIONS
+
+**Decision:** ☑ **APPROVE WITH CONDITIONS** (CTO 2026-07-19)  
+**Status:** **Closed** — see D-037  
+**Record:** [docs/phase-6/CTO_SPEC_APPROVAL.md](./phase-6/CTO_SPEC_APPROVAL.md)
 
 ---
 

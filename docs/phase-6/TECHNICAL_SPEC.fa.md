@@ -1,6 +1,6 @@
 # مشخصات فنی — Phase 6: Search & Matching
 
-**پروژه:** ComputerJobs.ir · **فاز:** 6 · **وضعیت:** ⏳ Spec — awaiting CTO review · **بدون پیاده‌سازی**
+**پروژه:** ComputerJobs.ir · **فاز:** 6 · **وضعیت:** ✅ Spec APPROVE WITH CONDITIONS — implementation authorized
 
 ---
 
@@ -8,164 +8,133 @@
 
 | In | Out |
 |----|-----|
-| Job Search | LLM |
-| Resume Search | AI Agents |
-| Search Filters | RAG |
-| Rule-Based Matching Foundation | Prompting |
-| Match Score (deterministic) | AI Recommendations |
+| Job Search | LLM · Agents · RAG · Prompting · AI Recommendations |
+| Resume Search | Score persistence |
+| Search Filters | SavedSearch / SearchQueryLog **tables** (reserved in spec only) |
+| Rule-Based Matching + Match Score (on demand) | Rate limiting (TD-P6-2) |
 
 Depends on: Jobs (4) · Resume (5) · Taxonomy/Location (3)
 
 ---
 
-## ۲. Goals
+## ۲. CTO Conditions
 
-1. **Job Search** — seekers find PUBLISHED jobs beyond basic Phase 4 list filters  
-2. **Resume Search** — employers find ACTIVE resumes (visibility rules)  
-3. **Search Filters** — structured filters on taxonomy, location, employment, experience, salary, skills/tech  
-4. **Rule-Based Matching Foundation** — score job↔resume without ML/LLM  
-5. **Match Score** — transparent 0–100 breakdown for explainability
+| # | Condition |
+|---|-----------|
+| 1 | Reserve **SavedSearch** (spec only — no table Phase 6) |
+| 2 | Reserve **SearchQueryLog** (spec only — no table Phase 6) |
+| 3 | **TD-P6-2** Search Rate Limiting — P1 |
+| 4 | Employer resume search: membership in **VERIFIED + ACTIVE** company |
+| 5 | MatchScore **on demand** — no DB persistence |
+| 6 | Match API response includes `"version": 1` |
+| 7 | Reserve future signal: **salary compatibility** (weight 0 Phase 6) |
 
 ---
 
 ## ۳. Job Search
 
-**API (planned):** `GET /search/jobs`
+**API:** `GET /search/jobs` (public)
 
-| Filter | Source |
-|--------|--------|
-| q | title + description text (MySQL FULLTEXT or LIKE MVP) |
-| provinceSlug / citySlug | Location |
-| categorySlug / subCategorySlug | Taxonomy |
-| skillIds / technologyIds | JobSkill + skill→tech |
-| employmentType / experienceLevel | Job enums |
-| salaryMin / salaryMax / salaryType | Job salary fields |
-| isRemote | reserved Job field |
-| companySlug | Company |
-| page / limit / sort | pagination |
+Filters: `q`, province/city/category/subCategory slugs, `skillIds`, `technologyIds`, `employmentType`, `experienceLevel`, salary range/type, `isRemote`, `companySlug`, `page`, `limit`, `sort`
 
-**Constraints:** `status=PUBLISHED`, not expired, company VERIFIED+ACTIVE. Reuse/extend Phase 4 public list — consolidate into `search` module.
-
-**Sort:** `relevance` (text+boost) · `publishedAt` · `expiresAt`
+Constraints: PUBLISHED · not expired · company VERIFIED+ACTIVE  
+Sort: `publishedAt` | `expiresAt` | `relevance` (LIKE boost MVP)
 
 ---
 
 ## ۴. Resume Search
 
-**API (planned):** `GET /search/resumes`  
-**Auth:** employer · `resume:search` (new) or reuse `resume:read:employer` with search scope
+**API:** `GET /search/resumes`  
+**Auth:** employer + `search:resumes`  
+**Gate:** caller must be member of at least one company with `verificationStatus=VERIFIED` AND `status=ACTIVE`
 
-| Filter | Source |
-|--------|--------|
-| q | resume summary + experience titles |
-| skillIds / technologyIds | ResumeSkill / ResumeTechnology |
-| cityId / provinceSlug | experience city or profile cityId |
-| experienceLevel (derived) | optional heuristic from years — MVP skip if ambiguous |
-| languageCode | ResumeLanguage |
-| page / limit | |
-
-**Constraints:** `status=ACTIVE` · `visibility IN (PUBLIC, EMPLOYERS_ONLY)` · user ACTIVE · **no PRIVATE**  
-**No browse of PRIVATE resumes.** Rate-limit deferred (TD carry).
+Filters: `q`, `skillIds`, `technologyIds`, `cityId`/`provinceSlug`, `languageCode`, page/limit  
+Constraints: resume `ACTIVE` · visibility `PUBLIC|EMPLOYERS_ONLY` · user ACTIVE · never PRIVATE
 
 ---
 
-## ۵. Rule-Based Matching Foundation
+## ۵. Matching (on demand)
 
-**Module:** `src/modules/search/` (or `matching/` subfolder)
+| API | Who |
+|-----|-----|
+| `GET /search/jobs/:id/match` | seeker — vs own ACTIVE resume |
+| `GET /search/jobs/:id/applications/:applicationId/match` | employer — company membership + applicant resume |
 
-| Operation | API |
-|-----------|-----|
-| Score job vs seeker’s ACTIVE resume | `GET /jobs/:id/match` (seeker) |
-| Score resume vs job (employer) | `GET /jobs/:id/applications/:appId/match` or `POST /match` body `{jobId,resumeId}` |
+**No MatchScore table.** Compute per request.
 
-**Inputs only:** structured fields (skills, technologies, category, city, employmentType, experienceLevel).  
-**No** embeddings, LLM, RAG, or external AI calls.
-
----
-
-## ۶. Match Score (deterministic)
-
-Suggested weights (tunable constants — document in code):
-
-| Signal | Weight | Rule |
-|--------|--------|------|
-| Skill overlap | 40 | \|intersection\| / \|job.skills\| (0 if job has 0 skills) |
-| Technology overlap | 25 | same pattern on technologies |
-| Category match | 15 | resume experience category proxy OR seeker preferred — MVP: job.categoryId vs most common skill subcategory parent |
-| Location | 10 | same city=10 · same province=5 · else 0 |
-| Experience level | 10 | exact=10 · adjacent=5 · else 0 |
-
-**Output:**
+**Response shape:**
 
 ```json
 {
+  "version": 1,
   "score": 72,
   "breakdown": {
     "skills": 32,
     "technologies": 20,
     "category": 15,
     "location": 5,
-    "experienceLevel": 0
+    "experienceLevel": 0,
+    "salaryCompatibility": null
   }
 }
 ```
 
-Cap 100. Missing resume → 404. DRAFT resume → not scorable for public match.
+`salaryCompatibility` reserved — always `null` Phase 6.
+
+### Weights (v1)
+
+| Signal | Max | Rule |
+|--------|-----|------|
+| skills | 40 | \|∩\| / \|job.skills\| × 40 (0 if no job skills) |
+| technologies | 25 | same |
+| category | 15 | job.categoryId equals category of any resume skill’s subcategory parent |
+| location | 10 | same city 10 · same province 5 |
+| experienceLevel | 10 | N/A on resume Phase 5 — score 0 unless future field; MVP: skip → 0 |
+| salaryCompatibility | 0 | reserved |
 
 ---
 
-## ۷. Architecture
+## ۶. Reserved entities (spec only — do not migrate)
+
+### SavedSearch
+
+```text
+id, userId, type (JOB|RESUME), filtersJson, createdAt
+```
+
+### SearchQueryLog
+
+```text
+id, userId?, type, queryHash, filtersJson?, resultCount?, createdAt
+```
+
+No Prisma models / APIs for these in Phase 6.
+
+---
+
+## ۷. Module
 
 ```text
 src/modules/search/
-  services/
-    job-search.service.ts
-    resume-search.service.ts
-    match.service.ts
-  validators/
-    search.schema.ts
+  services/ job-search · resume-search · match
+  validators/ search.schema.ts
 ```
 
-Jobs/resumes modules remain owners of entities — search **reads** only.
-
-**Indexes:** ensure JobSkill, ResumeSkill, FULLTEXT if used. Prefer Prisma + SQL; Elasticsearch **out of Phase 6** unless CTO requests.
+Permissions: `search:jobs` (public route) · `search:resumes` · `match:read:own` · `match:read:employer`
 
 ---
 
-## ۸. Permissions
+## ۸. Technical Debt
 
-| Permission | Use |
-|------------|-----|
-| `search:jobs` | public job search (anonymous OK at route) |
-| `search:resumes` | employer resume search |
-| `match:read:own` | seeker match vs job |
-| `match:read:employer` | employer match on applicant |
-
----
-
-## ۹. Audit / Observability
-
-Optional: log search queries aggregated (no PII dump). Match calls not audited every time — sample or skip Phase 6.
-
----
-
-## ۱۰. Technical Debt (carry)
-
-| ID | Note |
-|----|------|
-| TD-P5-1 | Snapshot still needed for fair historical match — matching uses **live** resume |
-| TD-P2-1 | Integration tests |
-| TD-P6-1 | (propose) FULLTEXT → dedicated search engine later |
-
----
-
-## ۱۱. Acceptance Gate
-
-CTO APPROVE TECHNICAL_SPEC → implement on `main`.  
-**Do not implement** until APPROVE.
+| ID | Item | Priority |
+|----|------|----------|
+| TD-P6-2 | Search Rate Limiting | P1 |
+| TD-P6-1 | FULLTEXT / search engine later | P2 |
+| TD-P5-1 | Application Resume Snapshot | P1 |
+| TD-P2-1 | HTTP integration tests | P1 |
 
 ---
 
 ## References
 
-Phase 5 closed — `v0.6-phase-5` · Roadmap D-028 · `.cto/RULEBOOK.md`
+Phase 5 — `v0.6-phase-5` · D-028 · `.cto/RULEBOOK.md`
