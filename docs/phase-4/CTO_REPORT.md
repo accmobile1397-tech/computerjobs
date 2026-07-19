@@ -23,6 +23,7 @@ https://github.com/accmobile1397-tech/computerjobs/compare/a1378ed...main
 | 2 | `3a95752` | Job + application services, validators, enum tests |
 | 3 | `b7357bd` | Public, employer, admin, and application API routes |
 | 4 | `a9a4a45` | Seed `job:*` permissions, error codes, deploy phase footer |
+| 5 | `cb42631` | CTO report, test coverage, review docs, handoff |
 
 ---
 
