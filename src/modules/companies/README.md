@@ -1,5 +1,12 @@
-# Companies Module
+# Companies Module — Phase 2
 
-Employer profiles, company pages, SEO URLs (`/companies/{slug}`).
+Company CRUD, members, invites, public slug API.
 
-**Phase:** 4+
+**Phase:** 2 — User Profiles & Company Management
+
+| Service | Responsibility |
+|---------|----------------|
+| `company.service.ts` | CRUD, public slug, admin status/verification |
+| `member.service.ts` | members, invites, ownership transfer |
+
+**Not in scope:** logo upload (URL only)
