@@ -67,6 +67,6 @@ git push origin main
 | Item | Value |
 |------|-------|
 | Branch | `develop` |
-| Latest commit | [`2c10d71`](https://github.com/accmobile1397-tech/computerjobs/commit/2c10d71) |
+| Latest commit | [`392310c`](https://github.com/accmobile1397-tech/computerjobs/commit/392310c) |
 | IAM implementation | [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de) |
 | CTO Report | [docs/phase-1/CTO_REPORT.md](../phase-1/CTO_REPORT.md) |

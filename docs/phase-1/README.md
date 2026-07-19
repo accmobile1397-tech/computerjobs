@@ -2,7 +2,7 @@
 
 **Status:** ⏳ Implementation complete — awaiting CTO review  
 **Branch:** `develop`  
-**Commit:** [`89cbece`](https://github.com/accmobile1397-tech/computerjobs/commit/89cbece)  
+**Commit:** [`392310c`](https://github.com/accmobile1397-tech/computerjobs/commit/392310c)  
 **Handoff:** لینک commit به CTO — [CTO_HANDOFF.md](../reviews/CTO_HANDOFF.md)
 
 ## Documents

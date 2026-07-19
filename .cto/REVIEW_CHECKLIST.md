@@ -39,4 +39,4 @@
 
 ## Phase 1 Status
 
-**Awaiting CTO review** — commit [`89cbece`](https://github.com/accmobile1397-tech/computerjobs/commit/89cbece) on `develop`
+**Awaiting CTO review** — commit [`392310c`](https://github.com/accmobile1397-tech/computerjobs/commit/392310c) on `develop`

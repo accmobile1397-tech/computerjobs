@@ -24,7 +24,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-018 | **Phase 0 final:** CTO APPROVE WITH CONDITIONS — all conditions met | **Closed** |
 | 2026-07-19 | D-019 | Phase 0 Closed — enter Phase 1 IAM | Active |
 | 2026-07-19 | D-020 | Phase 1 IAM spec — CTO approved for implementation | **Closed** |
-| 2026-07-19 | D-021 | Phase 1 IAM on `develop` commit `2c10d71` | Pending CTO |
+| 2026-07-19 | D-021 | Phase 1 IAM on `develop` commit `392310c` | Pending CTO |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `develop` | Active |
 | 2026-07-19 | D-023 | **No feature branches** — work on `develop` only (Phase 0 style) | Active |
 
@@ -47,7 +47,7 @@ See [docs/reviews/CTO_HANDOFF.md](./reviews/CTO_HANDOFF.md).
 
 ## D-021: Phase 1 IAM Implementation (Pending CTO)
 
-Branch `develop`, latest commit `2c10d71`. Awaiting CTO review.
+Branch `develop`, latest commit `392310c`. Awaiting CTO review.
 
 ---
 
