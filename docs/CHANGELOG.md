@@ -21,19 +21,22 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ### Next
 
-- RFC-002 AI Architecture — awaiting CTO freeze
-- Phase 8 TECHNICAL_SPEC — awaiting CTO review · **no implementation**
+- RFC-002 CLOSED · tag `v0.8-ai-rfc`
+- Phase 8 implementation AUTHORIZED
 
-## [Unreleased] — RFC-002 & Phase 8 Spec
+## [Unreleased] — Phase 8 AI (authorized)
 
 ### RFC-002
 
-- AI Architecture (gateway, credits, OpenRouter/Gemini/local, fallback, rate limits) — **awaiting CTO**
-- Doc: `docs/rfc/RFC-002-AI-ARCHITECTURE.md`
+- AI Architecture — **CLOSED** · tag `v0.8-ai-rfc` (D-044)
+- Conditions 1–6 frozen
 
-### Phase 8
+### Phase 8 Spec
 
-- TECHNICAL_SPEC generated — AI Gateway & AI Features — **blocked until RFC-002 + spec APPROVE**
+- **APPROVE WITH MINOR CONDITIONS** (P8-1…4) — implementation **AUTHORIZED**
+- Features only: `ai.match.explain` · `ai.job.improve_description`
+- Resume Suggest → Phase 8.1 · Providers: stub/openrouter/gemini · TD-P8-1 local
+- Every AI response: provider, model, requestId, creditsCaptured
 
 ## [0.7.0-7A] — 1404/04/29 — Phase 7A Entitlements
 

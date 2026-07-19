@@ -43,8 +43,9 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-041 | Phase 7B spec — **APPROVE WITH MINOR CONDITIONS** | **Closed** |
 | 2026-07-19 | D-042 | Phase 7B implementation — Payment Gateway | **Closed** |
 | 2026-07-19 | D-043 | **Phase 7B CLOSED** — APPROVE WITH CONDITIONS · `v0.8-phase-7B` | **Closed** |
-| 2026-07-19 | D-044 | RFC-002 AI Architecture — awaiting CTO freeze before Phase 8 | Active |
-| 2026-07-19 | D-045 | Phase 8 TECHNICAL_SPEC — awaiting CTO review · **no implementation** | Active |
+| 2026-07-19 | D-044 | RFC-002 AI Architecture — **CLOSED** · tag `v0.8-ai-rfc` | **Closed** |
+| 2026-07-19 | D-045 | Phase 8 spec — **APPROVE WITH MINOR CONDITIONS** · implementation AUTHORIZED | Active |
+| 2026-07-19 | TD-P8-1 | Local (Ollama) AI provider adapter | Active (P2) |
 | 2026-07-19 | TD-P7B-1 | Payment Reconciliation Job | Active (P1) |
 | 2026-07-19 | TD-P7B-2 | Webhook Replay Protection | Active (P1) |
 | 2026-07-19 | TD-P7B-3 | Multi PSP Failover | Active (P2) |
@@ -77,18 +78,34 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-045: Phase 8 TECHNICAL_SPEC — Awaiting Review
+## D-045: Phase 8 Spec — APPROVE WITH MINOR CONDITIONS · AUTHORIZED
 
-**Decision:** Spec generated; **implementation blocked** until CTO APPROVE of RFC-002 **and** Phase 8 TECHNICAL_SPEC.  
-**Document:** [docs/phase-8/TECHNICAL_SPEC.fa.md](./phase-8/TECHNICAL_SPEC.fa.md)
+**Decision:** ☑ **APPROVE WITH MINOR CONDITIONS** (CTO 2026-07-19)  
+**Status:** Conditions P8-1…4 applied → **Implementation AUTHORIZED**  
+**Document:** [docs/phase-8/CTO_SPEC_APPROVAL.md](./phase-8/CTO_SPEC_APPROVAL.md)  
+**Prerequisite:** RFC-002 CLOSED · `v0.8-ai-rfc` (D-044)
+
+**Conditions:** P8-1 two features only · P8-2 Resume Suggest → 8.1 · P8-3 stub/openrouter/gemini · P8-4 response meta  
+**Debt:** TD-P8-1 Local provider
 
 ---
 
-## D-044: RFC-002 AI Architecture
+## D-044: RFC-002 AI Architecture — CLOSED
 
-**Decision:** New RFC required before Phase 8 — platform is AI-Native hiring; freeze gateway, credits, providers, fallback, rate limits.  
-**Status:** ⏳ Awaiting CTO Approval (freeze)  
+**Decision:** ☑ **APPROVE WITH CONDITIONS** → **FROZEN** → **CLOSED** (CTO 2026-07-19)  
+**Tag:** `v0.8-ai-rfc`  
 **Document:** [docs/rfc/RFC-002-AI-ARCHITECTURE.md](./rfc/RFC-002-AI-ARCHITECTURE.md)
+
+**Frozen conditions:**
+
+1. Provider-agnostic — only `modules/ai/gateway` may call provider SDKs  
+2. Cost protection — mandatory `estimateCost()` → 402 `AI_CREDIT_REQUIRED` if over  
+3. Prompt registry — files under `prompts/`; no inline prompts  
+4. Safety — mandatory `moderate()` before provider call; contract `complete`/`embed`/`moderate`  
+5. Provider health — `ai.providerHealthWindow` + reserved `AiProviderHealth`  
+6. Model routing — `ai.modelRouting` JSON by `featureKey` (replaces `ai.defaultModel`)
+
+> Note: CTO message referenced “D-034 Close RFC-002”; D-034 remains Phase 5. RFC-002 close is **D-044**.
 
 ---
 
