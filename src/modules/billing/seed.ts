@@ -51,6 +51,7 @@ const PLANS: PlanSeed[] = [
       { key: "job.urgent_slots", limit: 0, period: FeaturePeriod.NONE },
       { key: "company.seats", limit: 2, period: FeaturePeriod.NONE },
       { key: "match_score.employer.per_day", limit: 50, period: FeaturePeriod.DAY },
+      { key: "ai_credit.included_period", limit: 0, period: FeaturePeriod.MONTH },
     ],
   },
   {
@@ -67,6 +68,7 @@ const PLANS: PlanSeed[] = [
       { key: "job.urgent_slots", limit: 3, period: FeaturePeriod.NONE },
       { key: "company.seats", limit: 5, period: FeaturePeriod.NONE },
       { key: "match_score.employer.per_day", limit: 200, period: FeaturePeriod.DAY },
+      { key: "ai_credit.included_period", limit: 100, period: FeaturePeriod.MONTH },
     ],
   },
 ];
@@ -111,6 +113,29 @@ export async function seedBilling(prisma: PrismaClient) {
     { key: "billing.resume_view_window_days", value: 30 },
     { key: "billing.job_republish_window_days", value: 7 },
     { key: "activePaymentProvider", value: "stub" },
+    { key: "activeAiProvider", value: "stub" },
+    {
+      key: "ai.modelRouting",
+      value: {
+        "ai.match.explain": "stub-match",
+        "ai.job.improve_description": "stub-job",
+      },
+    },
+    { key: "ai.modelRoutingDefault", value: "stub-default" },
+    { key: "ai.fallbackProviders", value: ["stub"] },
+    {
+      key: "ai.featureCosts",
+      value: {
+        "ai.match.explain": 1,
+        "ai.job.improve_description": 2,
+      },
+    },
+    { key: "ai.providerHealthWindow", value: 20 },
+    { key: "ai.timeout_ms", value: 30000 },
+    { key: "ai.rate.per_user_per_minute", value: 20 },
+    { key: "ai.rate.per_company_per_minute", value: 40 },
+    { key: "ai.rate.global_per_minute", value: 200 },
+    { key: "ai.moderation.failOpen", value: true },
   ];
 
   for (const s of settings) {
