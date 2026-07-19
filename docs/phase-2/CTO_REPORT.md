@@ -23,7 +23,7 @@ https://github.com/accmobile1397-tech/computerjobs/compare/847fe54...main
 | 2 | `afead86` | Company CRUD module + API routes |
 | 3 | `c079335` | User profiles, slug, admin + public endpoints |
 | 4 | `da9e4df` | Company members, invites, ownership transfer |
-| 5 | *(this commit)* | Tests + phase-2 review docs |
+| 5 | `c7a0544` | Tests + phase-2 review docs |
 
 ---
 
