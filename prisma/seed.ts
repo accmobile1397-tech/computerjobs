@@ -2,6 +2,7 @@ import { PrismaClient, UserPrimaryType, UserStatus } from "@prisma/client";
 import { hashPassword } from "@/modules/auth/utils/password.util";
 import { seedLocation } from "@/modules/location/seed";
 import { seedTaxonomy } from "@/modules/taxonomy/seed";
+import { seedBilling } from "@/modules/billing/seed";
 
 const prisma = new PrismaClient();
 
@@ -38,6 +39,8 @@ const PERMISSIONS = [
   { slug: "search:resumes", nameFa: "جستجوی رزومه (کارفرما)" },
   { slug: "match:read:own", nameFa: "مشاهده امتیاز تطبیق خود" },
   { slug: "match:read:employer", nameFa: "مشاهده امتیاز تطبیق متقاضی" },
+  { slug: "billing:read:own", nameFa: "خواندن اشتراک و کیف پول خود" },
+  { slug: "billing:admin", nameFa: "مدیریت پلن و سهمیه (ادمین)" },
   { slug: "admin:users:read", nameFa: "مشاهده کاربران" },
   { slug: "admin:users:suspend", nameFa: "تعلیق کاربر" },
   { slug: "admin:roles:manage", nameFa: "مدیریت نقش‌ها" },
@@ -56,6 +59,7 @@ const ROLES = [
       "resume:update:own",
       "job:apply",
       "match:read:own",
+      "billing:read:own",
     ],
   },
   {
@@ -78,6 +82,7 @@ const ROLES = [
       "resume:read:employer",
       "search:resumes",
       "match:read:employer",
+      "billing:read:own",
     ],
   },
   {
@@ -95,6 +100,7 @@ const ROLES = [
       "taxonomy:write",
       "taxonomy:approve",
       "job:approve",
+      "billing:admin",
     ],
   },
   {
@@ -163,6 +169,7 @@ async function main() {
 
   await seedLocation(prisma);
   await seedTaxonomy(prisma);
+  await seedBilling(prisma);
 
   console.log("Seed completed");
 }

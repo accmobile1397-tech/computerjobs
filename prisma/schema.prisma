@@ -157,6 +157,23 @@ enum AuditAction {
   RESUME_PROJECT_CREATED
   RESUME_PROJECT_UPDATED
   RESUME_PROJECT_DELETED
+  PLAN_CREATED
+  PLAN_UPDATED
+  PLAN_FEATURE_VERSIONED
+  PLAN_PRICE_UPDATED
+  SUBSCRIPTION_CREATED
+  SUBSCRIPTION_CHANGED
+  SUBSCRIPTION_CANCELED
+  SUBSCRIPTION_HISTORY_RECORDED
+  WALLET_CREDITED
+  WALLET_DEBITED
+  AI_CREDIT_RESERVED
+  AI_CREDIT_CAPTURED
+  AI_CREDIT_RELEASED
+  QUOTA_CONSUMED
+  CONTACT_UNLOCKED
+  SYSTEM_SETTING_UPDATED
+  BILLING_ADMIN_GRANT
 }
 
 enum JobStatus {
@@ -285,6 +302,8 @@ model User {
   jobsCreated                 Job[]                @relation("JobCreatedBy")
   jobApplications             JobApplication[]
   resume                      Resume?
+  contactUnlocksTarget        ContactUnlock[]      @relation("ContactUnlockTarget")
+  contactUnlocksActor         ContactUnlock[]      @relation("ContactUnlockActor")
 
   @@index([status])
   @@index([primaryType])
@@ -357,6 +376,7 @@ model Company {
   invites          CompanyInvite[]
   employerProfiles EmployerProfile[]
   jobs             Job[]
+  contactUnlocks   ContactUnlock[]
 
   @@index([ownerId])
   @@index([slug])
@@ -929,3 +949,218 @@ model ResumeProjectTechnology {
   @@id([projectId, technologyId])
   @@map("resume_project_technologies")
 }
+
+// ─── Phase 7A Billing ───────────────────────────────────────────────
+
+enum PlanAudience {
+  SEEKER
+  EMPLOYER
+}
+
+enum BillingOwnerType {
+  USER
+  COMPANY
+}
+
+enum FeaturePeriod {
+  NONE
+  DAY
+  MONTH
+  YEAR
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELED
+  EXPIRED
+  PAST_DUE
+}
+
+enum ConsumableType {
+  JOB_POST
+  RESUME_VIEW
+  CONTACT_UNLOCK
+  FEATURED_DAY
+  AI_CREDIT
+}
+
+enum ConsumableTxKind {
+  CREDIT
+  DEBIT
+  RESERVE
+  CAPTURE
+  RELEASE
+}
+
+enum SubscriptionHistoryEvent {
+  CREATED
+  ACTIVATED
+  PLAN_CHANGED
+  CANCELED
+  RENEWED
+  EXPIRED
+  ADMIN_OVERRIDE
+}
+
+model PlanDefinition {
+  id        String       @id @default(uuid())
+  slug      String       @unique @db.VarChar(80)
+  audience  PlanAudience
+  nameFa    String       @map("name_fa") @db.VarChar(120)
+  nameEn    String?      @map("name_en") @db.VarChar(120)
+  isActive  Boolean      @default(true) @map("is_active")
+  sortOrder Int          @default(0) @map("sort_order")
+  createdAt DateTime     @default(now()) @map("created_at")
+  updatedAt DateTime     @updatedAt @map("updated_at")
+
+  features      PlanFeature[]
+  prices        PlanPrice[]
+  subscriptions Subscription[]
+
+  @@map("plan_definitions")
+}
+
+model PlanFeature {
+  id            String        @id @default(uuid())
+  planId        String        @map("plan_id")
+  featureKey    String        @map("feature_key") @db.VarChar(120)
+  limitValue    Int?          @map("limit_value")
+  period        FeaturePeriod @default(MONTH)
+  rollover      Boolean       @default(false)
+  version       Int           @default(1)
+  effectiveFrom DateTime      @map("effective_from")
+  effectiveTo   DateTime?     @map("effective_to")
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+
+  plan PlanDefinition @relation(fields: [planId], references: [id], onDelete: Cascade)
+
+  @@index([planId, featureKey, effectiveFrom])
+  @@map("plan_features")
+}
+
+model PlanPrice {
+  id             String          @id @default(uuid())
+  sku            String          @unique @db.VarChar(80)
+  planId         String?         @map("plan_id")
+  consumableType ConsumableType? @map("consumable_type")
+  packQuantity   Int?            @map("pack_quantity")
+  amount         Int
+  currency       String          @default("IRR") @db.VarChar(3)
+  periodMonths   Int?            @map("period_months")
+  isActive       Boolean         @default(true) @map("is_active")
+  createdAt      DateTime        @default(now()) @map("created_at")
+  updatedAt      DateTime        @updatedAt @map("updated_at")
+
+  plan PlanDefinition? @relation(fields: [planId], references: [id])
+
+  @@map("plan_prices")
+}
+
+model Subscription {
+  id                 String             @id @default(uuid())
+  ownerType          BillingOwnerType   @map("owner_type")
+  ownerId            String             @map("owner_id") @db.VarChar(36)
+  planId             String             @map("plan_id")
+  status             SubscriptionStatus @default(ACTIVE)
+  currentPeriodStart DateTime           @map("current_period_start")
+  currentPeriodEnd   DateTime           @map("current_period_end")
+  cancelAtPeriodEnd  Boolean            @default(false) @map("cancel_at_period_end")
+  createdAt          DateTime           @default(now()) @map("created_at")
+  updatedAt          DateTime           @updatedAt @map("updated_at")
+
+  plan    PlanDefinition        @relation(fields: [planId], references: [id])
+  history SubscriptionHistory[]
+
+  @@unique([ownerType, ownerId])
+  @@index([planId])
+  @@map("subscriptions")
+}
+
+model SubscriptionHistory {
+  id             String                   @id @default(uuid())
+  subscriptionId String                   @map("subscription_id")
+  event          SubscriptionHistoryEvent
+  fromPlanId     String?                  @map("from_plan_id") @db.VarChar(36)
+  toPlanId       String?                  @map("to_plan_id") @db.VarChar(36)
+  note           String?                  @db.Text
+  actorUserId    String?                  @map("actor_user_id") @db.VarChar(36)
+  metadata       Json?
+  createdAt      DateTime                 @default(now()) @map("created_at")
+
+  subscription Subscription @relation(fields: [subscriptionId], references: [id], onDelete: Cascade)
+
+  @@index([subscriptionId, createdAt])
+  @@map("subscription_histories")
+}
+
+model ConsumableBalance {
+  id             String            @id @default(uuid())
+  ownerType      BillingOwnerType  @map("owner_type")
+  ownerId        String            @map("owner_id") @db.VarChar(36)
+  consumableType ConsumableType    @map("consumable_type")
+  available      Int               @default(0)
+  reserved       Int               @default(0)
+  updatedAt      DateTime          @updatedAt @map("updated_at")
+
+  @@unique([ownerType, ownerId, consumableType])
+  @@map("consumable_balances")
+}
+
+model ConsumableTransaction {
+  id             String            @id @default(uuid())
+  ownerType      BillingOwnerType  @map("owner_type")
+  ownerId        String            @map("owner_id") @db.VarChar(36)
+  consumableType ConsumableType    @map("consumable_type")
+  delta          Int
+  kind           ConsumableTxKind
+  refType        String?           @map("ref_type") @db.VarChar(80)
+  refId          String?           @map("ref_id") @db.VarChar(36)
+  requestId      String?           @map("request_id") @db.VarChar(120)
+  metadata       Json?
+  createdAt      DateTime          @default(now()) @map("created_at")
+
+  @@index([ownerType, ownerId, createdAt])
+  @@index([requestId])
+  @@map("consumable_transactions")
+}
+
+model QuotaUsage {
+  id         String           @id @default(uuid())
+  ownerType  BillingOwnerType @map("owner_type")
+  ownerId    String           @map("owner_id") @db.VarChar(36)
+  featureKey String           @map("feature_key") @db.VarChar(120)
+  periodKey  String           @map("period_key") @db.VarChar(32)
+  used       Int              @default(0)
+  updatedAt  DateTime         @updatedAt @map("updated_at")
+
+  @@unique([ownerType, ownerId, featureKey, periodKey])
+  @@map("quota_usages")
+}
+
+model SystemSetting {
+  key         String   @id @db.VarChar(120)
+  valueJson   Json     @map("value_json")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  updatedById String?  @map("updated_by_id") @db.VarChar(36)
+
+  @@map("system_settings")
+}
+
+model ContactUnlock {
+  id               String   @id @default(uuid())
+  companyId        String   @map("company_id")
+  targetUserId     String   @map("target_user_id")
+  unlockedByUserId String   @map("unlocked_by_user_id")
+  consumableTxId   String?  @map("consumable_tx_id") @db.VarChar(36)
+  createdAt        DateTime @default(now()) @map("created_at")
+
+  company    Company @relation(fields: [companyId], references: [id])
+  targetUser User    @relation("ContactUnlockTarget", fields: [targetUserId], references: [id])
+  unlockedBy User    @relation("ContactUnlockActor", fields: [unlockedByUserId], references: [id])
+
+  @@unique([companyId, targetUserId])
+  @@index([targetUserId])
+  @@map("contact_unlocks")
+}
+
