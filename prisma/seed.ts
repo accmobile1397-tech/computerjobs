@@ -34,6 +34,10 @@ const PERMISSIONS = [
   { slug: "resume:update:own", nameFa: "ویرایش رزومه خود" },
   { slug: "resume:read:employer", nameFa: "مشاهده رزومه متقاضی" },
   { slug: "resume:read:public", nameFa: "خواندن رزومه عمومی" },
+  { slug: "search:jobs", nameFa: "جستجوی آگهی" },
+  { slug: "search:resumes", nameFa: "جستجوی رزومه (کارفرما)" },
+  { slug: "match:read:own", nameFa: "مشاهده امتیاز تطبیق خود" },
+  { slug: "match:read:employer", nameFa: "مشاهده امتیاز تطبیق متقاضی" },
   { slug: "admin:users:read", nameFa: "مشاهده کاربران" },
   { slug: "admin:users:suspend", nameFa: "تعلیق کاربر" },
   { slug: "admin:roles:manage", nameFa: "مدیریت نقش‌ها" },
@@ -51,6 +55,7 @@ const ROLES = [
       "resume:read:own",
       "resume:update:own",
       "job:apply",
+      "match:read:own",
     ],
   },
   {
@@ -71,6 +76,8 @@ const ROLES = [
       "job:applications:read:own",
       "job:applications:manage:own",
       "resume:read:employer",
+      "search:resumes",
+      "match:read:employer",
     ],
   },
   {
