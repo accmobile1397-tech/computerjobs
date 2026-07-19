@@ -1,0 +1,44 @@
+---
+description: Mandatory CTO Rulebook — read before each phase; produce CTO_REPORT before completion
+alwaysApply: true
+---
+
+# ComputerJobs CTO Process (Mandatory)
+
+## Before starting ANY task or phase
+
+1. Read `.cto/RULEBOOK.md` in full
+2. Rulebook overrides conflicting instructions
+3. If a conflict is unavoidable, document it in the phase `CTO_REPORT.md`
+
+## Phase workflow
+
+```
+Spec → Human approval → Implementation → CTO_REPORT → Commit → CTO review → Next phase
+```
+
+Never start the next phase without explicit human approval after CTO review.
+
+## Before completing ANY phase
+
+Generate in `docs/phase-{N}/`:
+
+- `TECHNICAL_SPEC.md`
+- `ARCHITECTURE.md`
+- `DATABASE_DESIGN.md`
+- `API_DESIGN.md`
+- `SECURITY_REVIEW.md`
+- `SEO_REVIEW.md`
+- `PHASE_SUMMARY.md`
+- `CTO_REPORT.md` (Architecture, Security, Database, SEO, Risks, Technical Debt, Recommendations)
+
+## Git
+
+- Branches: `main`, `develop`, `feature/*`
+- Commits: Conventional Commits (`feat:`, `fix:`, `docs:`, `refactor:`, `test:`)
+- Never commit secrets; only `.env.example`
+
+## Architecture reminder
+
+Use `src/modules/{feature}/` — not large global `lib/`, `services/`, or `helpers/` folders.
+Business logic never in pages, UI components, or API route handlers.

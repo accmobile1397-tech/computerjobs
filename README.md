@@ -80,6 +80,8 @@ curl http://localhost:3000/api/v1/health/deep
 
 | Document | Description |
 |----------|-------------|
+| [.cto/RULEBOOK.md](.cto/RULEBOOK.md) | **Mandatory CTO standards** |
+| [docs/phase-0/CTO_REPORT.md](docs/phase-0/CTO_REPORT.md) | Phase 0 CTO review report |
 | [docs/phase-0/TECHNICAL_SPEC.md](docs/phase-0/TECHNICAL_SPEC.md) | مشخصات فنی |
 | [docs/phase-0/ARCHITECTURE.md](docs/phase-0/ARCHITECTURE.md) | معماری |
 | [docs/phase-0/DATABASE_DESIGN.md](docs/phase-0/DATABASE_DESIGN.md) | طراحی DB |
@@ -101,7 +103,13 @@ curl http://localhost:3000/api/v1/health/deep
 - [x] CI pipeline
 - [x] OpenShip VPS deployment docs
 
-**Next:** Phase 1 — Authentication & RBAC (awaiting approval)
+## CTO Review Process
+
+1. Agent reads [`.cto/RULEBOOK.md`](.cto/RULEBOOK.md) before each phase
+2. Agent produces [`docs/phase-0/CTO_REPORT.md`](docs/phase-0/CTO_REPORT.md) at phase end
+3. Human CTO reviews → feedback → fixes → approval → next phase
+
+**Current status:** Phase 0 awaiting CTO review
 
 ---
 

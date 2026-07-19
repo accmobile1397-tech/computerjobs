@@ -17,8 +17,11 @@
 - [ ] `docs/phase-0/ACCEPTANCE_CRITERIA.md` — این سند
 - [ ] `docs/CHANGELOG.md` — نسخه 0.1.0
 - [ ] `docs/DEPLOYMENT.md` — راهنمای استقرار VPS با OpenShip
-- [ ] `docs/MIGRATION.md` — workflow Prisma migrations
-- [ ] `README.md` — معرفی، prerequisites، local dev
+- [ ] `docs/phase-0/SECURITY_REVIEW.md` — بررسی امنیت
+- [ ] `docs/phase-0/SEO_REVIEW.md` — بررسی SEO
+- [ ] `docs/phase-0/PHASE_SUMMARY.md` — خلاصه فاز
+- [ ] `docs/phase-0/CTO_REPORT.md` — گزارش CTO برای review
+- [ ] `.cto/RULEBOOK.md` — استانداردهای اجباری
 
 ### ۲. Scaffolding پروژه
 
