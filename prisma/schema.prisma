@@ -29,15 +29,51 @@ enum LoginIdentifierType {
 }
 
 enum EmployerVerificationStatus {
-  PENDING_REVIEW
+  PENDING
+  UNDER_REVIEW
   VERIFIED
   REJECTED
+}
+
+enum ProfileVisibility {
+  PUBLIC
+  EMPLOYERS_ONLY
+  PRIVATE
+}
+
+enum EmployeeCountRange {
+  SIZE_1_10
+  SIZE_11_50
+  SIZE_51_200
+  SIZE_201_500
+  SIZE_501_1000
+  SIZE_1000_PLUS
+}
+
+enum CompanyVerificationStatus {
+  PENDING
+  UNDER_REVIEW
+  VERIFIED
+  REJECTED
+}
+
+enum CompanyStatus {
+  ACTIVE
+  SUSPENDED
+  DELETED
 }
 
 enum CompanyMemberRole {
   OWNER
   ADMIN
   MEMBER
+}
+
+enum CompanyInviteStatus {
+  PENDING
+  ACCEPTED
+  EXPIRED
+  REVOKED
 }
 
 enum AuditAction {
@@ -60,6 +96,17 @@ enum AuditAction {
   USER_BANNED
   ROLE_CHANGED
   ACCOUNT_DELETED
+  PROFILE_UPDATED
+  COMPANY_CREATED
+  COMPANY_UPDATED
+  COMPANY_DELETED
+  MEMBER_INVITED
+  MEMBER_ACCEPTED
+  MEMBER_REMOVED
+  OWNERSHIP_TRANSFERRED
+  EMPLOYER_VERIFICATION_UPDATED
+  COMPANY_VERIFICATION_UPDATED
+  COMPANY_STATUS_CHANGED
 }
 
 model User {
@@ -69,6 +116,7 @@ model User {
   passwordHash         String           @map("password_hash") @db.VarChar(255)
   primaryType          UserPrimaryType  @map("primary_type")
   status               UserStatus       @default(PENDING)
+  slug                 String?          @unique @db.VarChar(220)
   emailVerified        Boolean          @default(false) @map("email_verified")
   emailVerifiedAt      DateTime?        @map("email_verified_at")
   phoneVerified        Boolean          @default(false) @map("phone_verified")
@@ -86,6 +134,7 @@ model User {
   employerProfile      EmployerProfile?
   ownedCompanies       Company[]        @relation("CompanyOwner")
   companyMemberships   CompanyMember[]
+  companyInvitesSent   CompanyInvite[]  @relation("CompanyInviteInviter")
   userRoles            UserRole[]
   refreshTokens        RefreshToken[]
   verificationTokens   VerificationToken[]
@@ -95,16 +144,23 @@ model User {
   @@index([status])
   @@index([primaryType])
   @@index([deletedAt])
+  @@index([slug])
   @@map("users")
 }
 
 model JobSeekerProfile {
-  id          String    @id @default(uuid())
-  userId      String    @unique @map("user_id")
-  displayName String?   @map("display_name") @db.VarChar(120)
-  createdAt   DateTime  @default(now()) @map("created_at")
-  updatedAt   DateTime  @updatedAt @map("updated_at")
-  deletedAt   DateTime? @map("deleted_at")
+  id                String            @id @default(uuid())
+  userId            String            @unique @map("user_id")
+  displayName       String?           @map("display_name") @db.VarChar(120)
+  headline          String?           @db.VarChar(160)
+  bio               String?           @db.Text
+  avatarUrl         String?           @map("avatar_url") @db.VarChar(512)
+  cityLabel         String?           @map("city_label") @db.VarChar(120)
+  profileVisibility ProfileVisibility @default(PRIVATE) @map("profile_visibility")
+  completionScore   Int               @default(0) @map("completion_score")
+  createdAt         DateTime          @default(now()) @map("created_at")
+  updatedAt         DateTime          @updatedAt @map("updated_at")
+  deletedAt         DateTime?         @map("deleted_at")
 
   user User @relation(fields: [userId], references: [id])
 
@@ -115,7 +171,9 @@ model EmployerProfile {
   id                 String                     @id @default(uuid())
   userId             String                     @unique @map("user_id")
   displayName        String?                    @map("display_name") @db.VarChar(120)
-  verificationStatus EmployerVerificationStatus @default(PENDING_REVIEW) @map("verification_status")
+  jobTitle           String?                    @map("job_title") @db.VarChar(120)
+  bio                String?                    @db.Text
+  verificationStatus EmployerVerificationStatus @default(PENDING) @map("verification_status")
   companyId          String?                    @map("company_id")
   createdAt          DateTime                   @default(now()) @map("created_at")
   updatedAt          DateTime                   @updatedAt @map("updated_at")
@@ -128,18 +186,31 @@ model EmployerProfile {
 }
 
 model Company {
-  id        String    @id @default(uuid())
-  name      String    @db.VarChar(200)
-  ownerId   String    @map("owner_id")
-  createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime  @updatedAt @map("updated_at")
-  deletedAt DateTime? @map("deleted_at")
+  id                 String                    @id @default(uuid())
+  name               String                    @db.VarChar(200)
+  slug               String                    @unique @db.VarChar(220)
+  description        String?                   @db.Text
+  logoUrl            String?                   @map("logo_url") @db.VarChar(512)
+  websiteUrl         String?                   @map("website_url") @db.VarChar(512)
+  employeeCountRange EmployeeCountRange?       @map("employee_count_range")
+  industryLabel      String?                   @map("industry_label") @db.VarChar(200)
+  verificationStatus CompanyVerificationStatus @default(PENDING) @map("verification_status")
+  status             CompanyStatus             @default(ACTIVE)
+  verifiedAt         DateTime?                 @map("verified_at")
+  ownerId            String                    @map("owner_id")
+  createdAt          DateTime                  @default(now()) @map("created_at")
+  updatedAt          DateTime                  @updatedAt @map("updated_at")
+  deletedAt          DateTime?                 @map("deleted_at")
 
   owner            User              @relation("CompanyOwner", fields: [ownerId], references: [id])
   members          CompanyMember[]
+  invites          CompanyInvite[]
   employerProfiles EmployerProfile[]
 
   @@index([ownerId])
+  @@index([slug])
+  @@index([verificationStatus])
+  @@index([status])
   @@map("companies")
 }
 
@@ -157,6 +228,27 @@ model CompanyMember {
   @@unique([companyId, userId])
   @@index([userId])
   @@map("company_members")
+}
+
+model CompanyInvite {
+  id         String              @id @default(uuid())
+  companyId  String              @map("company_id")
+  email      String              @db.VarChar(255)
+  role       CompanyMemberRole   @default(MEMBER)
+  tokenHash  String              @map("token_hash") @db.VarChar(64)
+  status     CompanyInviteStatus @default(PENDING)
+  invitedBy  String              @map("invited_by")
+  expiresAt  DateTime            @map("expires_at")
+  acceptedAt DateTime?           @map("accepted_at")
+  createdAt  DateTime            @default(now()) @map("created_at")
+
+  company Company @relation(fields: [companyId], references: [id])
+  inviter User    @relation("CompanyInviteInviter", fields: [invitedBy], references: [id])
+
+  @@index([companyId])
+  @@index([tokenHash])
+  @@index([email])
+  @@map("company_invites")
 }
 
 model Role {

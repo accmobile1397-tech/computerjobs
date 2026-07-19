@@ -6,6 +6,15 @@ const prisma = new PrismaClient();
 const PERMISSIONS = [
   { slug: "users:read:self", nameFa: "خواندن پروفایل خود" },
   { slug: "users:update:self", nameFa: "ویرایش پروفایل خود" },
+  { slug: "profile:read:own", nameFa: "خواندن پروفایل تفصیلی خود" },
+  { slug: "profile:update:own", nameFa: "ویرایش پروفایل تفصیلی خود" },
+  { slug: "profile:read:any", nameFa: "خواندن پروفایل (ادمین)" },
+  { slug: "company:read:own", nameFa: "خواندن شرکت خود" },
+  { slug: "company:update:own", nameFa: "ویرایش شرکت" },
+  { slug: "company:members:manage", nameFa: "مدیریت اعضای شرکت" },
+  { slug: "company:invite", nameFa: "دعوت عضو به شرکت" },
+  { slug: "company:verify", nameFa: "تأیید شرکت (ادمین)" },
+  { slug: "company:suspend", nameFa: "تعلیق شرکت (ادمین)" },
   { slug: "resumes:create", nameFa: "ایجاد رزومه" },
   { slug: "resumes:read:own", nameFa: "خواندن رزومه خود" },
   { slug: "jobs:create", nameFa: "ایجاد آگهی" },
@@ -17,14 +26,55 @@ const PERMISSIONS = [
 ];
 
 const ROLES = [
-  { slug: "job_seeker", nameFa: "کارجو", permissions: ["users:read:self", "users:update:self", "resumes:create", "resumes:read:own"] },
-  { slug: "employer", nameFa: "کارفرما", permissions: ["users:read:self", "users:update:self", "jobs:create", "jobs:read", "jobs:update:own"] },
-  { slug: "admin", nameFa: "مدیر", permissions: ["admin:users:read", "admin:users:suspend"] },
-  { slug: "super_admin", nameFa: "مدیر ارشد", permissions: PERMISSIONS.map((p) => p.slug) },
+  {
+    slug: "job_seeker",
+    nameFa: "کارجو",
+    permissions: [
+      "users:read:self",
+      "users:update:self",
+      "profile:read:own",
+      "profile:update:own",
+      "resumes:create",
+      "resumes:read:own",
+    ],
+  },
+  {
+    slug: "employer",
+    nameFa: "کارفرما",
+    permissions: [
+      "users:read:self",
+      "users:update:self",
+      "profile:read:own",
+      "profile:update:own",
+      "company:read:own",
+      "company:update:own",
+      "company:members:manage",
+      "company:invite",
+      "jobs:create",
+      "jobs:read",
+      "jobs:update:own",
+    ],
+  },
+  {
+    slug: "admin",
+    nameFa: "مدیر",
+    permissions: [
+      "admin:users:read",
+      "admin:users:suspend",
+      "profile:read:any",
+      "company:verify",
+      "company:suspend",
+    ],
+  },
+  {
+    slug: "super_admin",
+    nameFa: "مدیر ارشد",
+    permissions: PERMISSIONS.map((p) => p.slug),
+  },
 ];
 
 async function main() {
-  console.log("Seeding IAM data...");
+  console.log("Seeding IAM + Phase 2 permissions...");
 
   for (const perm of PERMISSIONS) {
     await prisma.permission.upsert({
@@ -80,7 +130,7 @@ async function main() {
     console.log(`SuperAdmin seeded: ${superEmail}`);
   }
 
-  console.log("IAM seed completed");
+  console.log("Seed completed");
 }
 
 main()
