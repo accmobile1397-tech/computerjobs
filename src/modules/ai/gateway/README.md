@@ -1,5 +1,5 @@
 # AI Gateway
 
-Single entry point for all AI operations. Routes requests to providers via fallback chain.
+Sole entry: `complete()`, `embed()`, `moderate()`.
 
-**Phase:** 7
+Pipeline: resolveModel → loadPrompt → estimateCost → moderate → RESERVE → provider → CAPTURE|RELEASE

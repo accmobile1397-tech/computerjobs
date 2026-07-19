@@ -1,5 +1,3 @@
-# AI Prompts
+# Prompt Registry
 
-Versioned prompt templates for resume analysis, matching, skill extraction.
-
-**Phase:** 7–8
+Versioned markdown only. Services must not inline prompts.

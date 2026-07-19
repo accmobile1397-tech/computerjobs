@@ -1,5 +1,4 @@
 # AI Providers
 
-Implementations: Gemini → OpenRouter → Groq → Z.AI → Ollama.
-
-**Phase:** 7
+Adapters only: `stub` · `openrouter` · `gemini`.  
+`local` deferred (TD-P8-1). Never import from feature modules — gateway only.

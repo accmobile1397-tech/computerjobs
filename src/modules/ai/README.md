@@ -1,20 +1,17 @@
 # AI Module
 
-All AI access goes through this module. Direct provider SDK usage elsewhere is forbidden.
+All AI access goes through **`gateway/`**. Feature modules must never import provider SDKs.
 
-## Structure
+## Phase 8
 
-| Folder | Purpose |
-|--------|---------|
-| [gateway](./gateway/) | Provider abstraction, routing |
-| [providers](./providers/) | Gemini, OpenRouter, Groq, Z.AI, Ollama |
-| [health](./health/) | Provider health monitoring |
-| [prompts](./prompts/) | Prompt templates & versioning |
-| [token](./token/) | Token tracking & cost |
-| [fallback](./fallback/) | Fallback chain logic |
-| [queue](./queue/) | Async AI jobs (BullMQ) |
-| [matching](./matching/) | AI job/resume matching |
+| Path | Purpose |
+|------|---------|
+| `gateway/` | `complete` · `embed` · `moderate` + estimate/routing/rate-limit |
+| `providers/` | `stub` · `openrouter` · `gemini` (HTTP adapters) |
+| `prompts/` | Versioned prompt registry (`*.v1.md`) |
+| `matching/` | `ai.match.explain` |
+| `jobs/` | `ai.job.improve_description` |
 
-**Phase:** 7–8 — skeleton from Phase 0 refactor.
+**Out of scope:** Resume AI Suggest (Phase 8.1) · local provider (TD-P8-1)
 
-See `docs/adr/0003-ai-gateway.md` and `docs/rfc/ai-matching.md`.
+See [RFC-002](../../../docs/rfc/RFC-002-AI-ARCHITECTURE.md).
