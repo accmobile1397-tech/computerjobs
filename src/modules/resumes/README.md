@@ -1,7 +1,5 @@
 # Resumes Module
 
-Platform resume builder only — no external uploads. One free resume per user.
+Platform resume builder — one resume per user. User owns slug (no resume slug).
 
 **Phase:** 5
-
-See `docs/rfc/resume-builder.md`.

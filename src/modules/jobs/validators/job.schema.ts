@@ -68,6 +68,7 @@ export const listJobsQuerySchema = z.object({
 
 export const submitApplicationSchema = z.object({
   coverLetter: z.string().max(2000).optional(),
+  resumeId: z.string().uuid().optional(),
 });
 
 export const updateApplicationStatusSchema = z.object({

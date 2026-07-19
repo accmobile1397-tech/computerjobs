@@ -12,6 +12,10 @@ import {
   assertCompanyAccess,
   CompanyError,
 } from "@/modules/companies/services/company.service";
+import {
+  resolveResumeIdForApply,
+  ResumeError,
+} from "@/modules/resumes/services/resume.service";
 import type {
   SubmitApplicationInput,
   UpdateApplicationStatusInput,
@@ -107,11 +111,23 @@ export async function submitApplication(params: {
   });
   if (existing) throw new ApplicationError("ALREADY_APPLIED");
 
+  let resumeId: string | null = null;
+  try {
+    resumeId = await resolveResumeIdForApply({
+      userId: params.userId,
+      resumeId: params.input.resumeId,
+    });
+  } catch (error) {
+    if (error instanceof ResumeError) throw new ApplicationError(error.code);
+    throw error;
+  }
+
   const application = await prisma.jobApplication.create({
     data: {
       jobId: params.jobId,
       userId: params.userId,
       coverLetter: params.input.coverLetter,
+      resumeId,
       status: ApplicationStatus.SUBMITTED,
     },
     include: applicationInclude,
