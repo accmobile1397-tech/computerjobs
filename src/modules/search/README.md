@@ -1,5 +1,5 @@
 # Search Module
 
-Search must work without AI. AI may improve ranking only.
+Job/resume search + rule-based MatchScore v1 (on demand). No AI.
 
-**Phase:** 6
+**Phase:** 6 · Reserved (not implemented): SavedSearch, SearchQueryLog · TD-P6-2 rate limit
