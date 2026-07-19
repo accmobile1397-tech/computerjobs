@@ -2,7 +2,28 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
-## [Unreleased] — RFC-001 & Phase 7 Spec
+## [0.7.0-7A] — 1404/04/29 — Phase 7A Entitlements
+
+### Added
+
+- Data-driven plans, PlanFeature versioning, PlanPrice (amount + currency)
+- Subscription + SubscriptionHistory, wallet, QuotaUsage, SystemSetting
+- ContactUnlock (unique companyId + targetUserId)
+- Quota gates on apply / job publish; admin billing API
+- Migration `20260719230000_phase7a_billing_entitlements`
+- Audit catalog: `docs/phase-7/AUDIT_EVENT_CATALOG.md`
+
+### CTO
+
+- **APPROVE WITH CONDITIONS** — Phase 7A closed
+- Tag: `v0.7-phase-7A`
+- Debt: TD-P7A-1 Cache, TD-P7A-2 Analytics, TD-P7A-3 Feature flags, TD-P7A-4 AI credit stress
+
+### Phase 7B
+
+- Spec generated — Payment Gateway Integration — **awaiting CTO review** (no implementation)
+
+## [Unreleased] — RFC-001
 
 ### RFC-001
 

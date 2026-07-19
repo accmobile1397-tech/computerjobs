@@ -1,41 +1,37 @@
 # Token Optimization Mode
 
-**Source of truth:** this file + `.cto/RULEBOOK.md`. Do not duplicate rulebook content elsewhere.
+**Source of truth:** this file + `.cto/RULEBOOK.md`.
 
-## Context loading
+## Context loading (mandatory)
 
-Load only:
+1. `.cto/RULEBOOK.md` + **only** specialized files relevant to the task  
+2. **Current phase spec only** (`docs/phase-{N}/` or `phase-7b/`) — not prior full packages  
+3. Previous phase: README / CTO_REPORT / DECISIONS row at most  
 
-1. `.cto/RULEBOOK.md` + specialized files **relevant to the task**
-2. Current phase docs (`docs/phase-{N}/`)
-3. Previous phase summary (README / CTO_REPORT / DECISIONS row) — not the full prior phase package
+**Do not** re-scan the entire repository each phase.
 
-Do **not** re-read the entire repository each phase.
+## Diff-first (Billing · Payment · AI Gateway onward)
 
-Analyze **only** changed modules and files.
+From Phase 7B / costly domains:
 
-## Spec & report generation
+- Work **diff-only** — read and edit **involved files** only  
+- Prefer `git diff` / path-scoped search over broad exploration  
+- Do not reload unrelated modules (jobs/resumes/taxonomy) unless the task touches them  
+- Before each phase: load **that phase’s TECHNICAL_SPEC** (+ RFC if cited) only  
 
-Default deliverables (unless CTO explicitly requests more):
+## Spec & report defaults
 
 | Artifact | When |
 |----------|------|
 | `TECHNICAL_SPEC` | Spec phase |
-| `CTO_REPORT` | Implementation handoff / closeout |
+| `CTO_REPORT` | Handoff / closeout |
 
-Do **not** auto-generate DATABASE_DESIGN, API_DESIGN, SECURITY_REVIEW, RISKS, ACCEPTANCE, Guardian, Index, TEST_COVERAGE unless requested.
-
-Rules:
-
-- Never repeat rulebook content in specs or reports
-- CTO_REPORT ≤ **300 lines**
-- Prefer code changes over documentation generation
-- Avoid verbose explanations
+Extra docs only if CTO requests. Never repeat rulebook in specs. CTO_REPORT ≤ 300 lines.
 
 ## Tests (minimal)
 
-Per feature: happy path · validation · permission — nothing more unless CTO asks.
+Happy path · validation · permission
 
 ## Communication
 
-Optimize for token efficiency while preserving architecture quality.
+Token-efficient; preserve architecture quality.

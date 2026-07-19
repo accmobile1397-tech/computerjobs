@@ -1,24 +1,21 @@
 # CTO Report — Phase 7A: Entitlements · Quotas · Wallet · Plans
 
-**Phase:** 7A · **Status:** ⏳ Awaiting CTO Review  
-**Spec:** APPROVE WITH MINOR CONDITIONS — [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md)  
-**Out of 7A:** Payment gateway (7B)
+**Phase:** 7A · **Status:** 🟢 **CLOSED** — APPROVE WITH CONDITIONS (2026-07-19)  
+**Tag:** `v0.7-phase-7A`  
+**Approval:** [CTO_IMPLEMENTATION_APPROVAL.md](./CTO_IMPLEMENTATION_APPROVAL.md)
 
-## Handoff
+## Implementation
 
-```text
-Phase 7A implementation — review:
-https://github.com/accmobile1397-tech/computerjobs/compare/f160270...main
-گزارش: docs/phase-7/CTO_REPORT.md
-```
+[`f160270..bed1704`](https://github.com/accmobile1397-tech/computerjobs/compare/f160270...bed1704)
 
-## Commits
+## ContactUnlock
 
-| # | Commit | Scope |
-|---|--------|-------|
-| 1 | `f160270` | Schema + migration + seed |
-| 2 | `a768e6b` | Services + gates + admin/unlock APIs |
+`@@unique([companyId, targetUserId])` verified (= company + candidate).
 
-## Verification
+## Debt registered
 
-`npm test` 33/33 · typecheck ✅
+TD-P7A-1 Cache · TD-P7A-2 Analytics · TD-P7A-3 Feature flags · TD-P7A-4 AI credit stress
+
+## Next
+
+Phase 7B spec: [../phase-7b/TECHNICAL_SPEC.fa.md](../phase-7b/TECHNICAL_SPEC.fa.md) — no impl until APPROVE

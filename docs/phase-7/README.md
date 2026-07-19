@@ -1,6 +1,7 @@
-# Phase 7 — Payments & Plans
+# Phase 7A — Entitlements (CLOSED)
 
-**7A:** Entitlements — ⏳ awaiting CTO review  
-**7B:** Payment Gateway — not started  
+**Status:** 🟢 CLOSED · Tag `v0.7-phase-7A`  
+**Approval:** [CTO_IMPLEMENTATION_APPROVAL.md](./CTO_IMPLEMENTATION_APPROVAL.md)  
+**Audit:** [AUDIT_EVENT_CATALOG.md](./AUDIT_EVENT_CATALOG.md)
 
-[TECHNICAL_SPEC](./TECHNICAL_SPEC.fa.md) · [DATABASE_DESIGN](./DATABASE_DESIGN.md) · [CTO_REPORT](./CTO_REPORT.md)
+**Next:** [Phase 7B Payment Gateway](../phase-7b/README.md)

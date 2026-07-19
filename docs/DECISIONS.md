@@ -39,7 +39,12 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-037 | Phase 6 implementation — **awaiting CTO review** | Active |
 | 2026-07-19 | D-038 | RFC-001 — **APPROVE WITH CONDITIONS** · frozen for Phase 7 | **Closed** |
 | 2026-07-19 | D-039 | Phase 7 spec — **APPROVE WITH MINOR CONDITIONS** · 7A/7B split | **Closed** |
-| 2026-07-19 | D-040 | Phase 7A implementation — entitlements (no PSP) | Active |
+| 2026-07-19 | D-040 | **Phase 7A CLOSED** — APPROVE WITH CONDITIONS · `v0.7-phase-7A` | **Closed** |
+| 2026-07-19 | D-041 | Phase 7B spec — Payment Gateway (spec only) | Active |
+| 2026-07-19 | TD-P7A-1 | Entitlement Cache Layer | Active (P2) |
+| 2026-07-19 | TD-P7A-2 | Usage Analytics | Active (P2) |
+| 2026-07-19 | TD-P7A-3 | Feature Flag Framework | Active (P2) |
+| 2026-07-19 | TD-P7A-4 | AI Credit Reservation Stress Testing | Active (P1) |
 | 2026-07-19 | TD-P6-2 | Search Rate Limiting | Active (P1) |
 | 2026-07-19 | TD-P5-1 | Application Resume Snapshot | Active (P1) |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
@@ -65,11 +70,22 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-040: Phase 7A Implementation
+## D-041: Phase 7B Spec — Payment Gateway
 
-**Decision:** Implementation authorized — Entitlements/Quotas/Wallet/Plans only  
-**No PSP / checkout in 7A** (Phase 7B)  
-**Record:** [docs/phase-7/CTO_REPORT.md](./phase-7/CTO_REPORT.md)
+**Decision:** Spec generated — **awaiting CTO review**  
+**Status:** Implementation **blocked** until TECHNICAL_SPEC APPROVE  
+**Document:** [docs/phase-7b/TECHNICAL_SPEC.fa.md](./phase-7b/TECHNICAL_SPEC.fa.md)
+
+---
+
+## D-040: Phase 7A Closed
+
+**Decision:** ☑ **APPROVE WITH CONDITIONS** (CTO 2026-07-19)  
+**Tag:** `v0.7-phase-7A` · **Implementation:** [`f160270..bed1704`](https://github.com/accmobile1397-tech/computerjobs/compare/f160270...bed1704)  
+**Record:** [docs/phase-7/CTO_IMPLEMENTATION_APPROVAL.md](./phase-7/CTO_IMPLEMENTATION_APPROVAL.md)  
+**Audit catalog:** [docs/phase-7/AUDIT_EVENT_CATALOG.md](./phase-7/AUDIT_EVENT_CATALOG.md)
+
+**Debt:** TD-P7A-1…4 · ContactUnlock unique `(companyId, targetUserId)` verified
 
 ---
 

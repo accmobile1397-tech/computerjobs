@@ -34,7 +34,8 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 4 Jobs Core | 🟢 Closed (`v0.5-phase-4`) |
 | 5 Resume Builder | 🟢 Closed (`v0.6-phase-5`) |
 | 6 Search & Matching | ⏳ Implementation — **awaiting CTO review** |
-| 7 Payments & Plans | ⏳ 7A implementation — **awaiting CTO review** (7B PSP deferred) |
+| 7A Entitlements | 🟢 Closed (`v0.7-phase-7A`) |
+| 7B Payment Gateway | ⏳ Spec — **awaiting CTO review** |
 
 ---
 
