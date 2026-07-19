@@ -110,6 +110,7 @@ export async function seedBilling(prisma: PrismaClient) {
     { key: "billing.quota_job_cron", value: "0 * * * *" },
     { key: "billing.resume_view_window_days", value: 30 },
     { key: "billing.job_republish_window_days", value: 7 },
+    { key: "activePaymentProvider", value: "stub" },
   ];
 
   for (const s of settings) {

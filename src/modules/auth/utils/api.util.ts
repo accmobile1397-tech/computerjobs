@@ -81,6 +81,7 @@ export function mapErrorToResponse(
     TECHNOLOGY_NOT_FOUND: 404,
     QUOTA_EXCEEDED: 402,
     PLAN_NOT_FOUND: 404,
+    PAYMENT_VERIFY_FAILED: 400,
   };
 
   const messageMap: Record<string, string> = {

@@ -174,6 +174,12 @@ enum AuditAction {
   CONTACT_UNLOCKED
   SYSTEM_SETTING_UPDATED
   BILLING_ADMIN_GRANT
+  PAYMENT_CREATED
+  PAYMENT_SUCCEEDED
+  PAYMENT_FAILED
+  PAYMENT_SETTLED
+  PAYMENT_REFUNDED
+  PAYMENT_CANCELLED
 }
 
 enum JobStatus {
@@ -1162,5 +1168,55 @@ model ContactUnlock {
   @@unique([companyId, targetUserId])
   @@index([targetUserId])
   @@map("contact_unlocks")
+}
+
+// ─── Phase 7B Payments ──────────────────────────────────────────────
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+  REFUNDED
+}
+
+model Payment {
+  id             String           @id @default(uuid())
+  ownerType      BillingOwnerType @map("owner_type")
+  ownerId        String           @map("owner_id") @db.VarChar(36)
+  sku            String           @db.VarChar(80)
+  amount         Int
+  currency       String           @db.VarChar(3)
+  status         PaymentStatus    @default(PENDING)
+  gateway        String           @db.VarChar(40)
+  gatewayRef     String?          @map("gateway_ref") @db.VarChar(120)
+  idempotencyKey String           @unique @map("idempotency_key") @db.VarChar(120)
+  refundAmount   Int?             @map("refund_amount")
+  refundedAt     DateTime?        @map("refunded_at")
+  metadata       Json?
+  createdAt      DateTime         @default(now()) @map("created_at")
+  updatedAt      DateTime         @updatedAt @map("updated_at")
+
+  attempts PaymentAttempt[]
+
+  @@index([ownerType, ownerId])
+  @@index([gatewayRef])
+  @@index([status])
+  @@map("payments")
+}
+
+model PaymentAttempt {
+  id          String   @id @default(uuid())
+  paymentId   String   @map("payment_id")
+  status      String   @db.VarChar(40)
+  rawRequest  Json?    @map("raw_request")
+  rawResponse Json?    @map("raw_response")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  payment Payment @relation(fields: [paymentId], references: [id], onDelete: Cascade)
+
+  @@index([paymentId, createdAt])
+  @@map("payment_attempts")
 }
 

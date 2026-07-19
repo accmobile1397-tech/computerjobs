@@ -40,6 +40,7 @@ const PERMISSIONS = [
   { slug: "match:read:own", nameFa: "مشاهده امتیاز تطبیق خود" },
   { slug: "match:read:employer", nameFa: "مشاهده امتیاز تطبیق متقاضی" },
   { slug: "billing:read:own", nameFa: "خواندن اشتراک و کیف پول خود" },
+  { slug: "billing:checkout", nameFa: "شروع پرداخت" },
   { slug: "billing:admin", nameFa: "مدیریت پلن و سهمیه (ادمین)" },
   { slug: "admin:users:read", nameFa: "مشاهده کاربران" },
   { slug: "admin:users:suspend", nameFa: "تعلیق کاربر" },
@@ -60,6 +61,7 @@ const ROLES = [
       "job:apply",
       "match:read:own",
       "billing:read:own",
+      "billing:checkout",
     ],
   },
   {
@@ -83,6 +85,7 @@ const ROLES = [
       "search:resumes",
       "match:read:employer",
       "billing:read:own",
+      "billing:checkout",
     ],
   },
   {
