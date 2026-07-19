@@ -27,14 +27,21 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-021 | Phase 1 IAM on `main` commit `66e08b9` | Pending CTO |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
-| 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch for daily work | Active |
+| 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
+| 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
 
 ---
 
 ## D-024: Direct Commits on `main`
 
 All phase work commits directly to `main`. CTO receives commit link only.  
-`develop` branch retained on remote for history only — do not use for new work.
+`develop` branch **deleted** 2026-07-19 (local + `origin/develop`).
+
+---
+
+## D-025: Delete `develop` Branch
+
+Removed `origin/develop` and local `develop`. Single branch workflow: `main` only.
 
 ---
 
