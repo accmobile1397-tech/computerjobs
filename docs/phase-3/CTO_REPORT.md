@@ -11,9 +11,19 @@
 
 ```text
 Phase 3 implementation — review:
-https://github.com/accmobile1397-tech/computerjobs/compare/{FIRST}...main
+https://github.com/accmobile1397-tech/computerjobs/compare/a4f9677...3f90657
 گزارش: docs/phase-3/CTO_REPORT.md
 ```
+
+## Implementation Commits
+
+| # | Commit | Scope |
+|---|--------|-------|
+| 1 | `a4f9677` | Database schema + migration + seed JSON |
+| 2 | `48e8d7c` | Location module + public APIs |
+| 3 | `b270d8f` | Taxonomy module + public read APIs |
+| 4 | `ad55fff` | Suggestion workflow + admin APIs |
+| 5 | `3f90657` | cityId/categoryId + seed permissions + docs/tests |
 
 ---
 
