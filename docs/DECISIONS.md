@@ -31,7 +31,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-029 | **Phase 2 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.3-phase-2` | **Closed** |
 | 2026-07-19 | D-030 | Phase 3 spec — **APPROVE** · implementation authorized | **Closed** |
 | 2026-07-19 | D-031 | **Phase 3 CLOSED** — APPROVE · tag `v0.4-phase-3` | **Closed** |
-| 2026-07-19 | D-032 | Phase 4 spec — Jobs Core (spec only) | Active |
+| 2026-07-19 | D-032 | Phase 4 spec — **APPROVE WITH MINOR CONDITIONS** | **Closed** |
+| 2026-07-19 | D-033 | Phase 4 implementation — **awaiting CTO review** | Active |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
@@ -55,14 +56,21 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
-## D-032: Phase 4 Spec — Jobs Core
+## D-033: Phase 4 Implementation
 
-**Decision:** Spec generated — **awaiting CTO review**  
-**Status:** Implementation **blocked** until CTO approves  
-**Scope:** Jobs Core, Lifecycle, Slug, Public APIs, Basic Filtering, Application Foundation  
-**Excluded:** Resume Builder, AI Matching, Payments, Advertisements  
+**Decision:** Implementation complete — **awaiting CTO review**  
+**Tag (after APPROVE):** `v0.5-phase-4`  
+**Record:** [docs/phase-4/CTO_REPORT.md](./phase-4/CTO_REPORT.md)
 
-**Documents:** `docs/phase-4/`
+---
+
+## D-032: Phase 4 Spec — APPROVE WITH MINOR CONDITIONS
+
+**Decision:** ☑ **APPROVE WITH MINOR CONDITIONS** (CTO 2026-07-19)  
+**Status:** **Closed** — implementation complete, see D-033  
+**Record:** [docs/phase-4/CTO_SPEC_APPROVAL.md](./phase-4/CTO_SPEC_APPROVAL.md)
+
+**Minor conditions:** PENDING_REVIEW, VIEWED, SalaryType, experienceLevel filter, reserved nullable fields.
 
 ---
 

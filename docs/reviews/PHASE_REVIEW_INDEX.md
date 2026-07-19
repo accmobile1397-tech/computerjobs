@@ -2,47 +2,39 @@
 
 ---
 
-# Phase 1 — IAM (Closed)
+# Phase 1 — IAM (Closed) · `v0.2-phase-1`
 
-**Tag:** `v0.2-phase-1` · [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)
+# Phase 2 — Profiles & Companies (Closed) · `v0.3-phase-2`
 
----
-
-# Phase 2 — Profiles & Companies (Closed)
-
-**Tag:** `v0.3-phase-2` · [`847fe54..fe7bc85`](https://github.com/accmobile1397-tech/computerjobs/compare/847fe54...fe7bc85)
-
----
-
-# Phase 3 — Location & Taxonomy (Closed)
-
-**Tag:** `v0.4-phase-3` · [`a4f9677..ff4c6da`](https://github.com/accmobile1397-tech/computerjobs/compare/a4f9677...ff4c6da)
+# Phase 3 — Location & Taxonomy (Closed) · `v0.4-phase-3`
 
 [CTO_IMPLEMENTATION_APPROVAL.md](./phase-3/CTO_IMPLEMENTATION_APPROVAL.md)
 
 ---
 
-# Phase 4 — Jobs Core (Spec Review)
+# Phase 4 — Jobs Core (Review)
 
-**Status:** ⏳ Awaiting CTO Spec Review  
-**Implementation:** ❌ Blocked
+**Status:** ⏳ Awaiting CTO Review  
+**Migration:** `20260719200000_phase4_jobs_core`
 
 ## Start Here
 
 | Document | Path |
 |----------|------|
-| **Technical Spec** | [docs/phase-4/TECHNICAL_SPEC.fa.md](./phase-4/TECHNICAL_SPEC.fa.md) |
+| **CTO Report** | [docs/phase-4/CTO_REPORT.md](./phase-4/CTO_REPORT.md) |
+| Spec approval | [docs/phase-4/CTO_SPEC_APPROVAL.md](./phase-4/CTO_SPEC_APPROVAL.md) |
+| Technical Spec | [docs/phase-4/TECHNICAL_SPEC.fa.md](./phase-4/TECHNICAL_SPEC.fa.md) |
 | Database | [docs/phase-4/DATABASE_DESIGN.md](./phase-4/DATABASE_DESIGN.md) |
 | API | [docs/phase-4/API_DESIGN.md](./phase-4/API_DESIGN.md) |
-| Security | [docs/phase-4/SECURITY_REVIEW.md](./phase-4/SECURITY_REVIEW.md) |
-| Acceptance | [docs/phase-4/ACCEPTANCE_CRITERIA.md](./phase-4/ACCEPTANCE_CRITERIA.md) |
+| Tests | [docs/phase-4/TEST_COVERAGE.md](./phase-4/TEST_COVERAGE.md) |
 
-## Scope
+## Module
 
-Jobs Core · Lifecycle · Slug · Public APIs · Basic Filtering · Application Foundation
+`src/modules/jobs/` — jobs + applications
 
-**Excluded:** Resume, AI Matching, Payments, Ads
+## API
 
-## Module (planned)
-
-`src/modules/jobs/`
+Public: `GET /jobs`, `GET /jobs/by-slug/:slug`  
+Employer: CRUD + publish/pause/close  
+Applications: apply, withdraw, employer manage  
+Admin: `POST /admin/jobs/:id/approve`

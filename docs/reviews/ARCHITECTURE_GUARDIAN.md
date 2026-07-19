@@ -278,28 +278,37 @@ Submit implementation for CTO review. Tag `v0.4-phase-3` after APPROVE.
 
 ---
 
-# Phase 4 Preview — Architecture Guardian (Pre-implementation)
+# Phase 4 — Architecture Guardian
 
 **Date:** 2026-07-19  
-**Phase:** 4 — Jobs Core (spec only)  
-**Status:** ⏳ Awaiting CTO Spec Review
+**Phase:** 4 — Jobs Core  
+**Status:** ⏳ Awaiting CTO Review
 
-## 1. Technical Debt from Phase 3
+## 1. Technical Debt
 
-Carry TD-P2-1 (integration tests), TD-P3-1 (city seed expansion).
+TD-P2-1 HTTP integration tests still deferred. Job expiry cron minimal.
 
 ## 2. Rulebook
 
-Jobs in dedicated `jobs/` module — not merged into companies.
+Dedicated `jobs/` module — separate from companies. ✅
 
-## 3. Refactor before implementation?
+## 3. Refactor before Phase 5?
 
-None — skeleton exists.
+None blocking. `resumeId` nullable on applications ready.
 
 ## 4. Future impact
 
-Application `resumeId` nullable — Phase 5 ready. Public job URLs align with SEO_STRATEGY.
+Enables Resume Builder (5) and Search (6). PENDING_REVIEW supports moderation.
 
 ## 5. Recommendation
 
-Review Phase 4 spec. **Do not implement until CTO APPROVE.**
+Submit implementation for CTO review. Tag `v0.5-phase-4` after APPROVE.
+
+---
+
+## Sign-off
+
+- [x] Architecture Guardian (Agent)  
+- [ ] CTO — Phase 4 implementation review pending
+
+---
