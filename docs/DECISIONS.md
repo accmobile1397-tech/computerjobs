@@ -37,7 +37,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-035 | **Phase 5 CLOSED** — APPROVE · tag `v0.6-phase-5` | **Closed** |
 | 2026-07-19 | D-036 | Phase 6 spec — **APPROVE WITH CONDITIONS** | **Closed** |
 | 2026-07-19 | D-037 | Phase 6 implementation — **awaiting CTO review** | Active |
-| 2026-07-19 | TD-P6-2 | Search Rate Limiting | Active (P1) |
+| 2026-07-19 | D-038 | RFC-001 Product Rules & Monetization — **awaiting CTO** | Active |
 | 2026-07-19 | TD-P5-1 | Application Resume Snapshot | Active (P1) |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
@@ -59,6 +59,18 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 8 | AI Layer |
 
 Dependency note: Jobs (4) after Taxonomy + Location (3).
+
+---
+
+## D-038: RFC-001 Product Rules & Monetization
+
+**Decision:** RFC generated — **awaiting CTO approval**  
+**Status:** Phase 7 TECHNICAL_SPEC **blocked** until RFC-001 APPROVE  
+**Documents:**
+- [docs/rfc/RFC-001-PRODUCT-RULES.md](./rfc/RFC-001-PRODUCT-RULES.md)
+- [docs/rfc/RFC-001-MONETIZATION.md](./rfc/RFC-001-MONETIZATION.md)
+
+**After APPROVE:** generate Phase 7 spec only — no coding until Phase 7 spec APPROVE.
 
 ---
 
