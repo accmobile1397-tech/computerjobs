@@ -18,6 +18,7 @@ https://github.com/accmobile1397-tech/computerjobs/compare/cf68aa5...main
 | 1 | `cf68aa5` | Schema + migration |
 | 2 | `da05cfd` | Services + apply wiring + tests |
 | 3 | `06148d3` | API routes + seed permissions |
+| 4 | `f6e84d5` | CTO report + test coverage + index |
 ## Delivered
 
 | Item | Status |
