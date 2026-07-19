@@ -1,22 +1,21 @@
 # CTO Report — Phase 7B: Payment Gateway
 
-**Phase:** 7B · **Status:** ⏳ Awaiting CTO Review  
-**Spec:** APPROVE WITH MINOR CONDITIONS
+**Phase:** 7B · **Status:** 🟢 **CLOSED** — APPROVE WITH CONDITIONS (2026-07-19)  
+**Tag:** `v0.8-phase-7B`  
+**Approval:** [CTO_IMPLEMENTATION_APPROVAL.md](./CTO_IMPLEMENTATION_APPROVAL.md)
 
-## Handoff
+## Implementation
 
-```text
-Phase 7B implementation — review:
-https://github.com/accmobile1397-tech/computerjobs/compare/3c19cb2^...main
-گزارش: docs/phase-7b/CTO_REPORT.md
-```
+[`3c19cb2..420bbce`](https://github.com/accmobile1397-tech/computerjobs/compare/3c19cb2^...420bbce)
 
-## Commits
+## Security
 
-| # | Hash | Scope |
-|---|------|-------|
-| 1 | `3c19cb2` | Payment schema, providers, checkout/webhook |
+Return URL read-only · webhook settle only · [PAYMENT_SECURITY_CHECKLIST](../security/PAYMENT_SECURITY_CHECKLIST.md)
 
-## Verification
+## Debt
 
-`npm test` 37/37 · typecheck ✅
+TD-P7B-1 Reconciliation · TD-P7B-2 Replay · TD-P7B-3 Multi-PSP failover
+
+## Next
+
+RFC-002 → Phase 8 spec · no AI coding until APPROVE

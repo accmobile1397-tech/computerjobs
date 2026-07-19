@@ -2,7 +2,7 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
-## [Unreleased] — Phase 7B Payment Gateway
+## [0.8.0-7B] — 1404/04/29 — Phase 7B Payment Gateway
 
 ### Added
 
@@ -10,10 +10,30 @@ All notable changes to ComputerJobs.ir are documented here.
 - PaymentProvider abstraction (`stub` via `activePaymentProvider`)
 - Checkout / return (read-only) / webhook settle (idempotent)
 - Reserved refundAmount, refundedAt; audit PAYMENT_SETTLED
+- `docs/billing/BILLING_AUDIT_MODEL.md`
+- `docs/security/PAYMENT_SECURITY_CHECKLIST.md`
 
 ### CTO
 
-- Spec **APPROVE WITH MINOR CONDITIONS** — implementation in progress
+- **APPROVE WITH CONDITIONS** — Phase 7B closed
+- Tag: `v0.8-phase-7B`
+- Debt: TD-P7B-1 Reconciliation, TD-P7B-2 Replay protection, TD-P7B-3 Multi-PSP failover
+
+### Next
+
+- RFC-002 AI Architecture — awaiting CTO freeze
+- Phase 8 TECHNICAL_SPEC — awaiting CTO review · **no implementation**
+
+## [Unreleased] — RFC-002 & Phase 8 Spec
+
+### RFC-002
+
+- AI Architecture (gateway, credits, OpenRouter/Gemini/local, fallback, rate limits) — **awaiting CTO**
+- Doc: `docs/rfc/RFC-002-AI-ARCHITECTURE.md`
+
+### Phase 8
+
+- TECHNICAL_SPEC generated — AI Gateway & AI Features — **blocked until RFC-002 + spec APPROVE**
 
 ## [0.7.0-7A] — 1404/04/29 — Phase 7A Entitlements
 
@@ -34,7 +54,7 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ### Phase 7B
 
-- Spec generated — Payment Gateway Integration — **awaiting CTO review** (no implementation)
+- Spec generated — Payment Gateway Integration — **CLOSED** (`v0.8-phase-7B`)
 
 ## [Unreleased] — RFC-001
 

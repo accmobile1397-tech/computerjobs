@@ -41,7 +41,13 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-039 | Phase 7 spec — **APPROVE WITH MINOR CONDITIONS** · 7A/7B split | **Closed** |
 | 2026-07-19 | D-040 | **Phase 7A CLOSED** — APPROVE WITH CONDITIONS · `v0.7-phase-7A` | **Closed** |
 | 2026-07-19 | D-041 | Phase 7B spec — **APPROVE WITH MINOR CONDITIONS** | **Closed** |
-| 2026-07-19 | D-042 | Phase 7B implementation — Payment Gateway | Active |
+| 2026-07-19 | D-042 | Phase 7B implementation — Payment Gateway | **Closed** |
+| 2026-07-19 | D-043 | **Phase 7B CLOSED** — APPROVE WITH CONDITIONS · `v0.8-phase-7B` | **Closed** |
+| 2026-07-19 | D-044 | RFC-002 AI Architecture — awaiting CTO freeze before Phase 8 | Active |
+| 2026-07-19 | D-045 | Phase 8 TECHNICAL_SPEC — awaiting CTO review · **no implementation** | Active |
+| 2026-07-19 | TD-P7B-1 | Payment Reconciliation Job | Active (P1) |
+| 2026-07-19 | TD-P7B-2 | Webhook Replay Protection | Active (P1) |
+| 2026-07-19 | TD-P7B-3 | Multi PSP Failover | Active (P2) |
 | 2026-07-19 | TD-P7A-1 | Entitlement Cache Layer | Active (P2) |
 | 2026-07-19 | TD-P7A-2 | Usage Analytics | Active (P2) |
 | 2026-07-19 | TD-P7A-3 | Feature Flag Framework | Active (P2) |
@@ -71,9 +77,35 @@ Dependency note: Jobs (4) after Taxonomy + Location (3).
 
 ---
 
+## D-045: Phase 8 TECHNICAL_SPEC — Awaiting Review
+
+**Decision:** Spec generated; **implementation blocked** until CTO APPROVE of RFC-002 **and** Phase 8 TECHNICAL_SPEC.  
+**Document:** [docs/phase-8/TECHNICAL_SPEC.fa.md](./phase-8/TECHNICAL_SPEC.fa.md)
+
+---
+
+## D-044: RFC-002 AI Architecture
+
+**Decision:** New RFC required before Phase 8 — platform is AI-Native hiring; freeze gateway, credits, providers, fallback, rate limits.  
+**Status:** ⏳ Awaiting CTO Approval (freeze)  
+**Document:** [docs/rfc/RFC-002-AI-ARCHITECTURE.md](./rfc/RFC-002-AI-ARCHITECTURE.md)
+
+---
+
+## D-043: Phase 7B Closed
+
+**Decision:** ☑ **APPROVE WITH CONDITIONS** (CTO 2026-07-19)  
+**Tag:** `v0.8-phase-7B` · **Approval:** [docs/phase-7b/CTO_IMPLEMENTATION_APPROVAL.md](./phase-7b/CTO_IMPLEMENTATION_APPROVAL.md)  
+**Audit model:** [docs/billing/BILLING_AUDIT_MODEL.md](./billing/BILLING_AUDIT_MODEL.md)  
+**Security:** [docs/security/PAYMENT_SECURITY_CHECKLIST.md](./security/PAYMENT_SECURITY_CHECKLIST.md)  
+**Debt:** TD-P7B-1 Reconciliation · TD-P7B-2 Replay · TD-P7B-3 Multi-PSP failover
+
+---
+
 ## D-042: Phase 7B Implementation
 
 **Decision:** Implementation on `main` — Payment Gateway  
+**Status:** **Closed** — see D-043  
 **Conditions:** full PaymentStatus lifecycle · PaymentProvider-only · PAYMENT_SETTLED · idempotent settle · refund fields · return URL no settle · `activePaymentProvider`  
 **Record:** [docs/phase-7b/CTO_REPORT.md](./phase-7b/CTO_REPORT.md)
 

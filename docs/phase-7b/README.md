@@ -1,6 +1,6 @@
-# Phase 7B — Payment Gateway
+# Phase 7B — Payment Gateway (CLOSED)
 
-**Status:** ⏳ Implementation complete — awaiting CTO review  
-**Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) · [CTO_REPORT.md](./CTO_REPORT.md)
+**Status:** 🟢 CLOSED · Tag `v0.8-phase-7B`  
+**Approval:** [CTO_IMPLEMENTATION_APPROVAL.md](./CTO_IMPLEMENTATION_APPROVAL.md)
 
-Return URL = status only · Webhook = settle
+Next: [RFC-002](../rfc/RFC-002-AI-ARCHITECTURE.md) · [Phase 8](../phase-8/README.md)

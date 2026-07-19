@@ -338,3 +338,39 @@ Unblocks Search & Matching (6). Taxonomy FK reuse from Phase 3. No AI endpoints 
 ## 5. Recommendation
 
 Review Phase 5 spec. **Do not implement until CTO APPROVE.**
+
+---
+
+# Phase 7B — Architecture Guardian
+
+**Date:** 2026-07-19  
+**Phase:** 7B — Payment Gateway  
+**CTO Decision:** APPROVE WITH CONDITIONS ? CLOSED (0.8-phase-7B)
+
+## 1. Technical Debt
+
+| ID | Item | Priority |
+|----|------|----------|
+| TD-P7B-1 | Payment Reconciliation Job | P1 |
+| TD-P7B-2 | Webhook Replay Protection | P1 |
+| TD-P7B-3 | Multi PSP Failover | P2 |
+
+## 2. Rulebook
+
+PaymentProvider only under `billing/providers/` · return URL never settles · webhook settle only. ?
+
+## 3. Refactor before Phase 8?
+
+None blocking. Real PSP swap is config + adapter.
+
+## 4. Future impact
+
+Unblocks paid plans for AI credits (Phase 8). Platform framed as AI-Native — RFC-002 required before Phase 8 coding.
+
+## 5. PRD/ADR
+
+DECISIONS D-043…045 · BILLING_AUDIT_MODEL · PAYMENT_SECURITY_CHECKLIST · RFC-002
+
+## Recommendation
+
+Tag `v0.8-phase-7B`. Freeze RFC-002 before Phase 8 implementation.
