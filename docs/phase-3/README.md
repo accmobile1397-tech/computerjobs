@@ -1,25 +1,19 @@
 # Phase 3 — Location, Taxonomy, Skills & Technologies
 
-**Status:** ⏳ **Implementation complete** — awaiting CTO review  
-**Spec approval:** [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md)  
-**Implementation:** compare link in [CTO_REPORT.md](./CTO_REPORT.md)
+**Status:** 🟢 **CLOSED** — APPROVE  
+**Tag:** `v0.4-phase-3`  
+**Implementation:** [`a4f9677..ff4c6da`](https://github.com/accmobile1397-tech/computerjobs/compare/a4f9677...ff4c6da)
 
 ## Documents
 
 | File | Purpose |
 |------|---------|
-| [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md) | CTO APPROVE + enhancements |
+| [CTO_IMPLEMENTATION_APPROVAL.md](./CTO_IMPLEMENTATION_APPROVAL.md) | **CTO final APPROVE + tag** |
+| [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md) | Spec approval |
 | [CTO_REPORT.md](./CTO_REPORT.md) | Implementation report |
 | [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) | مشخصات فنی |
-| [DATABASE_DESIGN.md](./DATABASE_DESIGN.md) | Schema |
-| [API_DESIGN.md](./API_DESIGN.md) | Endpoints |
 | [TEST_COVERAGE.md](./TEST_COVERAGE.md) | Tests |
 
-## Seed files
+## Next
 
-`src/modules/location/seed/data/` — provinces.json, cities.json  
-`src/modules/taxonomy/seed/data/` — categories, subcategories, skills, technologies
-
-## After CTO APPROVE
-
-Tag `v0.4-phase-3` → Phase 4 Jobs spec (blocked until approval)
+Phase 4 spec: [docs/phase-4/README.md](../phase-4/README.md)

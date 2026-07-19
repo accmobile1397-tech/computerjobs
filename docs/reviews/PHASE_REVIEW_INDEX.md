@@ -4,7 +4,7 @@
 
 # Phase 1 — IAM (Closed)
 
-**Tag:** `v0.2-phase-1` · **Commit:** [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)
+**Tag:** `v0.2-phase-1` · [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)
 
 ---
 
@@ -12,38 +12,37 @@
 
 **Tag:** `v0.3-phase-2` · [`847fe54..fe7bc85`](https://github.com/accmobile1397-tech/computerjobs/compare/847fe54...fe7bc85)
 
-[CTO_IMPLEMENTATION_APPROVAL.md](./phase-2/CTO_IMPLEMENTATION_APPROVAL.md)
+---
+
+# Phase 3 — Location & Taxonomy (Closed)
+
+**Tag:** `v0.4-phase-3` · [`a4f9677..ff4c6da`](https://github.com/accmobile1397-tech/computerjobs/compare/a4f9677...ff4c6da)
+
+[CTO_IMPLEMENTATION_APPROVAL.md](./phase-3/CTO_IMPLEMENTATION_APPROVAL.md)
 
 ---
 
-# Phase 3 — Location & Taxonomy (Review)
+# Phase 4 — Jobs Core (Spec Review)
 
-**Status:** ⏳ Awaiting CTO Review  
-**Branch:** `main`  
-**Migration:** `20260719180000_phase3_location_taxonomy`
+**Status:** ⏳ Awaiting CTO Spec Review  
+**Implementation:** ❌ Blocked
 
 ## Start Here
 
 | Document | Path |
 |----------|------|
-| **CTO Report** | [docs/phase-3/CTO_REPORT.md](./phase-3/CTO_REPORT.md) |
-| Spec approval | [docs/phase-3/CTO_SPEC_APPROVAL.md](./phase-3/CTO_SPEC_APPROVAL.md) |
-| Technical Spec | [docs/phase-3/TECHNICAL_SPEC.fa.md](./phase-3/TECHNICAL_SPEC.fa.md) |
-| Database | [docs/phase-3/DATABASE_DESIGN.md](./phase-3/DATABASE_DESIGN.md) |
-| API | [docs/phase-3/API_DESIGN.md](./phase-3/API_DESIGN.md) |
-| Tests | [docs/phase-3/TEST_COVERAGE.md](./phase-3/TEST_COVERAGE.md) |
-| Guardian | [ARCHITECTURE_GUARDIAN.md](./ARCHITECTURE_GUARDIAN.md) (Phase 3) |
+| **Technical Spec** | [docs/phase-4/TECHNICAL_SPEC.fa.md](./phase-4/TECHNICAL_SPEC.fa.md) |
+| Database | [docs/phase-4/DATABASE_DESIGN.md](./phase-4/DATABASE_DESIGN.md) |
+| API | [docs/phase-4/API_DESIGN.md](./phase-4/API_DESIGN.md) |
+| Security | [docs/phase-4/SECURITY_REVIEW.md](./phase-4/SECURITY_REVIEW.md) |
+| Acceptance | [docs/phase-4/ACCEPTANCE_CRITERIA.md](./phase-4/ACCEPTANCE_CRITERIA.md) |
 
-## Modules
+## Scope
 
-- `src/modules/location/` — provinces, cities, seed
-- `src/modules/taxonomy/` — hierarchy, suggestions, approval
+Jobs Core · Lifecycle · Slug · Public APIs · Basic Filtering · Application Foundation
 
-## Public API
+**Excluded:** Resume, AI Matching, Payments, Ads
 
-`/locations/provinces`, `/locations/provinces/:slug/cities`  
-`/taxonomy/categories`, `/taxonomy/skills/:slug`, `/taxonomy/technologies/:slug`
+## Module (planned)
 
-## Admin API
-
-`/admin/locations/*`, `/admin/taxonomy/suggestions/*`
+`src/modules/jobs/`

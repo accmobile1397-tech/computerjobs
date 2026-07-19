@@ -2,6 +2,28 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
+## [0.4.0] — 1404/04/29 — Phase 3 Location & Taxonomy
+
+### Added
+
+- Location module — 31 provinces + 431 cities seed
+- Taxonomy — Category, SubCategory, Skill, Technology + aliases, popularityScore
+- AI suggestion + admin approval workflow
+- Public location/taxonomy read APIs
+- `cityId` on job seeker profile, `categoryId` on company
+- Migration `20260719180000_phase3_location_taxonomy`
+- 16 unit tests; CI green
+
+### CTO
+
+- **APPROVE** — Phase 3 closed
+- Tag: `v0.4-phase-3`
+
+### Phase 4
+
+- Spec package generated — **awaiting CTO review** (no implementation)
+- Scope: Jobs Core, Lifecycle, Slug, Public APIs, Filtering, Application Foundation
+
 ## [0.3.0] — 1404/04/29 — Phase 2 Profiles & Companies
 
 ### Added
@@ -19,11 +41,6 @@ All notable changes to ComputerJobs.ir are documented here.
 - **APPROVE WITH CONDITIONS** — Phase 2 closed
 - Tag: `v0.3-phase-2`
 - Conditions: integration tests + audit verification before Phase 3 close; rate limiting + SEO metadata deferred
-
-### Phase 3
-
-- Spec package generated — **awaiting CTO review** (no implementation)
-- Scope: Location, Taxonomy, Skills, Technologies, AI suggestion, Admin approval
 
 ## [0.2.0] — 1404/04/29 — Phase 1 IAM
 

@@ -42,7 +42,8 @@ Tag Release
 | 0 | 🟢 Closed |
 | 1 | 🟢 Closed — `v0.2-phase-1` |
 | 2 | 🟢 Closed — `v0.3-phase-2` |
-| 3 | ⏳ Implementation review — **awaiting CTO** |
+| 3 | 🟢 Closed — `v0.4-phase-3` |
+| 4 | ⏳ Spec review — **no implementation** |
 
 ---
 

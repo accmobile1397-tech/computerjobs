@@ -240,7 +240,7 @@ Review Phase 3 spec package. **Do not implement until CTO APPROVE.**
 **Date:** 2026-07-19  
 **Phase:** 3 — Location & Taxonomy  
 **Branch:** `main`  
-**Status:** ⏳ Awaiting CTO Review
+**Status:** 🟢 **CLOSED** — `v0.4-phase-3`
 
 ## 1. Technical Debt
 
@@ -268,3 +268,38 @@ None required.
 ## Recommendation
 
 Submit implementation for CTO review. Tag `v0.4-phase-3` after APPROVE.
+
+---
+
+## Sign-off
+
+- [x] Architecture Guardian (Agent)  
+- [x] CTO — Phase 3 **APPROVE** (2026-07-19)
+
+---
+
+# Phase 4 Preview — Architecture Guardian (Pre-implementation)
+
+**Date:** 2026-07-19  
+**Phase:** 4 — Jobs Core (spec only)  
+**Status:** ⏳ Awaiting CTO Spec Review
+
+## 1. Technical Debt from Phase 3
+
+Carry TD-P2-1 (integration tests), TD-P3-1 (city seed expansion).
+
+## 2. Rulebook
+
+Jobs in dedicated `jobs/` module — not merged into companies.
+
+## 3. Refactor before implementation?
+
+None — skeleton exists.
+
+## 4. Future impact
+
+Application `resumeId` nullable — Phase 5 ready. Public job URLs align with SEO_STRATEGY.
+
+## 5. Recommendation
+
+Review Phase 4 spec. **Do not implement until CTO APPROVE.**
