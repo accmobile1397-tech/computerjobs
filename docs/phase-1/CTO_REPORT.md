@@ -3,152 +3,100 @@
 **پروژه:** ComputerJobs.ir  
 **فاز:** 1 — IAM  
 **Branch:** `main`  
+**Tag:** `v0.2-phase-1`  
 **Implementation commit:** [`769b6de`](https://github.com/accmobile1397-tech/computerjobs/commit/769b6de)  
-**Handoff commit:** [`06f72dd`](https://github.com/accmobile1397-tech/computerjobs/commit/06f72dd)  
-**تاریخ:** 1404/04/29  
-**وضعیت:** ⏳ **Awaiting CTO Approval**
-
----
-
-## Handoff to CTO (copy-paste)
-
-```text
-Phase 1 IAM — آماده review و approval.
-
-Commit: https://github.com/accmobile1397-tech/computerjobs/commit/06f72dd
-گزارش: docs/phase-1/CTO_REPORT.md
-فهرست: docs/reviews/PHASE_REVIEW_INDEX.md
-```
+**Closure commit:** _(this release)_  
+**تاریخ بسته‌شدن:** 1404/04/29  
+**وضعیت:** 🟢 **CLOSED — APPROVE WITH CONDITIONS**
 
 ---
 
 ## Executive Summary
 
-Phase 1 IAM طبق spec تأییدشده + feedback CTO پیاده‌سازی شد:
+Phase 1 IAM طبق spec تأییدشده + feedback CTO پیاده‌سازی و review شد.
 
 | Deliverable | Status |
 |-------------|--------|
-| Auth module (`register`, `login`, `refresh`, `logout`, password reset, email verify) | ✅ |
-| Authorization module (DB-driven RBAC — no hardcoded roles) | ✅ |
-| Users module (`GET/PATCH /users/me`) | ✅ |
-| Prisma migration + seed (roles, permissions, SuperAdmin) | ✅ |
+| Auth module | ✅ |
+| Authorization module (DB-driven RBAC) | ✅ |
+| Users module (`/users/me`) | ✅ |
+| Migration + seed | ✅ |
 | Company + CompanyMember skeleton | ✅ |
-| Audit log events (login, lock, register, …) | ✅ |
-| Unit tests (crypto, argon2) | ✅ 5/5 |
-| CI (lint, typecheck, prisma, test, build) | ✅ |
-| Threat model Phase 1 | ✅ |
-| Architecture Guardian review | ✅ |
+| Unit tests | ✅ 5/5 |
+| CI pipeline | ✅ |
+| Threat model + Architecture Guardian | ✅ |
 
-**Out of scope (طبق spec):** OAuth, Social Login, 2FA implementation, real SMS/email delivery
+---
+
+## Verification (Closure)
+
+| Check | Result |
+|-------|--------|
+| `npm test` | ✅ 5/5 pass |
+| `npm run lint` | ✅ 0 errors (1 warning: unused `_request` in middleware) |
+| `npm run typecheck` | ✅ pass |
+| `npm run build` | ✅ pass |
+| `npx prisma validate` | ✅ valid |
+| Migration `20260719140000_phase1_iam` | ✅ present; applies with `prisma migrate deploy` |
+| Critical security findings | ✅ none open (see threat model) |
+| Rulebook compliance | ✅ feature-first modules, DB RBAC, thin routes |
 
 ---
 
 ## Architecture Review
 
-✅ Feature-first: `src/modules/auth/`, `authorization/`, `users/`  
-✅ Infrastructure در `src/modules/shared/`  
-✅ API routes نازک — logic در services  
-✅ `auth/` جدا از `authorization/` (ADR-0006)  
-✅ No business logic in `src/app/api/` routes  
+✅ Feature-first modules  
+✅ `auth/` / `authorization/` / `users/` separated  
+✅ Business logic in services  
+✅ ADR-0006 recorded  
 
 ---
 
 ## Security Review
 
-| Item | Status |
-|------|--------|
-| Password hashing (argon2id) | ✅ |
-| JWT access + refresh (httpOnly cookie, rotation) | ✅ |
-| Account lock + `LOCKED` status | ✅ |
-| DB-driven permission checks | ✅ |
-| 2FA fields in schema (unused) | ✅ schema only |
-| Rate limiting | ⚠️ skeleton |
-| Email/SMS | ⚠️ console stub |
-
-جزئیات: [SECURITY_REVIEW.md](./SECURITY_REVIEW.md) · [security-threat-model/phase-1.md](../security-threat-model/phase-1.md)
+✅ argon2id · JWT + httpOnly refresh · account lock · audit log  
+⚠️ Rate limit skeleton · email stub (accepted Phase 1 debt)
 
 ---
 
-## Database Review
-
-- Migration: `prisma/migrations/20260719140000_phase1_iam/`
-- Models: User, JobSeekerProfile, EmployerProfile, Company, CompanyMember, RBAC, tokens, audit_logs
-- UUID PK + audit fields
-- Seed: roles, permissions, SuperAdmin (`SEED_SUPERADMIN_*` env)
-
----
-
-## API Endpoints (new)
-
-| Method | Path |
-|--------|------|
-| POST | `/api/v1/auth/register/job-seeker` |
-| POST | `/api/v1/auth/register/employer` |
-| POST | `/api/v1/auth/login` |
-| POST | `/api/v1/auth/refresh` |
-| POST | `/api/v1/auth/logout` |
-| POST | `/api/v1/auth/logout-all` |
-| POST | `/api/v1/auth/forgot-password` |
-| POST | `/api/v1/auth/reset-password` |
-| GET/POST | `/api/v1/auth/verify-email` |
-| GET/PATCH | `/api/v1/users/me` |
-
----
-
-## Tests & CI
-
-```
-Test Files  2 passed (2)
-Tests       5 passed (5)
-npm run build — OK
-```
-
----
-
-## Technical Debt
+## Technical Debt (carried forward)
 
 | ID | Item | Priority |
 |----|------|----------|
 | TD-1 | API integration tests | P1 |
-| TD-2 | Admin user management routes (partial spec) | P2 |
-| TD-3 | Email queue — console.log stub until Phase 10 | P2 |
+| TD-2 | Admin user management routes partial | P2 |
+| TD-3 | Email queue stub | P2 |
 
 ---
 
-## Known Risks
+## CTO Recommendation
 
-- Mobile login: schema ready — not enabled (`MOBILE_LOGIN_NOT_ENABLED`)
-- Rate limit skeleton only — harden before production traffic
-- See [RISKS_AND_ASSUMPTIONS.md](./RISKS_AND_ASSUMPTIONS.md)
+☑ **APPROVE WITH CONDITIONS**
 
----
+**Conditions (acknowledged):**
 
-## Git Workflow (post Phase 1)
+1. ☑ Shared module migration continues in future phases  
+2. ☑ Taxonomy skeleton remains planned (not implemented)  
+3. ☑ Location skeleton remains planned (not implemented)  
 
-- Single branch: `main` (direct commits)
-- CTO handoff: commit link only — [CTO_HANDOFF.md](../reviews/CTO_HANDOFF.md)
-- `develop` / `feature/*` removed (D-024, D-025)
-
----
-
-## CTO Decision
-
-- [ ] **APPROVE** — Phase 1 closed, authorize Phase 2 planning
-- [ ] **APPROVE WITH CONDITIONS** — list conditions below
-- [ ] **REJECT** — list blockers below
-
-**Comments:**
+**Comments:** Phase 1 formally closed. Phase 2 spec generated — **no Phase 2 code**.
 
 ---
 
 ## Artifact Index
 
-Full list: [PHASE_REVIEW_INDEX.md](../reviews/PHASE_REVIEW_INDEX.md)
+[PHASE_REVIEW_INDEX.md](../reviews/PHASE_REVIEW_INDEX.md)
 
 | Document | Path |
 |----------|------|
 | Spec (FA) | [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) |
 | Database | [DATABASE_DESIGN.md](./DATABASE_DESIGN.md) |
 | API | [API_DESIGN.md](./API_DESIGN.md) |
-| Architecture Guardian | [ARCHITECTURE_GUARDIAN.md](../reviews/ARCHITECTURE_GUARDIAN.md) |
-| Acceptance Criteria | [ACCEPTANCE_CRITERIA.md](./ACCEPTANCE_CRITERIA.md) |
+| Guardian | [ARCHITECTURE_GUARDIAN.md](../reviews/ARCHITECTURE_GUARDIAN.md) |
+| Threat Model | [security-threat-model/phase-1.md](../security-threat-model/phase-1.md) |
+
+---
+
+## Next
+
+**Phase 2:** User Profiles & Company Management — spec only at `docs/phase-2/` — awaiting CTO review before implementation.

@@ -1,27 +1,22 @@
 # Phase 1 — Identity & Access Management (IAM)
 
-**Status:** ⏳ Awaiting CTO approval  
-**Branch:** `main`  
-**Commit:** [`66e08b9`](https://github.com/accmobile1397-tech/computerjobs/commit/66e08b9)  
-**Handoff:** لینک commit به CTO — [CTO_HANDOFF.md](../reviews/CTO_HANDOFF.md)
+**Status:** 🟢 **CLOSED** — APPROVE WITH CONDITIONS  
+**Tag:** `v0.2-phase-1`  
+**Branch:** `main`
 
 ## Documents
 
 | File | Purpose |
 |------|---------|
-| [CTO_REPORT.md](./CTO_REPORT.md) | گزارش CTO + پیام copy-paste |
-| [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) | مشخصات فنی فارسی |
+| [CTO_REPORT.md](./CTO_REPORT.md) | Final closure report |
+| [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) | مشخصات فنی |
 | [DATABASE_DESIGN.md](./DATABASE_DESIGN.md) | Schema |
 | [API_DESIGN.md](./API_DESIGN.md) | Endpoints |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Module architecture |
 | [SECURITY_REVIEW.md](./SECURITY_REVIEW.md) | Security spec |
 | [ACCEPTANCE_CRITERIA.md](./ACCEPTANCE_CRITERIA.md) | Test checklist |
-| [RISKS_AND_ASSUMPTIONS.md](./RISKS_AND_ASSUMPTIONS.md) | Risks & assumptions |
+| [RISKS_AND_ASSUMPTIONS.md](./RISKS_AND_ASSUMPTIONS.md) | Risks |
 
-## Gate
+## Next
 
-🟢 Spec approved → implementation on `main` → CTO review via commit link
-
-## Out of Scope
-
-OAuth, Social Login, 2FA implementation (schema ready)
+Phase 2 spec: [docs/phase-2/README.md](../phase-2/README.md)

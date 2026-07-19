@@ -108,8 +108,8 @@ Priority for Phase 1 spec:
 
 ## Sign-off
 
-- [ ] Architecture Guardian (Agent) — submitted  
-- [ ] CTO — acknowledged with Phase 0 APPROVE WITH CONDITIONS  
+- [x] Architecture Guardian (Agent) — submitted  
+- [x] CTO — Phase 1 **APPROVE WITH CONDITIONS** (2026-07-19)
 
 ---
 
@@ -117,15 +117,16 @@ Priority for Phase 1 spec:
 
 **Date:** 2026-07-19  
 **Phase:** 1 — IAM Implementation  
-**Branch:** `main`
+**Branch:** `main`  
+**Status:** 🟢 **CLOSED**
 
 ## 1. Technical Debt introduced?
 
-| Debt | Priority |
-|------|----------|
-| No API integration tests | P1 |
-| Email stub not queue-backed | P2 |
-| Admin routes minimal | P2 |
+| Debt | Priority | Carry to Phase 2+ |
+|------|----------|-------------------|
+| No API integration tests | P1 | Yes |
+| Email stub not queue-backed | P2 | Yes |
+| Admin routes minimal | P2 | Yes |
 
 ## 2. Rulebook violations?
 
@@ -133,16 +134,21 @@ None — authorization DB-driven, modules separated.
 
 ## 3. Refactor before Phase 2?
 
-No blocking refactor. Location module can proceed.
+No blocking refactor. Proceed with Phase 2 spec (profiles + companies).
 
 ## 4. Future phase impact?
 
-IAM foundation unblocks jobs, resumes, admin. Company/members ready for Phase 4.
+IAM unblocks profiles, companies, jobs, resumes. Company skeleton from Phase 1 extended in Phase 2 spec.
 
 ## 5. PRD/ADR updates?
 
-ADR-0006 added. DECISIONS D-021 Phase 1 implementation.
+ADR-0006 added. Phase 1 closed in DECISIONS D-026.
 
 ## Recommendation
 
-Awaiting CTO review via commit link on `main` — see [CTO_HANDOFF.md](./CTO_HANDOFF.md).
+🟢 **Phase 1 closed.** Phase 2 spec generated — **implementation blocked until CTO approves spec.**
+
+**CTO conditions acknowledged:**
+- Shared module migration continues in future phases
+- Taxonomy skeleton remains planned
+- Location skeleton remains planned

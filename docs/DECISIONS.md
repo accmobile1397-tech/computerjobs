@@ -24,11 +24,38 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-018 | **Phase 0 final:** CTO APPROVE WITH CONDITIONS — all conditions met | **Closed** |
 | 2026-07-19 | D-019 | Phase 0 Closed — enter Phase 1 IAM | Active |
 | 2026-07-19 | D-020 | Phase 1 IAM spec — CTO approved for implementation | **Closed** |
-| 2026-07-19 | D-021 | Phase 1 IAM on `main` commit `66e08b9` | Pending CTO |
+| 2026-07-19 | D-021 | Phase 1 IAM implemented | **Closed** |
+| 2026-07-19 | D-026 | **Phase 1 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.2-phase-1` | **Closed** |
+| 2026-07-19 | D-027 | Phase 2 spec: **User Profiles & Company Management** — awaiting CTO | Pending |
 | 2026-07-19 | D-022 | **CTO handoff:** commit link on `main` | Active |
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-027: Phase 2 Spec — User Profiles & Company Management (Pending)
+
+Documents in `docs/phase-2/`. **No implementation** until CTO approves TECHNICAL_SPEC + DATABASE + API.
+
+---
+
+## D-026: Phase 1 Closed
+
+**Decision:** APPROVE WITH CONDITIONS (2026-07-19)
+
+**Conditions:**
+1. Shared module migration continues in future phases
+2. Taxonomy skeleton remains planned
+3. Location skeleton remains planned
+
+**Tag:** `v0.2-phase-1` · **Implementation:** `769b6de`
+
+---
+
+## D-021: Phase 1 IAM Implementation (Closed)
+
+Delivered on `main`. Formal closure D-026.
 
 ---
 
@@ -59,9 +86,9 @@ See [docs/reviews/CTO_HANDOFF.md](./reviews/CTO_HANDOFF.md).
 
 ---
 
-## D-021: Phase 1 IAM Implementation (Pending CTO)
+## D-021: Phase 1 IAM Implementation (Closed)
 
-Branch `main`, latest commit `66e08b9`. Awaiting CTO review.
+_(see D-026 above)_
 
 ---
 

@@ -1,42 +1,19 @@
 # Review Checklist
 
-**CTO handoff:** [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md) — commit link on `main`
-
-## Before Starting a Phase
-
-- [ ] Read `.cto/RULEBOOK.md` + relevant specialized rules  
-- [ ] Read `docs/adr/` for related decisions  
-- [ ] Phase spec written and **human approved**  
-
-## Before Completing a Phase
-
-- [ ] All phase docs in `docs/phase-{N}/`  
-- [ ] `CTO_REPORT.md` with commit hash + copy-paste handoff block
-- [ ] `docs/reviews/PHASE_REVIEW_INDEX.md` updated  
-- [ ] `docs/reviews/ARCHITECTURE_GUARDIAN.md` — 5 guardian questions answered  
-- [ ] Conventional Commit(s) on `main`  
-- [ ] Push `main` to origin  
-- [ ] **Stop — wait for CTO review** (commit link)
-
-## Product Owner → CTO
-
-- [ ] Send commit link (+ `CTO_REPORT.md` if needed)
-
-## CTO Decision
-
-- [ ] APPROVE  
-- [ ] APPROVE WITH CONDITIONS  
-- [ ] REJECT  
-
-## After APPROVE
-
-- [ ] Update `docs/DECISIONS.md` phase status
-- [ ] Proceed to next phase (still on `main`)
-
-## Phase 0 Status
-
-**Closed** (2026-07-19) — APPROVE WITH CONDITIONS, all met — see D-018
+**CTO handoff:** [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md)
 
 ## Phase 1 Status
 
-**Awaiting CTO approval** — handoff via commit link on `main`
+🟢 **CLOSED** — APPROVE WITH CONDITIONS — tag `v0.2-phase-1`
+
+## Phase 2 Status
+
+📋 Spec generated — **awaiting CTO spec approval** — **no implementation**
+
+See [docs/phase-2/README.md](../docs/phase-2/README.md)
+
+## Before Phase 2 Implementation
+
+- [ ] CTO approves Phase 2 TECHNICAL_SPEC + DATABASE + API
+- [ ] Update DECISIONS D-027 → Closed
+- [ ] Implement on `main` only

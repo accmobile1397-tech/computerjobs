@@ -4,7 +4,7 @@
 
 1. Read [`.cto/RULEBOOK.md`](.cto/RULEBOOK.md) and relevant `.cto/*_RULES.md` files
 2. Check [`docs/DECISIONS.md`](docs/DECISIONS.md) and [`docs/adr/`](docs/adr/)
-3. Never start the next phase without CTO approval
+3. Never start implementation without CTO spec approval
 
 ## Code Structure
 
@@ -15,16 +15,22 @@
 
 ## Git Workflow
 
-**Commit directly on `main`.** No `develop`, no feature branches, no PR.
+**Commit directly on `main`.** No feature branches, no PR.
 
 ## CTO Handoff
 
 Push to `main`, send **commit link** to CTO.  
 See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 
-## Phase 1
+## Phase Status
 
-**Identity & Access Management (IAM)** — see [`docs/phase-1/README.md`](docs/phase-1/README.md)
+| Phase | Status |
+|-------|--------|
+| 0 Foundation | 🟢 Closed |
+| 1 IAM | 🟢 Closed (`v0.2-phase-1`) |
+| 2 Profiles & Companies | 📋 Spec only — [docs/phase-2/README.md](docs/phase-2/README.md) |
+
+**Do NOT implement Phase 2 until CTO approves spec.**
 
 ---
 

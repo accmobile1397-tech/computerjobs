@@ -2,6 +2,31 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
+## [0.2.0] — 1404/04/29 — Phase 1 IAM
+
+### Added
+
+- Identity & Access Management (IAM) on `main`
+- Auth: register (job-seeker/employer), login, refresh, logout, password reset, email verify
+- Authorization module — DB-driven RBAC (ADR-0006)
+- Users module — GET/PATCH `/users/me`
+- Prisma migration `20260719140000_phase1_iam`
+- Seed: roles, permissions, SuperAdmin
+- Company + CompanyMember skeleton
+- 5 unit tests; CI green
+- Threat model Phase 1
+
+### CTO
+
+- **APPROVE WITH CONDITIONS** — Phase 1 closed
+- Tag: `v0.2-phase-1`
+- Conditions: shared migration continues; taxonomy/location skeletons remain planned
+
+### Phase 2
+
+- Spec package generated (`docs/phase-2/`) — **User Profiles & Company Management**
+- Implementation **not started** — awaiting CTO spec approval
+
 ## [0.1.2] — 1404/04/29
 
 ### Phase 0 CTO Closeout

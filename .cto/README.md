@@ -4,7 +4,7 @@
 |------|---------|
 | [RULEBOOK.md](./RULEBOOK.md) | **Start here** — index + core principles |
 | [ARCHITECTURE_RULES.md](./ARCHITECTURE_RULES.md) | Modules, domain, queue |
-| [DATABASE_RULES.md](./DATABASE_RULES.md) | UUID, audit, taxonomy, location |
+| [DATABASE_RULES.md](./DATABASE_RULES.md) | UUID, audit, naming |
 | [PRISMA_RULES.md](./PRISMA_RULES.md) | Migrations, client, seeds |
 | [NEXTJS_RULES.md](./NEXTJS_RULES.md) | App Router, API, UI |
 | [AI_RULES.md](./AI_RULES.md) | Gateway, degradation |
@@ -16,8 +16,7 @@
 
 ## Related
 
-- [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md) — **official phase delivery to CTO**
-
+- [docs/reviews/CTO_HANDOFF.md](../docs/reviews/CTO_HANDOFF.md) — official phase delivery to CTO
 - [docs/adr/](../docs/adr/) — Architecture Decision Records
 - [docs/rfc/](../docs/rfc/) — Feature RFCs
 - [docs/SECURITY_DECISIONS.md](../docs/SECURITY_DECISIONS.md) — Security decision log
@@ -26,8 +25,12 @@
 
 ## Phase 0
 
-**Approved** 2026-07-19 — see `docs/DECISIONS.md` D-005
+**Closed** — foundation v0.1.x
 
 ## Phase 1
 
-**Identity & Access Management (IAM)** — on `main` commit `66e08b9` — awaiting CTO review
+**Closed** — `v0.2-phase-1` — IAM
+
+## Phase 2
+
+**User Profiles & Company Management** — spec at `docs/phase-2/` — **awaiting CTO approval — no code**
