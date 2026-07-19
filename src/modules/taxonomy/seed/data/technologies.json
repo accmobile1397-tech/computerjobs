@@ -1,0 +1,45 @@
+[
+  {
+    "id": "250b876c-5d57-4710-88b2-635c219f27ba",
+    "skillId": "a8e1dfc7-2864-4bf2-869f-1258733681d8",
+    "slug": "express",
+    "nameFa": "Express",
+    "nameEn": "Express",
+    "isActive": true,
+    "sortOrder": 1,
+    "aliases": [
+      "ExpressJS"
+    ],
+    "popularityScore": 70,
+    "officialUrl": "https://expressjs.com"
+  },
+  {
+    "id": "bc76ea85-013f-4449-8814-2824c7d8edf6",
+    "skillId": "3e861cb4-6110-4f89-8f5d-bb7e484b8a54",
+    "slug": "nextjs",
+    "nameFa": "Next.js",
+    "nameEn": "Next.js",
+    "isActive": true,
+    "sortOrder": 1,
+    "aliases": [
+      "NextJS",
+      "Next JS"
+    ],
+    "popularityScore": 85,
+    "officialUrl": "https://nextjs.org"
+  },
+  {
+    "id": "216bcb70-0f30-481d-8bb2-71564a2c81b7",
+    "skillId": "45b56aa6-ff1c-4714-8dc7-6ff1d65b8376",
+    "slug": "nestjs",
+    "nameFa": "NestJS",
+    "nameEn": "NestJS",
+    "isActive": true,
+    "sortOrder": 1,
+    "aliases": [
+      "Nest"
+    ],
+    "popularityScore": 65,
+    "officialUrl": "https://nestjs.com"
+  }
+]

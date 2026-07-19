@@ -1,0 +1,250 @@
+[
+  {
+    "id": "594c704d-2389-4cf2-828a-290562b089bb",
+    "slug": "east-azerbaijan",
+    "nameFa": "آذربایجان شرقی",
+    "nameEn": "East Azerbaijan",
+    "sortOrder": 1,
+    "isActive": true
+  },
+  {
+    "id": "d6eed06d-6d18-4905-8854-a3ed7b3fe8a5",
+    "slug": "west-azerbaijan",
+    "nameFa": "آذربایجان غربی",
+    "nameEn": "West Azerbaijan",
+    "sortOrder": 2,
+    "isActive": true
+  },
+  {
+    "id": "d90a649b-26ce-4c61-8488-a6b14ca1e5f1",
+    "slug": "ardabil",
+    "nameFa": "اردبیل",
+    "nameEn": "Ardabil",
+    "sortOrder": 3,
+    "isActive": true
+  },
+  {
+    "id": "5af4f147-f4a8-4848-8e5c-d97546cf620e",
+    "slug": "isfahan",
+    "nameFa": "اصفهان",
+    "nameEn": "Isfahan",
+    "sortOrder": 4,
+    "isActive": true
+  },
+  {
+    "id": "83d4d27d-d4b7-4fbf-8473-37fafe53937b",
+    "slug": "alborz",
+    "nameFa": "البرز",
+    "nameEn": "Alborz",
+    "sortOrder": 5,
+    "isActive": true
+  },
+  {
+    "id": "4451a7d4-c535-443a-8aeb-f98bf7e4e322",
+    "slug": "ilam",
+    "nameFa": "ایلام",
+    "nameEn": "Ilam",
+    "sortOrder": 6,
+    "isActive": true
+  },
+  {
+    "id": "5a210ff4-bdf4-490f-822a-9a98a3340acb",
+    "slug": "bushehr",
+    "nameFa": "بوشهر",
+    "nameEn": "Bushehr",
+    "sortOrder": 7,
+    "isActive": true
+  },
+  {
+    "id": "6b645f3a-e903-406c-88cd-46fdfc558f41",
+    "slug": "tehran",
+    "nameFa": "تهران",
+    "nameEn": "Tehran",
+    "sortOrder": 8,
+    "isActive": true
+  },
+  {
+    "id": "f9b4246f-89b9-4c88-8deb-4a5710d0adf4",
+    "slug": "chaharmahal-bakhtiari",
+    "nameFa": "چهارمحال و بختیاری",
+    "nameEn": "Chaharmahal and Bakhtiari",
+    "sortOrder": 9,
+    "isActive": true
+  },
+  {
+    "id": "f7a832be-e143-4c2f-8bb2-cc2f5fe7ee04",
+    "slug": "south-khorasan",
+    "nameFa": "خراسان جنوبی",
+    "nameEn": "South Khorasan",
+    "sortOrder": 10,
+    "isActive": true
+  },
+  {
+    "id": "9ef1c531-61a9-4c7e-8ee6-fe4f0842e2c3",
+    "slug": "razavi-khorasan",
+    "nameFa": "خراسان رضوی",
+    "nameEn": "Razavi Khorasan",
+    "sortOrder": 11,
+    "isActive": true
+  },
+  {
+    "id": "70f1c30a-1bf1-42f2-8b9d-13db5e259eec",
+    "slug": "north-khorasan",
+    "nameFa": "خراسان شمالی",
+    "nameEn": "North Khorasan",
+    "sortOrder": 12,
+    "isActive": true
+  },
+  {
+    "id": "b0d7ec62-eaf0-46fb-8f44-0e5ef9d01350",
+    "slug": "khuzestan",
+    "nameFa": "خوزستان",
+    "nameEn": "Khuzestan",
+    "sortOrder": 13,
+    "isActive": true
+  },
+  {
+    "id": "3d00dbfd-caa6-4af4-8db4-e39d4b46d5f8",
+    "slug": "zanjan",
+    "nameFa": "زنجان",
+    "nameEn": "Zanjan",
+    "sortOrder": 14,
+    "isActive": true
+  },
+  {
+    "id": "75e81039-0927-4870-8dbf-d48d3bde1800",
+    "slug": "semnan",
+    "nameFa": "سمنان",
+    "nameEn": "Semnan",
+    "sortOrder": 15,
+    "isActive": true
+  },
+  {
+    "id": "88126cfb-fd74-426e-838e-c045868cf943",
+    "slug": "sistan-baluchestan",
+    "nameFa": "سیستان و بلوچستان",
+    "nameEn": "Sistan and Baluchestan",
+    "sortOrder": 16,
+    "isActive": true
+  },
+  {
+    "id": "92b05e09-8547-4464-8faf-b8e84d9a0eaa",
+    "slug": "fars",
+    "nameFa": "فارس",
+    "nameEn": "Fars",
+    "sortOrder": 17,
+    "isActive": true
+  },
+  {
+    "id": "4f465c63-916f-4058-824f-a910ca438a90",
+    "slug": "qazvin",
+    "nameFa": "قزوین",
+    "nameEn": "Qazvin",
+    "sortOrder": 18,
+    "isActive": true
+  },
+  {
+    "id": "77ea4dd4-e157-46bd-8302-9aa38bcb2f89",
+    "slug": "qom",
+    "nameFa": "قم",
+    "nameEn": "Qom",
+    "sortOrder": 19,
+    "isActive": true
+  },
+  {
+    "id": "c0449ea7-1771-4eb4-83c8-9dd6a1c61da9",
+    "slug": "kurdistan",
+    "nameFa": "کردستان",
+    "nameEn": "Kurdistan",
+    "sortOrder": 20,
+    "isActive": true
+  },
+  {
+    "id": "af97ddba-9a02-4b47-8a96-7cc1fe8a9293",
+    "slug": "kerman",
+    "nameFa": "کرمان",
+    "nameEn": "Kerman",
+    "sortOrder": 21,
+    "isActive": true
+  },
+  {
+    "id": "18353c75-8d31-4303-8c28-27b6b4483e00",
+    "slug": "kermanshah",
+    "nameFa": "کرمانشاه",
+    "nameEn": "Kermanshah",
+    "sortOrder": 22,
+    "isActive": true
+  },
+  {
+    "id": "5dc7051d-91ab-4700-8b77-bce453793c2d",
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "nameFa": "کهگیلویه و بویراحمد",
+    "nameEn": "Kohgiluyeh and Boyer-Ahmad",
+    "sortOrder": 23,
+    "isActive": true
+  },
+  {
+    "id": "648383ab-1075-4d4d-8267-74f227df1f30",
+    "slug": "golestan",
+    "nameFa": "گلستان",
+    "nameEn": "Golestan",
+    "sortOrder": 24,
+    "isActive": true
+  },
+  {
+    "id": "3cc983ce-dc8f-4e4d-8a4b-2370056f6157",
+    "slug": "gilan",
+    "nameFa": "گیلان",
+    "nameEn": "Gilan",
+    "sortOrder": 25,
+    "isActive": true
+  },
+  {
+    "id": "f2c4fb97-dc90-484d-8076-f4fdfc3a109f",
+    "slug": "lorestan",
+    "nameFa": "لرستان",
+    "nameEn": "Lorestan",
+    "sortOrder": 26,
+    "isActive": true
+  },
+  {
+    "id": "8b2db714-20b2-4bcd-8cb1-9759a733bcae",
+    "slug": "mazandaran",
+    "nameFa": "مازندران",
+    "nameEn": "Mazandaran",
+    "sortOrder": 27,
+    "isActive": true
+  },
+  {
+    "id": "41b54d58-c480-4d54-8dd6-509d9dca3def",
+    "slug": "markazi",
+    "nameFa": "مرکزی",
+    "nameEn": "Markazi",
+    "sortOrder": 28,
+    "isActive": true
+  },
+  {
+    "id": "99d1c96e-65b5-4ce2-8de9-9b5402cd085f",
+    "slug": "hormozgan",
+    "nameFa": "هرمزگان",
+    "nameEn": "Hormozgan",
+    "sortOrder": 29,
+    "isActive": true
+  },
+  {
+    "id": "72a97951-e9d4-4a0c-8e0d-d31af395ca5c",
+    "slug": "hamadan",
+    "nameFa": "همدان",
+    "nameEn": "Hamadan",
+    "sortOrder": 30,
+    "isActive": true
+  },
+  {
+    "id": "ce16481b-f420-48ee-826b-a5f9d9181cc4",
+    "slug": "yazd",
+    "nameFa": "یزد",
+    "nameEn": "Yazd",
+    "sortOrder": 31,
+    "isActive": true
+  }
+]

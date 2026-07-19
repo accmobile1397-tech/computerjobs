@@ -1,0 +1,47 @@
+[
+  {
+    "id": "a8e1dfc7-2864-4bf2-869f-1258733681d8",
+    "subCategoryId": "d29b9a7e-fff6-40ff-876e-feb52dbab3bd",
+    "slug": "nodejs",
+    "nameFa": "Node.js",
+    "nameEn": "Node.js",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 1,
+    "aliases": [
+      "Node",
+      "NodeJS",
+      "Node JS"
+    ],
+    "popularityScore": 90
+  },
+  {
+    "id": "45b56aa6-ff1c-4714-8dc7-6ff1d65b8376",
+    "subCategoryId": "d29b9a7e-fff6-40ff-876e-feb52dbab3bd",
+    "slug": "typescript",
+    "nameFa": "TypeScript",
+    "nameEn": "TypeScript",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 2,
+    "aliases": [
+      "TS"
+    ],
+    "popularityScore": 88
+  },
+  {
+    "id": "3e861cb4-6110-4f89-8f5d-bb7e484b8a54",
+    "subCategoryId": "d1dbd6b4-9b79-4775-8986-7a3c0af4f308",
+    "slug": "react",
+    "nameFa": "React",
+    "nameEn": "React",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 1,
+    "aliases": [
+      "ReactJS",
+      "React.js"
+    ],
+    "popularityScore": 92
+  }
+]

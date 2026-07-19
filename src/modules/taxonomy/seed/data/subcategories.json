@@ -1,0 +1,90 @@
+[
+  {
+    "id": "d29b9a7e-fff6-40ff-876e-feb52dbab3bd",
+    "categoryId": "7a8c5e22-f4d2-4b06-8d05-69369efa8902",
+    "slug": "backend",
+    "nameFa": "Backend",
+    "nameEn": "Backend",
+    "isActive": true,
+    "sortOrder": 1,
+    "aliases": [],
+    "popularityScore": 40
+  },
+  {
+    "id": "d1dbd6b4-9b79-4775-8986-7a3c0af4f308",
+    "categoryId": "7a8c5e22-f4d2-4b06-8d05-69369efa8902",
+    "slug": "frontend",
+    "nameFa": "Frontend",
+    "nameEn": "Frontend",
+    "isActive": true,
+    "sortOrder": 2,
+    "aliases": [],
+    "popularityScore": 40
+  },
+  {
+    "id": "c55a9b24-5bce-4b98-88b0-2cb280e0911d",
+    "categoryId": "4b253a68-de1f-46f4-8a2e-ed190983c33a",
+    "slug": "devops",
+    "nameFa": "DevOps",
+    "nameEn": "DevOps",
+    "isActive": true,
+    "sortOrder": 1,
+    "aliases": [],
+    "popularityScore": 40
+  },
+  {
+    "id": "0c15c237-1450-4b46-8114-24076521fe24",
+    "categoryId": "4b253a68-de1f-46f4-8a2e-ed190983c33a",
+    "slug": "sre",
+    "nameFa": "SRE",
+    "nameEn": "Site Reliability",
+    "isActive": true,
+    "sortOrder": 2,
+    "aliases": [],
+    "popularityScore": 40
+  },
+  {
+    "id": "efdf43a6-77fb-4839-83d9-bd30a4ac6b87",
+    "categoryId": "655eac2c-7d06-429e-85e1-03ded1831390",
+    "slug": "data-engineering",
+    "nameFa": "Data Engineering",
+    "nameEn": "Data Engineering",
+    "isActive": true,
+    "sortOrder": 1,
+    "aliases": [],
+    "popularityScore": 40
+  },
+  {
+    "id": "e6b9b694-aecc-480d-8b1c-5bb43f65cdff",
+    "categoryId": "655eac2c-7d06-429e-85e1-03ded1831390",
+    "slug": "machine-learning",
+    "nameFa": "Machine Learning",
+    "nameEn": "Machine Learning",
+    "isActive": true,
+    "sortOrder": 2,
+    "aliases": [],
+    "popularityScore": 40
+  },
+  {
+    "id": "fc93c205-01ee-4263-8b6a-4663b2648a68",
+    "categoryId": "872452a7-42bd-46f8-8921-d8a5ad87c427",
+    "slug": "android",
+    "nameFa": "Android",
+    "nameEn": "Android",
+    "isActive": true,
+    "sortOrder": 1,
+    "aliases": [],
+    "popularityScore": 40
+  },
+  {
+    "id": "13bce04b-a4df-4d47-856f-4fe73768e771",
+    "categoryId": "872452a7-42bd-46f8-8921-d8a5ad87c427",
+    "slug": "ios",
+    "nameFa": "iOS",
+    "nameEn": "iOS",
+    "isActive": true,
+    "sortOrder": 2,
+    "aliases": [],
+    "popularityScore": 40
+  }
+]

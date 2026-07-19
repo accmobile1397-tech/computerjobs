@@ -1,0 +1,167 @@
+[
+  {
+    "id": "7a8c5e22-f4d2-4b06-8d05-69369efa8902",
+    "slug": "software-development",
+    "nameFa": "توسعه نرم‌افزار",
+    "nameEn": "Software Development",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 1,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "4b253a68-de1f-46f4-8a2e-ed190983c33a",
+    "slug": "devops-infrastructure",
+    "nameFa": "DevOps و زیرساخت",
+    "nameEn": "DevOps & Infrastructure",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 2,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "655eac2c-7d06-429e-85e1-03ded1831390",
+    "slug": "data-ai",
+    "nameFa": "داده و هوش مصنوعی",
+    "nameEn": "Data & AI",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 3,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "199a6645-23f6-41ef-88ba-0a8f4b301cbf",
+    "slug": "cybersecurity",
+    "nameFa": "امنیت سایبری",
+    "nameEn": "Cybersecurity",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 4,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "b3af3549-a2ad-48f0-8228-59f005751cc1",
+    "slug": "product-design",
+    "nameFa": "محصول و طراحی",
+    "nameEn": "Product & Design",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 5,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "6f6f97b9-42d7-49f5-819a-5566da8f4879",
+    "slug": "qa-testing",
+    "nameFa": "تست و QA",
+    "nameEn": "QA & Testing",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 6,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "872452a7-42bd-46f8-8921-d8a5ad87c427",
+    "slug": "mobile-development",
+    "nameFa": "توسعه موبایل",
+    "nameEn": "Mobile Development",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 7,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "7f31c15e-7eb0-4df1-8182-1d0d87b0628f",
+    "slug": "game-development",
+    "nameFa": "بازی‌سازی",
+    "nameEn": "Game Development",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 8,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "2b3e1b64-e1c5-4b09-80a2-e53a089f3817",
+    "slug": "embedded-iot",
+    "nameFa": "Embedded و IoT",
+    "nameEn": "Embedded & IoT",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 9,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "e8e256fa-eed8-422a-8247-4e5be2efbd36",
+    "slug": "blockchain",
+    "nameFa": "بلاکچین",
+    "nameEn": "Blockchain",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 10,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "5d5df223-b7bf-4ad5-81ab-42dd1678f402",
+    "slug": "it-support",
+    "nameFa": "پشتیبانی IT",
+    "nameEn": "IT Support",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 11,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "2d83e2f1-fb9f-4174-8226-ef450d775921",
+    "slug": "erp-enterprise",
+    "nameFa": "ERP و سازمانی",
+    "nameEn": "ERP & Enterprise",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 12,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "1bae36a8-2b75-4141-8848-ed73b4919377",
+    "slug": "cloud-architecture",
+    "nameFa": "معماری Cloud",
+    "nameEn": "Cloud Architecture",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 13,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "1f44ee9d-08a8-4d2e-8972-7d2822532cd3",
+    "slug": "database-admin",
+    "nameFa": "DBA",
+    "nameEn": "Database Administration",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 14,
+    "aliases": [],
+    "popularityScore": 50
+  },
+  {
+    "id": "f2f996f4-a651-4324-858f-999fc698f784",
+    "slug": "technical-management",
+    "nameFa": "مدیریت فنی",
+    "nameEn": "Technical Management",
+    "isOfficial": true,
+    "isActive": true,
+    "sortOrder": 15,
+    "aliases": [],
+    "popularityScore": 50
+  }
+]
