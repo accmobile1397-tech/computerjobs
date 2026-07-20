@@ -3,7 +3,24 @@
 **Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) ✅ APPROVED  
 **Prerequisites:** RFC-003 · RFC-004 · RFC-005 ✅ CLOSED
 
-Implement on `main` in **small commits**. Reuse existing: `shared/queue`, `auth/audit`, `billing` patterns, IAM seed.
+Implement on `main` in **small commits**. Track progress in **[TASKS.md](./TASKS.md)**. Reuse existing: `shared/queue`, `auth/audit`, `billing` patterns, IAM seed.
+
+---
+
+## Task ↔ commit map
+
+| Task | Plan step |
+|------|-----------|
+| P9-001 · P9-002 | 1 — EventBus + catalog |
+| P9-003 · P9-004 | 2 — publishers |
+| P9-005 · P9-006 | 3 — tables + templates |
+| P9-007 | 4 — gateway |
+| P9-008 · P9-009 · P9-010 | 5 — providers |
+| P9-011 | 6 — handlers |
+| P9-012 | 7 — user API |
+| P9-013 | 8 — admin API |
+| P9-014 | 9 — permissions |
+| P9-015 | 10 — tests |
 
 ---
 
