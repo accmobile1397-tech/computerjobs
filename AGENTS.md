@@ -3,7 +3,7 @@
 ## Mandatory: Read Before Any Work
 
 1. Read [`.cto/RULEBOOK.md`](.cto/RULEBOOK.md) + relevant specialized files + [`.cto/TOKEN_OPTIMIZATION.md`](.cto/TOKEN_OPTIMIZATION.md)
-2. Check [`docs/DECISIONS.md`](docs/DECISIONS.md) and current phase docs only
+2. Check [`docs/DECISIONS.md`](docs/DECISIONS.md), [`docs/ROADMAP.md`](docs/ROADMAP.md), and current phase docs only
 3. Never start implementation without CTO spec approval
 4. Default docs: `TECHNICAL_SPEC` (spec) · `CTO_REPORT` (handoff) — nothing else unless requested
 
@@ -25,6 +25,8 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 
 ## Phase Status
 
+**Roadmap SoT:** [`docs/ROADMAP.md`](docs/ROADMAP.md) (D-046)
+
 | Phase | Status |
 |-------|--------|
 | 0 Foundation | 🟢 Closed |
@@ -33,10 +35,14 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 3 Location & Taxonomy | 🟢 Closed (`v0.4-phase-3`) |
 | 4 Jobs Core | 🟢 Closed (`v0.5-phase-4`) |
 | 5 Resume Builder | 🟢 Closed (`v0.6-phase-5`) |
-| 6 Search & Matching | ⏳ Implementation — **awaiting CTO review** |
+| 6 Search & Matching | 🟡 Implemented · formal close/tag pending |
 | 7A Entitlements | 🟢 Closed (`v0.7-phase-7A`) |
 | 7B Payment Gateway | 🟢 Closed (`v0.8-phase-7B`) |
 | 8 AI Gateway & Features | 🟢 Closed (`v0.9-phase-8`) |
+| 8.1 Resume AI Suggest | ⏸ Deferred |
+| **9** Notifications | ⏳ Blocked — RFC-003 + RFC-004 |
+| **10** Admin Platform | ⏳ Blocked — RFC-005 (+ 003/004) |
+| **11–15** | 📋 Planned — see ROADMAP |
 
 ---
 

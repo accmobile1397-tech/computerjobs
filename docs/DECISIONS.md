@@ -27,7 +27,13 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-021 | Phase 1 IAM implemented | **Closed** |
 | 2026-07-19 | D-026 | **Phase 1 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.2-phase-1` | **Closed** |
 | 2026-07-19 | D-027 | Phase 2 spec — **APPROVE** · implementation authorized | **Closed** |
-| 2026-07-19 | D-028 | **Product roadmap** Phases 2–8 (CTO-approved order) | Active |
+| 2026-07-19 | D-028 | **Product roadmap** Phases 2–8 (CTO-approved order) | **Superseded by D-046** |
+| 2026-07-19 | D-046 | **Post-Phase-8 Roadmap** Phases 9–15 · SoT until v1.0 | Active |
+| 2026-07-19 | D-047 | RFC-003 Event Architecture — awaiting CTO freeze | Active |
+| 2026-07-19 | D-048 | RFC-004 Notification Architecture — awaiting CTO freeze | Active |
+| 2026-07-19 | D-049 | RFC-005 Admin Platform Architecture — awaiting CTO freeze | Active |
+| 2026-07-19 | TD-P2-1 | HTTP Integration Tests | Active (P1) |
+| 2026-07-19 | TD-P6-1 | Advanced Search Engine | Active (P2) |
 | 2026-07-19 | D-029 | **Phase 2 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.3-phase-2` | **Closed** |
 | 2026-07-19 | D-030 | Phase 3 spec — **APPROVE** · implementation authorized | **Closed** |
 | 2026-07-19 | D-031 | **Phase 3 CLOSED** — APPROVE · tag `v0.4-phase-3` | **Closed** |
@@ -62,7 +68,42 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 ---
 
-## D-028: Product Roadmap (CTO-Approved)
+## D-049: RFC-005 Admin Platform Architecture
+
+**Status:** ⏳ Awaiting CTO Approval — **required before Phase 10**  
+**Document:** [docs/rfc/RFC-005-ADMIN-PLATFORM-ARCHITECTURE.md](./rfc/RFC-005-ADMIN-PLATFORM-ARCHITECTURE.md)
+
+---
+
+## D-048: RFC-004 Notification Architecture
+
+**Status:** ⏳ Awaiting CTO Approval — **required before Phase 9**  
+**Document:** [docs/rfc/RFC-004-NOTIFICATION-ARCHITECTURE.md](./rfc/RFC-004-NOTIFICATION-ARCHITECTURE.md)
+
+---
+
+## D-047: RFC-003 Event Architecture
+
+**Status:** ⏳ Awaiting CTO Approval — **required before Phase 9**  
+**Document:** [docs/rfc/RFC-003-EVENT-ARCHITECTURE.md](./rfc/RFC-003-EVENT-ARCHITECTURE.md)
+
+---
+
+## D-046: Post-Phase-8 Roadmap (SoT until v1.0)
+
+**Decision:** CTO roadmap after Phase 8 close — platform usable; next work is architecture RFCs then Phases 9–15.  
+**Document:** [docs/ROADMAP.md](./ROADMAP.md)
+
+**Before Phase 9:** RFC-003 · RFC-004 · RFC-005 APPROVE/FROZE  
+**Phases 9–15:** Notifications → Admin → SEO → Public SSR → Analytics → Recommendations → Advanced AI
+
+**Carryover:** Phase 6 formal close/tag · Phase 8.1 Resume AI Suggest
+
+---
+
+## D-028: Product Roadmap (Phases 2–8) — Superseded
+
+**Status:** **Superseded by D-046** — Phases 2–8 complete (Phase 6 formal tag pending).
 
 | Phase | Scope |
 |-------|--------|

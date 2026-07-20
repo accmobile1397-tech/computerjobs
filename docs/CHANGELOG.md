@@ -20,9 +20,12 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ## [Unreleased]
 
-### Next
+### Roadmap (D-046)
 
-- Phase 8.1 Resume AI Suggest (deferred) — awaiting CTO roadmap
+- **SoT:** `docs/ROADMAP.md` — Phases 9–15 after Phase 8
+- **Next:** RFC-003 Events · RFC-004 Notifications · RFC-005 Admin — awaiting CTO APPROVE
+- Phase 9+ blocked until RFCs frozen
+- Carryover: Phase 6 formal close · Phase 8.1 Resume AI Suggest
 
 ## [0.8.0-7B] — 1404/04/29 — Phase 7B Payment Gateway
 
