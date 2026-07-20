@@ -1222,3 +1222,141 @@ model PaymentAttempt {
   @@map("payment_attempts")
 }
 
+// ─── Phase 9 Notifications (RFC-004) ─────────────────────────────────
+
+enum NotificationChannel {
+  EMAIL
+  SMS
+  IN_APP
+  PUSH
+  WEBHOOK
+}
+
+enum NotificationDeliveryStatus {
+  PENDING
+  SENT
+  DELIVERED
+  FAILED
+  SKIPPED
+}
+
+enum NotificationSkipReason {
+  OPT_OUT
+  RATE_LIMIT
+  INVALID_RECIPIENT
+  TEMPLATE_DISABLED
+  OTHER
+}
+
+enum NotificationRecipientType {
+  USER
+  COMPANY
+  EMAIL
+  PHONE
+}
+
+enum NotificationPreferenceCategory {
+  TRANSACTIONAL
+  BILLING
+  JOB_ALERTS
+  MARKETING
+}
+
+enum NotificationOwnerType {
+  USER
+  COMPANY
+}
+
+enum NotificationPriority {
+  LOW
+  NORMAL
+  HIGH
+  CRITICAL
+}
+
+model NotificationTemplate {
+  id              String              @id @default(uuid())
+  templateKey     String              @map("template_key") @db.VarChar(120)
+  version         Int                 @default(1)
+  channel         NotificationChannel
+  locale          String              @default("fa-IR") @db.VarChar(16)
+  subject         String?             @db.VarChar(500)
+  body            String              @db.Text
+  variablesSchema Json?               @map("variables_schema")
+  isActive        Boolean             @default(true) @map("is_active")
+  createdAt       DateTime            @default(now()) @map("created_at")
+  updatedAt       DateTime            @updatedAt @map("updated_at")
+  deletedAt       DateTime?           @map("deleted_at")
+
+  deliveries NotificationDelivery[]
+
+  @@unique([templateKey, version, channel, locale])
+  @@index([templateKey, isActive])
+  @@map("notification_templates")
+}
+
+model NotificationPreference {
+  id        String                         @id @default(uuid())
+  ownerType NotificationOwnerType          @map("owner_type")
+  ownerId   String                         @map("owner_id") @db.VarChar(36)
+  channel   NotificationChannel
+  category  NotificationPreferenceCategory
+  enabled   Boolean                        @default(true)
+  createdAt DateTime                       @default(now()) @map("created_at")
+  updatedAt DateTime                       @updatedAt @map("updated_at")
+  deletedAt DateTime?                      @map("deleted_at")
+
+  @@unique([ownerType, ownerId, channel, category])
+  @@index([ownerType, ownerId])
+  @@map("notification_preferences")
+}
+
+model NotificationDelivery {
+  id               String                      @id @default(uuid())
+  eventId          String                      @map("event_id") @db.VarChar(36)
+  eventName        String?                     @map("event_name") @db.VarChar(120)
+  correlationId    String                      @map("correlation_id") @db.VarChar(120)
+  channel          NotificationChannel
+  recipientType    NotificationRecipientType   @map("recipient_type")
+  recipientId      String                      @map("recipient_id") @db.VarChar(120)
+  priority         NotificationPriority        @default(NORMAL)
+  templateKey      String                      @map("template_key") @db.VarChar(120)
+  templateVersion  Int                         @map("template_version")
+  provider         String?                     @db.VarChar(40)
+  status           NotificationDeliveryStatus  @default(PENDING)
+  skipReason       NotificationSkipReason?     @map("skip_reason")
+  attemptCount     Int                         @default(0) @map("attempt_count")
+  lastErrorCode    String?                     @map("last_error_code") @db.VarChar(80)
+  lastErrorMessage String?                     @map("last_error_message") @db.VarChar(500)
+  templateId       String?                     @map("template_id") @db.VarChar(36)
+  createdAt        DateTime                    @default(now()) @map("created_at")
+  updatedAt        DateTime                    @updatedAt @map("updated_at")
+
+  template NotificationTemplate? @relation(fields: [templateId], references: [id], onDelete: SetNull)
+
+  @@unique([eventId, channel, recipientId, templateKey, templateVersion])
+  @@index([correlationId])
+  @@index([eventName])
+  @@index([status, createdAt])
+  @@index([templateKey, channel])
+  @@map("notification_deliveries")
+}
+
+model NotificationEventMapping {
+  id            String              @id @default(uuid())
+  configVersion Int                 @default(1) @map("config_version")
+  eventName     String              @map("event_name") @db.VarChar(120)
+  templateKey   String              @map("template_key") @db.VarChar(120)
+  channel       NotificationChannel
+  recipientRule String              @map("recipient_rule") @db.VarChar(120)
+  sortOrder     Int                 @default(0) @map("sort_order")
+  isActive      Boolean             @default(true) @map("is_active")
+  createdAt     DateTime            @default(now()) @map("created_at")
+  updatedAt     DateTime            @updatedAt @map("updated_at")
+  deletedAt     DateTime?           @map("deleted_at")
+
+  @@unique([configVersion, eventName, templateKey, channel, recipientRule])
+  @@index([configVersion, eventName, isActive])
+  @@map("notification_event_mappings")
+}
+

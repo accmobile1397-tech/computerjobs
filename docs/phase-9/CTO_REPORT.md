@@ -2,45 +2,42 @@
 
 **Phase:** 9 · **Status:** 🟡 Implementation in progress  
 **Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) ✅ APPROVED (C-009-1..4)  
-**Approval:** [CTO_SPEC_APPROVAL.md](./CTO_SPEC_APPROVAL.md)  
 **Tasks:** [TASKS.md](./TASKS.md) · **Project status:** [AI_CTO_STATUS.md](../AI_CTO_STATUS.md)
 
 ## Progress
 
 | Metric | Value |
 |--------|-------|
-| Tasks done | 4 / 15 |
-| Last commit | `cb4bb04` |
+| Tasks done | 5 / 15 |
+| Last commit | `1ed34df` |
 | Tests | 70/70 pass |
 | Typecheck | green |
+| Prisma validate | green |
 
 ## Completed tasks
 
-### P9-001 EventBus ✅
+### P9-001..P9-004 ✅ (CTO APPROVED)
 
-- `InMemoryEventBus` — sync-first, BullMQ deferred to Phase 13 (CTO)
+EventBus · Catalog · Payment/Job publishers
 
-### P9-002 Event Catalog ✅
+### P9-005 Notification Tables ✅
 
-- `catalog/v1.ts` SoT · `EVENTS.*` constants
+**Migration:** `20260720180000_phase9_notification_tables`
 
-### P9-003 Payment Publisher ✅ (CTO APPROVED)
+| Model | Purpose |
+|-------|---------|
+| `NotificationTemplate` | Registry — key/version/channel/locale, variablesSchema |
+| `NotificationPreference` | Owner × channel × category opt-in/out |
+| `NotificationDelivery` | Dispatch audit · correlationId · idempotency unique |
+| `NotificationEventMapping` | Data-driven event → template/channel/recipient rules |
 
-- `publishPaymentSucceeded()` after first webhook settlement · `correlationId` = idempotencyKey
+**Enums (RFC-004):** `NotificationChannel` (incl. WEBHOOK reserved) · `NotificationDeliveryStatus` · `NotificationSkipReason` · `NotificationRecipientType` · `NotificationPreferenceCategory` · `NotificationPriority` (reserved)
 
-### P9-004 Job Publisher ✅
+**Idempotency:** `@@unique([eventId, channel, recipientId, templateKey, templateVersion])`
 
-- `EVENTS.JOB_APPLICATION_SUBMITTED` via `publishJobApplicationSubmitted()`
-- Wired in `submitApplication()` after DB create + audit (publish-after-commit)
-- `correlationId` / `actorUserId` default from application + user
-- No notification imports · handlers · gateway · DB changes
-- 2 unit tests in `job.publisher.test.ts`
+No providers · gateway · handlers · seeds · API routes (P9-006+)
 
-## CTO decisions (logged)
-
-- Phase 6 closeout → defer until Phase 9 complete
-- BullMQ EventBus → Phase 13
-- `AI_CTO_STATUS.md` → project status SoT
+**Note:** In-app inbox `Notification` model deferred to P9-010 per scope split.
 
 ## Debt (carry)
 
@@ -48,4 +45,4 @@ TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1
 
 ## Next
 
-**P9-005 Notification Tables** — await CTO review of P9-004.
+**P9-006 Notification Templates** — seed + registry (await CTO review of P9-005).

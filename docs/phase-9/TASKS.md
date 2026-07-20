@@ -16,7 +16,7 @@
 | P9-002 | Event Catalog | DONE | `2b33999` | `catalog/v1.ts` SoT · 16 events · 6 MVP |
 | P9-003 | Payment Publisher | DONE | `097d86b` | `payment.succeeded` after webhook settle |
 | P9-004 | Job Publisher | DONE | `cb4bb04` | `job.application.submitted` after apply |
-| P9-005 | Notification Tables | OPEN | — | migration · no schema in spec doc |
+| P9-005 | Notification Tables | DONE | `1ed34df` | migration · RFC-004 enums · idempotency |
 | P9-006 | Notification Templates | OPEN | — | seed + registry |
 | P9-007 | Gateway | OPEN | — | pipeline · correlationId · idempotency |
 | P9-008 | Email Provider | OPEN | — | stub adapter |
@@ -32,8 +32,8 @@
 
 ## Progress
 
-- **Done:** 4 / 15
-- **Current:** none — await review before **P9-005**
+- **Done:** 5 / 15
+- **Current:** none — await review before **P9-006**
 - **Blocked:** —
 
 ---
