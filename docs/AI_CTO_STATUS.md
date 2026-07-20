@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for external CTO reviews.  
 **Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-20 · Phase 9 in progress (6/15 tasks)
+**Last updated:** 2026-07-20 · Phase 9 in progress (7/15 tasks)
 
 ---
 
@@ -17,7 +17,7 @@ Persian-first job platform for technology professionals.
 
 ## 2. Current Phase
 
-**Phase 9 — Notification System** · 🟡 6/15 tasks · [TASKS.md](./phase-9/TASKS.md)
+**Phase 9 — Notification System** · 🟡 7/15 tasks · [TASKS.md](./phase-9/TASKS.md)
 
 ---
 
@@ -37,11 +37,11 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
-| `ad3b41b` | feat(notifications): add MVP template registry and seed (P9-006) |
+| `ee5a8df` | feat(notifications): add gateway dispatch foundation (P9-007) |
+| `d75a587` | feat(notifications): add MVP template registry and seed (P9-006) |
 | `abf4bff` | feat(notifications): add notification persistence schema (P9-005) |
 | `71a13c4` | feat(jobs): publish job.application.submitted after apply (P9-004) |
 | `1013810` | feat(billing): publish payment.succeeded after webhook settlement (P9-003) |
-| `3ba077f` | feat(events): add event catalog v1 as single source of truth (P9-002) |
 
 ---
 
@@ -49,10 +49,8 @@ Persian-first job platform for technology professionals.
 
 | Milestone | Status |
 |-----------|--------|
-| Phases 0–5, 7A, 7B, 8 | Closed / tagged |
-| RFC-003/004/005 | CLOSED |
-| P9-001..P9-005 | ✅ APPROVED |
-| P9-006 Template Registry | ⏳ Awaiting review |
+| P9-001..P9-006 | ✅ APPROVED |
+| P9-007 Gateway | ⏳ Awaiting review |
 
 **Deferred:** Phase 6 closeout · BullMQ EventBus → Phase 13.
 
@@ -60,13 +58,13 @@ Persian-first job platform for technology professionals.
 
 ## 7. In Progress Tasks
 
-None — **awaiting CTO review of P9-006** before P9-007.
+None — **awaiting CTO review of P9-007** before P9-008.
 
 ---
 
 ## 8. Pending Tasks (Phase 9)
 
-P9-007 Gateway · P9-008–010 Providers · P9-011 Handlers · P9-012–013 APIs · P9-014 Permissions · P9-015 Tests
+P9-008–010 Providers · P9-011 Handlers · P9-012–013 APIs · P9-014 Permissions · P9-015 Tests
 
 ---
 
@@ -74,15 +72,14 @@ P9-007 Gateway · P9-008–010 Providers · P9-011 Handlers · P9-012–013 APIs
 
 - Phase 6 not tagged (deferred).
 - TD-P2-1 no HTTP integration tests.
-- TD-P7B-1/2 payment reconciliation/replay.
-- In-memory EventBus until Phase 13.
+- Gateway provider port optional — PENDING deliveries until P9-008+.
 - Notification inbox model deferred to P9-010.
 
 ---
 
 ## 10. Architecture Decisions (active)
 
-D-046–051 · `EVENTS.*` / `NOTIFICATION_TEMPLATE_KEYS.*` constants only · templates in registry/DB — no inline message strings in services.
+`dispatchNotification()` is the sole outbound entry point · `correlationId` end-to-end · idempotency on `(eventId, channel, recipientId, templateKey, templateVersion)` · render separated from provider port.
 
 ---
 
@@ -95,14 +92,13 @@ D-046–051 · `EVENTS.*` / `NOTIFICATION_TEMPLATE_KEYS.*` constants only · tem
 
 ## 12. Questions For CTO
 
-1. **P9-006** — approve to proceed with **P9-007 Gateway**?
+1. **P9-007** — approve to proceed with **P9-008 Email Provider (stub)**?
 
 ---
 
 ## 13. Recommended Next Actions
 
-1. Review P9-006 — 8 MVP templates seeded via registry.
-2. If approved → **P9-007 Notification Gateway** pipeline.
-3. Update this file after each milestone.
+1. Review P9-007 gateway pipeline + 9 unit tests.
+2. If approved → wire stub email provider (P9-008).
 
-**Health:** 76/76 tests · typecheck green · prisma validate green.
+**Health:** 85/85 tests · typecheck green · prisma validate green.
