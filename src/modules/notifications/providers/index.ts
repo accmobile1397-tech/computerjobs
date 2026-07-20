@@ -8,6 +8,11 @@ export {
   stubSmsProvider,
 } from "@/modules/notifications/providers/sms/stub.provider";
 
+export {
+  InAppProvider,
+  inAppProvider,
+} from "@/modules/notifications/providers/inapp/inapp.provider";
+
 export type {
   DeliveryResult,
   NotificationProviderPort,

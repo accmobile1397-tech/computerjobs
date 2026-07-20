@@ -135,6 +135,9 @@ export async function dispatchNotification(
       recipientType: request.recipientType,
       recipientId: request.recipientId,
       correlationId,
+      eventId: request.eventId,
+      templateKey: request.templateKey,
+      templateVersion,
     });
     provider = deps.providerPort.name;
     status = sendResult.ok

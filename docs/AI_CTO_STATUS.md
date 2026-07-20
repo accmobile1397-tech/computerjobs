@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for external CTO reviews.  
 **Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-20 · Phase 9 in progress (9/15 tasks)
+**Last updated:** 2026-07-20 · Phase 9 in progress (10/15 tasks)
 
 ---
 
@@ -17,7 +17,7 @@ Persian-first job platform for technology professionals.
 
 ## 2. Current Phase
 
-**Phase 9 — Notification System** · 🟡 9/15 tasks · [TASKS.md](./phase-9/TASKS.md)
+**Phase 9 — Notification System** · 🟡 10/15 tasks · [TASKS.md](./phase-9/TASKS.md)
 
 ---
 
@@ -37,11 +37,11 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
+| _(this commit)_ | feat(notifications): add InApp provider and inbox model (P9-010) |
 | `16810cb` | feat(notifications): add stub SMS provider (P9-009) |
 | `470813f` | feat(notifications): add stub email provider (P9-008) |
 | `752e230` | feat(notifications): add gateway dispatch foundation (P9-007) |
 | `d75a587` | feat(notifications): add MVP template registry and seed (P9-006) |
-| `abf4bff` | feat(notifications): add notification persistence schema (P9-005) |
 
 ---
 
@@ -49,8 +49,8 @@ Persian-first job platform for technology professionals.
 
 | Milestone | Status |
 |-----------|--------|
-| P9-001..P9-008 | ✅ APPROVED |
-| P9-009 SMS Provider (stub) | ⏳ Awaiting review |
+| P9-001..P9-009 | ✅ APPROVED |
+| P9-010 InApp Provider + inbox | ⏳ Awaiting review |
 
 **Deferred:** Phase 6 closeout · BullMQ EventBus → Phase 13.
 
@@ -58,13 +58,13 @@ Persian-first job platform for technology professionals.
 
 ## 7. In Progress Tasks
 
-None — **awaiting CTO review of P9-009** before P9-010.
+None — **awaiting CTO review of P9-010** before P9-011.
 
 ---
 
 ## 8. Pending Tasks (Phase 9)
 
-P9-010 InApp · P9-011 Handlers · P9-012–013 APIs · P9-014 Permissions · P9-015 Tests
+P9-011 Handlers · P9-012–013 APIs · P9-014 Permissions · P9-015 Tests
 
 ---
 
@@ -72,14 +72,14 @@ P9-010 InApp · P9-011 Handlers · P9-012–013 APIs · P9-014 Permissions · P9
 
 - Phase 6 not tagged (deferred).
 - TD-P2-1 no HTTP integration tests.
-- `providerMessageId` not persisted to DB yet.
-- Notification inbox model deferred to P9-010.
+- `deliveryId` on inbox optional — gateway writes delivery after provider; link reserved for later.
 
 ---
 
 ## 10. Architecture Decisions (active)
 
-Gateway sole entry · `NotificationProviderPort` · `DeliveryResult` · email/sms stubs = log-only (no vendor SDKs).
+Four notification entities: Template · Preference · Delivery · Inbox (`Notification`).  
+InApp provider persists inbox only · gateway orchestrates · P9-012 must read `notifications` table.
 
 ---
 
@@ -92,13 +92,13 @@ Gateway sole entry · `NotificationProviderPort` · `DeliveryResult` · email/sm
 
 ## 12. Questions For CTO
 
-1. **P9-009** — approve to proceed with **P9-010 InApp Provider**?
+1. **P9-010 inbox model** — approve before P9-011 Handlers?
 
 ---
 
 ## 13. Recommended Next Actions
 
-1. Review P9-009 StubSmsProvider.
-2. If approved → **P9-010 InApp** (inbox persistence).
+1. Review inbox Prisma model + InAppProvider (see CTO_REPORT).
+2. If approved → **P9-011 Handlers**.
 
-**Health:** 91/91 tests · typecheck green.
+**Health:** 96/96 tests · typecheck green · prisma validate green.

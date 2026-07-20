@@ -1332,7 +1332,8 @@ model NotificationDelivery {
   createdAt        DateTime                    @default(now()) @map("created_at")
   updatedAt        DateTime                    @updatedAt @map("updated_at")
 
-  template NotificationTemplate? @relation(fields: [templateId], references: [id], onDelete: SetNull)
+  template      NotificationTemplate? @relation(fields: [templateId], references: [id], onDelete: SetNull)
+  inboxItems    Notification[]
 
   @@unique([eventId, channel, recipientId, templateKey, templateVersion])
   @@index([correlationId])
@@ -1340,6 +1341,34 @@ model NotificationDelivery {
   @@index([status, createdAt])
   @@index([templateKey, channel])
   @@map("notification_deliveries")
+}
+
+/** In-app inbox item — persisted by InAppProvider; P9-012 APIs read this table. */
+model Notification {
+  id               String                     @id @default(uuid())
+  ownerType        NotificationOwnerType      @map("owner_type")
+  ownerId          String                     @map("owner_id") @db.VarChar(36)
+  templateKey      String                     @map("template_key") @db.VarChar(120)
+  templateVersion  Int                        @map("template_version")
+  title            String?                    @db.VarChar(500)
+  content          String                     @db.Text
+  eventId          String                     @map("event_id") @db.VarChar(36)
+  correlationId    String                     @map("correlation_id") @db.VarChar(120)
+  status           NotificationDeliveryStatus @default(SENT)
+  providerMessageId String?                   @map("provider_message_id") @db.VarChar(120)
+  deliveryId       String?                    @map("delivery_id") @db.VarChar(36)
+  readAt           DateTime?                  @map("read_at")
+  createdAt        DateTime                   @default(now()) @map("created_at")
+  updatedAt        DateTime                   @updatedAt @map("updated_at")
+  deletedAt        DateTime?                  @map("deleted_at")
+
+  delivery NotificationDelivery? @relation(fields: [deliveryId], references: [id], onDelete: SetNull)
+
+  @@unique([eventId, ownerType, ownerId, templateKey, templateVersion])
+  @@index([ownerType, ownerId, createdAt])
+  @@index([correlationId])
+  @@index([readAt])
+  @@map("notifications")
 }
 
 model NotificationEventMapping {

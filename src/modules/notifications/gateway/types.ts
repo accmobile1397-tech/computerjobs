@@ -43,6 +43,10 @@ export type RenderedNotification = {
   recipientType: NotificationRecipientType;
   recipientId: string;
   correlationId: string;
+  /** Set by gateway — required for InApp inbox persistence. */
+  eventId?: string;
+  templateKey?: string;
+  templateVersion?: number;
 };
 
 /** RFC-004 provider delivery contract (stub + real adapters). */

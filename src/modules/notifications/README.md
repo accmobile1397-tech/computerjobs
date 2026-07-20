@@ -9,7 +9,7 @@ Unified messaging per [RFC-004](../../../docs/rfc/RFC-004-NOTIFICATION-ARCHITECT
 | `gateway/` | P9-007 — dispatch pipeline foundation |
 | `providers/email/stub` | P9-008 — StubEmailProvider (log-only) |
 | `providers/sms/stub` | P9-009 — StubSmsProvider (log-only) |
-| `providers/` | P9-010 InApp |
+| `providers/inapp` | P9-010 — InAppProvider (inbox persist) |
 | `handlers/` | P9-011 |
 | `templates/` seed | P9-006 ✅ |
 

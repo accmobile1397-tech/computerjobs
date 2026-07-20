@@ -21,7 +21,7 @@
 | P9-007 | Gateway | DONE | `ee5a8df` | dispatch pipeline · correlationId · idempotency |
 | P9-008 | Email Provider | DONE | `da0df73` | stub · DeliveryResult · no SMTP |
 | P9-009 | SMS Provider | DONE | `16810cb` | stub · DeliveryResult · no vendor SDK |
-| P9-010 | InApp Provider | OPEN | — | inbox persistence |
+| P9-010 | InApp Provider | DONE | — | inbox model + InAppProvider |
 | P9-011 | Handlers | OPEN | — | event → dispatch mappers |
 | P9-012 | User API | OPEN | — | inbox · preferences |
 | P9-013 | Admin API | OPEN | — | templates · mapping · delivery viewer |
@@ -32,8 +32,8 @@
 
 ## Progress
 
-- **Done:** 9 / 15
-- **Current:** none — await review before **P9-010**
+- **Done:** 10 / 15
+- **Current:** none — await review before **P9-011**
 - **Blocked:** —
 
 ---
