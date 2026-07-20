@@ -37,7 +37,7 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
-| *(pending)* | feat(notifications): add admin template/mapping/delivery APIs (P9-013) |
+| `4517e65` | feat(notifications): add admin template/mapping/delivery APIs (P9-013) |
 | `6fce48c` | feat(notifications): add user inbox and preferences API (P9-012) |
 | `6f07d4d` | feat(notifications): add event handlers via gateway only (P9-011) |
 | `f830787` | feat(notifications): add InApp provider and inbox model (P9-010) |
