@@ -20,6 +20,7 @@ import {
 import { FEATURE_KEYS } from "@/modules/billing/constants";
 import { BillingError } from "@/modules/billing/services/billing-core";
 import { consumeQuota } from "@/modules/billing/services/quota.service";
+import { publishJobApplicationSubmitted } from "@/modules/events/publishers/job.publisher";
 import type {
   SubmitApplicationInput,
   UpdateApplicationStatusInput,
@@ -158,6 +159,13 @@ export async function submitApplication(params: {
     ipAddress: params.ipAddress,
     userAgent: params.userAgent,
     metadata: { applicationId: application.id, jobId: params.jobId },
+  });
+
+  await publishJobApplicationSubmitted({
+    jobId: params.jobId,
+    applicationId: application.id,
+    userId: params.userId,
+    actorUserId: params.userId,
   });
 
   return application;
