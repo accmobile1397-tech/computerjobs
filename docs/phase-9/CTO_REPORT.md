@@ -9,29 +9,28 @@
 
 | Metric | Value |
 |--------|-------|
-| Tasks done | 2 / 15 |
-| Last commit | `2b33999` |
-| Tests | 64/64 pass |
+| Tasks done | 3 / 15 |
+| Last commit | `097d86b` |
+| Tests | 68/68 pass |
 | Typecheck | green |
 
 ## Completed tasks
 
 ### P9-001 EventBus ✅
 
-- `src/modules/events/bus/` — RFC-003 envelope types, validation, `InMemoryEventBus`
-- `publish()` · `registerHandler()` · sync/async dispatch · idempotent dedupe (in-process)
-- Process singleton `eventBus` exported from `bus/index.ts`
-- 11 unit tests in `in-memory.bus.test.ts`
-- In-memory only — no BullMQ (per NOTE-3)
+- `src/modules/events/bus/` — RFC-003 envelope, `InMemoryEventBus` (sync-first, no BullMQ)
 
 ### P9-002 Event Catalog ✅
 
-- `src/modules/events/catalog/v1.ts` — **single source of truth** (16 RFC-003 events)
-- `PHASE9_MVP_EVENT_NAMES` derived for 6 notification MVP events
-- Lookup helpers · payload field validation · `EventName` union type
-- `validateEnvelope()` now checks catalog name/version/aggregateType/payload
-- `docs/events/EVENT_CATALOG.md` synced from code
-- 9 catalog unit tests · no publishers/handlers/notifications/DB
+- `catalog/v1.ts` — SoT for 16 events · `EVENTS.*` constants (NOTE-4/5)
+
+### P9-003 Payment Publisher ✅
+
+- `EVENTS.PAYMENT_SUCCEEDED` via `publishPaymentSucceeded()` — no string literals
+- Wired in `settlePaymentFromWebhook()` **after** first successful settlement only (same gate as `PAYMENT_SUCCEEDED` audit)
+- `correlationId` = payment `idempotencyKey`
+- No handlers · gateway · dispatch · DB changes
+- 4 new unit tests (`events.test.ts`, `payment.publisher.test.ts`)
 
 ## Debt (carry)
 
@@ -39,4 +38,4 @@ TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1
 
 ## Next
 
-**P9-003 Payment Publisher** — wire `payment.succeeded` from billing (await CTO review of P9-002).
+**P9-004 Job Publisher** — `job.application.submitted` from jobs (await CTO review of P9-003).

@@ -14,3 +14,10 @@ export {
   PHASE9_MVP_EVENT_NAMES,
   type EventName,
 } from "@/modules/events/catalog/v1";
+
+export {
+  EVENTS,
+  eventConstantKey,
+  type EventConstantKey,
+  type EventConstants,
+} from "@/modules/events/catalog/events";

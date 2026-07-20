@@ -9,6 +9,7 @@ import {
   EVENT_CATALOG_V1,
   PHASE9_MVP_EVENT_NAMES,
 } from "@/modules/events/catalog/v1";
+import { EVENTS } from "@/modules/events/catalog/events";
 
 describe("EVENT_CATALOG_V1", () => {
   it("has unique (name, version) pairs", () => {
@@ -19,17 +20,17 @@ describe("EVENT_CATALOG_V1", () => {
   it("lists exactly six Phase 9 MVP notification events", () => {
     expect(PHASE9_MVP_EVENT_NAMES).toHaveLength(6);
     expect(PHASE9_MVP_EVENT_NAMES).toEqual([
-      "job.application.submitted",
-      "contact.unlocked",
-      "payment.succeeded",
-      "subscription.activated",
-      "ai.request.completed",
-      "ai.request.failed",
+      EVENTS.JOB_APPLICATION_SUBMITTED,
+      EVENTS.CONTACT_UNLOCKED,
+      EVENTS.PAYMENT_SUCCEEDED,
+      EVENTS.SUBSCRIPTION_ACTIVATED,
+      EVENTS.AI_REQUEST_COMPLETED,
+      EVENTS.AI_REQUEST_FAILED,
     ]);
   });
 
   it("resolves job.application.submitted metadata", () => {
-    const entry = getCatalogEntry("job.application.submitted");
+    const entry = getCatalogEntry(EVENTS.JOB_APPLICATION_SUBMITTED);
     expect(entry?.publisherModule).toBe("jobs");
     expect(entry?.payloadFields).toEqual(["jobId", "applicationId", "userId"]);
     expect(isPhase9MvpEntry(entry!)).toBe(true);
@@ -44,7 +45,7 @@ function isPhase9MvpEntry(
 
 describe("catalog lookup", () => {
   it("recognizes known event names", () => {
-    expect(isKnownEventName("payment.succeeded")).toBe(true);
+    expect(isKnownEventName(EVENTS.PAYMENT_SUCCEEDED)).toBe(true);
     expect(isKnownEventName("not.real.event")).toBe(false);
   });
 
@@ -54,7 +55,7 @@ describe("catalog lookup", () => {
 
   it("requires declared payload fields", () => {
     expect(() =>
-      validateCatalogPayload("payment.succeeded", 1, {
+      validateCatalogPayload(EVENTS.PAYMENT_SUCCEEDED, 1, {
         paymentId: "p1",
         ownerType: "USER",
         ownerId: "u1",
@@ -64,7 +65,7 @@ describe("catalog lookup", () => {
 
   it("accepts complete payment.succeeded payload", () => {
     expect(() =>
-      validateCatalogPayload("payment.succeeded", 1, {
+      validateCatalogPayload(EVENTS.PAYMENT_SUCCEEDED, 1, {
         paymentId: "p1",
         ownerType: "USER",
         ownerId: "u1",

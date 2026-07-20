@@ -4,12 +4,13 @@ import { EventBusError } from "@/modules/events/bus/errors";
 import { InMemoryEventBus } from "@/modules/events/bus/in-memory.bus";
 import type { DomainEvent, PublishInput } from "@/modules/events/bus/types";
 import { validateEnvelope } from "@/modules/events/bus/validate-envelope";
+import { EVENTS } from "@/modules/events/catalog";
 import { getCatalogEntry } from "@/modules/events/catalog/lookup";
 
 const silentLogger = pino({ level: "silent" });
 
 function sampleEvent(overrides: Partial<PublishInput> = {}): PublishInput {
-  const name = overrides.name ?? "job.application.submitted";
+  const name = overrides.name ?? EVENTS.JOB_APPLICATION_SUBMITTED;
   const version = overrides.version ?? 1;
   const entry = getCatalogEntry(name, version);
 
@@ -32,7 +33,7 @@ function sampleEvent(overrides: Partial<PublishInput> = {}): PublishInput {
 describe("validateEnvelope", () => {
   it("accepts a valid envelope", () => {
     const event = validateEnvelope(sampleEvent());
-    expect(event.name).toBe("job.application.submitted");
+    expect(event.name).toBe(EVENTS.JOB_APPLICATION_SUBMITTED);
     expect(event.version).toBe(1);
   });
 
@@ -56,7 +57,7 @@ describe("validateEnvelope", () => {
     expect(() =>
       validateEnvelope(
         sampleEvent({
-          name: "job.application.submitted",
+          name: EVENTS.JOB_APPLICATION_SUBMITTED,
           aggregateType: "JobApplication",
           payload: { jobId: "j1", applicationId: "a1", userId: "u1" },
         })
@@ -90,14 +91,14 @@ describe("InMemoryEventBus", () => {
     const bus = new InMemoryEventBus({ logger: silentLogger });
     const order: number[] = [];
 
-    bus.registerHandler("payment.succeeded", async () => {
+    bus.registerHandler(EVENTS.PAYMENT_SUCCEEDED, async () => {
       order.push(1);
     });
-    bus.registerHandler("payment.succeeded", async () => {
+    bus.registerHandler(EVENTS.PAYMENT_SUCCEEDED, async () => {
       order.push(2);
     });
 
-    await bus.publish(sampleEvent({ name: "payment.succeeded" }));
+    await bus.publish(sampleEvent({ name: EVENTS.PAYMENT_SUCCEEDED }));
     expect(order).toEqual([1, 2]);
   });
 
@@ -105,11 +106,11 @@ describe("InMemoryEventBus", () => {
     const bus = new InMemoryEventBus({ logger: silentLogger });
     let received: DomainEvent | undefined;
 
-    bus.registerHandler("payment.succeeded", async (ctx) => {
+    bus.registerHandler(EVENTS.PAYMENT_SUCCEEDED, async (ctx) => {
       received = ctx.event;
     });
 
-    await bus.publish(sampleEvent({ name: "payment.succeeded", eventId: undefined }));
+    await bus.publish(sampleEvent({ name: EVENTS.PAYMENT_SUCCEEDED, eventId: undefined }));
     expect(received?.eventId).toMatch(
       /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
     );
@@ -119,8 +120,8 @@ describe("InMemoryEventBus", () => {
     const bus = new InMemoryEventBus({ logger: silentLogger });
     const handler = vi.fn();
 
-    bus.registerHandler("payment.succeeded", handler);
-    await bus.publish(sampleEvent({ name: "job.application.submitted" }));
+    bus.registerHandler(EVENTS.PAYMENT_SUCCEEDED, handler);
+    await bus.publish(sampleEvent({ name: EVENTS.JOB_APPLICATION_SUBMITTED }));
 
     expect(handler).not.toHaveBeenCalled();
   });
@@ -129,18 +130,18 @@ describe("InMemoryEventBus", () => {
     const bus = new InMemoryEventBus({ logger: silentLogger });
     const order: string[] = [];
 
-    bus.registerHandler("contact.unlocked", async () => {
+    bus.registerHandler(EVENTS.CONTACT_UNLOCKED, async () => {
       order.push("sync");
     });
     bus.registerHandler(
-      "contact.unlocked",
+      EVENTS.CONTACT_UNLOCKED,
       async () => {
         order.push("async");
       },
       { async: true }
     );
 
-    await bus.publish(sampleEvent({ name: "contact.unlocked" }));
+    await bus.publish(sampleEvent({ name: EVENTS.CONTACT_UNLOCKED }));
     expect(order).toEqual(["sync", "async"]);
   });
 
@@ -148,12 +149,12 @@ describe("InMemoryEventBus", () => {
     const bus = new InMemoryEventBus({ logger: silentLogger });
     const second = vi.fn();
 
-    bus.registerHandler("ai.request.failed", async () => {
+    bus.registerHandler(EVENTS.AI_REQUEST_FAILED, async () => {
       throw new Error("handler boom");
     });
-    bus.registerHandler("ai.request.failed", second);
+    bus.registerHandler(EVENTS.AI_REQUEST_FAILED, second);
 
-    await bus.publish(sampleEvent({ name: "ai.request.failed" }));
+    await bus.publish(sampleEvent({ name: EVENTS.AI_REQUEST_FAILED }));
     expect(second).toHaveBeenCalledOnce();
   });
 
@@ -162,12 +163,12 @@ describe("InMemoryEventBus", () => {
     const handler = vi.fn();
 
     bus.registerHandler(
-      "subscription.activated",
+      EVENTS.SUBSCRIPTION_ACTIVATED,
       handler,
       { idempotent: true }
     );
 
-    const event = sampleEvent({ name: "subscription.activated" });
+    const event = sampleEvent({ name: EVENTS.SUBSCRIPTION_ACTIVATED });
     await bus.publish(event);
     await bus.publish(event);
 

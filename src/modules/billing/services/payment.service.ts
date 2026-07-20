@@ -10,6 +10,7 @@ import { writeAuditLog } from "@/modules/auth/services/audit.service";
 import { getActivePaymentProvider } from "@/modules/billing/providers";
 import { BillingError } from "@/modules/billing/services/billing-core";
 import { creditWallet } from "@/modules/billing/services/wallet.service";
+import { publishPaymentSucceeded } from "@/modules/events/publishers/payment.publisher";
 
 export async function startCheckout(params: {
   ownerType: BillingOwnerType;
@@ -304,6 +305,13 @@ export async function settlePaymentFromWebhook(params: {
       await writeAuditLog({
         action: "PAYMENT_SUCCEEDED",
         metadata: { paymentId: updated.id },
+      });
+      await publishPaymentSucceeded({
+        paymentId: updated.id,
+        ownerType: updated.ownerType,
+        ownerId: updated.ownerId,
+        sku: updated.sku,
+        correlationId: updated.idempotencyKey,
       });
     }
   }

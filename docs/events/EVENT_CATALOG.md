@@ -52,14 +52,16 @@ Derived constant: `PHASE9_MVP_EVENT_NAMES` in `catalog/v1.ts`.
 
 ```typescript
 import {
-  EVENT_CATALOG_V1,
-  PHASE9_MVP_EVENT_NAMES,
+  EVENTS,
   getCatalogEntry,
 } from "@/modules/events/catalog";
 
-const entry = getCatalogEntry("payment.succeeded");
+const entry = getCatalogEntry(EVENTS.PAYMENT_SUCCEEDED);
 // entry.publisherModule === "billing"
 ```
+
+Use `EVENTS.*` constants — never raw event name strings in publishers/handlers (NOTE-4).
+Catalog remains SoT for metadata; analytics must not maintain a separate event list (NOTE-5).
 
 Envelope validation (`validateEnvelope`) checks catalog name, version, aggregateType, and required payload keys.
 
