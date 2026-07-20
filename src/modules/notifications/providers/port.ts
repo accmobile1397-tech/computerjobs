@@ -1,4 +1,5 @@
 export type {
+  DeliveryResult,
   NotificationProviderPort,
   ProviderSendResult,
   RenderedNotification,

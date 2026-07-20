@@ -1,4 +1,5 @@
 export type {
+  DeliveryResult,
   DispatchRequest,
   DispatchResult,
   NotificationProviderPort,

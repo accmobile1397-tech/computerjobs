@@ -124,6 +124,7 @@ export async function dispatchNotification(
   let provider: string | null = null;
   let attemptCount = 0;
   let lastErrorCode: string | null = null;
+  let providerMessageId: string | undefined;
 
   if (deps.providerPort) {
     attemptCount = 1;
@@ -140,6 +141,7 @@ export async function dispatchNotification(
       ? NotificationDeliveryStatus.SENT
       : NotificationDeliveryStatus.FAILED;
     lastErrorCode = sendResult.errorCode ?? null;
+    providerMessageId = sendResult.providerMessageId;
   }
 
   try {
@@ -153,7 +155,7 @@ export async function dispatchNotification(
         lastErrorCode,
       },
     });
-    return toDispatchResult(delivery);
+    return toDispatchResult(delivery, { providerMessageId });
   } catch (error) {
     if (
       error instanceof Error &&

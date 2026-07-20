@@ -32,6 +32,8 @@ export type DispatchResult = {
   status: NotificationDeliveryStatus;
   skipReason?: NotificationSkipReason;
   correlationId: string;
+  /** Vendor message id from provider port (not persisted until schema extension). */
+  providerMessageId?: string;
 };
 
 export type RenderedNotification = {
@@ -43,13 +45,19 @@ export type RenderedNotification = {
   correlationId: string;
 };
 
-export type ProviderSendResult = {
+/** RFC-004 provider delivery contract (stub + real adapters). */
+export type DeliveryResult = {
   ok: boolean;
+  correlationId: string;
+  providerMessageId?: string;
   errorCode?: string;
 };
+
+/** @deprecated Prefer DeliveryResult — kept as alias for gateway/tests. */
+export type ProviderSendResult = DeliveryResult;
 
 /** Channel adapters implement this — gateway never imports vendor SDKs. */
 export interface NotificationProviderPort {
   readonly name: string;
-  send(rendered: RenderedNotification): Promise<ProviderSendResult>;
+  send(rendered: RenderedNotification): Promise<DeliveryResult>;
 }

@@ -1,7 +1,10 @@
 import type { NotificationDelivery } from "@prisma/client";
 import type { DispatchResult } from "@/modules/notifications/gateway/types";
 
-export function toDispatchResult(delivery: NotificationDelivery): DispatchResult {
+export function toDispatchResult(
+  delivery: NotificationDelivery,
+  extras?: { providerMessageId?: string }
+): DispatchResult {
   return {
     ok: delivery.status !== "FAILED",
     notificationId: delivery.id,
@@ -10,6 +13,7 @@ export function toDispatchResult(delivery: NotificationDelivery): DispatchResult
     status: delivery.status,
     skipReason: delivery.skipReason ?? undefined,
     correlationId: delivery.correlationId,
+    providerMessageId: extras?.providerMessageId,
   };
 }
 

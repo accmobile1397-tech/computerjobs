@@ -7,8 +7,8 @@ Unified messaging per [RFC-004](../../../docs/rfc/RFC-004-NOTIFICATION-ARCHITECT
 | Prisma models | P9-005 — templates · prefs · deliveries · event mappings |
 | `templates/` | P9-006 — registry + MVP seed |
 | `gateway/` | P9-007 — dispatch pipeline foundation |
-| `providers/port.ts` | Provider interface only (impl P9-008+) |
-| `providers/` | P9-008+ |
+| `providers/email/stub` | P9-008 — StubEmailProvider (log-only) |
+| `providers/` | P9-009 SMS · P9-010 InApp |
 | `handlers/` | P9-011 |
 | `templates/` seed | P9-006 ✅ |
 

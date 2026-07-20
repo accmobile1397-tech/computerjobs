@@ -125,7 +125,11 @@ describe("dispatchNotification", () => {
     const prisma = createMockPrisma();
     const providerPort: NotificationProviderPort = {
       name: "test-stub",
-      send: vi.fn(async () => ({ ok: true })),
+      send: vi.fn(async (rendered) => ({
+        ok: true,
+        correlationId: rendered.correlationId,
+        providerMessageId: "test-msg-1",
+      })),
     };
 
     const request = baseRequest();
@@ -169,7 +173,11 @@ describe("dispatchNotification", () => {
 
   it("uses provider port without gateway knowing channel implementation", async () => {
     const prisma = createMockPrisma();
-    const send = vi.fn(async () => ({ ok: true }));
+    const send = vi.fn(async (rendered) => ({
+      ok: true,
+      correlationId: rendered.correlationId,
+      providerMessageId: "test-msg-2",
+    }));
     const providerPort: NotificationProviderPort = { name: "test-stub", send };
 
     const result = await dispatchNotification(baseRequest(), { prisma, providerPort });
