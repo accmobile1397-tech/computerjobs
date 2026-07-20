@@ -10,6 +10,7 @@ Unified messaging per [RFC-004](../../../docs/rfc/RFC-004-NOTIFICATION-ARCHITECT
 | `providers/email/stub` | P9-008 — StubEmailProvider (log-only) |
 | `providers/sms/stub` | P9-009 — StubSmsProvider (log-only) |
 | `providers/inapp` | P9-010 — InAppProvider (inbox persist) |
+| `handlers/` | P9-011 — event → gateway only (C-009-5) |
 | `handlers/` | P9-011 |
 | `templates/` seed | P9-006 ✅ |
 

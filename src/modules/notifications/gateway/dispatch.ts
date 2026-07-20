@@ -1,4 +1,5 @@
 import {
+  NotificationChannel,
   NotificationDeliveryStatus,
   NotificationPreferenceCategory,
   NotificationSkipReason,
@@ -23,11 +24,17 @@ import type {
   NotificationProviderPort,
 } from "@/modules/notifications/gateway/types";
 import { DEFAULT_NOTIFICATION_LOCALE } from "@/modules/notifications/templates/keys";
+import { defaultProvidersByChannel } from "@/modules/notifications/gateway/default-providers";
 import { prisma as defaultPrisma } from "@/modules/shared/prisma/client";
 
 export type NotificationGatewayDeps = {
   prisma?: PrismaClient;
+  /** Explicit single provider (tests). Wins over channel map. */
   providerPort?: NotificationProviderPort;
+  /** Channel → provider; defaults from gateway-owned wiring (C-009-5). */
+  providersByChannel?: Partial<
+    Record<NotificationChannel, NotificationProviderPort>
+  >;
 };
 
 /**
@@ -126,9 +133,13 @@ export async function dispatchNotification(
   let lastErrorCode: string | null = null;
   let providerMessageId: string | undefined;
 
-  if (deps.providerPort) {
+  const channelProviders = deps.providersByChannel ?? defaultProvidersByChannel();
+  const providerPort =
+    deps.providerPort ?? channelProviders[request.channel];
+
+  if (providerPort) {
     attemptCount = 1;
-    const sendResult = await deps.providerPort.send({
+    const sendResult = await providerPort.send({
       channel: request.channel,
       subject: rendered.subject,
       body: rendered.body,
@@ -139,7 +150,7 @@ export async function dispatchNotification(
       templateKey: request.templateKey,
       templateVersion,
     });
-    provider = deps.providerPort.name;
+    provider = providerPort.name;
     status = sendResult.ok
       ? NotificationDeliveryStatus.SENT
       : NotificationDeliveryStatus.FAILED;

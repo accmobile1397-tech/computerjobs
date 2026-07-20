@@ -164,7 +164,10 @@ describe("dispatchNotification", () => {
 
   it("persists PENDING when no provider port is wired", async () => {
     const prisma = createMockPrisma();
-    const result = await dispatchNotification(baseRequest(), { prisma });
+    const result = await dispatchNotification(baseRequest(), {
+      prisma,
+      providersByChannel: {},
+    });
 
     expect(result.status).toBe(NotificationDeliveryStatus.PENDING);
     expect(result.provider).toBe("none");
@@ -196,7 +199,7 @@ describe("dispatchNotification", () => {
     const prisma = createMockPrisma();
     const result = await dispatchNotification(
       baseRequest({ correlationId: undefined, eventId: "evt-only" }),
-      { prisma }
+      { prisma, providersByChannel: {} }
     );
     expect(result.correlationId).toBe("evt-only");
   });

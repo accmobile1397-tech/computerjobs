@@ -13,6 +13,7 @@
 | C-009-2 | `NotificationPriority` enum reserved (LOW/NORMAL/HIGH/CRITICAL) | ✅ |
 | C-009-3 | Channel Capability Matrix reserved | ✅ |
 | C-009-4 | Event mapping versioning `{ version, mappings }` | ✅ |
+| C-009-5 | Handlers → Gateway only (never import channel providers) | ✅ |
 
 ## Debt (accepted / new)
 

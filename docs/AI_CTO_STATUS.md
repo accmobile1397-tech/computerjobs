@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for external CTO reviews.  
 **Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-20 · Phase 9 in progress (10/15 tasks)
+**Last updated:** 2026-07-20 · Phase 9 in progress (11/15 tasks)
 
 ---
 
@@ -17,7 +17,7 @@ Persian-first job platform for technology professionals.
 
 ## 2. Current Phase
 
-**Phase 9 — Notification System** · 🟡 10/15 tasks · [TASKS.md](./phase-9/TASKS.md)
+**Phase 9 — Notification System** · 🟡 11/15 tasks · [TASKS.md](./phase-9/TASKS.md)
 
 ---
 
@@ -37,11 +37,11 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
+| _(this commit)_ | feat(notifications): add event handlers via gateway (P9-011) |
 | `f830787` | feat(notifications): add InApp provider and inbox model (P9-010) |
 | `16810cb` | feat(notifications): add stub SMS provider (P9-009) |
 | `470813f` | feat(notifications): add stub email provider (P9-008) |
 | `752e230` | feat(notifications): add gateway dispatch foundation (P9-007) |
-| `d75a587` | feat(notifications): add MVP template registry and seed (P9-006) |
 
 ---
 
@@ -49,8 +49,8 @@ Persian-first job platform for technology professionals.
 
 | Milestone | Status |
 |-----------|--------|
-| P9-001..P9-009 | ✅ APPROVED |
-| P9-010 InApp Provider + inbox | ⏳ Awaiting review |
+| P9-001..P9-010 | ✅ APPROVED |
+| P9-011 Handlers (C-009-5) | ⏳ Awaiting review |
 
 **Deferred:** Phase 6 closeout · BullMQ EventBus → Phase 13.
 
@@ -58,13 +58,13 @@ Persian-first job platform for technology professionals.
 
 ## 7. In Progress Tasks
 
-None — **awaiting CTO review of P9-010** before P9-011.
+None — **awaiting CTO review of P9-011** before P9-012.
 
 ---
 
 ## 8. Pending Tasks (Phase 9)
 
-P9-011 Handlers · P9-012–013 APIs · P9-014 Permissions · P9-015 Tests
+P9-012 User API · P9-013 Admin API · P9-014 Permissions · P9-015 Tests
 
 ---
 
@@ -72,14 +72,13 @@ P9-011 Handlers · P9-012–013 APIs · P9-014 Permissions · P9-015 Tests
 
 - Phase 6 not tagged (deferred).
 - TD-P2-1 no HTTP integration tests.
-- `deliveryId` on inbox optional — gateway writes delivery after provider; link reserved for later.
+- `registerNotificationHandlers()` must be called at app bootstrap (not auto-wired yet).
 
 ---
 
 ## 10. Architecture Decisions (active)
 
-Four notification entities: Template · Preference · Delivery · Inbox (`Notification`).  
-InApp provider persists inbox only · gateway orchestrates · P9-012 must read `notifications` table.
+C-009-1..5 · Handlers → Gateway only · Provider wiring in gateway layer · Inbox model approved through Phase 15.
 
 ---
 
@@ -92,13 +91,13 @@ InApp provider persists inbox only · gateway orchestrates · P9-012 must read `
 
 ## 12. Questions For CTO
 
-1. **P9-010 inbox model** — approve before P9-011 Handlers?
+1. **P9-011** — approve to proceed with **P9-012 User API**?
 
 ---
 
 ## 13. Recommended Next Actions
 
-1. Review inbox Prisma model + InAppProvider (see CTO_REPORT).
-2. If approved → **P9-011 Handlers**.
+1. Review handlers + C-009-5 enforcement.
+2. If approved → **P9-012 User inbox/preferences API**.
 
-**Health:** 96/96 tests · typecheck green · prisma validate green.
+**Health:** 101/101 tests · typecheck green · prisma validate green.
