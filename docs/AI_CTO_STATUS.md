@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for external CTO reviews.  
 **Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-20 · Phase 9 in progress (8/15 tasks)
+**Last updated:** 2026-07-20 · Phase 9 in progress (9/15 tasks)
 
 ---
 
@@ -17,7 +17,7 @@ Persian-first job platform for technology professionals.
 
 ## 2. Current Phase
 
-**Phase 9 — Notification System** · 🟡 8/15 tasks · [TASKS.md](./phase-9/TASKS.md)
+**Phase 9 — Notification System** · 🟡 9/15 tasks · [TASKS.md](./phase-9/TASKS.md)
 
 ---
 
@@ -37,11 +37,11 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
-| `da0df73` | feat(notifications): add stub email provider (P9-008) |
+| _(this commit)_ | feat(notifications): add stub SMS provider (P9-009) |
+| `470813f` | feat(notifications): add stub email provider (P9-008) |
 | `752e230` | feat(notifications): add gateway dispatch foundation (P9-007) |
 | `d75a587` | feat(notifications): add MVP template registry and seed (P9-006) |
 | `abf4bff` | feat(notifications): add notification persistence schema (P9-005) |
-| `71a13c4` | feat(jobs): publish job.application.submitted after apply (P9-004) |
 
 ---
 
@@ -49,8 +49,8 @@ Persian-first job platform for technology professionals.
 
 | Milestone | Status |
 |-----------|--------|
-| P9-001..P9-007 | ✅ APPROVED |
-| P9-008 Email Provider (stub) | ⏳ Awaiting review |
+| P9-001..P9-008 | ✅ APPROVED |
+| P9-009 SMS Provider (stub) | ⏳ Awaiting review |
 
 **Deferred:** Phase 6 closeout · BullMQ EventBus → Phase 13.
 
@@ -58,13 +58,13 @@ Persian-first job platform for technology professionals.
 
 ## 7. In Progress Tasks
 
-None — **awaiting CTO review of P9-008** before P9-009.
+None — **awaiting CTO review of P9-009** before P9-010.
 
 ---
 
 ## 8. Pending Tasks (Phase 9)
 
-P9-009 SMS · P9-010 InApp · P9-011 Handlers · P9-012–013 APIs · P9-014 Permissions · P9-015 Tests
+P9-010 InApp · P9-011 Handlers · P9-012–013 APIs · P9-014 Permissions · P9-015 Tests
 
 ---
 
@@ -72,14 +72,14 @@ P9-009 SMS · P9-010 InApp · P9-011 Handlers · P9-012–013 APIs · P9-014 Per
 
 - Phase 6 not tagged (deferred).
 - TD-P2-1 no HTTP integration tests.
-- `providerMessageId` on DeliveryResult not yet persisted to DB (abstraction only).
+- `providerMessageId` not persisted to DB yet.
 - Notification inbox model deferred to P9-010.
 
 ---
 
 ## 10. Architecture Decisions (active)
 
-Gateway sole entry · providers via `NotificationProviderPort` · `DeliveryResult` with `correlationId` + `providerMessageId` · email stub = log-only (no SMTP).
+Gateway sole entry · `NotificationProviderPort` · `DeliveryResult` · email/sms stubs = log-only (no vendor SDKs).
 
 ---
 
@@ -92,13 +92,13 @@ Gateway sole entry · providers via `NotificationProviderPort` · `DeliveryResul
 
 ## 12. Questions For CTO
 
-1. **P9-008** — approve to proceed with **P9-009 SMS Provider (stub)**?
+1. **P9-009** — approve to proceed with **P9-010 InApp Provider**?
 
 ---
 
 ## 13. Recommended Next Actions
 
-1. Review P9-008 StubEmailProvider + DeliveryResult contract.
-2. If approved → **P9-009 SMS stub**.
+1. Review P9-009 StubSmsProvider.
+2. If approved → **P9-010 InApp** (inbox persistence).
 
-**Health:** 88/88 tests · typecheck green.
+**Health:** 91/91 tests · typecheck green.

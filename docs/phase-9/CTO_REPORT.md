@@ -8,34 +8,31 @@
 
 | Metric | Value |
 |--------|-------|
-| Tasks done | 8 / 15 |
-| Last commit | `da0df73` |
-| Tests | 88/88 pass |
+| Tasks done | 9 / 15 |
+| Last commit | — |
+| Tests | 91/91 pass |
 | Typecheck | green |
 
 ## Completed tasks
 
-### P9-001..P9-007 ✅ (CTO APPROVED)
+### P9-001..P9-008 ✅ (CTO APPROVED)
 
-Events · publishers · tables · templates · gateway foundation
+Events · publishers · tables · templates · gateway · email stub
 
-### P9-008 Email Provider (stub) ✅
+### P9-009 SMS Provider (stub) ✅
 
-- `providers/email/stub.provider.ts` — `StubEmailProvider` (`name: email-stub`)
-- Implements `NotificationProviderPort` · returns `DeliveryResult`
-- Preserves `correlationId` · emits `providerMessageId` (`email-stub_<uuid>`)
-- Log-only simulation — no SMTP / Resend / SendGrid
-- Rejects non-EMAIL channels (`CHANNEL_MISMATCH`)
-- Gateway wires via `providerPort` · surfaces `providerMessageId` on `DispatchResult`
-- 3 unit tests in `stub.provider.test.ts`
-
-No SMS · InApp · handlers · API · real email transport.
+- `providers/sms/stub.provider.ts` — `StubSmsProvider` (`name: sms-stub`)
+- Same `NotificationProviderPort` / `DeliveryResult` as email
+- Preserves `correlationId` · `providerMessageId` (`sms-stub_<uuid>`)
+- Log-only — no Kavenegar / Melipayamak / FarazSMS / credentials
+- Rejects non-SMS (`CHANNEL_MISMATCH`)
+- No template rendering · no business logic · no DB changes
+- 3 unit tests in `sms/stub.provider.test.ts`
 
 ## Debt (carry)
 
-TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1  
-Note: `providerMessageId` not persisted to DB yet (result abstraction only).
+TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1
 
 ## Next
 
-**P9-009 SMS Provider (stub)** — await CTO review of P9-008.
+**P9-010 InApp Provider** — await CTO review of P9-009.
