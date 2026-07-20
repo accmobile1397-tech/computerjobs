@@ -6,8 +6,11 @@ import {
   mapErrorToResponse,
   successResponse,
 } from "@/modules/auth/utils/api.util";
-import { AuthorizationError } from "@/modules/authorization/services/authorization.service";
-import { requireNotificationAdmin } from "@/modules/notifications/services/admin-auth";
+import {
+  AuthorizationError,
+  requirePermission,
+} from "@/modules/authorization/services/authorization.service";
+import { NOTIFICATION_PERMISSIONS } from "@/modules/notifications/permissions";
 import {
   NotificationAdminError,
   patchTemplateAdmin,
@@ -26,7 +29,7 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
   }
 
   try {
-    await requireNotificationAdmin(userId);
+    await requirePermission(userId, NOTIFICATION_PERMISSIONS.ADMIN);
     const { id } = await context.params;
     const body = patchTemplateSchema.parse(await request.json());
     const item = await patchTemplateAdmin(id, body);
@@ -45,7 +48,7 @@ export async function DELETE(request: NextRequest, context: RouteContext) {
   }
 
   try {
-    await requireNotificationAdmin(userId);
+    await requirePermission(userId, NOTIFICATION_PERMISSIONS.ADMIN);
     const { id } = await context.params;
     const item = await softDeleteTemplateAdmin(id);
     return NextResponse.json(successResponse({ item }, requestId));

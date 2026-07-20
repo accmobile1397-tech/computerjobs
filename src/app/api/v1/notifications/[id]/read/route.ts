@@ -6,6 +6,11 @@ import {
   successResponse,
 } from "@/modules/auth/utils/api.util";
 import {
+  AuthorizationError,
+  requirePermission,
+} from "@/modules/authorization/services/authorization.service";
+import { NOTIFICATION_PERMISSIONS } from "@/modules/notifications/permissions";
+import {
   markNotificationRead,
   NotificationInboxError,
 } from "@/modules/notifications/services/inbox.service";
@@ -21,10 +26,15 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
   }
 
   try {
+    await requirePermission(userId, NOTIFICATION_PERMISSIONS.READ_OWN);
     const { id } = await context.params;
     const data = await markNotificationRead(userId, id);
     return NextResponse.json(successResponse(data, requestId));
   } catch (error) {
+    if (error instanceof AuthorizationError) {
+      const mapped = mapErrorToResponse(error.code, requestId, error.message);
+      return NextResponse.json(mapped.body, { status: mapped.status });
+    }
     if (error instanceof NotificationInboxError) {
       const mapped = mapErrorToResponse(error.code, requestId, error.message);
       return NextResponse.json(mapped.body, { status: mapped.status });

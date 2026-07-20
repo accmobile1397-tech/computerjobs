@@ -25,15 +25,15 @@
 | P9-011 | Handlers | DONE | `6f07d4d` | event → gateway only (C-009-5) |
 | P9-012 | User API | DONE | `6fce48c` | inbox + preferences |
 | P9-013 | Admin API | DONE | `4517e65` | templates · mapping · delivery viewer · C-009-6 |
-| P9-014 | Permissions | OPEN | — | IAM seed · audit enums |
+| P9-014 | Permissions | DONE | *(pending)* | IAM seed · route enforcement · D-052 |
 | P9-015 | Tests | OPEN | — | gateway · idempotency · correlationId |
 
 ---
 
 ## Progress
 
-- **Done:** 13 / 15
-- **Current:** none — await review before **P9-014**
+- **Done:** 14 / 15
+- **Current:** none — await review before **P9-015**
 - **Blocked:** —
 
 ---

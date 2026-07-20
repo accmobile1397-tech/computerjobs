@@ -34,6 +34,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-20 | D-049 | RFC-005 Admin Platform — **CLOSED** (C-005-1/2) | **Closed** |
 | 2026-07-20 | D-050 | Phase 9 spec — **APPROVE WITH CONDITIONS** · implementation AUTHORIZED | Active |
 | 2026-07-20 | TD-NOTIF-2 | Notification Digest Engine | Active (P2) |
+| 2026-07-20 | D-052 | Phase 9 notification IAM permissions (P9-014) | Active |
 | 2026-07-20 | D-051 | **Core architecture stack complete** (through Events/Notifications/Admin RFCs) | Active |
 | 2026-07-20 | TD-EVT-1 | Central Event Registry | Active (P2) |
 | 2026-07-20 | TD-NOTIF-1 | Webhook notification channel | Active (P2) |
@@ -71,6 +72,22 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-052: Phase 9 Notification IAM Permissions (P9-014)
+
+**Decision:** Introduce notification permission slugs and seed role mappings.
+
+| Slug | Roles |
+|------|--------|
+| `notifications:read:own` | `job_seeker`, `employer` (+ `super_admin`) |
+| `notifications:preferences:own` | `job_seeker`, `employer` (+ `super_admin`) |
+| `notifications:admin` | `admin`, `super_admin` |
+
+**Enforcement:** User notification APIs require `read:own` / `preferences:own`. Admin notification APIs require `notifications:admin` (not role-only gate).
+
+**Seed:** `prisma/seed.ts` · constants: `src/modules/notifications/permissions.ts`
 
 ---
 

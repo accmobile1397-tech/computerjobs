@@ -6,8 +6,11 @@ import {
   mapErrorToResponse,
   successResponse,
 } from "@/modules/auth/utils/api.util";
-import { AuthorizationError } from "@/modules/authorization/services/authorization.service";
-import { requireNotificationAdmin } from "@/modules/notifications/services/admin-auth";
+import {
+  AuthorizationError,
+  requirePermission,
+} from "@/modules/authorization/services/authorization.service";
+import { NOTIFICATION_PERMISSIONS } from "@/modules/notifications/permissions";
 import {
   listTemplatesAdmin,
   NotificationAdminError,
@@ -27,7 +30,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    await requireNotificationAdmin(userId);
+    await requirePermission(userId, NOTIFICATION_PERMISSIONS.ADMIN);
     const query = adminListQuerySchema.parse(
       Object.fromEntries(request.nextUrl.searchParams)
     );
@@ -47,7 +50,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    await requireNotificationAdmin(userId);
+    await requirePermission(userId, NOTIFICATION_PERMISSIONS.ADMIN);
     const body = upsertTemplateSchema.parse(await request.json());
     const item = await upsertTemplateAdmin(body);
     return NextResponse.json(successResponse({ item }, requestId));

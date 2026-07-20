@@ -46,6 +46,9 @@ const PERMISSIONS = [
   { slug: "billing:read:own", nameFa: "خواندن اشتراک و کیف پول خود" },
   { slug: "billing:checkout", nameFa: "شروع پرداخت" },
   { slug: "billing:admin", nameFa: "مدیریت پلن و سهمیه (ادمین)" },
+  { slug: "notifications:read:own", nameFa: "خواندن صندوق اعلان خود" },
+  { slug: "notifications:preferences:own", nameFa: "ویرایش تنظیمات اعلان خود" },
+  { slug: "notifications:admin", nameFa: "مدیریت اعلان‌ها (ادمین)" },
   { slug: "admin:users:read", nameFa: "مشاهده کاربران" },
   { slug: "admin:users:suspend", nameFa: "تعلیق کاربر" },
   { slug: "admin:roles:manage", nameFa: "مدیریت نقش‌ها" },
@@ -67,6 +70,8 @@ const ROLES = [
       "ai:use:own",
       "billing:read:own",
       "billing:checkout",
+      "notifications:read:own",
+      "notifications:preferences:own",
     ],
   },
   {
@@ -92,6 +97,8 @@ const ROLES = [
       "ai:use:company",
       "billing:read:own",
       "billing:checkout",
+      "notifications:read:own",
+      "notifications:preferences:own",
     ],
   },
   {
@@ -111,6 +118,7 @@ const ROLES = [
       "job:approve",
       "billing:admin",
       "ai:admin",
+      "notifications:admin",
     ],
   },
   {

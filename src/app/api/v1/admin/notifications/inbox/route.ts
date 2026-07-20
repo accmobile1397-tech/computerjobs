@@ -6,8 +6,11 @@ import {
   mapErrorToResponse,
   successResponse,
 } from "@/modules/auth/utils/api.util";
-import { AuthorizationError } from "@/modules/authorization/services/authorization.service";
-import { requireNotificationAdmin } from "@/modules/notifications/services/admin-auth";
+import {
+  AuthorizationError,
+  requirePermission,
+} from "@/modules/authorization/services/authorization.service";
+import { NOTIFICATION_PERMISSIONS } from "@/modules/notifications/permissions";
 import {
   listInboxAdminReadOnly,
   NotificationAdminError,
@@ -27,7 +30,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    await requireNotificationAdmin(userId);
+    await requirePermission(userId, NOTIFICATION_PERMISSIONS.ADMIN);
     const query = listInboxAdminQuerySchema.parse(
       Object.fromEntries(request.nextUrl.searchParams)
     );

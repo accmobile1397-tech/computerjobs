@@ -6,8 +6,11 @@ import {
   mapErrorToResponse,
   successResponse,
 } from "@/modules/auth/utils/api.util";
-import { AuthorizationError } from "@/modules/authorization/services/authorization.service";
-import { requireNotificationAdmin } from "@/modules/notifications/services/admin-auth";
+import {
+  AuthorizationError,
+  requirePermission,
+} from "@/modules/authorization/services/authorization.service";
+import { NOTIFICATION_PERMISSIONS } from "@/modules/notifications/permissions";
 import {
   listMappingsAdmin,
   NotificationAdminError,
@@ -31,7 +34,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    await requireNotificationAdmin(userId);
+    await requirePermission(userId, NOTIFICATION_PERMISSIONS.ADMIN);
     const query = listMappingsQuerySchema.parse(
       Object.fromEntries(request.nextUrl.searchParams)
     );
@@ -51,7 +54,7 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    await requireNotificationAdmin(userId);
+    await requirePermission(userId, NOTIFICATION_PERMISSIONS.ADMIN);
     const body = upsertMappingSchema.parse(await request.json());
     const item = await upsertMappingAdmin(body);
     return NextResponse.json(successResponse({ item }, requestId));

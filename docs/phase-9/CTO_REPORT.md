@@ -8,34 +8,30 @@
 
 | Metric | Value |
 |--------|-------|
-| Tasks done | 13 / 15 |
-| Last commit | `4517e65` |
-| Tests | 113/113 pass |
+| Tasks done | 14 / 15 |
+| Last commit | *(pending)* |
+| Tests | 114/114 pass |
 | Typecheck | green |
 | Prisma validate | green |
 
 ## Completed tasks
 
-### P9-001..P9-012 ✅ (CTO APPROVED)
+### P9-001..P9-013 ✅ (CTO APPROVED / APPROVE WITH CONDITIONS)
 
-### P9-013 Admin Notification API ✅
+### P9-014 Notification IAM Permissions ✅
 
-**C-009-6:** Admin may manage Template · EventMapping · Delivery viewer.  
-**Must NOT:** mutate inbox (`Notification` mark read/unread/delete).
+**Decision:** [D-052](../DECISIONS.md)
 
-| Method | Path | Behavior |
-|--------|------|----------|
-| GET/POST | `/api/v1/admin/notifications/templates` | List · upsert template |
-| PATCH/DELETE | `/api/v1/admin/notifications/templates/[id]` | Patch · soft-delete |
-| GET/POST | `/api/v1/admin/notifications/mappings` | List · upsert event mapping |
-| PATCH | `/api/v1/admin/notifications/mappings/[id]` | Patch mapping |
-| GET | `/api/v1/admin/notifications/deliveries` | Delivery viewer (filters) |
-| GET | `/api/v1/admin/notifications/inbox` | Read-only inbox peek |
+| Slug | Seeded on |
+|------|-----------|
+| `notifications:read:own` | job_seeker · employer · super_admin |
+| `notifications:preferences:own` | job_seeker · employer · super_admin |
+| `notifications:admin` | admin · super_admin |
 
-- Auth gate: `admin` / `super_admin` role **or** `notifications:admin` (seed in P9-014)
-- No IAM seed / audit enum changes in this task
-- Replay / provider settings deferred
-- 6 unit tests on admin services (incl. no inbox writes)
+- User APIs: `requirePermission` for read:own / preferences:own
+- Admin APIs: `requirePermission(notifications:admin)` only (role-only gate removed)
+- Constants: `src/modules/notifications/permissions.ts`
+- Seed: `prisma/seed.ts`
 
 ## Debt (carry)
 
@@ -43,4 +39,4 @@ TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1
 
 ## Next
 
-**P9-014 Permissions** — await CTO review of P9-013.
+**P9-015 Tests** — await CTO review of P9-014.

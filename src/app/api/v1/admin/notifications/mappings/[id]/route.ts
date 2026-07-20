@@ -6,8 +6,11 @@ import {
   mapErrorToResponse,
   successResponse,
 } from "@/modules/auth/utils/api.util";
-import { AuthorizationError } from "@/modules/authorization/services/authorization.service";
-import { requireNotificationAdmin } from "@/modules/notifications/services/admin-auth";
+import {
+  AuthorizationError,
+  requirePermission,
+} from "@/modules/authorization/services/authorization.service";
+import { NOTIFICATION_PERMISSIONS } from "@/modules/notifications/permissions";
 import {
   NotificationAdminError,
   patchMappingAdmin,
@@ -25,7 +28,7 @@ export async function PATCH(request: NextRequest, context: RouteContext) {
   }
 
   try {
-    await requireNotificationAdmin(userId);
+    await requirePermission(userId, NOTIFICATION_PERMISSIONS.ADMIN);
     const { id } = await context.params;
     const body = patchMappingSchema.parse(await request.json());
     const item = await patchMappingAdmin(id, body);

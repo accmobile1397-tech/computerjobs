@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for external CTO reviews.  
 **Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-20 · Phase 9 in progress (13/15 tasks)
+**Last updated:** 2026-07-20 · Phase 9 in progress (14/15 tasks)
 
 ---
 
@@ -10,14 +10,14 @@
 
 Persian-first job platform for technology professionals.  
 **Stack:** Next.js · Prisma/MySQL · Redis · BullMQ · `src/modules/`.  
-**Live:** Auth/RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI Gateway · Notifications (user + admin APIs).  
+**Live:** Auth/RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI Gateway · Notifications (user + admin APIs + IAM).  
 **Workflow:** RFC → Spec → CTO APPROVE → Implement → Review → Tag. Commits on `main`.
 
 ---
 
 ## 2. Current Phase
 
-**Phase 9 — Notification System** · 🟡 13/15 tasks · [TASKS.md](./phase-9/TASKS.md)
+**Phase 9 — Notification System** · 🟡 14/15 tasks · [TASKS.md](./phase-9/TASKS.md)
 
 ---
 
@@ -37,11 +37,11 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
+| *(pending)* | feat(iam): seed notification permissions and enforce on routes (P9-014) |
+| `babadce` | docs(phase-9): record P9-013 commit ref |
 | `4517e65` | feat(notifications): add admin template/mapping/delivery APIs (P9-013) |
+| `9d0673b` | docs(phase-9): record P9-012 commit ref |
 | `6fce48c` | feat(notifications): add user inbox and preferences API (P9-012) |
-| `6f07d4d` | feat(notifications): add event handlers via gateway only (P9-011) |
-| `f830787` | feat(notifications): add InApp provider and inbox model (P9-010) |
-| `16810cb` | feat(notifications): add stub SMS provider (P9-009) |
 
 ---
 
@@ -49,8 +49,8 @@ Persian-first job platform for technology professionals.
 
 | Milestone | Status |
 |-----------|--------|
-| P9-001..P9-012 | ✅ APPROVED |
-| P9-013 Admin API | ⏳ Awaiting review |
+| P9-001..P9-013 | ✅ APPROVED / conditions met |
+| P9-014 Permissions | ⏳ Awaiting review |
 
 **Deferred:** Phase 6 closeout · BullMQ EventBus → Phase 13.
 
@@ -58,13 +58,13 @@ Persian-first job platform for technology professionals.
 
 ## 7. In Progress Tasks
 
-None — **awaiting CTO review of P9-013** before P9-014.
+None — **awaiting CTO review of P9-014** before P9-015.
 
 ---
 
 ## 8. Pending Tasks (Phase 9)
 
-P9-014 Permissions · P9-015 Tests
+P9-015 Tests
 
 ---
 
@@ -72,13 +72,13 @@ P9-014 Permissions · P9-015 Tests
 
 - Phase 6 not tagged (deferred).
 - TD-P2-1 no HTTP integration tests.
-- Permission slug `notifications:admin` not seeded yet (P9-014) — admin gate uses `admin`/`super_admin` roles until then.
+- Existing DBs need re-seed (or equivalent upsert) to receive new permission rows.
 
 ---
 
 ## 10. Architecture Decisions (active)
 
-C-009-1..6 · Inbox SoT = `notifications` · Admin must not mutate inbox · Handlers → Gateway only.
+C-009-1..6 · D-052 notification IAM · Inbox SoT = `notifications` · Handlers → Gateway only.
 
 ---
 
@@ -91,13 +91,13 @@ C-009-1..6 · Inbox SoT = `notifications` · Admin must not mutate inbox · Hand
 
 ## 12. Questions For CTO
 
-1. **P9-013** — approve to proceed with **P9-014 Permissions**?
+1. **P9-014** — approve to proceed with **P9-015 Tests**?
 
 ---
 
 ## 13. Recommended Next Actions
 
-1. Review admin notification API routes (C-009-6 boundaries).
-2. If approved → **P9-014 Permissions**.
+1. Review notification IAM seed + route enforcement (D-052).
+2. If approved → **P9-015 Tests**.
 
-**Health:** 113/113 tests · typecheck green · prisma validate green.
+**Health:** 114/114 tests · typecheck green · prisma validate green.
