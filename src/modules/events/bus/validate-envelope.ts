@@ -1,5 +1,9 @@
 import { EventBusError } from "@/modules/events/bus/errors";
 import type { DomainEvent, PublishInput } from "@/modules/events/bus/types";
+import {
+  getCatalogEntry,
+  validateCatalogEvent,
+} from "@/modules/events/catalog/lookup";
 
 const EVENT_NAME_PATTERN = /^[a-z][a-z0-9]*(\.[a-z][a-z0-9]*)+$/;
 const UUID_PATTERN =
@@ -42,7 +46,7 @@ function parseOptionalString(value: unknown, field: string): string | undefined 
   return requireNonEmptyString(value, field);
 }
 
-/** Structural envelope validation (catalog schema checks land in P9-002). */
+/** Structural + catalog validation (RFC-003 envelope + v1 metadata). */
 export function validateEnvelope(input: PublishInput): DomainEvent {
   const name = requireNonEmptyString(input.name, "name");
   if (!EVENT_NAME_PATTERN.test(name)) {
@@ -56,15 +60,31 @@ export function validateEnvelope(input: PublishInput): DomainEvent {
     throw new EventBusError("eventId must be a UUID when provided");
   }
 
+  const version = parseVersion(input.version);
+  const payload = parsePayload(input.payload);
+  validateCatalogEvent(name, version, payload);
+
+  const entry = getCatalogEntry(name, version);
+  if (!entry) {
+    throw new EventBusError(`unknown event catalog entry: ${name} v${version}`);
+  }
+
+  const aggregateType = requireNonEmptyString(input.aggregateType, "aggregateType");
+  if (aggregateType !== entry.aggregateType) {
+    throw new EventBusError(
+      `aggregateType must be "${entry.aggregateType}" for ${name} v${version}`
+    );
+  }
+
   return {
     eventId: eventIdRaw ?? "",
     name,
-    version: parseVersion(input.version),
+    version,
     occurredAt: parseIsoTimestamp(input.occurredAt),
     actorUserId: parseOptionalString(input.actorUserId, "actorUserId"),
-    aggregateType: requireNonEmptyString(input.aggregateType, "aggregateType"),
+    aggregateType: entry.aggregateType,
     aggregateId: requireNonEmptyString(input.aggregateId, "aggregateId"),
     correlationId: parseOptionalString(input.correlationId, "correlationId"),
-    payload: parsePayload(input.payload),
+    payload,
   };
 }

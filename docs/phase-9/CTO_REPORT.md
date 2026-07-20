@@ -9,9 +9,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Tasks done | 1 / 15 |
-| Last commit | `828f751` |
-| Tests | 55/55 pass |
+| Tasks done | 2 / 15 |
+| Last commit | `2b33999` |
+| Tests | 64/64 pass |
 | Typecheck | green |
 
 ## Completed tasks
@@ -22,7 +22,16 @@
 - `publish()` · `registerHandler()` · sync/async dispatch · idempotent dedupe (in-process)
 - Process singleton `eventBus` exported from `bus/index.ts`
 - 11 unit tests in `in-memory.bus.test.ts`
-- No catalog, publishers, providers, or DB (deferred P9-002+)
+- In-memory only — no BullMQ (per NOTE-3)
+
+### P9-002 Event Catalog ✅
+
+- `src/modules/events/catalog/v1.ts` — **single source of truth** (16 RFC-003 events)
+- `PHASE9_MVP_EVENT_NAMES` derived for 6 notification MVP events
+- Lookup helpers · payload field validation · `EventName` union type
+- `validateEnvelope()` now checks catalog name/version/aggregateType/payload
+- `docs/events/EVENT_CATALOG.md` synced from code
+- 9 catalog unit tests · no publishers/handlers/notifications/DB
 
 ## Debt (carry)
 
@@ -30,4 +39,4 @@ TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1
 
 ## Next
 
-**P9-002 Event Catalog** — `catalog/v1.ts` + sync `docs/events/EVENT_CATALOG.md` (await CTO review of P9-001).
+**P9-003 Payment Publisher** — wire `payment.succeeded` from billing (await CTO review of P9-002).

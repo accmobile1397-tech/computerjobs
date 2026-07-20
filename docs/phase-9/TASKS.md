@@ -13,7 +13,7 @@
 | ID | Task | Status | Commit | Notes |
 |----|------|--------|--------|-------|
 | P9-001 | EventBus | DONE | `828f751` | `src/modules/events/bus/` in-memory |
-| P9-002 | Event Catalog | OPEN | — | catalog v1 + `docs/events/EVENT_CATALOG.md` sync |
+| P9-002 | Event Catalog | DONE | `2b33999` | `catalog/v1.ts` SoT · 16 events · 6 MVP |
 | P9-003 | Payment Publisher | OPEN | — | `payment.succeeded` from billing |
 | P9-004 | Job Publisher | OPEN | — | `job.application.submitted` from jobs |
 | P9-005 | Notification Tables | OPEN | — | migration · no schema in spec doc |
@@ -32,8 +32,8 @@
 
 ## Progress
 
-- **Done:** 1 / 15
-- **Current:** none — await review before **P9-002**
+- **Done:** 2 / 15
+- **Current:** none — await review before **P9-003**
 - **Blocked:** —
 
 ---

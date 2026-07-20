@@ -4,20 +4,28 @@ import { EventBusError } from "@/modules/events/bus/errors";
 import { InMemoryEventBus } from "@/modules/events/bus/in-memory.bus";
 import type { DomainEvent, PublishInput } from "@/modules/events/bus/types";
 import { validateEnvelope } from "@/modules/events/bus/validate-envelope";
+import { getCatalogEntry } from "@/modules/events/catalog/lookup";
 
 const silentLogger = pino({ level: "silent" });
 
 function sampleEvent(overrides: Partial<PublishInput> = {}): PublishInput {
+  const name = overrides.name ?? "job.application.submitted";
+  const version = overrides.version ?? 1;
+  const entry = getCatalogEntry(name, version);
+
+  const defaultPayload = entry
+    ? Object.fromEntries(entry.payloadFields.map((field) => [field, `${field}-1`]))
+    : {};
+
   return {
-    eventId: "550e8400-e29b-41d4-a716-446655440000",
-    name: "job.application.submitted",
-    version: 1,
-    occurredAt: "2026-07-20T10:00:00.000Z",
-    aggregateType: "JobApplication",
-    aggregateId: "app-1",
-    correlationId: "req-1",
-    payload: { jobId: "job-1", applicationId: "app-1", userId: "user-1" },
-    ...overrides,
+    eventId: overrides.eventId ?? "550e8400-e29b-41d4-a716-446655440000",
+    occurredAt: overrides.occurredAt ?? "2026-07-20T10:00:00.000Z",
+    aggregateId: overrides.aggregateId ?? "agg-1",
+    correlationId: overrides.correlationId ?? "req-1",
+    name,
+    version,
+    aggregateType: overrides.aggregateType ?? entry?.aggregateType ?? "Unknown",
+    payload: overrides.payload ?? defaultPayload,
   };
 }
 
@@ -42,6 +50,38 @@ describe("validateEnvelope", () => {
     expect(() =>
       validateEnvelope(sampleEvent({ payload: [] as unknown as Record<string, unknown> }))
     ).toThrow(EventBusError);
+  });
+
+  it("rejects unknown catalog events", () => {
+    expect(() =>
+      validateEnvelope(
+        sampleEvent({
+          name: "job.application.submitted",
+          aggregateType: "JobApplication",
+          payload: { jobId: "j1", applicationId: "a1", userId: "u1" },
+        })
+      )
+    ).not.toThrow();
+
+    expect(() =>
+      validateEnvelope(
+        sampleEvent({
+          name: "not.in.catalog",
+          aggregateType: "X",
+          payload: {},
+        })
+      )
+    ).toThrow(EventBusError);
+  });
+
+  it("rejects missing catalog payload fields", () => {
+    expect(() =>
+      validateEnvelope(
+        sampleEvent({
+          payload: { jobId: "j1", applicationId: "a1" },
+        })
+      )
+    ).toThrow(/payload missing required field/);
   });
 });
 
