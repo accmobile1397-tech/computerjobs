@@ -22,7 +22,7 @@
 | P9-008 | Email Provider | DONE | `da0df73` | stub · DeliveryResult · no SMTP |
 | P9-009 | SMS Provider | DONE | `16810cb` | stub · DeliveryResult · no vendor SDK |
 | P9-010 | InApp Provider | DONE | `f830787` | inbox model + InAppProvider |
-| P9-011 | Handlers | DONE | — | event → gateway only (C-009-5) |
+| P9-011 | Handlers | DONE | `6f07d4d` | event → gateway only (C-009-5) |
 | P9-012 | User API | OPEN | — | inbox · preferences |
 | P9-013 | Admin API | OPEN | — | templates · mapping · delivery viewer |
 | P9-014 | Permissions | OPEN | — | IAM seed · audit enums |

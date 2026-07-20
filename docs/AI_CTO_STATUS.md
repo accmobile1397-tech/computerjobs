@@ -37,7 +37,7 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
-| _(this commit)_ | feat(notifications): add event handlers via gateway (P9-011) |
+| `6f07d4d` | feat(notifications): add event handlers via gateway (P9-011) |
 | `f830787` | feat(notifications): add InApp provider and inbox model (P9-010) |
 | `16810cb` | feat(notifications): add stub SMS provider (P9-009) |
 | `470813f` | feat(notifications): add stub email provider (P9-008) |
