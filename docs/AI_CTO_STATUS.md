@@ -37,7 +37,7 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
-| _(this commit)_ | feat(notifications): add user inbox and preferences API (P9-012) |
+| `6fce48c` | feat(notifications): add user inbox and preferences API (P9-012) |
 | `6f07d4d` | feat(notifications): add event handlers via gateway only (P9-011) |
 | `f830787` | feat(notifications): add InApp provider and inbox model (P9-010) |
 | `16810cb` | feat(notifications): add stub SMS provider (P9-009) |
