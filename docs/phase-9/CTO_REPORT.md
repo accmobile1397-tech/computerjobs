@@ -9,7 +9,7 @@
 | Metric | Value |
 |--------|-------|
 | Tasks done | 9 / 15 |
-| Last commit | — |
+| Last commit | `16810cb` |
 | Tests | 91/91 pass |
 | Typecheck | green |
 
