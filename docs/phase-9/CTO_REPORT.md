@@ -1,39 +1,41 @@
 # CTO Report — Phase 9: Notification System
 
 **Phase:** 9 · **Status:** 🟡 Implementation in progress  
-**Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) ✅ APPROVED (C-009-1..5)  
+**Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) ✅ APPROVED (C-009-1..6)  
 **Tasks:** [TASKS.md](./TASKS.md) · **Project status:** [AI_CTO_STATUS.md](../AI_CTO_STATUS.md)
 
 ## Progress
 
 | Metric | Value |
 |--------|-------|
-| Tasks done | 12 / 15 |
-| Last commit | `6fce48c` |
-| Tests | 107/107 pass |
+| Tasks done | 13 / 15 |
+| Last commit | *(pending)* |
+| Tests | 113/113 pass |
 | Typecheck | green |
 | Prisma validate | green |
 
 ## Completed tasks
 
-### P9-001..P9-011 ✅ (CTO APPROVED)
+### P9-001..P9-012 ✅ (CTO APPROVED)
 
-### P9-012 User Notification API ✅
+### P9-013 Admin Notification API ✅
 
-**Inbox SoT:** `notifications` only (never `notification_deliveries`).
+**C-009-6:** Admin may manage Template · EventMapping · Delivery viewer.  
+**Must NOT:** mutate inbox (`Notification` mark read/unread/delete).
 
 | Method | Path | Behavior |
 |--------|------|----------|
-| GET | `/api/v1/notifications` | List inbox (page/limit/unreadOnly) · `deletedAt: null` |
-| GET | `/api/v1/notifications/unread-count` | Unread count |
-| PATCH | `/api/v1/notifications/[id]/read` | Mark read (owner-scoped) |
-| GET | `/api/v1/notifications/preferences` | List prefs via preference service |
-| PUT | `/api/v1/notifications/preferences` | Upsert prefs via preference service |
+| GET/POST | `/api/v1/admin/notifications/templates` | List · upsert template |
+| PATCH/DELETE | `/api/v1/admin/notifications/templates/[id]` | Patch · soft-delete |
+| GET/POST | `/api/v1/admin/notifications/mappings` | List · upsert event mapping |
+| PATCH | `/api/v1/admin/notifications/mappings/[id]` | Patch mapping |
+| GET | `/api/v1/admin/notifications/deliveries` | Delivery viewer (filters) |
+| GET | `/api/v1/admin/notifications/inbox` | Read-only inbox peek |
 
-- Auth: Bearer · owner = `USER` + `userId`
-- Permission seed deferred to P9-014 (auth + ownership only)
-- 6 unit tests on inbox/preference services
-- No admin APIs · no handler changes
+- Auth gate: `admin` / `super_admin` role **or** `notifications:admin` (seed in P9-014)
+- No IAM seed / audit enum changes in this task
+- Replay / provider settings deferred
+- 6 unit tests on admin services (incl. no inbox writes)
 
 ## Debt (carry)
 
@@ -41,4 +43,4 @@ TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1
 
 ## Next
 
-**P9-013 Admin API** — await CTO review of P9-012.
+**P9-014 Permissions** — await CTO review of P9-013.

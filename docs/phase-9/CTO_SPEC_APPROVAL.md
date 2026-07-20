@@ -14,6 +14,7 @@
 | C-009-3 | Channel Capability Matrix reserved | ✅ |
 | C-009-4 | Event mapping versioning `{ version, mappings }` | ✅ |
 | C-009-5 | Handlers → Gateway only (never import channel providers) | ✅ |
+| C-009-6 | Admin may manage Template / EventMapping / Delivery viewer; must NOT mutate inbox (`Notification` read/unread/delete) | ✅ |
 
 ## Debt (accepted / new)
 
