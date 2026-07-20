@@ -3,6 +3,7 @@ import { hashPassword } from "@/modules/auth/utils/password.util";
 import { seedLocation } from "@/modules/location/seed";
 import { seedTaxonomy } from "@/modules/taxonomy/seed";
 import { seedBilling } from "@/modules/billing/seed";
+import { seedNotificationTemplates } from "@/modules/notifications/templates/seed";
 
 const prisma = new PrismaClient();
 
@@ -179,6 +180,7 @@ async function main() {
   await seedLocation(prisma);
   await seedTaxonomy(prisma);
   await seedBilling(prisma);
+  await seedNotificationTemplates(prisma);
 
   console.log("Seed completed");
 }

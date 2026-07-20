@@ -8,36 +8,38 @@
 
 | Metric | Value |
 |--------|-------|
-| Tasks done | 5 / 15 |
-| Last commit | `1ed34df` |
-| Tests | 70/70 pass |
+| Tasks done | 6 / 15 |
+| Last commit | `ad3b41b` |
+| Tests | 76/76 pass |
 | Typecheck | green |
 | Prisma validate | green |
 
 ## Completed tasks
 
-### P9-001..P9-004 ✅ (CTO APPROVED)
+### P9-001..P9-005 ✅ (CTO APPROVED)
 
-EventBus · Catalog · Payment/Job publishers
+EventBus · Catalog · Publishers · Prisma notification tables
 
-### P9-005 Notification Tables ✅
+### P9-006 Notification Templates ✅
 
-**Migration:** `20260720180000_phase9_notification_tables`
+- `templates/keys.ts` — `NOTIFICATION_TEMPLATE_KEYS.*` (stable versioned keys)
+- `templates/mvp.v1.ts` — 8 template definitions (6 keys × channels per IMPLEMENTATION_PLAN)
+- `templates/registry.ts` — `getTemplateDefinition()` · no inline bodies in services
+- `templates/seed.ts` — upserts `NotificationTemplate` rows · wired in `prisma/seed.ts`
+- 6 unit tests in `registry.test.ts`
 
-| Model | Purpose |
-|-------|---------|
-| `NotificationTemplate` | Registry — key/version/channel/locale, variablesSchema |
-| `NotificationPreference` | Owner × channel × category opt-in/out |
-| `NotificationDelivery` | Dispatch audit · correlationId · idempotency unique |
-| `NotificationEventMapping` | Data-driven event → template/channel/recipient rules |
+**MVP templates seeded:**
 
-**Enums (RFC-004):** `NotificationChannel` (incl. WEBHOOK reserved) · `NotificationDeliveryStatus` · `NotificationSkipReason` · `NotificationRecipientType` · `NotificationPreferenceCategory` · `NotificationPriority` (reserved)
+| templateKey | Channels |
+|-------------|----------|
+| `job.application.received` | EMAIL · IN_APP |
+| `payment.succeeded.receipt` | EMAIL |
+| `subscription.activated` | EMAIL · IN_APP |
+| `contact.unlocked.confirmation` | IN_APP |
+| `ai.request.completed` | IN_APP |
+| `ai.request.failed` | IN_APP |
 
-**Idempotency:** `@@unique([eventId, channel, recipientId, templateKey, templateVersion])`
-
-No providers · gateway · handlers · seeds · API routes (P9-006+)
-
-**Note:** In-app inbox `Notification` model deferred to P9-010 per scope split.
+No providers · gateway · handlers · dispatch · API routes.
 
 ## Debt (carry)
 
@@ -45,4 +47,4 @@ TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1
 
 ## Next
 
-**P9-006 Notification Templates** — seed + registry (await CTO review of P9-005).
+**P9-007 Gateway** — pipeline · correlationId · idempotency (await CTO review of P9-006).

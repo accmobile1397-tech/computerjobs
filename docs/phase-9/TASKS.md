@@ -17,7 +17,7 @@
 | P9-003 | Payment Publisher | DONE | `097d86b` | `payment.succeeded` after webhook settle |
 | P9-004 | Job Publisher | DONE | `cb4bb04` | `job.application.submitted` after apply |
 | P9-005 | Notification Tables | DONE | `1ed34df` | migration · RFC-004 enums · idempotency |
-| P9-006 | Notification Templates | OPEN | — | seed + registry |
+| P9-006 | Notification Templates | DONE | `ad3b41b` | registry + 8 MVP templates seeded |
 | P9-007 | Gateway | OPEN | — | pipeline · correlationId · idempotency |
 | P9-008 | Email Provider | OPEN | — | stub adapter |
 | P9-009 | SMS Provider | OPEN | — | stub adapter |
@@ -32,8 +32,8 @@
 
 ## Progress
 
-- **Done:** 5 / 15
-- **Current:** none — await review before **P9-006**
+- **Done:** 6 / 15
+- **Current:** none — await review before **P9-007**
 - **Blocked:** —
 
 ---
