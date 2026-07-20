@@ -37,7 +37,7 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
-| *(pending)* | feat(iam): seed notification permissions and enforce on routes (P9-014) |
+| `dec5cd7` | feat(iam): seed notification permissions and enforce on routes (P9-014) |
 | `babadce` | docs(phase-9): record P9-013 commit ref |
 | `4517e65` | feat(notifications): add admin template/mapping/delivery APIs (P9-013) |
 | `9d0673b` | docs(phase-9): record P9-012 commit ref |
