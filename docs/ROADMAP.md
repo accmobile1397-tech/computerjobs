@@ -48,7 +48,7 @@ Remaining risks (Phase 13+): Analytics · Observability at scale.
 | RFC-004 | Notification Architecture | ✅ CLOSED (D-048) |
 | RFC-005 | Admin Platform Architecture | ✅ CLOSED (D-049) |
 
-**Next:** Phase 9 TECHNICAL_SPEC → CTO APPROVE → implement.
+**Next:** Phase 9 implementation per [IMPLEMENTATION_PLAN.md](./phase-9/IMPLEMENTATION_PLAN.md) (spec ✅ APPROVED).
 
 ---
 
@@ -94,6 +94,7 @@ CTO-approved order:
 | TD-EVT-1 | Central Event Registry |
 | TD-NOTIF-1 | Webhook notification channel |
 | TD-ADMIN-1 | Feature Flag Engine |
+| TD-NOTIF-2 | Notification Digest Engine |
 
 ---
 

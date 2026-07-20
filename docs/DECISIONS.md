@@ -32,7 +32,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-20 | D-047 | RFC-003 Event Architecture — **CLOSED** (C-003-1/2) | **Closed** |
 | 2026-07-20 | D-048 | RFC-004 Notification Architecture — **CLOSED** | **Closed** |
 | 2026-07-20 | D-049 | RFC-005 Admin Platform — **CLOSED** (C-005-1/2) | **Closed** |
-| 2026-07-20 | D-050 | Phase 9 TECHNICAL_SPEC — next · awaiting CTO review | Active |
+| 2026-07-20 | D-050 | Phase 9 spec — **APPROVE WITH CONDITIONS** · implementation AUTHORIZED | Active |
+| 2026-07-20 | TD-NOTIF-2 | Notification Digest Engine | Active (P2) |
 | 2026-07-20 | D-051 | **Core architecture stack complete** (through Events/Notifications/Admin RFCs) | Active |
 | 2026-07-20 | TD-EVT-1 | Central Event Registry | Active (P2) |
 | 2026-07-20 | TD-NOTIF-1 | Webhook notification channel | Active (P2) |
@@ -82,12 +83,16 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 ---
 
-## D-050: Phase 9 TECHNICAL_SPEC — Next
+## D-050: Phase 9 Spec — APPROVE WITH CONDITIONS · AUTHORIZED
 
-**Status:** ⏳ Generate + CTO review · **no implementation until APPROVE**  
-**Requires:** RFC-003 ✅ · RFC-004 ✅ FROZEN
+**Decision:** ☑ **APPROVE WITH CONDITIONS** (CTO 2026-07-20)  
+**Conditions:** C-009-1 correlationId · C-009-2 NotificationPriority · C-009-3 channel matrix · C-009-4 mapping version  
+**Document:** [docs/phase-9/CTO_SPEC_APPROVAL.md](./phase-9/CTO_SPEC_APPROVAL.md)  
+**Plan:** [docs/phase-9/IMPLEMENTATION_PLAN.md](./phase-9/IMPLEMENTATION_PLAN.md)  
+**Requires:** RFC-003/004/005 ✅ FROZEN
 
 ---
+
 
 ## D-049: RFC-005 Admin Platform — CLOSED
 

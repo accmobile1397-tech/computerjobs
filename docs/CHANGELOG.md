@@ -20,6 +20,12 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ## [Unreleased]
 
+### Phase 9 Spec
+
+- **APPROVE WITH CONDITIONS** (C-009-1..4) — implementation AUTHORIZED
+- Plan: `docs/phase-9/IMPLEMENTATION_PLAN.md`
+- Debt: TD-NOTIF-2 Digest Engine
+
 ### RFC-003 / 004 / 005 — CLOSED (2026-07-20)
 
 - RFC-003 APPROVE WITH CONDITIONS · C-003-1 versioning · TD-EVT-1
