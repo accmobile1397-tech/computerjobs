@@ -8,31 +8,32 @@
 
 | Metric | Value |
 |--------|-------|
-| Tasks done | 11 / 15 |
-| Last commit | `6f07d4d` |
-| Tests | 101/101 pass |
+| Tasks done | 12 / 15 |
+| Last commit | — |
+| Tests | 107/107 pass |
 | Typecheck | green |
 | Prisma validate | green |
 
 ## Completed tasks
 
-### P9-001..P9-010 ✅ (CTO APPROVED)
+### P9-001..P9-011 ✅ (CTO APPROVED)
 
-### P9-011 Handlers ✅
+### P9-012 User Notification API ✅
 
-**C-009-5:** Handlers → `dispatchNotification` only · never import Email/SMS/InApp providers.
+**Inbox SoT:** `notifications` only (never `notification_deliveries`).
 
-| Path | Role |
-|------|------|
-| `handlers/mapping.v1.ts` | `{ version: 1, mappings }` — 6 MVP events |
-| `handlers/resolve-recipients.ts` | Recipient rules → USER/COMPANY ids |
-| `handlers/handle-domain-event.ts` | Event → gateway dispatches |
-| `handlers/register.ts` | `registerNotificationHandlers(bus)` |
-| `gateway/default-providers.ts` | Channel→provider wiring (gateway-owned) |
+| Method | Path | Behavior |
+|--------|------|----------|
+| GET | `/api/v1/notifications` | List inbox (page/limit/unreadOnly) · `deletedAt: null` |
+| GET | `/api/v1/notifications/unread-count` | Unread count |
+| PATCH | `/api/v1/notifications/[id]/read` | Mark read (owner-scoped) |
+| GET | `/api/v1/notifications/preferences` | List prefs via preference service |
+| PUT | `/api/v1/notifications/preferences` | Upsert prefs via preference service |
 
-**MVP events:** job.application.submitted · payment.succeeded · subscription.activated · contact.unlocked · ai.request.completed · ai.request.failed
-
-No user/admin APIs · no permissions · 5 handler tests (incl. C-009-5 import guard).
+- Auth: Bearer · owner = `USER` + `userId`
+- Permission seed deferred to P9-014 (auth + ownership only)
+- 6 unit tests on inbox/preference services
+- No admin APIs · no handler changes
 
 ## Debt (carry)
 
@@ -40,4 +41,4 @@ TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1
 
 ## Next
 
-**P9-012 User API** — await CTO review of P9-011.
+**P9-013 Admin API** — await CTO review of P9-012.
