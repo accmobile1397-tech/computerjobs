@@ -1,6 +1,6 @@
 # RFC-005 — Admin Platform Architecture
 
-**Status:** ⏳ Awaiting CTO Approval (required before Phase 10)  
+**Status:** ✅ **APPROVED / FROZEN / CLOSED** (CTO APPROVE WITH CONDITIONS — C-005-1/2 applied 2026-07-20)  
 **ID:** RFC-005 · **Decision:** D-049  
 **Audience:** ComputerJobs.ir control center — API-first, UI in Phase 10  
 **Depends on:** RFC-003 (events/activity) · RFC-004 (notification admin) · existing `/api/v1/admin/*`  
@@ -34,6 +34,37 @@ Freeze the **Admin Platform** architecture before dashboard, moderation consoles
 5. **Separate Admin API from Admin UI** — Phase 10 UI is a client of Phase 10/admin APIs; mobile/web admin shares same backend.
 6. **Audit everything material** — admin mutations emit `AuditAction` + optional domain event.
 7. **No secrets in responses** — provider keys, webhook secrets never returned; only masked metadata.
+
+---
+
+## 2.1 C-005-1 — Admin UI never touches DB (HARD RULE)
+
+**Admin Dashboard / Admin UI must never connect directly to the database.**
+
+Frozen stack:
+
+```text
+Admin UI (Phase 10)
+    ↓ HTTP only
+Admin API  (/api/v1/admin/*)
+    ↓
+admin/services  (orchestration)
+    ↓
+Domain Module services  (jobs · billing · auth · …)
+    ↓
+Database
+```
+
+Forbidden: Prisma/client imports in frontend; admin UI calling non-admin API routes for bulk data; admin UI SQL/ORM.
+
+Read-only viewers (`audit-viewer`, `event-viewer`) still go through **Admin API** → module query services — not raw DB from UI.
+
+---
+
+## 2.2 C-005-2 — Feature Flag Engine (reserved)
+
+**TD-ADMIN-1:** Dedicated Feature Flag Engine (replaces ad-hoc `SystemSetting feature.*` long-term).  
+**Not implemented in Phase 10 MVP.** Until then: `SystemSetting` keys prefixed `feature.` allowed (documented in seed).
 
 ---
 
@@ -131,7 +162,7 @@ Base path: `/api/v1/admin/{domain}/...`
 | Mechanism | Use for | Storage |
 |-----------|---------|---------|
 | **SystemSetting** | Business config (quotas, providers, routing, rate limits) | `system_settings` |
-| **Feature flags** (TD-P7A-3) | Gradual rollout of UI/features | future `feature_flags` table |
+| **Feature flags** (TD-ADMIN-1) | Gradual rollout of UI/features | future `feature_flags` table · until then `feature.*` SystemSetting |
 
 Rule: **Do not** overload SystemSetting for boolean UI experiments once flag framework lands. Until then, `SystemSetting` keys prefixed `feature.` allowed (seed documented).
 
@@ -239,8 +270,8 @@ New consolidated routes added alongside; old routes deprecated in CHANGELOG when
 | **11–12** | SEO/public pages — minimal admin (sitemap regen trigger) |
 | **13** | Analytics dashboards — `admin:dashboard:read` extensions |
 
-**No Phase 10 coding until RFC-005 APPROVE/FROZEN.**  
-Recommended: RFC-003 + RFC-004 frozen before Phase 10 spec finalization.
+**No Phase 10 coding until RFC-005 FROZEN** (done). Phase 10 TECHNICAL_SPEC after Phase 9.  
+Recommended: RFC-003 + RFC-004 frozen before Phase 10 spec finalization (done).
 
 ---
 
@@ -258,8 +289,11 @@ Recommended: RFC-003 + RFC-004 frozen before Phase 10 spec finalization.
 
 | Date | Decision |
 |------|----------|
-| — | Awaiting APPROVE |
+| 2026-07-20 | APPROVE WITH CONDITIONS (C-005-1 no UI→DB · C-005-2 TD-ADMIN-1 reserved) |
+| 2026-07-20 | Conditions applied → **APPROVED / FROZEN / CLOSED** |
 
-- [ ] APPROVE  
-- [ ] APPROVE WITH CONDITIONS  
+- [x] APPROVE WITH CONDITIONS  
+- [x] **CLOSED**  
 - [ ] REJECT  
+
+**Debt:** TD-ADMIN-1 Feature Flag Engine (P2)

@@ -29,9 +29,14 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-027 | Phase 2 spec — **APPROVE** · implementation authorized | **Closed** |
 | 2026-07-19 | D-028 | **Product roadmap** Phases 2–8 (CTO-approved order) | **Superseded by D-046** |
 | 2026-07-19 | D-046 | **Post-Phase-8 Roadmap** Phases 9–15 · SoT until v1.0 | Active |
-| 2026-07-19 | D-047 | RFC-003 Event Architecture — awaiting CTO freeze | Active |
-| 2026-07-19 | D-048 | RFC-004 Notification Architecture — awaiting CTO freeze | Active |
-| 2026-07-19 | D-049 | RFC-005 Admin Platform Architecture — awaiting CTO freeze | Active |
+| 2026-07-20 | D-047 | RFC-003 Event Architecture — **CLOSED** (C-003-1/2) | **Closed** |
+| 2026-07-20 | D-048 | RFC-004 Notification Architecture — **CLOSED** | **Closed** |
+| 2026-07-20 | D-049 | RFC-005 Admin Platform — **CLOSED** (C-005-1/2) | **Closed** |
+| 2026-07-20 | D-050 | Phase 9 TECHNICAL_SPEC — next · awaiting CTO review | Active |
+| 2026-07-20 | D-051 | **Core architecture stack complete** (through Events/Notifications/Admin RFCs) | Active |
+| 2026-07-20 | TD-EVT-1 | Central Event Registry | Active (P2) |
+| 2026-07-20 | TD-NOTIF-1 | Webhook notification channel | Active (P2) |
+| 2026-07-20 | TD-ADMIN-1 | Feature Flag Engine | Active (P2) |
 | 2026-07-19 | TD-P2-1 | HTTP Integration Tests | Active (P1) |
 | 2026-07-19 | TD-P6-1 | Advanced Search Engine | Active (P2) |
 | 2026-07-19 | D-029 | **Phase 2 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.3-phase-2` | **Closed** |
@@ -68,24 +73,46 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 ---
 
-## D-049: RFC-005 Admin Platform Architecture
+## D-051: Core Architecture Stack Complete
 
-**Status:** ⏳ Awaiting CTO Approval — **required before Phase 10**  
+**Decision:** CTO (2026-07-20) — through Phase 8 + RFC-003/004/005, no new RFC required for main capabilities until after Phase 10.  
+**Stack:** IAM · Companies · Jobs · Resume · Search · Billing · Payments · AI · Events · Notifications · Admin (architectures frozen).
+
+**Phase order (confirmed):** 9 Notifications → 10 Admin → 11 SEO → 12 SSR → 13 Analytics & Events → 14 Recommendations → 15 Advanced AI
+
+---
+
+## D-050: Phase 9 TECHNICAL_SPEC — Next
+
+**Status:** ⏳ Generate + CTO review · **no implementation until APPROVE**  
+**Requires:** RFC-003 ✅ · RFC-004 ✅ FROZEN
+
+---
+
+## D-049: RFC-005 Admin Platform — CLOSED
+
+**Decision:** ☑ **APPROVE WITH CONDITIONS** → **FROZEN / CLOSED** (CTO 2026-07-20)  
 **Document:** [docs/rfc/RFC-005-ADMIN-PLATFORM-ARCHITECTURE.md](./rfc/RFC-005-ADMIN-PLATFORM-ARCHITECTURE.md)
 
+**Conditions:** C-005-1 Admin UI → Admin API → domain only · C-005-2 TD-ADMIN-1 Feature Flag Engine reserved
+
 ---
 
-## D-048: RFC-004 Notification Architecture
+## D-048: RFC-004 Notification Architecture — CLOSED
 
-**Status:** ⏳ Awaiting CTO Approval — **required before Phase 9**  
+**Decision:** ☑ **APPROVE** → **FROZEN / CLOSED** (CTO 2026-07-20)  
 **Document:** [docs/rfc/RFC-004-NOTIFICATION-ARCHITECTURE.md](./rfc/RFC-004-NOTIFICATION-ARCHITECTURE.md)
 
+**Note:** WEBHOOK channel reserved (TD-NOTIF-1)
+
 ---
 
-## D-047: RFC-003 Event Architecture
+## D-047: RFC-003 Event Architecture — CLOSED
 
-**Status:** ⏳ Awaiting CTO Approval — **required before Phase 9**  
+**Decision:** ☑ **APPROVE WITH CONDITIONS** → **FROZEN / CLOSED** (CTO 2026-07-20)  
 **Document:** [docs/rfc/RFC-003-EVENT-ARCHITECTURE.md](./rfc/RFC-003-EVENT-ARCHITECTURE.md)
+
+**Conditions:** C-003-1 mandatory version bump on schema change · C-003-2 TD-EVT-1 Event Registry reserved
 
 ---
 

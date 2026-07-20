@@ -1,6 +1,6 @@
 # RFC-003 — Event Architecture
 
-**Status:** ⏳ Awaiting CTO Approval (required before Phase 9)  
+**Status:** ✅ **APPROVED / FROZEN / CLOSED** (CTO APPROVE WITH CONDITIONS — C-003-1/2 applied 2026-07-20)  
 **ID:** RFC-003 · **Decision:** D-047  
 **Audience:** ComputerJobs.ir post-Phase 8 — cross-module foundation  
 **Depends on:** RFC-001 (invariants) · existing `AuditLog` · BullMQ (`shared/queue`)  
@@ -90,6 +90,34 @@ DomainEvent {
   payload: Record<string, unknown>  // versioned, PII-redacted
 }
 ```
+
+### C-003-1 — Mandatory event versioning (HARD RULE)
+
+**Every event schema change MUST bump `version`.** Handlers register against `(name, version)`.
+
+Preferred form (frozen):
+
+```text
+name = "job.published"
+version = 2          // integer — increment on any breaking or material payload change
+```
+
+Alternative catalog key (documentation only): `job.published.v2` maps to `name` + `version=2`.
+
+Rules:
+
+- **Additive optional fields** on payload: may stay same version if all consumers tolerate unknown keys; CTO recommends bump when in doubt.
+- **Remove/rename/retype field:** MUST bump version.
+- **New handler** for old version allowed alongside new version during migration window.
+- Publishers MUST set `version` explicitly — never omit (default `1` only for first release).
+- Catalog entry documents payload JSON Schema per `(name, version)`.
+
+Violations blocked in review.
+
+### C-003-2 — Central Event Registry (reserved)
+
+**TD-EVT-1:** Central Event Registry service — schema registry, compatibility checks, discovery UI.  
+**Not implemented in Phase 9.** Phase 9 uses file catalog (`catalog/v1.ts`) + `docs/events/EVENT_CATALOG.md` until registry debt is opened.
 
 ### Naming convention
 
@@ -263,7 +291,7 @@ Handlers **register** at app bootstrap — no dynamic import from feature routes
 | Phase 10 | admin viewer may read audit + event log |
 | Phase 13 Analytics | ✅ event stream contract |
 
-**No Phase 9 coding until RFC-003 APPROVE/FROZEN.**
+**No Phase 9 coding until RFC-003 FROZEN** (done). Phase 9 TECHNICAL_SPEC cites this RFC.
 
 Phase 9 TECHNICAL_SPEC cites this RFC and only details: outbox schema, first handlers, notification wiring.
 
@@ -286,8 +314,11 @@ Existing direct `writeAuditLog` calls **remain valid** during migration.
 
 | Date | Decision |
 |------|----------|
-| — | Awaiting APPROVE |
+| 2026-07-20 | APPROVE WITH CONDITIONS (C-003-1 versioning · C-003-2 TD-EVT-1 reserved) |
+| 2026-07-20 | Conditions applied → **APPROVED / FROZEN / CLOSED** |
 
-- [ ] APPROVE  
-- [ ] APPROVE WITH CONDITIONS  
+- [x] APPROVE WITH CONDITIONS  
+- [x] **CLOSED**  
 - [ ] REJECT  
+
+**Debt:** TD-EVT-1 Central Event Registry (P2)

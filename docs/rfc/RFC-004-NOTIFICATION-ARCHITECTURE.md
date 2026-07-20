@@ -1,6 +1,6 @@
 # RFC-004 — Notification Architecture
 
-**Status:** ⏳ Awaiting CTO Approval (required before Phase 9)  
+**Status:** ✅ **APPROVED / FROZEN / CLOSED** (CTO APPROVE 2026-07-20)  
 **ID:** RFC-004 · **Decision:** D-048  
 **Audience:** ComputerJobs.ir unified messaging layer  
 **Depends on:** RFC-003 (domain events as triggers) · RFC-001 (PII / contact unlock) · BullMQ  
@@ -75,12 +75,15 @@ src/modules/notifications/
 
 ## 5. Channels
 
+Enum (frozen): `EMAIL` · `SMS` · `IN_APP` · `PUSH` · `WEBHOOK` · (`WHATSAPP` · `TELEGRAM` future)
+
 | Channel | Phase 9 | Provider slot | Notes |
 |---------|---------|---------------|--------|
 | **Email** | Required | `email` | Transactional only |
 | **SMS** | Required | `sms` | OTP + transactional; no marketing |
 | **In-App** | Required | `inapp` | `Notification` table inbox |
 | **Push** | Required (stub OK) | `push` | Mobile/web push — stub until keys |
+| **Webhook** | Reserved | `webhook` | **TD-NOTIF-1** — no Phase 9 impl; enum reserved for Zapier · n8n · Make · ERP · CRM |
 | WhatsApp | Future RFC | — | Out of Phase 9 |
 | Telegram | Future RFC | — | Out of Phase 9 |
 
@@ -98,7 +101,7 @@ Active provider per channel: `SystemSetting` keys:
 DispatchRequest {
   templateKey: string           // e.g. job.application.received
   templateVersion?: number      // default latest active
-  channel: EMAIL | SMS | IN_APP | PUSH
+  channel: EMAIL | SMS | IN_APP | PUSH | WEBHOOK
   recipientType: USER | COMPANY | EMAIL | PHONE
   recipientId: string           // userId / companyId / raw only in stub
   locale?: string               // default fa-IR
@@ -171,7 +174,7 @@ NotificationPreference {
   ownerType: USER | COMPANY
   ownerId: string
   category: transactional | billing | job_alerts | marketing  // marketing off by default
-  channel: EMAIL | SMS | IN_APP | PUSH
+  channel: EMAIL | SMS | IN_APP | PUSH | WEBHOOK
   enabled: boolean
 }
 ```
@@ -280,14 +283,15 @@ Metrics (no body content): templateKey, channel, provider, latency, status.
 | **10** | Admin UI for templates, delivery viewer, replay |
 | **13** | Notification funnel metrics |
 
-**No Phase 9 coding until RFC-003 AND RFC-004 APPROVE/FROZEN.**
+**No Phase 9 coding until RFC-003 AND RFC-004 FROZEN** (done). Phase 9 TECHNICAL_SPEC next.
 
 ---
 
 ## 16. Technical debt linkage
 
+- **TD-NOTIF-1:** Webhook channel provider (Zapier · n8n · Make · ERP · CRM) — P2  
 - TD-P2-1: HTTP integration tests should cover notification dispatch idempotency  
-- TD-P7A-3: Feature flags may gate channels via SystemSetting before full flag framework  
+- TD-P7A-3: overlaps TD-ADMIN-1 — use SystemSetting `feature.*` until flag engine lands
 
 ---
 
@@ -295,8 +299,10 @@ Metrics (no body content): templateKey, channel, provider, latency, status.
 
 | Date | Decision |
 |------|----------|
-| — | Awaiting APPROVE |
+| 2026-07-20 | **APPROVE** → **APPROVED / FROZEN / CLOSED** |
 
-- [ ] APPROVE  
-- [ ] APPROVE WITH CONDITIONS  
+- [x] APPROVE  
+- [x] **CLOSED**  
 - [ ] REJECT  
+
+**Debt:** TD-NOTIF-1 Webhook channel (P2)

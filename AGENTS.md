@@ -40,8 +40,8 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 7B Payment Gateway | 🟢 Closed (`v0.8-phase-7B`) |
 | 8 AI Gateway & Features | 🟢 Closed (`v0.9-phase-8`) |
 | 8.1 Resume AI Suggest | ⏸ Deferred |
-| **9** Notifications | ⏳ Blocked — RFC-003 + RFC-004 |
-| **10** Admin Platform | ⏳ Blocked — RFC-005 (+ 003/004) |
+| **9** Notifications | ⏳ **Next** — TECHNICAL_SPEC awaiting CTO |
+| **10** Admin Platform | 📋 After Phase 9 |
 | **11–15** | 📋 Planned — see ROADMAP |
 
 ---

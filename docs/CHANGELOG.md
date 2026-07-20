@@ -20,12 +20,13 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ## [Unreleased]
 
-### Roadmap (D-046)
+### RFC-003 / 004 / 005 — CLOSED (2026-07-20)
 
-- **SoT:** `docs/ROADMAP.md` — Phases 9–15 after Phase 8
-- **Next:** RFC-003 Events · RFC-004 Notifications · RFC-005 Admin — awaiting CTO APPROVE
-- Phase 9+ blocked until RFCs frozen
-- Carryover: Phase 6 formal close · Phase 8.1 Resume AI Suggest
+- RFC-003 APPROVE WITH CONDITIONS · C-003-1 versioning · TD-EVT-1
+- RFC-004 APPROVE · WEBHOOK reserved · TD-NOTIF-1
+- RFC-005 APPROVE WITH CONDITIONS · C-005-1 UI→API · TD-ADMIN-1
+- D-051: core architecture stack complete through Phase 10
+- **Next:** Phase 9 TECHNICAL_SPEC
 
 ## [0.8.0-7B] — 1404/04/29 — Phase 7B Payment Gateway
 

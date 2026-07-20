@@ -32,45 +32,39 @@ The project is no longer in the foundation stage. The platform is **technically 
 
 ## Architecture Status
 
-The biggest future risk is **cross-module architecture**, not greenfield coding:
+**Core cross-module RFCs:** RFC-003 Events · RFC-004 Notifications · RFC-005 Admin — ✅ **CLOSED / FROZEN** (2026-07-20).
 
-- Events  
-- Notifications  
-- Admin Platform  
-- Analytics  
-- Observability  
+CTO: through Phase 10, **no new RFC required** for main platform capabilities. Stack: IAM · Companies · Jobs · Resume · Search · Billing · Payments · AI · Events · Notifications · Admin.
 
-These must be **frozen via RFC** before major feature expansion.
+Remaining risks (Phase 13+): Analytics · Observability at scale.
 
 ---
 
-## Required Before Phase 9
+## Required Before Phase 9 (done)
 
-Create and approve (in order):
+| RFC | Topic | Status |
+|-----|--------|--------|
+| RFC-003 | Event Architecture | ✅ CLOSED (D-047) |
+| RFC-004 | Notification Architecture | ✅ CLOSED (D-048) |
+| RFC-005 | Admin Platform Architecture | ✅ CLOSED (D-049) |
 
-| RFC | Topic | Doc |
-|-----|--------|-----|
-| RFC-003 | Event Architecture | [RFC-003-EVENT-ARCHITECTURE.md](./rfc/RFC-003-EVENT-ARCHITECTURE.md) · [EVENT_CATALOG](./events/EVENT_CATALOG.md) |
-| RFC-004 | Notification Architecture | [RFC-004-NOTIFICATION-ARCHITECTURE.md](./rfc/RFC-004-NOTIFICATION-ARCHITECTURE.md) |
-| RFC-005 | Admin Platform Architecture | [RFC-005-ADMIN-PLATFORM-ARCHITECTURE.md](./rfc/RFC-005-ADMIN-PLATFORM-ARCHITECTURE.md) |
-
-**No Phase 9+ implementation until RFC-003, RFC-004, RFC-005 are APPROVED/FROZEN.**
+**Next:** Phase 9 TECHNICAL_SPEC → CTO APPROVE → implement.
 
 ---
 
 ## Product Roadmap (Phases 9–15)
 
-After RFC-003/004/005 approval:
+CTO-approved order:
 
 | Phase | Scope |
 |-------|--------|
-| **9** | Notification System — SMS · Email · In-App · Templates · Preferences |
-| **10** | Admin Platform — Dashboard · Moderation · Billing/AI/Notification mgmt · Audit viewer |
-| **11** | SEO Platform — SSR strategy · sitemap · structured data · programmatic SEO foundation |
-| **12** | Public Website & SSR — Public job/company/resume pages |
-| **13** | Analytics & Reporting — Employer/seeker analytics · funnels · revenue |
-| **14** | Recommendation System — Job/candidate recs · personalized feeds (Phase 6 + 8) |
-| **15** | Advanced AI — Resume/JD optimization · AI recruiter/career assistant (RFC-002) |
+| **9** | Notification System |
+| **10** | Admin Platform |
+| **11** | SEO Foundation |
+| **12** | SSR Public Pages |
+| **13** | Analytics & Events |
+| **14** | Recommendation Engine |
+| **15** | Advanced AI Layer |
 
 ---
 
@@ -97,6 +91,9 @@ After RFC-003/004/005 approval:
 | TD-P7A-2 | Usage Analytics |
 | TD-P7A-3 | Feature Flag Framework |
 | TD-P7B-3 | Multi PSP Failover |
+| TD-EVT-1 | Central Event Registry |
+| TD-NOTIF-1 | Webhook notification channel |
+| TD-ADMIN-1 | Feature Flag Engine |
 
 ---
 
