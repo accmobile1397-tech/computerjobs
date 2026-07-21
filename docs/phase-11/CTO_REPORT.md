@@ -13,6 +13,7 @@
 | Guards | Block `/admin` · `/api` · auth · dashboard |
 | Out of scope | metadata wiring · robots (P11-006) · SearchAction |
 | Checks | typecheck ✅ · tests 251/251 ✅ |
+| Commit | [`18bed13`](https://github.com/accmobile1397-tech/computerjobs/commit/18bed13) |
 
 ## Prior
 

@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — P11-005 sitemap (C-011-2) |
+| **Commit to review** | [`18bed13`](https://github.com/accmobile1397-tech/computerjobs/commit/18bed13) — P11-005 sitemap (C-011-2) |
 
 ---
 
