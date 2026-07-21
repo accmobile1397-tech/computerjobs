@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-059 | **P11-003 APPROVED** · P11-004 authorized | Active |
 | 2026-07-21 | D-058 | **P11-002 APPROVED** · P11-003 authorized | Active |
 | 2026-07-21 | D-057 | **P11-001 APPROVED** · P11-002 authorized | Active |
 | 2026-07-21 | D-056 | **RFC-006 + Phase 11 TECHNICAL_SPEC** — APPROVE WITH CONDITIONS (C-011-1..6) | Active |
@@ -79,6 +80,14 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-059: P11-003 APPROVED · P11-004 authorized
+
+**Decision (2026-07-21):** **APPROVE** P11-003 (`6c3f871`) — metadata builders. Authorize **P11-004** (JSON-LD structured-data builders · no SearchAction · C-011-4).
+
+**Next:** P11-004 implementation · then CTO review before P11-005.
 
 ---
 
