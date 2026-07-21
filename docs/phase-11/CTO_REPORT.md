@@ -11,6 +11,7 @@
 | Layout | RFC-006 folders: metadata · canonical · urls · structured-data · sitemap · robots · types |
 | Behavior | None — placeholder barrels only · no routes · no builders |
 | Checks | typecheck ✅ · tests 216/216 ✅ |
+| Commit | [`4020a80`](https://github.com/accmobile1397-tech/computerjobs/commit/4020a80) |
 
 ## Decision package
 

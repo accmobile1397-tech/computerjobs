@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — P11-001 `seo` module skeleton |
+| **Commit to review** | [`4020a80`](https://github.com/accmobile1397-tech/computerjobs/commit/4020a80) — P11-001 `seo` module skeleton |
 
 ---
 

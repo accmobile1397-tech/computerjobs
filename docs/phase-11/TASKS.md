@@ -2,7 +2,7 @@
 
 | ID | Task | Status | Commit | Notes |
 |----|------|--------|--------|-------|
-| P11-001 | `seo` module skeleton + README | DONE | _(pending)_ | RFC-006 layout |
+| P11-001 | `seo` module skeleton + README | DONE | `4020a80` | RFC-006 layout |
 | P11-002 | URL normalize + canonical (C-011-6) | OPEN | — | utm strip · self-canonical |
 | P11-003 | Metadata builders | OPEN | — | `buildPageMetadata` |
 | P11-004 | JSON-LD builders + tests | OPEN | — | no SearchAction (C-011-4) |
