@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | *(set after commit)* — P12-002 static pages |
+| **Commit to review** | [`175ae34`](https://github.com/accmobile1397-tech/computerjobs/commit/175ae34) — P12-002 static pages |
 
 ---
 

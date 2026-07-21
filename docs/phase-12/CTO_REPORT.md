@@ -13,6 +13,7 @@
 | UI | RTL Persian prose via root `lang=fa` `dir=rtl` + `StaticDocument` |
 | Explicitly not in P12-002 | jobs/companies · sitemap · SearchAction · AI landings · Prisma/backend |
 | Tests | `static-pages.test.ts` · shell/hardening updated |
+| Commit | [`175ae34`](https://github.com/accmobile1397-tech/computerjobs/commit/175ae34) |
 
 ## Conditions highlight
 
