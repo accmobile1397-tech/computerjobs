@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-21 · **P10-012** awaiting CTO review
+**Last updated:** 2026-07-21 · **P10-013** awaiting CTO review
 
 ---
 
@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`9e72200`](https://github.com/accmobile1397-tech/computerjobs/commit/9e72200) — `feat(admin): add monitoring UI via Admin API (P10-012)` |
+| **Commit to review** | [`03a9fc4`](https://github.com/accmobile1397-tech/computerjobs/commit/03a9fc4) — `feat(admin): add notification admin UI via Phase 9 APIs (P10-013)` |
 
 ---
 
@@ -36,24 +36,26 @@
 | P10-009 Dashboard UI | ✅ APPROVED (D-059) | [`f5cce14`](https://github.com/accmobile1397-tech/computerjobs/commit/f5cce14) |
 | P10-010 Audit Viewer UI | ✅ APPROVED (D-060) | [`72dc259`](https://github.com/accmobile1397-tech/computerjobs/commit/72dc259) |
 | P10-011 Settings UI | ✅ APPROVED (D-061) | [`59f44a9`](https://github.com/accmobile1397-tech/computerjobs/commit/59f44a9) |
-| **P10-012 Monitoring UI** | ⏳ **Awaiting CTO review** | [`9e72200`](https://github.com/accmobile1397-tech/computerjobs/commit/9e72200) |
-| P10-013..P10-015 | OPEN | — |
+| P10-012 Monitoring UI | ✅ APPROVED | [`9e72200`](https://github.com/accmobile1397-tech/computerjobs/commit/9e72200) |
+| **P10-013 Notification Admin UI** | ⏳ **Awaiting CTO review** | [`03a9fc4`](https://github.com/accmobile1397-tech/computerjobs/commit/03a9fc4) |
+| P10-014..P10-015 | OPEN | — |
 
 ---
 
-## What P10-012 delivered
+## What P10-013 delivered
 
-- `/admin/monitoring` → `GET /api/v1/admin/monitoring/summary` only
-- Platform health + checks + counters from Admin API response
-- Read-only viewer (no ops actions · no observability stack)
-- RTL Persian · C-005-1 (UI → API only)
+- `/admin/notifications` hub + templates · mappings · deliveries · inbox
+- Phase 9 APIs only (`/api/v1/admin/notifications/*`)
+- Inbox GET-only (C-009-6) — no mark-read / delete / retry / resend
+- Deliveries GET-only — no provider management
+- RTL Persian · C-005-1
 
-**Health:** 187/187 tests · typecheck green
+**Health:** 192/192 tests · typecheck green
 
 ---
 
 ## Recommended CTO action
 
-1. Review [`9e72200`](https://github.com/accmobile1397-tech/computerjobs/commit/9e72200)
+1. Review [`03a9fc4`](https://github.com/accmobile1397-tech/computerjobs/commit/03a9fc4)
 2. APPROVE / request changes
-3. Only then authorize **P10-013**
+3. Only then authorize **P10-014**
