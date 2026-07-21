@@ -9,5 +9,11 @@ export {
   filterAdminNav,
 } from "./nav";
 export type { AdminNavItem } from "./nav";
-export { adminFetch, fetchAdminBootstrap } from "./admin-api-client";
+export {
+  adminFetch,
+  fetchAdminBootstrap,
+  fetchDashboardSummary,
+} from "./admin-api-client";
 export type { AdminApiEnvelope, MeBootstrap } from "./admin-api-client";
+export { dashboardSummaryToKpis } from "./dashboard";
+export type { DashboardSummaryDto, DashboardKpi } from "./dashboard";

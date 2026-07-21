@@ -1,10 +1,6 @@
-import { AdminPagePlaceholder } from "../_components/admin-page-placeholder";
+import { AdminDashboardClient } from "./admin-dashboard-client";
 
+/** P10-009 — dashboard KPIs via Admin API only (C-005-1). */
 export default function AdminDashboardPage() {
-  return (
-    <AdminPagePlaceholder
-      title="داشبورد"
-      description="خلاصه وضعیت پلتفرم از طریق GET /api/v1/admin/dashboard/summary"
-    />
-  );
+  return <AdminDashboardClient />;
 }

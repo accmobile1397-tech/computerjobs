@@ -1,27 +1,15 @@
 # CTO Report — Phase 10: Admin Platform
 
-**Phase:** 10 · **In Progress** · Tasks **8 / 15** · Awaiting **P10-008** review
+**Tasks:** 9 / 15 · **Awaiting:** P10-009 review  
+**Tests:** 176/176 · typecheck green
 
-| Metric | Value |
-|--------|-------|
-| Tests | 173/173 |
-| Typecheck | green |
+## P10-009 — Dashboard UI
 
-## Closed
+- Page: `/admin/dashboard`
+- Consumes `GET /api/v1/admin/dashboard/summary` via `fetchDashboardSummary`
+- KPI cards from API response only (Persian RTL)
+- No Prisma / repositories / domain persistence in UI
+- Server still enforces `admin:dashboard:read`; UI is display-only
+- Pure KPI mapping helper + C-005-1 coverage retained
 
-| ID | Commit |
-|----|--------|
-| P10-001..P10-007 | see TASKS.md |
-| P10-008 | `dc13b25` |
-
-## P10-008 — Admin UI Shell
-
-- Route group `src/app/(admin)/admin/*` → `/admin/*`
-- RTL Persian shell (root `lang=fa` `dir=rtl` · Vazirmatn)
-- Auth gate: Bearer token → `GET /api/v1/users/me` → role/permission check
-- Nav: dashboard · audit · events · settings · monitoring · notifications · billing
-- Placeholder page bodies only (data pages = P10-009+)
-- `src/modules/admin/ui/*` HTTP client — **no Prisma**
-- C-005-1 static test over `(admin)` + `admin/ui`
-
-**Stop.** Await CTO review before P10-009.
+**Stop.** Await CTO review before P10-010.

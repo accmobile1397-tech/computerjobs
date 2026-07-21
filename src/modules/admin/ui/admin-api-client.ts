@@ -1,4 +1,5 @@
 import { getAdminAccessToken } from "@/modules/admin/ui/token";
+import type { DashboardSummaryDto } from "@/modules/admin/ui/dashboard";
 
 export type AdminApiEnvelope<T> = {
   success: boolean;
@@ -43,4 +44,10 @@ export type MeBootstrap = {
 
 export async function fetchAdminBootstrap(): Promise<AdminApiEnvelope<MeBootstrap>> {
   return adminFetch<MeBootstrap>("/api/v1/users/me");
+}
+
+export async function fetchDashboardSummary(): Promise<
+  AdminApiEnvelope<DashboardSummaryDto>
+> {
+  return adminFetch<DashboardSummaryDto>("/api/v1/admin/dashboard/summary");
 }
