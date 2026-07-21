@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-058 | **P11-002 APPROVED** · P11-003 authorized | Active |
 | 2026-07-21 | D-057 | **P11-001 APPROVED** · P11-002 authorized | Active |
 | 2026-07-21 | D-056 | **RFC-006 + Phase 11 TECHNICAL_SPEC** — APPROVE WITH CONDITIONS (C-011-1..6) | Active |
 | 2026-07-21 | D-055 | **Phase 10 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.11-phase-10` | **Closed** |
@@ -78,6 +79,14 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-058: P11-002 APPROVED · P11-003 authorized
+
+**Decision (2026-07-21):** **APPROVE** P11-002 (`2b975c4`) — URL normalize + canonical (C-011-6). Authorize **P11-003** (metadata builders).
+
+**Next:** P11-003 implementation · then CTO review before P11-004.
 
 ---
 

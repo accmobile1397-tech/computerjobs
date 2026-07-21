@@ -1,2 +1,5 @@
-/** Placeholder — metadata builders (P11-003). */
-export {};
+export { SeoMetadataError } from "@/modules/seo/metadata/errors";
+export {
+  buildPageMetadata,
+  type SeoPageInput,
+} from "@/modules/seo/metadata/build-page-metadata";

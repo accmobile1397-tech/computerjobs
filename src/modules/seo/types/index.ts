@@ -1,2 +1,1 @@
-/** Shared SEO DTOs — populated in later P11 tasks. */
-export {};
+export type { SeoPageInput } from "@/modules/seo/types/seo-page-input";

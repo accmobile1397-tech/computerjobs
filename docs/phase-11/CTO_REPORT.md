@@ -1,32 +1,25 @@
 # CTO Report — Phase 11: SEO Foundation
 
-**Status:** P11-002 **DONE** · awaiting CTO review before P11-003  
-**Scope:** Option 1 — SEO Foundation · D-056 AWC · D-057 (P11-001 APPROVED)
+**Status:** P11-003 **DONE** · awaiting CTO review before P11-004  
+**Scope:** Option 1 — SEO Foundation · D-056 AWC · D-058 (P11-002 APPROVED)
 
 ## Latest delivery
 
 | Item | Detail |
 |------|--------|
-| Task | **P11-002** — URL normalize + canonical (C-011-6) |
-| APIs | `normalizePublicPath` · `buildCanonicalUrl` · tracking strip · sorted query |
-| C-011-6 | `page` kept on canonical · page N ≠ page 1 |
-| Out of scope | metadata · JSON-LD · sitemap · robots · routes |
-| Checks | typecheck ✅ · tests 232/232 ✅ |
-| Commit | [`2b975c4`](https://github.com/accmobile1397-tech/computerjobs/commit/2b975c4) |
+| Task | **P11-003** — `buildPageMetadata` (generic) |
+| Reuse | P11-002 `buildCanonicalUrl` · C-011-6 `search`/`page` |
+| Output | Next.js `Metadata` · OG `fa_IR` · twitter `summary_large_image` · noindex support |
+| Out of scope | JSON-LD · sitemap · robots · route wiring · domain SEO |
+| Checks | typecheck ✅ · tests 237/237 ✅ |
 
 ## Prior
 
 | Task | Commit | Decision |
 |------|--------|----------|
 | P11-001 | `4020a80` | D-057 APPROVED |
-
-## Conditions (active)
-
-| ID | Summary |
-|----|---------|
-| C-011-5 | Single robots SoT (`robots.ts`) — pending P11-006 |
-| **C-011-6** | **Self-canonical pagination** — enforced in builders |
+| P11-002 | `2b975c4` | D-058 APPROVED |
 
 ## Stop
 
-**Do not start P11-003** until CTO review.
+**Do not start P11-004** until CTO review.

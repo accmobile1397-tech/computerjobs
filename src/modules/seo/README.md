@@ -9,7 +9,7 @@ Feature-first SEO builders per [RFC-006](../../../docs/rfc/RFC-006-SEO-ARCHITECT
 
 | Path | Purpose | Status |
 |------|---------|--------|
-| `metadata/` | title · description · OG · twitter · robots helpers | P11-003 |
+| `metadata/` | title · description · OG · twitter · robots helpers | ✅ P11-003 |
 | `canonical/` | absolute URL + query stripping · self-canonical pagination (C-011-6) | ✅ P11-002 |
 | `urls/` | path builders · normalization · public route registry | ✅ P11-002 (normalize) |
 | `structured-data/` | JSON-LD builders (JobPosting · Organization · Breadcrumb · WebSite) | P11-004 |
@@ -31,4 +31,5 @@ Feature-first SEO builders per [RFC-006](../../../docs/rfc/RFC-006-SEO-ARCHITECT
 |------|--------|
 | P11-001 Skeleton + README | ✅ |
 | P11-002 URL normalize + canonical (C-011-6) | ✅ |
-| P11-003..P11-010 | Not started — await CTO |
+| P11-003 Metadata builders | ✅ |
+| P11-004..P11-010 | Not started — await CTO |
