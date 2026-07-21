@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(set after commit)_ — `feat(admin): add settings UI via Admin API (P10-011)` |
+| **Commit to review** | [`59f44a9`](https://github.com/accmobile1397-tech/computerjobs/commit/59f44a9) — `feat(admin): add settings UI via Admin API (P10-011)` |
 
 ---
 
@@ -35,7 +35,7 @@
 | P10-001..P10-008 | ✅ CLOSED | see TASKS |
 | P10-009 Dashboard UI | ✅ APPROVED (D-059) | [`f5cce14`](https://github.com/accmobile1397-tech/computerjobs/commit/f5cce14) |
 | P10-010 Audit Viewer UI | ✅ APPROVED (D-060) | [`72dc259`](https://github.com/accmobile1397-tech/computerjobs/commit/72dc259) |
-| **P10-011 Settings UI** | ⏳ **Awaiting CTO review** | _(set after commit)_ |
+| **P10-011 Settings UI** | ⏳ **Awaiting CTO review** | [`59f44a9`](https://github.com/accmobile1397-tech/computerjobs/commit/59f44a9) |
 | P10-012..P10-015 | OPEN | — |
 
 ---
@@ -53,6 +53,6 @@
 
 ## Recommended CTO action
 
-1. Review P10-011 commit
+1. Review [`59f44a9`](https://github.com/accmobile1397-tech/computerjobs/commit/59f44a9)
 2. APPROVE / request changes
 3. Only then authorize **P10-012**
