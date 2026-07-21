@@ -1,4 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import * as fs from "fs";
+import * as path from "path";
 
 import {
   ADMIN_PERMISSIONS,
@@ -6,6 +8,9 @@ import {
   LEGACY_ADMIN_ALIASES,
   resolveAdminPermissionSlugs,
   requireAdminPermission,
+  ADMIN_ROLE_ADMIN_NAMESPACE_GRANTS,
+  getAdminPermissionSeedRows,
+  mergePermissionSeedRows,
 } from "@/modules/admin/permissions";
 import { AuthorizationError } from "@/modules/authorization/services/authorization.service";
 
@@ -108,5 +113,87 @@ describe("requireAdminPermission (P10-002)", () => {
     await expect(
       requireAdminPermission("u1", ADMIN_PERMISSIONS.AUDIT_READ),
     ).rejects.toBeInstanceOf(AuthorizationError);
+  });
+});
+
+describe("admin IAM seed catalog (P10-014)", () => {
+  it("seeds every ADMIN_PERMISSIONS slug with a Persian name", () => {
+    const rows = getAdminPermissionSeedRows();
+    expect(rows).toHaveLength(ADMIN_PERMISSION_SLUGS.length);
+    for (const slug of ADMIN_PERMISSION_SLUGS) {
+      const row = rows.find((r) => r.slug === slug);
+      expect(row, slug).toBeDefined();
+      expect(row!.nameFa.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("merges base + admin:* without losing legacy slugs", () => {
+    const merged = mergePermissionSeedRows([
+      { slug: "notifications:admin", nameFa: "مدیریت اعلان‌ها (ادمین)" },
+      { slug: "admin:users:read", nameFa: "مشاهده کاربران" },
+    ]);
+    expect(merged.some((r) => r.slug === "notifications:admin")).toBe(true);
+    expect(merged.some((r) => r.slug === ADMIN_PERMISSIONS.DASHBOARD_READ)).toBe(
+      true,
+    );
+    expect(
+      merged.filter((r) => r.slug === "admin:users:read"),
+    ).toHaveLength(1);
+  });
+
+  it("grants admin role a TECHNICAL_SPEC §5.1 admin:* subset", () => {
+    expect(ADMIN_ROLE_ADMIN_NAMESPACE_GRANTS).toContain(
+      ADMIN_PERMISSIONS.DASHBOARD_READ,
+    );
+    expect(ADMIN_ROLE_ADMIN_NAMESPACE_GRANTS).toContain(
+      ADMIN_PERMISSIONS.AUDIT_READ,
+    );
+    expect(ADMIN_ROLE_ADMIN_NAMESPACE_GRANTS).toContain(
+      ADMIN_PERMISSIONS.NOTIFICATIONS_READ,
+    );
+    expect(ADMIN_ROLE_ADMIN_NAMESPACE_GRANTS).toContain(
+      ADMIN_PERMISSIONS.SETTINGS_READ,
+    );
+    expect(ADMIN_ROLE_ADMIN_NAMESPACE_GRANTS).not.toContain(
+      ADMIN_PERMISSIONS.SETTINGS_WRITE,
+    );
+  });
+});
+
+describe("admin permission seed wiring (P10-014)", () => {
+  const seedSource = fs.readFileSync(
+    path.join(process.cwd(), "prisma/seed.ts"),
+    "utf8",
+  );
+
+  it("imports seed catalog and merges admin:* into PERMISSIONS", () => {
+    expect(seedSource).toContain("getAdminPermissionSeedRows");
+    expect(seedSource).toContain("mergePermissionSeedRows");
+    expect(seedSource).toContain("ADMIN_ROLE_ADMIN_NAMESPACE_GRANTS");
+  });
+
+  it("preserves Phase 9 notifications:admin on admin role", () => {
+    expect(seedSource).toMatch(/slug: "admin"[\s\S]*?notifications:admin/);
+    expect(seedSource).toContain('slug: "notifications:admin"');
+    expect(seedSource).toContain('slug: "notifications:read:own"');
+    expect(seedSource).toContain('slug: "notifications:preferences:own"');
+  });
+
+  it("preserves legacy admin slugs for C-010-3", () => {
+    for (const slug of [
+      "billing:admin",
+      "company:verify",
+      "company:suspend",
+      "job:approve",
+      "ai:admin",
+      "admin:users:suspend",
+    ] as const) {
+      expect(seedSource, slug).toContain(`slug: "${slug}"`);
+    }
+  });
+
+  it("uses idempotent upsert for permissions and role mappings", () => {
+    expect(seedSource).toContain("prisma.permission.upsert");
+    expect(seedSource).toContain("prisma.rolePermission.upsert");
   });
 });

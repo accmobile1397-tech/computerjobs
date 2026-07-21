@@ -4,10 +4,16 @@ import { seedLocation } from "@/modules/location/seed";
 import { seedTaxonomy } from "@/modules/taxonomy/seed";
 import { seedBilling } from "@/modules/billing/seed";
 import { seedNotificationTemplates } from "@/modules/notifications/templates/seed";
+import {
+  ADMIN_ROLE_ADMIN_NAMESPACE_GRANTS,
+  getAdminPermissionSeedRows,
+  mergePermissionSeedRows,
+} from "@/modules/admin/permissions/seed-catalog";
 
 const prisma = new PrismaClient();
 
-const PERMISSIONS = [
+/** Pre-Phase-10 + domain permissions (legacy admin slugs preserved — C-010-3 · Phase 9). */
+const BASE_PERMISSIONS = [
   { slug: "users:read:self", nameFa: "خواندن پروفایل خود" },
   { slug: "users:update:self", nameFa: "ویرایش پروفایل خود" },
   { slug: "profile:read:own", nameFa: "خواندن پروفایل تفصیلی خود" },
@@ -49,10 +55,17 @@ const PERMISSIONS = [
   { slug: "notifications:read:own", nameFa: "خواندن صندوق اعلان خود" },
   { slug: "notifications:preferences:own", nameFa: "ویرایش تنظیمات اعلان خود" },
   { slug: "notifications:admin", nameFa: "مدیریت اعلان‌ها (ادمین)" },
+  /** Pre-Phase-10 partial admin:* — kept for upgrade safety (alias → users:write). */
   { slug: "admin:users:read", nameFa: "مشاهده کاربران" },
   { slug: "admin:users:suspend", nameFa: "تعلیق کاربر" },
   { slug: "admin:roles:manage", nameFa: "مدیریت نقش‌ها" },
 ];
+
+/** Full IAM permission catalog: base + Phase 10 admin:* (P10-014). */
+const PERMISSIONS = mergePermissionSeedRows(
+  BASE_PERMISSIONS,
+  getAdminPermissionSeedRows(),
+);
 
 const ROLES = [
   {
@@ -105,6 +118,7 @@ const ROLES = [
     slug: "admin",
     nameFa: "مدیر",
     permissions: [
+      /** Legacy + pre-P10 (unchanged — C-010-3 · Phase 9 notifications:admin). */
       "admin:users:read",
       "admin:users:suspend",
       "profile:read:any",
@@ -119,6 +133,8 @@ const ROLES = [
       "billing:admin",
       "ai:admin",
       "notifications:admin",
+      /** Phase 10 admin:* namespace grants (TECHNICAL_SPEC §5.1). */
+      ...ADMIN_ROLE_ADMIN_NAMESPACE_GRANTS,
     ],
   },
   {
@@ -129,7 +145,7 @@ const ROLES = [
 ];
 
 async function main() {
-  console.log("Seeding IAM + Phase 2/3/4 permissions...");
+  console.log("Seeding IAM + Phase 2/3/4/9/10 permissions...");
 
   for (const perm of PERMISSIONS) {
     await prisma.permission.upsert({

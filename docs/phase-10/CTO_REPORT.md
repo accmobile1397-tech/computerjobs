@@ -1,16 +1,16 @@
 # CTO Report — Phase 10: Admin Platform
 
-**Tasks:** 13 / 15 · **Awaiting:** P10-013  
-**Tests:** 192/192 · typecheck green
+**Tasks:** 14 / 15 · **Awaiting:** P10-014  
+**Tests:** 199/199 · typecheck green · prisma validate green
 
-## P10-013 — Notification Admin UI
+## P10-014 — IAM Seed (admin:* + legacy)
 
-- Hub + pages under `/admin/notifications/{templates,mappings,deliveries,inbox}`
-- Consumes Phase 9 Admin APIs only: `/api/v1/admin/notifications/*`
-- Templates: list / create / patch / soft-delete via Admin API
-- Mappings: list / create / patch via Admin API
-- Deliveries: GET-only viewer (no retry / resend / provider management)
-- Inbox: GET-only viewer — **C-009-6** (no mark-read / delete)
-- RTL Persian · C-005-1 (UI → API only · no Prisma)
+- Seeded full Phase 10 `admin:*` namespace from `ADMIN_PERMISSIONS` registry
+- Legacy slugs kept (`billing:admin`, `notifications:admin`, `company:*`, `job:approve`, …) — C-010-3
+- Phase 9 notification IAM unchanged (`notifications:read:own` · `preferences:own` · `admin`)
+- `admin` role: legacy grants + TECHNICAL_SPEC §5.1 `admin:*` subset
+- `super_admin`: all permissions (including new `admin:*`)
+- Idempotent upserts — existing DBs re-run `npm run db:seed`
+- Operator steps documented in `docs/MIGRATION.md` (Phase 10 section)
 
-**Stop.** Await CTO review before P10-014.
+**Stop.** Await CTO review before P10-015.
