@@ -1,2 +1,6 @@
-/** Placeholder — canonical URL helpers (P11-002 · C-011-6). */
-export {};
+export {
+  buildCanonicalQuery,
+  buildCanonicalUrl,
+  resolveAppBaseUrl,
+  type CanonicalSearchInput,
+} from "@/modules/seo/canonical/build-canonical-url";

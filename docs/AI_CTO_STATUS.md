@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-21 · P11-001 complete · await review before P11-002
+**Last updated:** 2026-07-21 · P11-002 complete · await review before P11-003
 
 ---
 
@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`4020a80`](https://github.com/accmobile1397-tech/computerjobs/commit/4020a80) — P11-001 `seo` module skeleton |
+| **Commit to review** | _(filled after commit)_ — P11-002 URL normalize + canonical |
 
 ---
 
@@ -19,27 +19,18 @@
 | Item | Value |
 |------|-------|
 | **Last closed** | Phase 10 · `v0.11-phase-10` · D-055 |
-| **Phase 11** | D-056 AWC · **P11-001 DONE** |
-| **Next** | Await CTO review · then authorize **P11-002** |
+| **Phase 11** | D-056 AWC · D-057 · **P11-002 DONE** |
+| **Next** | Await CTO review · then authorize **P11-003** |
 
 ---
 
-## P11-001 delivered
+## P11-002 delivered
 
-- `src/modules/seo/` per RFC-006 layout + README
-- Placeholder barrels only — no sitemap/robots/metadata/JSON-LD/routes
-- typecheck ✅ · tests 216/216 ✅
-
----
-
-## Conditions (C-011-5 / C-011-6)
-
-| ID | Rule |
-|----|------|
-| C-011-5 | Single robots SoT — prefer `robots.ts` |
-| C-011-6 | Self-canonical pagination for Phase 11 |
-
-Full set: C-011-1..6 — see [DECISIONS.md](./DECISIONS.md) D-056.
+- `normalizePublicPath` (RFC-006 §9)
+- `buildCanonicalUrl` · strip `utm_*` / click ids · sorted remaining query
+- **C-011-6** self-canonical pagination (`page` kept)
+- Unit tests included · no routes / metadata / sitemap / robots
+- typecheck ✅ · tests 232/232 ✅
 
 ---
 
@@ -49,11 +40,10 @@ Full set: C-011-1..6 — see [DECISIONS.md](./DECISIONS.md) D-056.
 |-----|------|
 | TASKS | [phase-11/TASKS.md](./phase-11/TASKS.md) |
 | CTO_REPORT | [phase-11/CTO_REPORT.md](./phase-11/CTO_REPORT.md) |
-| IMPLEMENTATION_PLAN | [phase-11/IMPLEMENTATION_PLAN.md](./phase-11/IMPLEMENTATION_PLAN.md) |
-| RFC-006 | [RFC-006-SEO-ARCHITECTURE.md](./rfc/RFC-006-SEO-ARCHITECTURE.md) |
+| DECISIONS | D-057 |
 
 ---
 
 ## Recommended next action
 
-Review P11-001 commit. Authorize **P11-002** when ready.
+Review P11-002 commit. Authorize **P11-003** when ready.

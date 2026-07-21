@@ -2,8 +2,8 @@
 
 | ID | Task | Status | Commit | Notes |
 |----|------|--------|--------|-------|
-| P11-001 | `seo` module skeleton + README | DONE | `4020a80` | RFC-006 layout |
-| P11-002 | URL normalize + canonical (C-011-6) | OPEN | — | utm strip · self-canonical |
+| P11-001 | `seo` module skeleton + README | DONE | `4020a80` | RFC-006 layout · D-057 APPROVED |
+| P11-002 | URL normalize + canonical (C-011-6) | DONE | _(pending)_ | utm strip · self-canonical |
 | P11-003 | Metadata builders | OPEN | — | `buildPageMetadata` |
 | P11-004 | JSON-LD builders + tests | OPEN | — | no SearchAction (C-011-4) |
 | P11-005 | SitemapSource + `sitemap.ts` | OPEN | — | static-core only · C-011-2 |
@@ -15,6 +15,6 @@
 
 ## Progress
 
-- **Done:** 1 / 10  
-- **Decision:** D-056 APPROVE WITH CONDITIONS (C-011-1..6)  
-- **Current:** P11-001 complete — **STOP** · await CTO review before P11-002
+- **Done:** 2 / 10  
+- **Decision:** D-057 (P11-001 APPROVED · P11-002 authorized)  
+- **Current:** P11-002 complete — **STOP** · await CTO review before P11-003

@@ -1,38 +1,31 @@
 # CTO Report — Phase 11: SEO Foundation
 
-**Status:** P11-001 **DONE** · awaiting CTO review before P11-002  
-**Scope:** Option 1 — SEO Foundation · D-056 APPROVE WITH CONDITIONS
+**Status:** P11-002 **DONE** · awaiting CTO review before P11-003  
+**Scope:** Option 1 — SEO Foundation · D-056 AWC · D-057 (P11-001 APPROVED)
 
 ## Latest delivery
 
 | Item | Detail |
 |------|--------|
-| Task | **P11-001** — `src/modules/seo/` skeleton + README |
-| Layout | RFC-006 folders: metadata · canonical · urls · structured-data · sitemap · robots · types |
-| Behavior | None — placeholder barrels only · no routes · no builders |
-| Checks | typecheck ✅ · tests 216/216 ✅ |
-| Commit | [`4020a80`](https://github.com/accmobile1397-tech/computerjobs/commit/4020a80) |
+| Task | **P11-002** — URL normalize + canonical (C-011-6) |
+| APIs | `normalizePublicPath` · `buildCanonicalUrl` · tracking strip · sorted query |
+| C-011-6 | `page` kept on canonical · page N ≠ page 1 |
+| Out of scope | metadata · JSON-LD · sitemap · robots · routes |
+| Checks | typecheck ✅ · tests 232/232 ✅ |
 
-## Decision package
+## Prior
 
-| Item | Status |
-|------|--------|
-| RFC-006 | ✅ FROZEN |
-| TECHNICAL_SPEC.fa.md | ✅ APPROVE WITH CONDITIONS |
-| IMPLEMENTATION_PLAN.md | ✅ Ready |
-| TASKS.md | P11-001 DONE · P11-002..010 OPEN |
+| Task | Commit | Decision |
+|------|--------|----------|
+| P11-001 | `4020a80` | D-057 APPROVED |
 
 ## Conditions (active)
 
 | ID | Summary |
 |----|---------|
-| C-011-1 | RFC frozen before code — ✅ |
-| C-011-2 | Sitemap honesty |
-| C-011-3 | No new domain SSR pages |
-| C-011-4 | AI stubs only · no SearchAction yet |
-| **C-011-5** | **Single robots SoT (`robots.ts`)** |
-| **C-011-6** | **Self-canonical pagination** |
+| C-011-5 | Single robots SoT (`robots.ts`) — pending P11-006 |
+| **C-011-6** | **Self-canonical pagination** — enforced in builders |
 
 ## Stop
 
-**Do not start P11-002** until CTO review.
+**Do not start P11-003** until CTO review.
