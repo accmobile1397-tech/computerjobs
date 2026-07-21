@@ -48,10 +48,6 @@ const FORBIDDEN_PUBLIC_SSR_PAGES = [
   "src/app/categories",
   "src/app/skills",
   "src/app/technologies",
-  "src/app/about",
-  "src/app/contact",
-  "src/app/terms",
-  "src/app/privacy",
 ] as const;
 
 describe("P11-009 seo module never touches Prisma", () => {
@@ -135,7 +131,7 @@ describe("P11-009 C-011-3 no Phase 12 domain SSR pages", () => {
     }
   });
 
-  it("only public page.tsx outside admin is src/app/(public)/page.tsx", () => {
+  it("public pages outside admin are home + Option 1 static pages under (public)", () => {
     const appPages: string[] = [];
     function walk(dir: string) {
       for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -149,7 +145,15 @@ describe("P11-009 C-011-3 no Phase 12 domain SSR pages", () => {
       }
     }
     walk(path.join(ROOT, "src/app"));
-    expect(appPages).toEqual(["src/app/(public)/page.tsx"]);
+    expect(appPages.sort()).toEqual(
+      [
+        "src/app/(public)/about/page.tsx",
+        "src/app/(public)/contact/page.tsx",
+        "src/app/(public)/page.tsx",
+        "src/app/(public)/privacy/page.tsx",
+        "src/app/(public)/terms/page.tsx",
+      ].sort(),
+    );
   });
 });
 

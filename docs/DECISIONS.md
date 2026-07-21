@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-067 | **P12-001 APPROVED** · **P12-002 authorized** (static pages ×4) | Active |
 | 2026-07-21 | D-066 | **Phase 12 TECHNICAL_SPEC** — APPROVE WITH CONDITIONS (C-012-1..10) · P12-001 authorized | Active |
 | 2026-07-21 | D-065 | **Phase 11 CLOSED** — APPROVE CLOSE · tag `v0.12-phase-11` | **Closed** |
 | 2026-07-21 | D-064 | **P11-008 APPROVED** · P11-009 authorized | Active |
@@ -87,6 +88,18 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-067: P12-001 APPROVED · P12-002 authorized
+
+**Decision (2026-07-21):** **P12-001 CLOSED** · authorize **P12-002** — static pages `/about` · `/contact` · `/privacy` · `/terms`.
+
+**Scope (P12-002):**
+- Phase 11 `buildPageMetadata()` · `generateMetadata()` · canonical · title/description
+- RTL Persian pages · no backend / Prisma / sitemap / SearchAction / AI landings
+
+**Next:** P12-002 → CTO review → authorize **P12-003** (do not start until authorized).
 
 ---
 
