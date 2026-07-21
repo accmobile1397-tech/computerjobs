@@ -12,6 +12,7 @@
 | Home | moved to `(public)/page.tsx` · `generateMetadata` (C-012-7) |
 | C-012-10 | No admin/dashboard/profile links in shell |
 | Out of scope | static/jobs/companies pages (P12-002+) |
+| Commit | [`ca6e9d9`](https://github.com/accmobile1397-tech/computerjobs/commit/ca6e9d9) |
 
 ## Conditions highlight
 

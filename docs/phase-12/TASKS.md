@@ -2,7 +2,7 @@
 
 | ID | Task | Status | Commit | Notes |
 |----|------|--------|--------|-------|
-| P12-001 | Public route shell / layout | DONE | _(pending)_ | `(public)` · C-012-7/10 |
+| P12-001 | Public route shell / layout | DONE | `ca6e9d9` | `(public)` · C-012-7/10 |
 | P12-002 | Static pages `/about`·`/contact`·`/privacy`·`/terms` | OPEN | — | metadata via Phase 11 |
 | P12-003 | `/jobs` public list | OPEN | — | C-011-6 pagination |
 | P12-004 | `/jobs/[slug]` + JobPosting JSON-LD | OPEN | — | C-012-8/9 |

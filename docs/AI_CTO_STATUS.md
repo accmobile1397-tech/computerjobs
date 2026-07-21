@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — P12-001 public route shell |
+| **Commit to review** | [`ca6e9d9`](https://github.com/accmobile1397-tech/computerjobs/commit/ca6e9d9) — P12-001 public route shell |
 
 ---
 
