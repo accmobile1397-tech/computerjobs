@@ -1,5 +1,9 @@
-/**
- * Admin permission registry + legacy alias map.
- * Implemented in P10-002 — do not seed or enforce from this stub.
- */
-export {};
+export { ADMIN_PERMISSIONS, ADMIN_PERMISSION_SLUGS } from "./registry";
+export type { AdminPermissionSlug } from "./registry";
+
+export {
+  LEGACY_ADMIN_ALIASES,
+  resolveAdminPermissionSlugs,
+} from "./aliases";
+
+export { requireAdminPermission } from "./require-admin-permission";
