@@ -1,12 +1,13 @@
 # Phase 10 Final Report — Admin Platform
 
-**Phase:** 10 · **Status:** 🟡 **Implementation complete — awaiting CTO Closure Review**  
+**Phase:** 10 · **Status:** 🟢 **OFFICIALLY CLOSED** · D-055 · recommend tag `v0.11-phase-10`  
 **Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) ✅ APPROVE WITH CONDITIONS (D-054)  
 **Architecture:** [RFC-005](../rfc/RFC-005-ADMIN-PLATFORM-ARCHITECTURE.md) ✅ CLOSED  
 **Prerequisite:** Phase 9 ✅ CLOSED · `v0.10-phase-9` (D-053)  
-**Tracker:** [TASKS.md](./TASKS.md) · **Handoff:** [AI_CTO_STATUS.md](../AI_CTO_STATUS.md)
+**Tracker:** [TASKS.md](./TASKS.md) · **Closure:** [PHASE_10_CLOSURE_REPORT.md](./PHASE_10_CLOSURE_REPORT.md)
 
-> **Not closed.** Tag `v0.11-phase-10` and D-055 (or next decision id) require CTO Closure Review. Do not start Phase 11 until authorized.
+> **Closed with C-P10-1.** Events UI → **TD-P10-2**. Do not reopen Phase 10. Phase 11 not authorized.
+
 
 ---
 
@@ -72,7 +73,7 @@ Admin UI (RTL · fa-IR)
 
 | Item | Notes |
 |------|-------|
-| Events UI page | Placeholder only — **API** `GET /admin/events` delivered; full UI optional follow-up |
+| TD-P10-2 | Admin Events Viewer UI completion (**C-P10-1**) |
 | TD-P10-1 | Full admin route consolidation (legacy paths remain) |
 | TD-ADMIN-1 | Feature Flag Engine deferred (C-005-2) |
 | TD-P2-1 | HTTP/E2E tests still open |
@@ -87,17 +88,17 @@ Admin UI (RTL · fa-IR)
 | Implementation tasks 15/15 | ✅ |
 | Hardening tests (P10-015) | ✅ |
 | Existing DB re-seed documented | ✅ |
-| Formal CTO Closure Review | ⏳ **pending** |
-| Git tag `v0.11-phase-10` | ⏳ pending CTO sign-off |
-| DECISIONS closure row | ⏳ pending CTO |
+| Formal CTO Closure Review | ✅ D-055 APPROVE WITH CONDITIONS |
+| Git tag `v0.11-phase-10` | ⏳ recommended — apply after push |
+| DECISIONS closure row | ✅ D-055 · TD-P10-2 |
 
 ---
 
-## 6. Recommended CTO Closure actions
+## 6. Recommended next actions
 
-1. Review P10-015 commit + this Final Report + [CLOSURE_PACKAGE.md](./CLOSURE_PACKAGE.md)
-2. APPROVE closure (or request changes)
-3. Authorize tag `v0.11-phase-10` + DECISIONS entry
-4. Only then authorize Phase 11
+1. Apply tag `v0.11-phase-10` when ready ([PHASE_10_CLOSURE_REPORT.md](./PHASE_10_CLOSURE_REPORT.md))
+2. Schedule **TD-P10-2** independently (Events Viewer UI) — not a Phase 10 reopen
+3. Authorize Phase 11 **spec** only when CTO is ready
 
-**Do not** treat this document as formal closure.
+**Phase 11 implementation is NOT authorized.**
+

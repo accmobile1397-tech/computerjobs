@@ -2,21 +2,24 @@
 
 All notable changes to ComputerJobs.ir are documented here.
 
-## [0.9.0-8] — 1404/04/29 — Phase 8 AI Gateway & Features
+## [0.11.0-10] — 2026-07-21 — Phase 10 Admin Platform
 
 ### Added
 
-- AI Gateway (`complete` / estimate / moderate / routing / rate-limit)
-- Providers: stub · openrouter · gemini (HTTP adapters)
-- Features: `ai.match.explain` · `ai.job.improve_description`
-- Prompt registry · wallet RESERVE/CAPTURE for AI_CREDIT
-- APIs under `/api/v1/ai/*`
+- Admin module (`permissions` · `services` · `ui`) · RTL Persian admin shell `/admin`
+- Platform APIs: dashboard · audit · events · settings · monitoring
+- DomainEventLog append-only persistence on EventBus publish (C-010-5)
+- Admin UI: dashboard · audit · settings · monitoring · notifications (templates/mappings/deliveries/inbox)
+- IAM: full `admin:*` namespace seed + legacy aliases (C-010-3)
+- Hardening: C-005-1 static guard · thin platform routes · inbox RO (C-009-6)
 
 ### CTO
 
-- **APPROVE** — Phase 8 closed
-- Tag: `v0.9-phase-8`
-- Debt: TD-P8-1 Local provider
+- Spec: **APPROVE WITH CONDITIONS** (D-054)
+- Closure: **APPROVE WITH CONDITIONS** (D-055 · **C-P10-1**)
+- **Tag recommendation:** `v0.11-phase-10`
+- Debt: **TD-P10-2** Admin Events Viewer UI completion · TD-P10-1 · TD-ADMIN-1
+- Ops: existing DBs re-run `npm run db:seed` for `admin:*` ([MIGRATION.md](./MIGRATION.md))
 
 ## [0.10.0-9] — 2026-07-21 — Phase 9 Notification System
 
@@ -38,26 +41,38 @@ All notable changes to ComputerJobs.ir are documented here.
 - Ops: existing DBs re-run `npm run db:seed` for notification permissions
 - Debt: TD-NOTIF-1 · TD-NOTIF-2
 
+## [0.9.0-8] — 1404/04/29 — Phase 8 AI Gateway & Features
+
+### Added
+
+- AI Gateway (`complete` / estimate / moderate / routing / rate-limit)
+- Providers: stub · openrouter · gemini (HTTP adapters)
+- Features: `ai.match.explain` · `ai.job.improve_description`
+- Prompt registry · wallet RESERVE/CAPTURE for AI_CREDIT
+- APIs under `/api/v1/ai/*`
+
+### CTO
+
+- **APPROVE** — Phase 8 closed
+- Tag: `v0.9-phase-8`
+- Debt: TD-P8-1 Local provider
+
 ## [Unreleased]
 
-### Phase 10 — Admin Platform
+### Phase 10 closed
 
-- Spec **APPROVE WITH CONDITIONS** (D-054) — **implementation authorized**
-- Plan: [docs/phase-10/IMPLEMENTATION_PLAN.md](./phase-10/IMPLEMENTATION_PLAN.md)
-- Tasks: [docs/phase-10/TASKS.md](./phase-10/TASKS.md)
-- Conditions: C-005-1 · C-005-2 · DomainEventLog append-only · admin inbox read-only · no Feature Flag Engine
+- **D-055** CLOSED · recommend tag `v0.11-phase-10`
+- Condition **C-P10-1** → **TD-P10-2** (Events Viewer UI) — Phase 10 not reopened
+- Phase 11 **not authorized**
 
-### Phase 9 closed
+### Historical notes
 
-- **`v0.10-phase-9`** CLOSED (D-053)
-- Phase 10 implementation authorized by **D-054**
+- Phase 10 implementation completed under D-054; closure D-055
+- Phase 9 closed as `v0.10-phase-9` (D-053)
 
-### Phase 9 Spec (historical)
+---
 
-- **APPROVE WITH CONDITIONS** (C-009-1..4) — implementation AUTHORIZED
-- Plan: `docs/phase-9/IMPLEMENTATION_PLAN.md`
-- Debt: TD-NOTIF-2 Digest Engine
-
+## Older entries
 ### RFC-003 / 004 / 005 — CLOSED (2026-07-20)
 
 - RFC-003 APPROVE WITH CONDITIONS · C-003-1 versioning · TD-EVT-1

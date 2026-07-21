@@ -24,12 +24,13 @@ The platform is **technically usable** with notifications MVP live.
 | 7B | Payments | `v0.8-phase-7B` |
 | 8 | AI Gateway & Initial AI Features | `v0.9-phase-8` |
 | 9 | Notification System | `v0.10-phase-9` |
+| 10 | Admin Platform | `v0.11-phase-10` *(recommended — apply tag)* |
 
-**Capabilities live today:** Auth · RBAC · Companies · Jobs · Resumes · Search · Matching · Billing · Payments · AI Gateway · **Notifications**.
+**Capabilities live today:** Auth · RBAC · Companies · Jobs · Resumes · Search · Matching · Billing · Payments · AI Gateway · Notifications · **Admin Platform**.
 
 **Phase 9:** ✅ **FULLY CLOSED** · tag `v0.10-phase-9` · [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md)
 
-**Phase 10:** 🟡 **In Progress** (D-054) — [TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · [TASKS.md](./phase-10/TASKS.md)
+**Phase 10:** ✅ **CLOSED** (D-055 · C-P10-1 → TD-P10-2) · recommended tag `v0.11-phase-10` · [PHASE_10_CLOSURE_REPORT.md](./phase-10/PHASE_10_CLOSURE_REPORT.md)
 
 ---
 
@@ -51,7 +52,7 @@ Remaining risks (Phase 13+): Analytics · Observability at scale.
 | RFC-004 | Notification Architecture | ✅ CLOSED (D-048) |
 | RFC-005 | Admin Platform Architecture | ✅ CLOSED (D-049) |
 
-**Phase 10:** Implementation authorized (D-054) — see [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md).
+**Phase 10:** ✅ CLOSED (D-055).
 
 ---
 
@@ -62,8 +63,8 @@ CTO-approved order:
 | Phase | Scope |
 |-------|--------|
 | **9** | Notification System — ✅ **CLOSED** (`v0.10-phase-9`) |
-| **10** | Admin Platform — 🟡 **In Progress** (D-054) |
-| **11** | SEO Foundation |
+| **10** | Admin Platform — ✅ **CLOSED** (D-055 · recommend `v0.11-phase-10`) |
+| **11** | SEO Foundation — 📋 Planned (**not authorized**) |
 | **12** | SSR Public Pages |
 | **13** | Analytics & Events |
 | **14** | Recommendation Engine |
@@ -88,6 +89,8 @@ CTO-approved order:
 
 | ID | Item |
 |----|------|
+| **TD-P10-2** | **Admin Events Viewer UI completion** (C-P10-1) |
+| TD-P10-1 | Full admin route consolidation |
 | TD-P6-1 | Advanced Search Engine |
 | TD-P8-1 | Local Ollama Provider |
 | TD-P7A-1 | Entitlement Cache Layer |

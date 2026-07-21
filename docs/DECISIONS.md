@@ -4,6 +4,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-055 | **Phase 10 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.11-phase-10` | **Closed** |
+| 2026-07-21 | TD-P10-2 | Admin Events Viewer UI completion (C-P10-1) | Active (P2) |
 | 2026-07-18 | D-001 | Master prompt v1.0 — phased delivery, spec-first | Active |
 | 2026-07-19 | D-002 | Deployment: OpenShip VPS only (not Vercel hybrid) | Active → ADR-0004 |
 | 2026-07-19 | D-003 | Prisma 6 + MySQL 8 | Active → ADR-0002 |
@@ -32,7 +34,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-20 | D-047 | RFC-003 Event Architecture — **CLOSED** (C-003-1/2) | **Closed** |
 | 2026-07-20 | D-048 | RFC-004 Notification Architecture — **CLOSED** | **Closed** |
 | 2026-07-20 | D-049 | RFC-005 Admin Platform — **CLOSED** (C-005-1/2) | **Closed** |
-| 2026-07-21 | D-054 | **Phase 10 Admin Platform Spec** — APPROVE WITH CONDITIONS · implementation AUTHORIZED | Active |
+| 2026-07-21 | D-054 | **Phase 10 Admin Platform Spec** — APPROVE WITH CONDITIONS · implementation AUTHORIZED | **Closed** |
 | 2026-07-21 | D-053 | **Phase 9 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.10-phase-9` | **Closed** |
 | 2026-07-20 | D-050 | Phase 9 spec — **APPROVE WITH CONDITIONS** · implementation AUTHORIZED | **Closed** |
 | 2026-07-20 | TD-NOTIF-2 | Notification Digest Engine | Active (P2) |
@@ -77,9 +79,41 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 ---
 
+## D-055: Phase 10 CLOSED — Admin Platform (APPROVE WITH CONDITIONS)
+
+**Decision (2026-07-21):** Phase 10 **CLOSED** · final sign-off **APPROVE WITH CONDITIONS** · recommended tag **`v0.11-phase-10`**.
+
+| Condition | Requirement | Status |
+|-----------|-------------|--------|
+| C-P10-1 | Events API delivered; Events UI still placeholder — **do not reopen Phase 10**; register **TD-P10-2** | ✅ |
+
+**Accepted findings:** RFC-005 respected · C-005-1/2 · DomainEventLog append-only · Notification Admin C-009-6 · Billing admin refactor · 216/216 tests.
+
+**Delivered:** P10-001..P10-015 · Admin UI shell · platform APIs · viewers · notification admin UI · IAM seed · hardening guards.
+
+**Closure docs:** [PHASE_10_FINAL_REPORT.md](./phase-10/PHASE_10_FINAL_REPORT.md) · [PHASE_10_CLOSURE_REPORT.md](./phase-10/PHASE_10_CLOSURE_REPORT.md)
+
+**Debt from C-P10-1:** [TD-P10-2](#td-p10-2-admin-events-viewer-ui-completion) — Admin Events Viewer UI completion.
+
+**Not authorized:** Phase 11 implementation until CTO authorizes Phase 11 spec.
+
+---
+
+## TD-P10-2: Admin Events Viewer UI completion
+
+**Registered:** 2026-07-21 · **Source:** Closure condition **C-P10-1** (D-055) · **Priority:** P2
+
+**Problem:** `GET /api/v1/admin/events` lists DomainEventLog; `/admin/events` UI remains a placeholder.
+
+**Resolution path:** Implement read-only Events Viewer UI (Admin API consumer only · C-005-1) in a future task — **not** a Phase 10 reopen.
+
+**Related:** TD-P10-1 (route consolidation) · C-010-5 (append-only log)
+
+---
+
 ## D-054: Phase 10 Admin Platform Spec Approval
 
-**Decision (2026-07-21):** **APPROVE WITH CONDITIONS** — Phase 10 implementation authorized.
+**Decision (2026-07-21):** **APPROVE WITH CONDITIONS** — Phase 10 implementation authorized. **Superseded for status by D-055 (phase closed).**
 
 **Approve according to:**
 - [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md)

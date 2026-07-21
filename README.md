@@ -105,6 +105,7 @@ src/modules/
 | [docs/adr/](docs/adr/) | Architecture Decision Records |
 | [docs/rfc/](docs/rfc/) | Feature RFCs |
 | [docs/phase-9/PHASE_9_FINAL_REPORT.md](docs/phase-9/PHASE_9_FINAL_REPORT.md) | Phase 9 — final report |
+| [docs/phase-10/PHASE_10_CLOSURE_REPORT.md](docs/phase-10/PHASE_10_CLOSURE_REPORT.md) | Phase 10 — closure (D-055) |
 | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | OpenShip VPS deployment |
 | [docs/MIGRATION.md](docs/MIGRATION.md) | Prisma migrations & seed |
 | [docs/CHANGELOG.md](docs/CHANGELOG.md) | Changelog |
@@ -122,10 +123,12 @@ src/modules/
 | 7A–7B | Entitlements · Payments | Closed (`v0.7`–`v0.8`) |
 | 8 | AI Gateway & Features | Closed (`v0.9-phase-8`) |
 | **9** | **Notification System** | **Closed** (`v0.10-phase-9`) |
-| 10 | Admin Platform | Spec next — **not authorized** |
-| 11–15 | SEO · SSR · Analytics · … | Planned |
+| **10** | **Admin Platform** | **Closed** (D-055 · recommend `v0.11-phase-10`) |
+| 11–15 | SEO · SSR · Analytics · … | Planned · Phase 11 **not authorized** |
 
-**Capabilities live:** Auth · RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI · Events · Notifications.
+**Capabilities live:** Auth · RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI · Events · Notifications · **Admin**.
+
+**Debt (C-P10-1):** TD-P10-2 Admin Events Viewer UI — see [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ---
 

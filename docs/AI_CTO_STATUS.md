@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-21 · **P10-015** complete · **Awaiting CTO Closure Review**
+**Last updated:** 2026-07-21 · **Phase 10 CLOSED** (D-055)
 
 ---
 
@@ -10,48 +10,51 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`a892a17`](https://github.com/accmobile1397-tech/computerjobs/commit/a892a17) — `test(admin): add Phase 10 hardening and C-005-1 guard (P10-015)` |
+| **Commit to review** | _(filled after commit)_ — `docs(phase-10): close Phase 10 with C-P10-1 (D-055)` |
 
 ---
 
-## Current Phase
+## Current status
 
-**Phase 10 — Admin Platform** · D-054 · **15/15 tasks done** · [CLOSURE_PACKAGE.md](./phase-10/CLOSURE_PACKAGE.md)
-
-## Last Closed Phase
-
-**Phase 9** · ✅ `v0.10-phase-9` · D-053
-
-## Branch
-
-`main` (local — push when ready for remote review)
+| Item | Value |
+|------|-------|
+| **Last closed phase** | **Phase 10** · D-055 · recommend tag **`v0.11-phase-10`** |
+| **Prior closed** | Phase 9 · `v0.10-phase-9` · D-053 |
+| **Next** | Phase 11 SEO — **not authorized** |
+| **Branch** | `main` (local — push then apply tag) |
 
 ---
 
-## Phase 10 board
+## Closure condition C-P10-1
 
-| Task | Status | Commit |
-|------|--------|--------|
-| P10-001..P10-014 | ✅ APPROVED / DONE | see [TASKS.md](./phase-10/TASKS.md) |
-| **P10-015 Tests + C-005-1** | ⏳ **In Closure Package** | [`a892a17`](https://github.com/accmobile1397-tech/computerjobs/commit/a892a17) |
+Events API delivered; Events UI placeholder → debt **TD-P10-2** (Admin Events Viewer UI completion). Phase 10 **not** reopened.
 
----
-
-## What P10-015 delivered
-
-- Final hardening suite: C-005-1 · C-010-5 · C-009-6 · thin routes
-- [PHASE_10_FINAL_REPORT.md](./phase-10/PHASE_10_FINAL_REPORT.md)
-- [CLOSURE_PACKAGE.md](./phase-10/CLOSURE_PACKAGE.md)
-
-**Health:** 216/216 tests · typecheck green · prisma validate green
+| Doc | Link |
+|-----|------|
+| Closure report | [PHASE_10_CLOSURE_REPORT.md](./phase-10/PHASE_10_CLOSURE_REPORT.md) |
+| Final report | [PHASE_10_FINAL_REPORT.md](./phase-10/PHASE_10_FINAL_REPORT.md) |
+| Debt | TD-P10-2 in [DECISIONS.md](./DECISIONS.md) · [ROADMAP.md](./ROADMAP.md) |
 
 ---
 
-## Recommended CTO action (Closure Review)
+## Tag recommendation
 
-1. Review [`a892a17`](https://github.com/accmobile1397-tech/computerjobs/commit/a892a17) + [CLOSURE_PACKAGE.md](./phase-10/CLOSURE_PACKAGE.md)
-2. **APPROVE CLOSE** / request changes / approve with conditions
-3. Only then authorize tag `v0.11-phase-10` + DECISIONS row
-4. **Do not** start Phase 11 until explicitly authorized
+```bash
+git tag -a v0.11-phase-10 -m "Phase 10 Admin Platform CLOSED (D-055 · C-P10-1 → TD-P10-2)"
+git push origin v0.11-phase-10
+```
 
-**Agent has stopped.** No self-closure · no Phase 11.
+**Agent did not create the tag.**
+
+---
+
+## Health at close
+
+216/216 tests · typecheck green · prisma validate green
+
+---
+
+## Recommended CTO action
+
+1. Push closure docs · apply tag `v0.11-phase-10` when ready  
+2. Authorize Phase 11 **spec only** when ready — **no Phase 11 implementation yet**
