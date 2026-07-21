@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-21 · **P10-011** awaiting CTO review
+**Last updated:** 2026-07-21 · **P10-012** awaiting CTO review
 
 ---
 
@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`59f44a9`](https://github.com/accmobile1397-tech/computerjobs/commit/59f44a9) — `feat(admin): add settings UI via Admin API (P10-011)` |
+| **Commit to review** | [`9e72200`](https://github.com/accmobile1397-tech/computerjobs/commit/9e72200) — `feat(admin): add monitoring UI via Admin API (P10-012)` |
 
 ---
 
@@ -24,7 +24,7 @@
 
 ## Branch
 
-`main` (pushed)
+`main` (local — push when ready for remote review)
 
 ---
 
@@ -35,24 +35,25 @@
 | P10-001..P10-008 | ✅ CLOSED | see TASKS |
 | P10-009 Dashboard UI | ✅ APPROVED (D-059) | [`f5cce14`](https://github.com/accmobile1397-tech/computerjobs/commit/f5cce14) |
 | P10-010 Audit Viewer UI | ✅ APPROVED (D-060) | [`72dc259`](https://github.com/accmobile1397-tech/computerjobs/commit/72dc259) |
-| **P10-011 Settings UI** | ⏳ **Awaiting CTO review** | [`59f44a9`](https://github.com/accmobile1397-tech/computerjobs/commit/59f44a9) |
-| P10-012..P10-015 | OPEN | — |
+| P10-011 Settings UI | ✅ APPROVED (D-061) | [`59f44a9`](https://github.com/accmobile1397-tech/computerjobs/commit/59f44a9) |
+| **P10-012 Monitoring UI** | ⏳ **Awaiting CTO review** | [`9e72200`](https://github.com/accmobile1397-tech/computerjobs/commit/9e72200) |
+| P10-013..P10-015 | OPEN | — |
 
 ---
 
-## What P10-011 delivered
+## What P10-012 delivered
 
-- `/admin/settings` → `GET` / `PUT` `/api/v1/admin/settings` only
-- Server masking respected; UI never exposes secrets/keys/tokens
-- `feature.*` = ordinary settings (no Feature Flag Engine)
+- `/admin/monitoring` → `GET /api/v1/admin/monitoring/summary` only
+- Platform health + checks + counters from Admin API response
+- Read-only viewer (no ops actions · no observability stack)
 - RTL Persian · C-005-1 (UI → API only)
 
-**Health:** 184/184 tests · typecheck green
+**Health:** 187/187 tests · typecheck green
 
 ---
 
 ## Recommended CTO action
 
-1. Review [`59f44a9`](https://github.com/accmobile1397-tech/computerjobs/commit/59f44a9)
+1. Review [`9e72200`](https://github.com/accmobile1397-tech/computerjobs/commit/9e72200)
 2. APPROVE / request changes
-3. Only then authorize **P10-012**
+3. Only then authorize **P10-013**
