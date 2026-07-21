@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-063 | **P11-007 APPROVED** · P11-008 authorized | Active |
 | 2026-07-21 | D-062 | **P11-006 APPROVED** · P11-007 authorized | Active |
 | 2026-07-21 | D-061 | **P11-005 APPROVED** · P11-006 authorized | Active |
 | 2026-07-21 | D-060 | **P11-004 APPROVED** · P11-005 authorized | Active |
@@ -83,6 +84,16 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-063: P11-007 APPROVED · P11-008 authorized
+
+**Decision (2026-07-21):** **APPROVE** P11-007 (`e2f6dcf`) — home metadata + JSON-LD wiring. Authorize **P11-008** (remap `SEO_STRATEGY.md` phase labels · docs only · 11/12 boundary).
+
+**Hard reminders:** documentation alignment only · no code/metadata/JSON-LD/sitemap/robots/Phase 12 work.
+
+**Next:** P11-008 implementation · then CTO review before P11-009.
 
 ---
 

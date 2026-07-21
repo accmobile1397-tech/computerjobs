@@ -36,4 +36,5 @@ Feature-first SEO builders per [RFC-006](../../../docs/rfc/RFC-006-SEO-ARCHITECT
 | P11-005 SitemapSource + `sitemap.ts` (C-011-2) | ✅ |
 | P11-006 robots SoT `robots.ts` (C-011-5) | ✅ |
 | P11-007 Wire `/` metadata + Org/WebSite JSON-LD | ✅ |
-| P11-008..P11-010 | Not started — await CTO |
+| P11-008 Remap SEO_STRATEGY phase labels (11/12) | ✅ |
+| P11-009..P11-010 | Not started — await CTO |

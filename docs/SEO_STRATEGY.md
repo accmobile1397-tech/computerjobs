@@ -1,8 +1,21 @@
 # SEO Strategy — ComputerJobs.ir
 
-**نسخه:** 1.0  
-**وضعیت:** Active — URLها از روز اول تعریف شده‌اند  
-**Implementation:** تدریجی در فازهای 4–12
+**نسخه:** 1.1  
+**وضعیت:** Active — URL map SoT (D-014)  
+**Architecture:** [RFC-006](./rfc/RFC-006-SEO-ARCHITECTURE.md) (FROZEN · D-056)  
+**Remap:** P11-008 — phase labels aligned to Phase **11** (SEO Foundation) vs Phase **12** (SSR Public Pages)
+
+---
+
+## Phase boundary (authoritative)
+
+| Layer | Phase | Owns |
+|-------|-------|------|
+| URL patterns · slug rules | This document + RFC-006 | Catalog only |
+| SEO builders · sitemap · robots · `/` wiring | **11** | Foundation (Option 1) |
+| Public SSR page inventory · per-page `generateMetadata` · programmatic lists | **12** | Rendering |
+
+**Historical note:** Older “Phase 2 / 3 / 4 / 6” labels meant *domain data / APIs exist*. They do **not** mean public SSR pages shipped. **Indexable page rendering** for those URLs is **Phase 12** unless a route is already live (today: `/` only).
 
 ---
 
@@ -19,93 +32,100 @@
 
 ### Home & Static
 
-| URL | Page | Phase | SSR/SSG |
-|-----|------|-------|---------|
-| `/` | صفحه اصلی | 0 | SSR |
-| `/about` | درباره ما | 12 | SSG |
-| `/contact` | تماس | 12 | SSG |
-| `/terms` | قوانین | 12 | SSG |
-| `/privacy` | حریم خصوصی | 12 | SSG |
+| URL | Page | Data | Public SSR / SEO |
+|-----|------|------|------------------|
+| `/` | صفحه اصلی | 0 | **0** + **11** (metadata · Org/WebSite JSON-LD) |
+| `/about` | درباره ما | — | **12** |
+| `/contact` | تماس | — | **12** |
+| `/terms` | قوانین | — | **12** |
+| `/privacy` | حریم خصوصی | — | **12** |
 
 ### Jobs (Programmatic SEO)
 
-| URL Pattern | Example | Phase |
-|-------------|---------|-------|
-| `/jobs` | لیست همه | 4 |
-| `/jobs/[province]` | `/jobs/tehran` | 4 |
-| `/jobs/[category]` | `/jobs/software-development` | 4 |
-| `/jobs/[subcategory]` | `/jobs/full-stack` | 4 |
-| `/jobs/[skill]` | `/jobs/typescript` | 6 |
-| `/jobs/[technology]` | `/jobs/nextjs` | 6 |
-| `/jobs/[category]/[province]` | `/jobs/devops/tehran` | 6 |
-| `/jobs/[slug]` | `/jobs/senior-backend-tehran-abc123` | 4 |
+| URL Pattern | Example | Data ready | Public SSR / SEO |
+|-------------|---------|------------|------------------|
+| `/jobs` | لیست همه | 4 | **12** |
+| `/jobs/[province]` | `/jobs/tehran` | 4 | **12** |
+| `/jobs/[category]` | `/jobs/software-development` | 4 | **12** |
+| `/jobs/[subcategory]` | `/jobs/full-stack` | 4 | **12** |
+| `/jobs/[skill]` | `/jobs/typescript` | 6 | **12** |
+| `/jobs/[technology]` | `/jobs/nextjs` | 6 | **12** |
+| `/jobs/[category]/[province]` | `/jobs/devops/tehran` | 6 | **12** |
+| `/jobs/[slug]` | `/jobs/senior-backend-tehran-abc123` | 4 | **12** |
 
-> Slug-based job detail — slug در URL، UUID فقط internal.
+> Slug-based job detail — slug در URL، UUID فقط internal.  
+> JobPosting JSON-LD **builder** = Phase **11** · page embed = Phase **12**.
 
 ### Companies
 
-| URL Pattern | Example | Phase |
-|-------------|---------|-------|
-| `/companies` | لیست شرکت‌ها | 4 |
-| `/companies/[slug]` | `/companies/snapp` | 4 |
+| URL Pattern | Example | Data ready | Public SSR / SEO |
+|-------------|---------|------------|------------------|
+| `/companies` | لیست شرکت‌ها | 4 | **12** |
+| `/companies/[slug]` | `/companies/snapp` | 4 | **12** |
 
 ### Location SEO
 
-| URL Pattern | Example | Phase |
-|-------------|---------|-------|
-| `/locations` | همه استان‌ها | 2 |
-| `/locations/[province]` | `/locations/tehran` | 2 |
-| `/locations/[province]/[city]` | `/locations/tehran/tehran-city` | 2 |
+| URL Pattern | Example | Data ready | Public SSR / SEO |
+|-------------|---------|------------|------------------|
+| `/locations` | همه استان‌ها | 2 | **12** |
+| `/locations/[province]` | `/locations/tehran` | 2 | **12** |
+| `/locations/[province]/[city]` | `/locations/tehran/tehran-city` | 2 | **12** |
 
 ### Taxonomy SEO
 
-| URL Pattern | Example | Phase |
-|-------------|---------|-------|
-| `/categories` | 15 دسته | 3 |
-| `/categories/[category]` | `/categories/ai-data-science` | 3 |
-| `/categories/[category]/[subcategory]` | `/categories/software/full-stack` | 3 |
-| `/skills/[skill]` | `/skills/typescript` | 3 |
-| `/technologies/[tech]` | `/technologies/nextjs` | 3 |
+| URL Pattern | Example | Data ready | Public SSR / SEO |
+|-------------|---------|------------|------------------|
+| `/categories` | 15 دسته | 3 | **12** |
+| `/categories/[category]` | `/categories/ai-data-science` | 3 | **12** |
+| `/categories/[category]/[subcategory]` | `/categories/software/full-stack` | 3 | **12** |
+| `/skills/[skill]` | `/skills/typescript` | 3 | **12** |
+| `/technologies/[tech]` | `/technologies/nextjs` | 3 | **12** |
 
 ### Auth (noindex)
 
-| URL | robots |
-|-----|--------|
-| `/login` | noindex |
-| `/register` | noindex |
-| `/dashboard/*` | noindex |
+| URL | robots | Notes |
+|-----|--------|-------|
+| `/login` | noindex · robots Disallow | Phase **11** robots SoT |
+| `/register` | noindex · robots Disallow | Phase **11** robots SoT |
+| `/dashboard/*` | noindex · robots Disallow | Phase **11** robots SoT |
+| `/admin/*` | noindex · robots Disallow | Phase **11** robots SoT |
 
 ---
 
 ## Structured Data (JSON-LD)
 
-| Schema | Pages | Phase |
-|--------|-------|-------|
-| Organization | `/`, `/about` | 12 |
-| JobPosting | `/jobs/[slug]` | 4 |
-| BreadcrumbList | همه صفحات عمیق | 12 |
-| WebSite + SearchAction | `/` | 12 |
+| Schema | Pages | Builder | Page wiring |
+|--------|-------|---------|-------------|
+| Organization | `/` | **11** | **11** |
+| Organization | `/about` | **11** | **12** |
+| WebSite (**no** SearchAction until public search live · C-011-4) | `/` | **11** | **11** |
+| SearchAction | `/` | deferred | deferred (not Phase 11) |
+| JobPosting | `/jobs/[slug]` | **11** | **12** |
+| BreadcrumbList | deep public pages | **11** | **12** |
 
 ---
 
 ## Technical SEO Checklist
 
-| Item | Phase 0 | Target Phase |
-|------|---------|--------------|
-| `robots.txt` | ✅ | 12 update |
-| `sitemap.xml` | ❌ referenced only | 12 |
-| Canonical tags | ⚠️ metadataBase | 12 per-page |
-| OpenGraph | ✅ root | 12 all public |
-| Core Web Vitals | not measured | 12 |
-| Image optimization | next/image | 4+ |
+| Item | Status | Target |
+|------|--------|--------|
+| robots SoT (`app/robots.ts`) | ✅ Phase **11** (C-011-5) | maintain |
+| `sitemap.xml` (honest · live URLs only) | ✅ Phase **11** sparse (`/` · C-011-2) | expand in **12** |
+| Canonical builders | ✅ Phase **11** | per-page wire in **12** |
+| OpenGraph | ✅ root + `/` (Phase **11**) | all public in **12** |
+| Home metadata + Org/WebSite JSON-LD | ✅ Phase **11** | — |
+| Core Web Vitals | not measured | **12**+ |
+| Image optimization | next/image | ongoing |
+| Domain public SSR inventory | ❌ | **12** |
 
 ---
 
 ## Slug Conventions
 
-- Persian slug transliteration یا English kebab-case — **تصمیم Phase 3**  
+- Persian slug transliteration یا English kebab-case — **تصمیم Phase 3** (data)  
 - Max length: 80 chars  
 - Unique per entity type  
+- No UUID segments on public SEO URLs (RFC-006)
 
 ---
 
@@ -120,5 +140,7 @@
 ## References
 
 - `.cto/SEO_RULES.md`
+- `docs/rfc/RFC-006-SEO-ARCHITECTURE.md`
+- `docs/phase-11/TECHNICAL_SPEC.fa.md`
 - `docs/phase-0/SEO_REVIEW.md`
-- Master prompt SEO URL examples
+- D-014 · D-056 · P11-008
