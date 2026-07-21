@@ -11,7 +11,7 @@
 | P11-007 | Wire `/` metadata (± JSON-LD) | DONE | `e2f6dcf` | D-063 APPROVED |
 | P11-008 | Remap SEO_STRATEGY phase labels | DONE | `cde15fa` | D-064 APPROVED |
 | P11-009 | Unit tests + client Prisma guard | DONE | `5f5d56b` | D-065 APPROVED · C-011-1..6 |
-| P11-010 | CTO_REPORT handoff | DONE | _(pending)_ | closure package ready |
+| P11-010 | CTO_REPORT handoff | DONE | `5f3f015` | closure package ready |
 
 ## Progress
 

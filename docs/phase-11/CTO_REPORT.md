@@ -63,7 +63,7 @@ Guards: [phase11-hardening.test.ts](../../src/modules/seo/phase11-hardening.test
 | P11-007 | Wire `/` metadata + JSON-LD | `e2f6dcf` |
 | P11-008 | SEO_STRATEGY phase remap | `cde15fa` |
 | P11-009 | Hardening guards | `5f5d56b` |
-| P11-010 | CTO_REPORT + closure package | _(this commit)_ |
+| P11-010 | CTO_REPORT + closure package | `5f3f015` |
 
 ---
 

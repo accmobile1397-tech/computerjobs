@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — P11-010 Phase 11 closure package |
+| **Commit to review** | [`5f3f015`](https://github.com/accmobile1397-tech/computerjobs/commit/5f3f015) — P11-010 Phase 11 closure package |
 
 ---
 
