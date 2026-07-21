@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — Phase 11 CTO handoff package |
+| **Commit to review** | [`1939fa4`](https://github.com/accmobile1397-tech/computerjobs/commit/1939fa4) — `docs(phase-11): add Phase 11 SEO CTO handoff package` |
 
 ---
 
@@ -20,7 +20,7 @@
 |------|-------|
 | **Last closed phase** | **Phase 10** · D-055 · tag ✅ **`v0.11-phase-10`** |
 | **Next** | Phase 11 SEO Foundation — **handoff only** · **not authorized to implement** |
-| **Branch** | `main` (pushed) |
+| **Branch** | `main` (pushed + tag applied) |
 
 ---
 
@@ -43,7 +43,7 @@
 
 ## Recommended CTO action
 
-1. Review [PHASE_11_CTO_HANDOFF.md](./phase-11/PHASE_11_CTO_HANDOFF.md)  
+1. Review [`1939fa4`](https://github.com/accmobile1397-tech/computerjobs/commit/1939fa4) + [PHASE_11_CTO_HANDOFF.md](./phase-11/PHASE_11_CTO_HANDOFF.md)  
 2. Decide RFC need + MVP option  
 3. Authorize Phase 11 **TECHNICAL_SPEC** drafting (or RFC-006 first)  
 4. **Do not** authorize Phase 11 implementation yet
