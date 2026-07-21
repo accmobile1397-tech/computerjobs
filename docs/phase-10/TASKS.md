@@ -15,7 +15,7 @@
 
 | ID | Task | Status | Commit | Notes |
 |----|------|--------|--------|-------|
-| P10-001 | Admin module skeleton | DONE | pending | `permissions/` · `services/` stubs · `types/` · README |
+| P10-001 | Admin module skeleton | DONE | `10a534d` | `permissions/` · `services/` stubs · `types/` · README |
 | P10-002 | Permissions registry + alias helper | OPEN | — | `admin:*` + legacy map · C-010-3 |
 | P10-003 | DomainEventLog migration + bus hook | OPEN | — | append-only · C-010-5 |
 | P10-004 | Dashboard summary API | OPEN | — | GET `/admin/dashboard/summary` |
