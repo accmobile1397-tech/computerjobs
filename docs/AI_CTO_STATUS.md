@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — `docs(phase-10): close Phase 10 with C-P10-1 (D-055)` |
+| **Commit to review** | [`b057a8f`](https://github.com/accmobile1397-tech/computerjobs/commit/b057a8f) — `docs(phase-10): close Phase 10 with C-P10-1 (D-055)` |
 
 ---
 
@@ -21,7 +21,7 @@
 | **Last closed phase** | **Phase 10** · D-055 · recommend tag **`v0.11-phase-10`** |
 | **Prior closed** | Phase 9 · `v0.10-phase-9` · D-053 |
 | **Next** | Phase 11 SEO — **not authorized** |
-| **Branch** | `main` (local — push then apply tag) |
+| **Branch** | `main` (ahead of origin — push then apply tag) |
 
 ---
 
