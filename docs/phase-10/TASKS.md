@@ -18,9 +18,9 @@
 | P10-001 | Admin module skeleton | DONE | `10a534d` | D-055 APPROVED · CLOSED |
 | P10-002 | Permissions registry + alias helper | DONE | `d4d11b6` | D-056 APPROVED · CLOSED |
 | P10-003 | DomainEventLog migration + bus hook | DONE | `e73eabb` | D-057 APPROVED · CLOSED |
-| P10-004 | Dashboard summary API | DONE | `a420393` | CLOSED · P10-005 authorized |
-| P10-005 | Audit viewer API | DONE | `8dbf922` | GET `/admin/audit` · paginated read-only |
-| P10-006 | Events + Settings + Monitoring APIs | OPEN | — | GET `/admin/events` · settings CRUD · monitoring |
+| P10-004 | Dashboard summary API | DONE | `a420393` | CLOSED |
+| P10-005 | Audit viewer API | DONE | `8dbf922` | D-059 APPROVED · CLOSED |
+| P10-006 | Events + Settings + Monitoring APIs | DONE | pending | events · settings · monitoring |
 | P10-007 | Billing admin refactor | OPEN | — | Prisma out of route → admin service |
 | P10-008 | Admin UI shell | OPEN | — | `(admin)` layout · RTL · nav · auth gate · C-005-1 |
 | P10-009 | Dashboard UI page | OPEN | — | consumes dashboard API |
@@ -35,8 +35,8 @@
 
 ## Progress
 
-- **Done:** 5 / 15
-- **Current:** P10-005 DONE — awaiting CTO review before P10-006
+- **Done:** 6 / 15
+- **Current:** P10-006 DONE — awaiting CTO review before P10-007
 - **Blocked:** —
 
 ---
@@ -62,6 +62,7 @@ After every completed task:
   - run typecheck
   - update docs/phase-10/TASKS.md
   - update docs/phase-10/CTO_REPORT.md
+  - update docs/AI_CTO_STATUS.md (CTO handoff: status + commit link)
   - commit
   - stop for CTO review before next task
 
