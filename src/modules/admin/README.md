@@ -17,7 +17,8 @@ Admin UI **never** imports Prisma. This module **orchestrates only** — busines
 | Path | Role | Task |
 |------|------|------|
 | `permissions/` | `ADMIN_PERMISSIONS` · alias map · `requireAdminPermission` | ✅ P10-002 |
-| `services/` | Dashboard · audit · events · settings · monitoring · billing-admin | P10-004 ✅ dashboard |
+| `services/` | Dashboard · audit · events · settings · monitoring · billing-admin | P10-004..007 ✅ |
+| `ui/` | Admin shell client helpers (token · nav · API fetch) | ✅ P10-008 |
 | `types/` | Shared admin DTOs | P10-001+ |
 | `README.md` | This file | — |
 
