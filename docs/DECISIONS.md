@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-068 | **P12-002 APPROVED** · **P12-003 authorized** (`/jobs` public list) | Active |
 | 2026-07-21 | D-067 | **P12-001 APPROVED** · **P12-002 authorized** (static pages ×4) | Active |
 | 2026-07-21 | D-066 | **Phase 12 TECHNICAL_SPEC** — APPROVE WITH CONDITIONS (C-012-1..10) · P12-001 authorized | Active |
 | 2026-07-21 | D-065 | **Phase 11 CLOSED** — APPROVE CLOSE · tag `v0.12-phase-11` | **Closed** |
@@ -88,6 +89,20 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-068: P12-002 APPROVED · P12-003 authorized
+
+**Decision (2026-07-21):** **P12-002 CLOSED** · authorize **P12-003** — public `/jobs` list.
+
+**Scope (P12-003):**
+- Published public jobs only via `listPublicJobs`
+- Phase 11 `generateMetadata` / `buildPageMetadata` · C-011-6 self-canonical pagination
+- No Prisma in Client Components · no DB from page layer
+- No JobPosting JSON-LD (P12-004) · no sitemap (P12-008)
+
+**Next:** P12-003 → CTO review → authorize **P12-004**.
 
 ---
 

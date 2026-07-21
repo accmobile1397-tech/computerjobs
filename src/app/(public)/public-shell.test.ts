@@ -34,7 +34,7 @@ describe("P12-001 public route shell", () => {
     expect(fs.existsSync(path.join(ROOT, "src/app/page.tsx"))).toBe(false);
   });
 
-  it("layout has no Prisma or premature job/company links", () => {
+  it("layout has no Prisma or premature company links", () => {
     const header = fs.readFileSync(
       path.join(ROOT, "src/app/(public)/_components/public-site-header.tsx"),
       "utf8",
@@ -45,17 +45,16 @@ describe("P12-001 public route shell", () => {
     );
     for (const source of [header, layout]) {
       expect(source).not.toMatch(/@prisma/);
-      expect(source).not.toMatch(/href=["']\/jobs/);
       expect(source).not.toMatch(/href=["']\/companies/);
       expect(source).not.toMatch(/href=["']\/admin/);
       expect(source).not.toMatch(/href=["']\/dashboard/);
     }
   });
 
-  it("does not add job/company page trees yet", () => {
+  it("does not add company or job-detail trees yet", () => {
     for (const rel of [
-      "src/app/(public)/jobs",
       "src/app/(public)/companies",
+      "src/app/(public)/jobs/[slug]",
     ] as const) {
       expect(fs.existsSync(path.join(ROOT, rel)), rel).toBe(false);
     }

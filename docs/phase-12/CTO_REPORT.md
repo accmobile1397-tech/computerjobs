@@ -1,29 +1,27 @@
 # CTO Report — Phase 12: SSR Public Pages
 
-**Status:** P12-002 **DONE** · awaiting CTO review before P12-003  
-**Scope:** Option 1 · D-066 AWC · **D-067** (P12-001 APPROVED · P12-002 authorized)
+**Status:** P12-003 **DONE** · awaiting CTO review before P12-004  
+**Scope:** Option 1 · D-066 AWC · **D-068** (P12-002 APPROVED · P12-003 authorized)
 
 ## Latest delivery
 
 | Item | Detail |
 |------|--------|
-| Task | **P12-002** — static pages ×4 |
-| Routes | `/about` · `/contact` · `/privacy` · `/terms` |
-| Metadata | `generateMetadata()` → Phase 11 `buildPageMetadata()` · title · description · canonical |
-| UI | RTL Persian prose via root `lang=fa` `dir=rtl` + `StaticDocument` |
-| Explicitly not in P12-002 | jobs/companies · sitemap · SearchAction · AI landings · Prisma/backend |
-| Tests | `static-pages.test.ts` · shell/hardening updated |
-| Commit | [`175ae34`](https://github.com/accmobile1397-tech/computerjobs/commit/175ae34) |
+| Task | **P12-003** — public `/jobs` list |
+| Data | `listPublicJobs` — PUBLISHED · non-expired · public verified companies |
+| Metadata | `generateMetadata` → `buildPageMetadata` · self-canonical `?page=` (C-011-6) |
+| UI | Server Component list + pagination · no detail slug links yet |
+| Explicitly not | JobPosting JSON-LD · sitemap · Prisma in page/client · `/jobs/[slug]` |
+| Tests | `jobs-list.test.ts` · shell/hardening updated |
 
 ## Conditions highlight
 
 | ID | Rule |
 |----|------|
-| C-012-7 | `generateMetadata` + Phase 11 builders ✅ (static pages) |
-| C-012-8 | `notFound()` for invalid/non-public slugs (later tasks) |
-| C-012-9 | JobPosting JSON-LD only PUBLISHED (later) |
-| C-012-10 | Public SSR only |
+| C-012-7 | `generateMetadata` + Phase 11 builders ✅ (`/jobs`) |
+| C-011-6 | Self-canonical pagination ✅ |
+| C-012-8/9 | Detail + JobPosting → **P12-004** |
 
 ## Stop
 
-**Do not start P12-003** until CTO review.
+**Do not start P12-004** until CTO review.
