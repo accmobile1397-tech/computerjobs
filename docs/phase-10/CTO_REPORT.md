@@ -10,10 +10,11 @@
 
 | Metric | Value |
 |--------|-------|
-| Tasks done | 2 / 15 |
-| Current | P10-002 DONE — stop for CTO review |
-| Tests | 142/142 pass |
+| Tasks done | 3 / 15 |
+| Current | P10-003 DONE — stop for CTO review |
+| Tests | 148/148 pass |
 | Typecheck | green |
+| Prisma validate | green |
 
 ---
 
@@ -22,27 +23,30 @@
 | ID | Decision | Commit |
 |----|----------|--------|
 | P10-001 | D-055 APPROVED | `10a534d` |
-| P10-002 | pending review | `d4d11b6` |
+| P10-002 | D-056 APPROVED | `d4d11b6` |
+| P10-003 | pending review | pending |
 
 ---
 
-## P10-002 — Permissions registry + alias helper
+## P10-003 — DomainEventLog + EventBus hook
 
-**Delivered:** `src/modules/admin/permissions/`
+**Delivered:**
 
-| File | Role |
+| Item | Path |
 |------|------|
-| `registry.ts` | `ADMIN_PERMISSIONS` — RFC-005 + taxonomy/location |
-| `aliases.ts` | `LEGACY_ADMIN_ALIASES` · `resolveAdminPermissionSlugs` |
-| `require-admin-permission.ts` | `requireAdminPermission()` — legacy OR `admin:*` |
-| `permissions.test.ts` | registry · alias resolve · allow/deny |
+| Prisma model | `DomainEventLog` → `domain_event_logs` |
+| Migration | `prisma/migrations/20260721160000_phase10_domain_event_log/` |
+| Append service | `src/modules/events/log/append-domain-event.ts` |
+| Bus hook | `InMemoryEventBus.publish` → persist before handlers |
+| Singleton | `eventBus` wires `appendDomainEventLog` |
+| Tests | create · duplicate P2002 · persist-before-handler · no-handler persist · persist-fail continues |
 
-**Explicitly not in P10-002:** route changes · seed · migrations · APIs · UI.
+**C-010-5:** create-only · unique `eventId` · no `updatedAt`/`deletedAt` · no update/delete APIs.
 
-**Behaviour:** requiring `admin:billing:read` succeeds if user holds `billing:admin`; requiring `job:approve` succeeds if user holds `admin:jobs:write`.
+**Not in P10-003:** event viewer API · admin UI · search · management.
 
 ---
 
 ## Next
 
-**Stop.** Await CTO review of P10-002 before P10-003 (DomainEventLog).
+**Stop.** Await CTO review of P10-003 before P10-004 (dashboard summary API).

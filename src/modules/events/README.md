@@ -10,3 +10,7 @@ Domain event bus per [RFC-003](../../../docs/rfc/RFC-003-EVENT-ARCHITECTURE.md).
 | `handlers/` | P9-011 |
 
 Feature modules **publish only** — never call notification providers directly.
+
+| Path | Status |
+|------|--------|
+| `log/` | P10-003 — DomainEventLog append on `publish()` (C-010-5 append-only) |

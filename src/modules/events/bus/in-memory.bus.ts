@@ -17,16 +17,22 @@ type RegisteredHandler = {
   seenEventIds: Set<string>;
 };
 
+export type PersistDomainEvent = (event: DomainEvent) => Promise<void>;
+
 export type InMemoryEventBusOptions = {
   logger?: Logger;
+  /** Append-only DomainEventLog hook (P10-003). Optional for unit tests without DB. */
+  persistDomainEvent?: PersistDomainEvent;
 };
 
 export class InMemoryEventBus implements EventBus {
   private readonly handlers = new Map<string, RegisteredHandler[]>();
   private readonly logger: Logger;
+  private readonly persistDomainEvent?: PersistDomainEvent;
 
   constructor(options: InMemoryEventBusOptions = {}) {
     this.logger = options.logger ?? defaultLogger;
+    this.persistDomainEvent = options.persistDomainEvent;
   }
 
   registerHandler(
@@ -55,6 +61,8 @@ export class InMemoryEventBus implements EventBus {
       event.eventId = randomUUID();
     }
 
+    await this.appendLog(event);
+
     const registered = this.handlers.get(event.name) ?? [];
     if (registered.length === 0) {
       this.logger.debug({ eventId: event.eventId, name: event.name }, "event published (no handlers)");
@@ -69,6 +77,21 @@ export class InMemoryEventBus implements EventBus {
     }
 
     await Promise.all(asyncHandlers.map((entry) => this.dispatch(entry, event)));
+  }
+
+  private async appendLog(event: DomainEvent): Promise<void> {
+    if (!this.persistDomainEvent) {
+      return;
+    }
+
+    try {
+      await this.persistDomainEvent(event);
+    } catch (error) {
+      this.logger.error(
+        { err: error, eventId: event.eventId, name: event.name },
+        "domain event log append failed"
+      );
+    }
   }
 
   private async dispatch(entry: RegisteredHandler, event: DomainEvent): Promise<void> {

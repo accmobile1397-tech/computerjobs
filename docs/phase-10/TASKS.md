@@ -16,8 +16,8 @@
 | ID | Task | Status | Commit | Notes |
 |----|------|--------|--------|-------|
 | P10-001 | Admin module skeleton | DONE | `10a534d` | D-055 APPROVED · CLOSED |
-| P10-002 | Permissions registry + alias helper | DONE | `d4d11b6` | `ADMIN_PERMISSIONS` · aliases · `requireAdminPermission` |
-| P10-003 | DomainEventLog migration + bus hook | OPEN | — | append-only · C-010-5 |
+| P10-002 | Permissions registry + alias helper | DONE | `d4d11b6` | D-056 APPROVED · CLOSED |
+| P10-003 | DomainEventLog migration + bus hook | DONE | pending | append-only · C-010-5 |
 | P10-004 | Dashboard summary API | OPEN | — | GET `/admin/dashboard/summary` |
 | P10-005 | Audit viewer API | OPEN | — | GET `/admin/audit` read-only |
 | P10-006 | Events + Settings + Monitoring APIs | OPEN | — | GET `/admin/events` · settings CRUD · monitoring |
@@ -35,8 +35,8 @@
 
 ## Progress
 
-- **Done:** 2 / 15
-- **Current:** P10-002 DONE — awaiting CTO review before P10-003
+- **Done:** 3 / 15
+- **Current:** P10-003 DONE — awaiting CTO review before P10-004
 - **Blocked:** —
 
 ---

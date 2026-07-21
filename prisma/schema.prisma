@@ -1389,3 +1389,26 @@ model NotificationEventMapping {
   @@map("notification_event_mappings")
 }
 
+/**
+ * Append-only domain event log (P10-003 · C-010-5).
+ * No updatedAt/deletedAt — never update or soft-delete rows.
+ * Viewer API is P10-006 — not this migration.
+ */
+model DomainEventLog {
+  id             String   @id @default(uuid())
+  eventId        String   @unique @map("event_id") @db.VarChar(36)
+  name           String   @db.VarChar(120)
+  version        Int
+  occurredAt     DateTime @map("occurred_at")
+  aggregateType  String   @map("aggregate_type") @db.VarChar(80)
+  aggregateId    String   @map("aggregate_id") @db.VarChar(120)
+  correlationId  String?  @map("correlation_id") @db.VarChar(120)
+  payload        Json
+  createdAt      DateTime @default(now()) @map("created_at")
+
+  @@index([name, occurredAt])
+  @@index([aggregateId])
+  @@index([correlationId])
+  @@map("domain_event_logs")
+}
+

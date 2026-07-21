@@ -1,3 +1,6 @@
+import { InMemoryEventBus } from "@/modules/events/bus/in-memory.bus";
+import { appendDomainEventLog } from "@/modules/events/log/append-domain-event";
+
 export { EventBusError } from "@/modules/events/bus/errors";
 export { InMemoryEventBus } from "@/modules/events/bus/in-memory.bus";
 export type { InMemoryEventBusOptions } from "@/modules/events/bus/in-memory.bus";
@@ -10,8 +13,9 @@ export type {
   RegisterHandlerOptions,
 } from "@/modules/events/bus/types";
 export { validateEnvelope } from "@/modules/events/bus/validate-envelope";
+export { appendDomainEventLog } from "@/modules/events/log/append-domain-event";
 
-import { InMemoryEventBus } from "@/modules/events/bus/in-memory.bus";
-
-/** Process-wide in-memory bus (Phase 9 MVP). Queue handoff deferred to later tasks. */
-export const eventBus = new InMemoryEventBus();
+/** Process-wide in-memory bus — persists DomainEventLog on publish (P10-003). */
+export const eventBus = new InMemoryEventBus({
+  persistDomainEvent: appendDomainEventLog,
+});
