@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — D-065 Phase 11 CLOSE + Phase 12 handoff |
+| **Commit to review** | [`6206675`](https://github.com/accmobile1397-tech/computerjobs/commit/6206675) — D-065 Phase 11 CLOSE + Phase 12 handoff |
 
 ---
 
