@@ -22,7 +22,7 @@
 | ID | Decision | Commit |
 |----|----------|--------|
 | P10-001 | D-055 APPROVED | `10a534d` |
-| P10-002 | pending review | pending |
+| P10-002 | pending review | `d4d11b6` |
 
 ---
 
