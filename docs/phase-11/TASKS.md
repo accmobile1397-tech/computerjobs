@@ -9,12 +9,12 @@
 | P11-005 | SitemapSource + `sitemap.ts` | DONE | `18bed13` | D-061 APPROVED · C-011-2 |
 | P11-006 | robots SoT `robots.ts` (C-011-5) | DONE | `83e1c1b` | D-062 APPROVED |
 | P11-007 | Wire `/` metadata (± JSON-LD) | DONE | `e2f6dcf` | D-063 APPROVED |
-| P11-008 | Remap SEO_STRATEGY phase labels | DONE | `cde15fa` | 11/12 boundary · docs only |
-| P11-009 | Unit tests + client Prisma guard | OPEN | — | |
+| P11-008 | Remap SEO_STRATEGY phase labels | DONE | `cde15fa` | D-064 APPROVED |
+| P11-009 | Unit tests + client Prisma guard | DONE | _(pending)_ | C-011-1..6 hardening |
 | P11-010 | CTO_REPORT handoff | OPEN | — | |
 
 ## Progress
 
-- **Done:** 8 / 10  
-- **Decision:** D-063 (P11-007 APPROVED · P11-008 authorized)  
-- **Current:** P11-008 complete — **STOP** · await CTO review before P11-009
+- **Done:** 9 / 10  
+- **Decision:** D-064 (P11-008 APPROVED · P11-009 authorized)  
+- **Current:** P11-009 complete — **STOP** · await CTO review before P11-010

@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-064 | **P11-008 APPROVED** · P11-009 authorized | Active |
 | 2026-07-21 | D-063 | **P11-007 APPROVED** · P11-008 authorized | Active |
 | 2026-07-21 | D-062 | **P11-006 APPROVED** · P11-007 authorized | Active |
 | 2026-07-21 | D-061 | **P11-005 APPROVED** · P11-006 authorized | Active |
@@ -84,6 +85,16 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-064: P11-008 APPROVED · P11-009 authorized
+
+**Decision (2026-07-21):** **APPROVE** P11-008 (`cde15fa`) — SEO_STRATEGY phase remap. Authorize **P11-009** (Phase 11 hardening · guards · verify C-011-1..6 · tests only).
+
+**Hard reminders:** no metadata/JSON-LD/sitemap/robots changes · no Phase 12 implementation.
+
+**Next:** P11-009 implementation · then CTO review before P11-010.
 
 ---
 
