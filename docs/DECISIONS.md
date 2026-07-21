@@ -4,7 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
-| 2026-07-21 | D-056 | **RFC-006 SEO Architecture** — DRAFT (awaiting CTO APPROVE) · Phase 11 Option 1 | Active |
+| 2026-07-21 | D-056 | **RFC-006 + Phase 11 TECHNICAL_SPEC** — APPROVE WITH CONDITIONS (C-011-1..6) | Active |
 | 2026-07-21 | D-055 | **Phase 10 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.11-phase-10` | **Closed** |
 | 2026-07-21 | TD-P10-2 | Admin Events Viewer UI completion (C-P10-1) | Active (P2) |
 | 2026-07-18 | D-001 | Master prompt v1.0 — phased delivery, spec-first | Active |
@@ -80,21 +80,29 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 ---
 
----
+## D-056: RFC-006 + Phase 11 TECHNICAL_SPEC — APPROVE WITH CONDITIONS
 
-## D-056: RFC-006 SEO Architecture (DRAFT)
-
-**Decision (2026-07-21):** Phase 11 handoff **APPROVED** · scope **Option 1 (SEO Foundation)** · **RFC-006 required** before TECHNICAL_SPEC / implementation.
+**Decision (2026-07-21):** **APPROVE WITH CONDITIONS** — RFC-006 **FROZEN** · Phase 11 TECHNICAL_SPEC **APPROVED** · scope **Option 1 (SEO Foundation)**.
 
 **Documents:**
-- [RFC-006-SEO-ARCHITECTURE.md](./rfc/RFC-006-SEO-ARCHITECTURE.md) — **DRAFT** awaiting CTO APPROVE → FROZEN
-- [phase-11/TECHNICAL_SPEC.fa.md](./phase-11/TECHNICAL_SPEC.fa.md) — **DRAFT** awaiting CTO APPROVE
+- [RFC-006-SEO-ARCHITECTURE.md](./rfc/RFC-006-SEO-ARCHITECTURE.md) ✅ FROZEN
+- [phase-11/TECHNICAL_SPEC.fa.md](./phase-11/TECHNICAL_SPEC.fa.md) ✅ APPROVE WITH CONDITIONS
+- [phase-11/IMPLEMENTATION_PLAN.md](./phase-11/IMPLEMENTATION_PLAN.md) · [phase-11/TASKS.md](./phase-11/TASKS.md)
 
-**Covers:** SEO module · metadata builders · canonical · sitemap sources · robots · JSON-LD · URL normalization · public URL strategy · Phase 11/12 boundary · AI Landing extension points.
+| Condition | Requirement |
+|-----------|-------------|
+| C-011-1 | No implementation until RFC-006 is **FROZEN** (satisfied by this decision) |
+| C-011-2 | Sitemap honesty — only live indexable URLs; domain sources empty until Phase 12 pages exist |
+| C-011-3 | No new domain SSR pages (jobs/companies/taxonomy/location/static legal) in Phase 11 |
+| C-011-4 | AI landings: extension stubs only — no AI Gateway calls; no SearchAction until public search URL is live |
+| **C-011-5** | **Single robots Source of Truth** — prefer App Router `robots.ts`; do not keep a second conflicting `public/robots.txt` |
+| **C-011-6** | **Self-canonical pagination** for Phase 11 — each paginated URL canonicalizes to itself; `rel` prev/next deferred to Phase 12 |
 
-**Not authorized:** Phase 11 implementation · migrations · code.
+**Also frozen:** Pagination canonical = self-canonical (C-011-6) · robots single SoT (C-011-5).
 
-**Next:** CTO APPROVE RFC-006 → FROZEN · APPROVE TECHNICAL_SPEC · then authorize P11 tasks.
+**Implementation:** Authorized **under conditions** — start only when CTO/agent instructed to begin P11-001; no migrations for SEO MVP.
+
+**Next:** Execute [TASKS.md](./phase-11/TASKS.md) one task at a time when implementation is started.
 
 ---
 
@@ -114,7 +122,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 **Debt from C-P10-1:** [TD-P10-2](#td-p10-2-admin-events-viewer-ui-completion) — Admin Events Viewer UI completion.
 
-**Not authorized:** Phase 11 implementation until CTO authorizes Phase 11 spec.
+**Superseded for Phase 11 auth:** See **D-056** (APPROVE WITH CONDITIONS · plan ready · start on P11-001 instruction).
 
 ---
 

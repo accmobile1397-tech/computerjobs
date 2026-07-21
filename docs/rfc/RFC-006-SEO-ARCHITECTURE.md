@@ -1,12 +1,13 @@
 # RFC-006 — SEO Architecture
 
-**Status:** 📝 **DRAFT — awaiting CTO APPROVE** (then FROZEN before Phase 11 implementation)  
-**ID:** RFC-006 · **Decision:** _(pending — propose D-056 on APPROVE)_  
+**Status:** ✅ **APPROVED WITH CONDITIONS / FROZEN** (D-056 · C-011-1..6 · 2026-07-21)  
+**ID:** RFC-006 · **Decision:** D-056  
 **Audience:** Public-web SEO foundation for ComputerJobs.ir  
 **Depends on:** D-014 (`SEO_STRATEGY.md`) · `.cto/SEO_RULES.md` · RFC-001 product URL invariants · Phase 10 closed (`v0.11-phase-10`)  
 **Blocks:** Phase 11 (SEO Foundation) · informs Phase 12 (SSR Public Pages) · extension for Phase 15 AI Landing Pages  
 
-**Scope selection (CTO 2026-07-21):** Phase 11 = **Option 1 — SEO Foundation** only.
+**Scope selection (CTO 2026-07-21):** Phase 11 = **Option 1 — SEO Foundation** only.  
+**Closure conditions:** C-011-5 single robots SoT (`robots.ts`) · C-011-6 self-canonical pagination.
 
 ---
 
@@ -125,7 +126,7 @@ Builders + unit tests for pure functions. Wiring on `/` and any **already-live**
 |------|-----------|
 | Clean public path | `APP_URL + normalizedPath` |
 | Tracking query (`utm_*`, `fbclid`, …) | Strip from canonical; keep path |
-| Pagination (`?page=`) | Canonical = page 1 URL **or** self-canonical per page — **choose in TECHNICAL_SPEC**; default proposal: **self-canonical** with `rel` prev/next deferred to Phase 12 |
+| Pagination (`?page=`) | **Self-canonical** (C-011-6) — each page canonicalizes to itself; `rel` prev/next deferred to Phase 12 |
 | Trailing slash | Normalize to **no trailing slash** except `/` |
 | Case | Paths lowercase |
 | Duplicate filters | Prefer one canonical filter order (documented in URL normalizer) |
@@ -196,7 +197,7 @@ interface SitemapSource {
 ### 7.2 Sitemap advertisement
 
 - `Sitemap:` line **must** point to a **working** sitemap endpoint.  
-- Prefer App Router `robots.ts` generating rules from `modules/seo/robots` (may replace or supersede `public/robots.txt` — one SoT only).
+- **C-011-5:** Single robots Source of Truth — prefer App Router `robots.ts` generating rules from `modules/seo/robots`. Do **not** keep a second conflicting `public/robots.txt` after cutover.
 
 ### 7.3 Phase 11 deliverable
 
@@ -361,11 +362,14 @@ HTTP E2E remains TD-P2-1.
 
 | Date | Decision |
 |------|----------|
-| 2026-07-21 | Handoff APPROVED · Option 1 · **RFC-006 required before TECHNICAL_SPEC** |
-| _(pending)_ | APPROVE / APPROVE WITH CONDITIONS / REJECT |
+| 2026-07-21 | Handoff APPROVED · Option 1 · RFC-006 required before TECHNICAL_SPEC |
+| 2026-07-21 | **APPROVE WITH CONDITIONS** (D-056 · C-011-1..6) → **FROZEN** |
 
-- [ ] APPROVE  
-- [ ] APPROVE WITH CONDITIONS  
+- [x] APPROVE WITH CONDITIONS  
+- [x] **FROZEN / CLOSED for architecture**  
 - [ ] REJECT  
 
-**Next after APPROVE:** Freeze RFC-006 · review Phase 11 TECHNICAL_SPEC · only then authorize implementation.
+**Debt / follow-ups:** Phase 12 consumes builders · TD-P2-1 optional SEO smoke later.
+
+**Next:** Phase 11 implementation per [TASKS.md](../phase-11/TASKS.md) when coding is started (docs plan ready; no code until instructed).
+

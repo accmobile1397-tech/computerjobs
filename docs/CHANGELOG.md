@@ -59,10 +59,11 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ## [Unreleased]
 
-### Phase 11 — SEO Foundation (draft)
+### Phase 11 — SEO Foundation
 
-- Handoff APPROVED · Option 1 · **RFC-006** drafted (D-056 pending APPROVE)
-- [TECHNICAL_SPEC.fa.md](./phase-11/TECHNICAL_SPEC.fa.md) drafted — **implementation not authorized**
+- **D-056 APPROVE WITH CONDITIONS** (C-011-1..6) · RFC-006 **FROZEN**
+- Plan/tasks ready — [IMPLEMENTATION_PLAN.md](./phase-11/IMPLEMENTATION_PLAN.md) · [TASKS.md](./phase-11/TASKS.md)
+- **Code not started**
 
 ### Phase 10 closed
 
