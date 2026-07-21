@@ -12,3 +12,10 @@ export {
 export type { SystemSettingItem } from "./settings.service";
 export { getMonitoringSummary } from "./monitoring.service";
 export type { MonitoringSummary } from "./monitoring.service";
+export {
+  getBillingAdminOverview,
+  grantBillingAdmin,
+  upsertBillingAdminSetting,
+  versionPlanFeatureAdmin,
+} from "./billing-admin.service";
+export type { BillingAdminOverview } from "./billing-admin.service";
