@@ -12,6 +12,7 @@
 | Output | Next.js `Metadata` · OG `fa_IR` · twitter `summary_large_image` · noindex support |
 | Out of scope | JSON-LD · sitemap · robots · route wiring · domain SEO |
 | Checks | typecheck ✅ · tests 237/237 ✅ |
+| Commit | [`6c3f871`](https://github.com/accmobile1397-tech/computerjobs/commit/6c3f871) |
 
 ## Prior
 

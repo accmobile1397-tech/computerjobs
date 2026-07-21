@@ -4,7 +4,7 @@
 |----|------|--------|--------|-------|
 | P11-001 | `seo` module skeleton + README | DONE | `4020a80` | RFC-006 layout · D-057 APPROVED |
 | P11-002 | URL normalize + canonical (C-011-6) | DONE | `2b975c4` | D-058 APPROVED |
-| P11-003 | Metadata builders | DONE | _(pending)_ | `buildPageMetadata` |
+| P11-003 | Metadata builders | DONE | `6c3f871` | `buildPageMetadata` |
 | P11-004 | JSON-LD builders + tests | OPEN | — | no SearchAction (C-011-4) |
 | P11-005 | SitemapSource + `sitemap.ts` | OPEN | — | static-core only · C-011-2 |
 | P11-006 | robots SoT `robots.ts` (C-011-5) | OPEN | — | remove conflicting public/robots.txt |
