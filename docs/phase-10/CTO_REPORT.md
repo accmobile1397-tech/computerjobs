@@ -1,15 +1,14 @@
 # CTO Report — Phase 10: Admin Platform
 
-**Tasks:** 9 / 15 · **Awaiting:** P10-009 review  
-**Tests:** 176/176 · typecheck green
+**Tasks:** 10 / 15 · **Awaiting:** P10-010  
+**Tests:** 179/179 · typecheck green
 
-## P10-009 — Dashboard UI
+## P10-010 — Audit Viewer UI
 
-- Page: `/admin/dashboard`
-- Consumes `GET /api/v1/admin/dashboard/summary` via `fetchDashboardSummary`
-- KPI cards from API response only (Persian RTL)
-- No Prisma / repositories / domain persistence in UI
-- Server still enforces `admin:dashboard:read`; UI is display-only
-- Pure KPI mapping helper + C-005-1 coverage retained
+- `/admin/audit` consumes `GET /api/v1/admin/audit` only
+- Filters: `action` · `userId` · `from` · `to` + mandatory pagination
+- Read-only table (no write methods)
+- RTL Persian · no Prisma in UI
+- Server remains authoritative for `admin:audit:read`
 
-**Stop.** Await CTO review before P10-010.
+**Stop.** Await CTO review before P10-011.

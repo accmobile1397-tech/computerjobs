@@ -7,6 +7,7 @@ import {
   ADMIN_NAV_ITEMS,
 } from "@/modules/admin/ui/nav";
 import { dashboardSummaryToKpis } from "@/modules/admin/ui/dashboard";
+import { buildAuditQueryString, DEFAULT_AUDIT_FILTERS } from "@/modules/admin/ui/audit";
 
 describe("admin UI access (P10-008)", () => {
   it("allows super_admin and admin roles", () => {
@@ -70,6 +71,51 @@ describe("dashboard page uses Admin API only (P10-009)", () => {
       "utf8",
     );
     expect(source).toContain('"/api/v1/admin/dashboard/summary"');
+  });
+});
+
+describe("audit query builder (P10-010)", () => {
+  it("always includes pagination and optional filters", () => {
+    const qs = buildAuditQueryString({
+      ...DEFAULT_AUDIT_FILTERS,
+      page: 2,
+      pageSize: 50,
+      action: "LOGIN_SUCCESS",
+      userId: "550e8400-e29b-41d4-a716-446655440000",
+      from: "2026-07-01T00:00",
+    });
+    const params = new URLSearchParams(qs);
+    expect(params.get("page")).toBe("2");
+    expect(params.get("pageSize")).toBe("50");
+    expect(params.get("action")).toBe("LOGIN_SUCCESS");
+    expect(params.get("userId")).toBe(
+      "550e8400-e29b-41d4-a716-446655440000",
+    );
+    expect(params.get("from")).toBeTruthy();
+    expect(params.get("to")).toBeNull();
+  });
+});
+
+describe("audit page uses Admin API only (P10-010)", () => {
+  it("client fetches audit via fetchAuditLogs", () => {
+    const source = fs.readFileSync(
+      path.join(
+        process.cwd(),
+        "src/app/(admin)/admin/audit/admin-audit-client.tsx",
+      ),
+      "utf8",
+    );
+    expect(source).toContain("fetchAuditLogs");
+    expect(source).not.toMatch(/prisma/i);
+    expect(source).not.toMatch(/method:\s*["'](POST|PUT|PATCH|DELETE)["']/);
+  });
+
+  it("fetchAuditLogs targets /api/v1/admin/audit", () => {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), "src/modules/admin/ui/admin-api-client.ts"),
+      "utf8",
+    );
+    expect(source).toContain("/api/v1/admin/audit?");
   });
 });
 

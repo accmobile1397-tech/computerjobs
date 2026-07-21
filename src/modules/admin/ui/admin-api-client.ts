@@ -1,5 +1,10 @@
 import { getAdminAccessToken } from "@/modules/admin/ui/token";
 import type { DashboardSummaryDto } from "@/modules/admin/ui/dashboard";
+import type {
+  AuditListFilters,
+  AuditListResultDto,
+} from "@/modules/admin/ui/audit";
+import { buildAuditQueryString } from "@/modules/admin/ui/audit";
 
 export type AdminApiEnvelope<T> = {
   success: boolean;
@@ -50,4 +55,11 @@ export async function fetchDashboardSummary(): Promise<
   AdminApiEnvelope<DashboardSummaryDto>
 > {
   return adminFetch<DashboardSummaryDto>("/api/v1/admin/dashboard/summary");
+}
+
+export async function fetchAuditLogs(
+  filters: AuditListFilters,
+): Promise<AdminApiEnvelope<AuditListResultDto>> {
+  const qs = buildAuditQueryString(filters);
+  return adminFetch<AuditListResultDto>(`/api/v1/admin/audit?${qs}`);
 }

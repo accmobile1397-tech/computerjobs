@@ -1,10 +1,6 @@
-import { AdminPagePlaceholder } from "../_components/admin-page-placeholder";
+import { AdminAuditClient } from "./admin-audit-client";
 
+/** P10-010 — audit viewer via Admin API only (C-005-1). */
 export default function AdminAuditPage() {
-  return (
-    <AdminPagePlaceholder
-      title="حسابرسی"
-      description="مشاهده AuditLog از طریق GET /api/v1/admin/audit"
-    />
-  );
+  return <AdminAuditClient />;
 }
