@@ -32,7 +32,7 @@ The platform is **technically usable** with notifications MVP live.
 
 **Phase 10:** ✅ **CLOSED** (D-055 · C-P10-1 → TD-P10-2) · tag ✅ `v0.11-phase-10` · [PHASE_10_CLOSURE_REPORT.md](./phase-10/PHASE_10_CLOSURE_REPORT.md)
 
-**Phase 11:** ✅ **D-056 APPROVE WITH CONDITIONS** · RFC-006 FROZEN · [IMPLEMENTATION_PLAN](./phase-11/IMPLEMENTATION_PLAN.md) · [TASKS](./phase-11/TASKS.md) · **code not started**
+**Phase 11:** 🟡 **Implementation complete** · P11-001…P11-010 · [CLOSURE_PACKAGE](./phase-11/CLOSURE_PACKAGE.md) · **await CTO Closure Review** · recommend `v0.12-phase-11`
 
 ---
 
@@ -66,7 +66,7 @@ CTO-approved order:
 |-------|--------|
 | **9** | Notification System — ✅ **CLOSED** (`v0.10-phase-9`) |
 | **10** | Admin Platform — ✅ **CLOSED** (`v0.11-phase-10`) |
-| **11** | SEO Foundation — ✅ D-056 AWC · plan ready · **await start P11-001** |
+| **11** | SEO Foundation — 🟡 impl complete · **await Closure Review** · tag `v0.12-phase-11` |
 | **12** | SSR Public Pages |
 | **13** | Analytics & Events |
 | **14** | Recommendation Engine |

@@ -61,9 +61,9 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ### Phase 11 — SEO Foundation
 
-- **D-056 APPROVE WITH CONDITIONS** (C-011-1..6) · RFC-006 **FROZEN**
-- Plan/tasks ready — [IMPLEMENTATION_PLAN.md](./phase-11/IMPLEMENTATION_PLAN.md) · [TASKS.md](./phase-11/TASKS.md)
-- **Code not started**
+- **D-056 AWC** · RFC-006 FROZEN · P11-001…P11-010 **DONE**
+- Closure package ready — [CLOSURE_PACKAGE.md](./phase-11/CLOSURE_PACKAGE.md) · **await CTO Closure Review**
+- Recommend tag `v0.12-phase-11` · Phase 12 **not** authorized
 
 ### Phase 10 closed
 

@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-065 | **P11-009 APPROVED** · P11-010 authorized · closure package | Active |
 | 2026-07-21 | D-064 | **P11-008 APPROVED** · P11-009 authorized | Active |
 | 2026-07-21 | D-063 | **P11-007 APPROVED** · P11-008 authorized | Active |
 | 2026-07-21 | D-062 | **P11-006 APPROVED** · P11-007 authorized | Active |
@@ -85,6 +86,14 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-065: P11-009 APPROVED · P11-010 authorized
+
+**Decision (2026-07-21):** **APPROVE** P11-009 (`5f5d56b`) — hardening guards. Authorize **P11-010** (CTO_REPORT + closure package · docs only).
+
+**Next:** P11-010 handoff · then **CTO Closure Review** (formal Phase 11 CLOSE / tag). Phase 12 not authorized.
 
 ---
 

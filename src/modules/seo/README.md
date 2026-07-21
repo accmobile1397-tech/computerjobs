@@ -38,4 +38,4 @@ Feature-first SEO builders per [RFC-006](../../../docs/rfc/RFC-006-SEO-ARCHITECT
 | P11-007 Wire `/` metadata + Org/WebSite JSON-LD | ✅ |
 | P11-008 Remap SEO_STRATEGY phase labels (11/12) | ✅ |
 | P11-009 Hardening + C-011 guards | ✅ |
-| P11-010 | Not started — await CTO |
+| P11-010 CTO_REPORT + closure package | ✅ |

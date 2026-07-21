@@ -10,11 +10,11 @@
 | P11-006 | robots SoT `robots.ts` (C-011-5) | DONE | `83e1c1b` | D-062 APPROVED |
 | P11-007 | Wire `/` metadata (± JSON-LD) | DONE | `e2f6dcf` | D-063 APPROVED |
 | P11-008 | Remap SEO_STRATEGY phase labels | DONE | `cde15fa` | D-064 APPROVED |
-| P11-009 | Unit tests + client Prisma guard | DONE | `5f5d56b` | C-011-1..6 hardening |
-| P11-010 | CTO_REPORT handoff | OPEN | — | |
+| P11-009 | Unit tests + client Prisma guard | DONE | `5f5d56b` | D-065 APPROVED · C-011-1..6 |
+| P11-010 | CTO_REPORT handoff | DONE | _(pending)_ | closure package ready |
 
 ## Progress
 
-- **Done:** 9 / 10  
-- **Decision:** D-064 (P11-008 APPROVED · P11-009 authorized)  
-- **Current:** P11-009 complete — **STOP** · await CTO review before P11-010
+- **Done:** 10 / 10  
+- **Decision:** D-065 (P11-009 APPROVED · P11-010 authorized)  
+- **Current:** P11-010 complete — **await CTO Closure Review** · Phase 12 not authorized
