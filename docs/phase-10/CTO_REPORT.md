@@ -18,7 +18,7 @@
 | P10-004 | CLOSED | `a420393` |
 | P10-005 | D-059 | `8dbf922` |
 | P10-006 | APPROVED WITH CONDITIONS | `e76d4b0` |
-| P10-007 | pending review | pending |
+| P10-007 | pending review | `121edfc` |
 
 ## P10-007 — Billing admin refactor
 

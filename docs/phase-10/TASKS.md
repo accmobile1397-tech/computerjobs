@@ -21,7 +21,7 @@
 | P10-004 | Dashboard summary API | DONE | `a420393` | CLOSED |
 | P10-005 | Audit viewer API | DONE | `8dbf922` | D-059 APPROVED · CLOSED |
 | P10-006 | Events + Settings + Monitoring APIs | DONE | `e76d4b0` | APPROVED WITH CONDITIONS · CLOSED |
-| P10-007 | Billing admin refactor | DONE | pending | Prisma out of route → billing-admin.service |
+| P10-007 | Billing admin refactor | DONE | `121edfc` | Prisma out of route → billing-admin.service |
 | P10-008 | Admin UI shell | OPEN | — | `(admin)` layout · RTL · nav · auth gate · C-005-1 |
 | P10-009 | Dashboard UI page | OPEN | — | consumes dashboard API |
 | P10-010 | Audit viewer UI | OPEN | — | table + filters |
