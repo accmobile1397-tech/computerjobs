@@ -19,6 +19,14 @@ import {
   monitoringChecksToRows,
   monitoringCountersToRows,
 } from "@/modules/admin/ui/monitoring";
+import {
+  buildDeliveriesQueryString,
+  buildInboxQueryString,
+  DEFAULT_DELIVERY_FILTERS,
+  DEFAULT_INBOX_FILTERS,
+  formatReadAt,
+  NOTIFICATION_HUB_LINKS,
+} from "@/modules/admin/ui/notifications";
 
 describe("admin UI access (P10-008)", () => {
   it("allows super_admin and admin roles", () => {
@@ -223,6 +231,84 @@ describe("monitoring page uses Admin API only (P10-012)", () => {
       "utf8",
     );
     expect(source).toContain('"/api/v1/admin/monitoring/summary"');
+  });
+});
+
+describe("notification admin helpers (P10-013)", () => {
+  it("builds delivery and inbox query strings from filters", () => {
+    const deliveries = buildDeliveriesQueryString({
+      ...DEFAULT_DELIVERY_FILTERS,
+      page: 2,
+      status: "FAILED",
+      channel: "EMAIL",
+    });
+    const dParams = new URLSearchParams(deliveries);
+    expect(dParams.get("page")).toBe("2");
+    expect(dParams.get("status")).toBe("FAILED");
+    expect(dParams.get("channel")).toBe("EMAIL");
+
+    const inbox = buildInboxQueryString({
+      ...DEFAULT_INBOX_FILTERS,
+      ownerId: "user-1",
+      eventId: "evt-1",
+    });
+    const iParams = new URLSearchParams(inbox);
+    expect(iParams.get("ownerId")).toBe("user-1");
+    expect(iParams.get("eventId")).toBe("evt-1");
+  });
+
+  it("exposes hub links including read-only inbox", () => {
+    expect(NOTIFICATION_HUB_LINKS.some((l) => l.href.endsWith("/inbox"))).toBe(
+      true,
+    );
+    expect(
+      NOTIFICATION_HUB_LINKS.find((l) => l.href.endsWith("/inbox"))?.readOnly,
+    ).toBe(true);
+    expect(formatReadAt(null)).toBe("خوانده‌نشده");
+  });
+});
+
+describe("notification admin UI uses Phase 9 Admin APIs (P10-013)", () => {
+  it("API client targets /api/v1/admin/notifications/*", () => {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), "src/modules/admin/ui/admin-api-client.ts"),
+      "utf8",
+    );
+    expect(source).toContain("/api/v1/admin/notifications");
+    expect(source).toContain("fetchNotificationInbox");
+    expect(source).toContain("fetchNotificationDeliveries");
+  });
+
+  it("inbox client is GET-only with no mutation actions (C-009-6)", () => {
+    const source = fs.readFileSync(
+      path.join(
+        process.cwd(),
+        "src/app/(admin)/admin/notifications/inbox/admin-notification-inbox-client.tsx",
+      ),
+      "utf8",
+    );
+    expect(source).toContain("fetchNotificationInbox");
+    expect(source).toContain("C-009-6");
+    expect(source).not.toMatch(/prisma/i);
+    expect(source).not.toMatch(/method:\s*["'](POST|PUT|PATCH|DELETE)["']/);
+    expect(source).not.toMatch(/markRead|softDelete|onDelete|onRetry|onResend/);
+    expect(source).not.toContain("createNotification");
+    expect(source).not.toContain("patchNotification");
+  });
+
+  it("deliveries client has no retry/resend actions", () => {
+    const source = fs.readFileSync(
+      path.join(
+        process.cwd(),
+        "src/app/(admin)/admin/notifications/deliveries/admin-notification-deliveries-client.tsx",
+      ),
+      "utf8",
+    );
+    expect(source).toContain("fetchNotificationDeliveries");
+    expect(source).not.toMatch(/method:\s*["'](POST|PUT|PATCH|DELETE)["']/);
+    expect(source).not.toMatch(/onRetry|onResend|retryDelivery|resendDelivery/);
+    expect(source).not.toContain("createNotification");
+    expect(source).not.toContain("patchNotification");
   });
 });
 

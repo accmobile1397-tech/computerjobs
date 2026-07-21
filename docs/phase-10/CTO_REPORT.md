@@ -1,14 +1,16 @@
 # CTO Report — Phase 10: Admin Platform
 
-**Tasks:** 12 / 15 · **Awaiting:** P10-012  
-**Tests:** see AI_CTO_STATUS · typecheck green
+**Tasks:** 13 / 15 · **Awaiting:** P10-013  
+**Tests:** 192/192 · typecheck green
 
-## P10-012 — Monitoring UI
+## P10-013 — Notification Admin UI
 
-- `/admin/monitoring` consumes `GET /api/v1/admin/monitoring/summary` only
-- Displays platform health (`status`, `checks.database` / `checks.redis`) and counters from Admin API
-- Read-only viewer — no restart / flush / repair / execute / maintenance actions
-- No Grafana / Prometheus or direct infra access from UI
-- RTL Persian · C-005-1 (UI → API only · no Prisma / repos / DB clients)
+- Hub + pages under `/admin/notifications/{templates,mappings,deliveries,inbox}`
+- Consumes Phase 9 Admin APIs only: `/api/v1/admin/notifications/*`
+- Templates: list / create / patch / soft-delete via Admin API
+- Mappings: list / create / patch via Admin API
+- Deliveries: GET-only viewer (no retry / resend / provider management)
+- Inbox: GET-only viewer — **C-009-6** (no mark-read / delete)
+- RTL Persian · C-005-1 (UI → API only · no Prisma)
 
-**Stop.** Await CTO review before P10-013.
+**Stop.** Await CTO review before P10-014.

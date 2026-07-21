@@ -10,6 +10,26 @@ import type {
   SystemSettingItemDto,
 } from "@/modules/admin/ui/settings";
 import type { MonitoringSummaryDto } from "@/modules/admin/ui/monitoring";
+import type {
+  DeliveryListFilters,
+  InboxListFilters,
+  NotificationDeliveryListDto,
+  NotificationInboxListDto,
+  NotificationMappingDto,
+  NotificationMappingListDto,
+  NotificationTemplateDto,
+  NotificationTemplateListDto,
+  PatchMappingInput,
+  PatchTemplateInput,
+  UpsertMappingInput,
+  UpsertTemplateInput,
+} from "@/modules/admin/ui/notifications";
+import {
+  buildDeliveriesQueryString,
+  buildInboxQueryString,
+  buildMappingsQueryString,
+  buildTemplatesQueryString,
+} from "@/modules/admin/ui/notifications";
 
 export type AdminApiEnvelope<T> = {
   success: boolean;
@@ -91,4 +111,91 @@ export async function fetchMonitoringSummary(): Promise<
   return adminFetch<MonitoringSummaryDto>(
     "/api/v1/admin/monitoring/summary",
   );
+}
+
+const NOTIF_BASE = "/api/v1/admin/notifications";
+
+export async function fetchNotificationTemplates(input: {
+  page: number;
+  limit: number;
+}): Promise<AdminApiEnvelope<NotificationTemplateListDto>> {
+  const qs = buildTemplatesQueryString(input.page, input.limit);
+  return adminFetch<NotificationTemplateListDto>(
+    `${NOTIF_BASE}/templates?${qs}`,
+  );
+}
+
+export async function createNotificationTemplate(
+  input: UpsertTemplateInput,
+): Promise<AdminApiEnvelope<{ item: NotificationTemplateDto }>> {
+  return adminFetch<{ item: NotificationTemplateDto }>(
+    `${NOTIF_BASE}/templates`,
+    { method: "POST", body: JSON.stringify(input) },
+  );
+}
+
+export async function patchNotificationTemplate(
+  id: string,
+  input: PatchTemplateInput,
+): Promise<AdminApiEnvelope<{ item: NotificationTemplateDto }>> {
+  return adminFetch<{ item: NotificationTemplateDto }>(
+    `${NOTIF_BASE}/templates/${id}`,
+    { method: "PATCH", body: JSON.stringify(input) },
+  );
+}
+
+export async function softDeleteNotificationTemplate(
+  id: string,
+): Promise<AdminApiEnvelope<{ item: NotificationTemplateDto }>> {
+  return adminFetch<{ item: NotificationTemplateDto }>(
+    `${NOTIF_BASE}/templates/${id}`,
+    { method: "DELETE" },
+  );
+}
+
+export async function fetchNotificationMappings(input: {
+  page: number;
+  limit: number;
+  configVersion?: string;
+}): Promise<AdminApiEnvelope<NotificationMappingListDto>> {
+  const qs = buildMappingsQueryString(input);
+  return adminFetch<NotificationMappingListDto>(
+    `${NOTIF_BASE}/mappings?${qs}`,
+  );
+}
+
+export async function createNotificationMapping(
+  input: UpsertMappingInput,
+): Promise<AdminApiEnvelope<{ item: NotificationMappingDto }>> {
+  return adminFetch<{ item: NotificationMappingDto }>(
+    `${NOTIF_BASE}/mappings`,
+    { method: "POST", body: JSON.stringify(input) },
+  );
+}
+
+export async function patchNotificationMapping(
+  id: string,
+  input: PatchMappingInput,
+): Promise<AdminApiEnvelope<{ item: NotificationMappingDto }>> {
+  return adminFetch<{ item: NotificationMappingDto }>(
+    `${NOTIF_BASE}/mappings/${id}`,
+    { method: "PATCH", body: JSON.stringify(input) },
+  );
+}
+
+export async function fetchNotificationDeliveries(
+  filters: DeliveryListFilters,
+): Promise<AdminApiEnvelope<NotificationDeliveryListDto>> {
+  const qs = buildDeliveriesQueryString(filters);
+  return adminFetch<NotificationDeliveryListDto>(
+    `${NOTIF_BASE}/deliveries?${qs}`,
+  );
+}
+
+/** C-009-6: GET only — no mark-read / delete client methods. */
+export async function fetchNotificationInbox(
+  filters: InboxListFilters,
+): Promise<AdminApiEnvelope<NotificationInboxListDto>> {
+  const qs = buildInboxQueryString(filters);
+  return adminFetch<NotificationInboxListDto>(`${NOTIF_BASE}/inbox?${qs}`);
 }
