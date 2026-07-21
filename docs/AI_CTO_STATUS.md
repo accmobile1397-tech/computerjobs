@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — P11-002 URL normalize + canonical |
+| **Commit to review** | [`2b975c4`](https://github.com/accmobile1397-tech/computerjobs/commit/2b975c4) — P11-002 URL normalize + canonical |
 
 ---
 
