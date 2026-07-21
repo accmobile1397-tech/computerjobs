@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for external CTO reviews.  
 **Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-21 · Phase 9 implementation complete (15/15) · awaiting Closure Review
+**Last updated:** 2026-07-21 · **Phase 9 CLOSED** (D-053) · tag pending sign-off
 
 ---
 
@@ -10,20 +10,23 @@
 
 Persian-first job platform for technology professionals.  
 **Stack:** Next.js · Prisma/MySQL · Redis · BullMQ · `src/modules/`.  
-**Live:** Auth/RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI Gateway · Notifications (full MVP).  
+**Live:** Auth/RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI Gateway · **Notifications (MVP)**.  
 **Workflow:** RFC → Spec → CTO APPROVE → Implement → Review → Tag. Commits on `main`.
 
 ---
 
 ## 2. Current Phase
 
-**Phase 9 — Notification System** · 🟡 15/15 tasks done · awaiting **Closure Review**  
-[TASKS.md](./phase-9/TASKS.md) · [PHASE_9_FINAL_REPORT.md](./phase-9/PHASE_9_FINAL_REPORT.md)
+**Phase 9 — Notification System** · 🟢 **CLOSED** (APPROVE WITH CONDITIONS · D-053)  
+**Tag:** `v0.10-phase-9` — **pending final CTO sign-off**
+
+Docs: [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md) · [PHASE_9_FINAL_REPORT.md](./phase-9/PHASE_9_FINAL_REPORT.md)
 
 ---
 
-## 3. Last Approved Phase
+## 3. Last Closed Phase
 
+**Phase 9** · CLOSED (implementation) · tag pending  
 **Phase 8** · ✅ CLOSED · `v0.9-phase-8`
 
 ---
@@ -38,11 +41,11 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
+| _(closure)_ | docs(phase-9): closure conditions C-P9-1..3 (D-053) |
+| `cd55fd1` | docs(phase-9): record P9-015 commit ref |
 | `5c04a5d` | test(notifications): Phase 9 hardening + final report (P9-015) |
 | `b16bd69` | docs(phase-9): record P9-014 commit ref |
 | `dec5cd7` | feat(iam): seed notification permissions and enforce on routes (P9-014) |
-| `babadce` | docs(phase-9): record P9-013 commit ref |
-| `4517e65` | feat(notifications): add admin template/mapping/delivery APIs (P9-013) |
 
 ---
 
@@ -50,37 +53,43 @@ Persian-first job platform for technology professionals.
 
 | Milestone | Status |
 |-----------|--------|
-| P9-001..P9-014 | ✅ APPROVED |
-| P9-015 Tests & Hardening | ✅ Done · awaiting Closure Review |
+| P9-001..P9-015 | ✅ Done |
+| P9-014 IAM | ✅ APPROVED |
+| Closure C-P9-1..3 | ✅ Executed |
+| Phase 9 tag | ⏳ Awaiting final sign-off |
 
-**Deferred:** Phase 6 closeout · BullMQ EventBus → later · Phase 10 after P9 close.
+**Next (after tag):** Phase 10 Admin Platform **spec only** — not implemented.
 
 ---
 
 ## 7. In Progress Tasks
 
-None — **awaiting CTO Phase 9 Closure Review**.
+None — **awaiting final CTO sign-off** for tag `v0.10-phase-9`.
 
 ---
 
-## 8. Pending Tasks (Phase 9)
+## 8. Pending Tasks
 
-None (implementation). Closure tag pending CTO.
+| Item | Owner |
+|------|-------|
+| Final sign-off + tag | CTO |
+| Phase 10 spec authorization | CTO (after tag) |
+| Phase 6 formal close | Deferred |
 
 ---
 
 ## 9. Open Risks
 
-- Phase 6 not tagged (deferred).
-- TD-P2-1 no HTTP integration tests.
-- Existing DBs need re-seed for notification permission rows.
-- Email/SMS are stubs — not production vendor SDKs.
+- **Existing DBs:** must re-run `npm run db:seed` for notification permissions ([MIGRATION.md](./MIGRATION.md))
+- TD-P2-1: no HTTP integration tests
+- Email/SMS: stub adapters only
+- Phase 6 not tagged
 
 ---
 
 ## 10. Architecture Decisions (active)
 
-C-009-1..6 · D-052 notification IAM · Inbox SoT = `notifications` · Handlers → Gateway only · Catalog SoT for events (NOTE-5).
+D-053 · D-052 · C-009-1..6 · Catalog SoT · Handlers → Gateway only
 
 ---
 
@@ -93,16 +102,15 @@ C-009-1..6 · D-052 notification IAM · Inbox SoT = `notifications` · Handlers 
 
 ## 12. Questions For CTO
 
-1. **Phase 9 Closure** — APPROVE / APPROVE WITH CONDITIONS / REJECT?
-2. Tag name confirmation (suggested: `v0.10-phase-9`)?
-3. Authorize Phase 10 Admin Platform after close?
+1. **Final sign-off** — approve tag `v0.10-phase-9`?
+2. Authorize **Phase 10 spec** after tag?
 
 ---
 
 ## 13. Recommended Next Actions
 
-1. Review [PHASE_9_FINAL_REPORT.md](./phase-9/PHASE_9_FINAL_REPORT.md).
-2. If APPROVE → tag Phase 9 · update ROADMAP.
-3. **Do not start Phase 10** until Closure Review completes.
+1. Review [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md)
+2. Sign off → `git tag v0.10-phase-9`
+3. **Do not start Phase 10 implementation**
 
-**Health:** 126/126 tests · typecheck green · prisma validate green.
+**Health:** 130/130 tests · typecheck green · prisma validate green.

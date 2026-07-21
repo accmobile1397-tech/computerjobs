@@ -1,29 +1,26 @@
 # CTO Report — Phase 9: Notification System
 
-**Phase:** 9 · **Status:** 🟡 Implementation complete · awaiting Closure Review  
-**Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) ✅ APPROVED (C-009-1..6)  
-**Final report:** [PHASE_9_FINAL_REPORT.md](./PHASE_9_FINAL_REPORT.md)  
-**Tasks:** [TASKS.md](./TASKS.md) · **Project status:** [AI_CTO_STATUS.md](../AI_CTO_STATUS.md)
+**Phase:** 9 · **Status:** 🟢 **CLOSED** (D-053 · APPROVE WITH CONDITIONS)  
+**Tag:** `v0.10-phase-9` pending final CTO sign-off  
+**Closure:** [PHASE_9_CLOSURE_REPORT.md](./PHASE_9_CLOSURE_REPORT.md) · [PHASE_9_FINAL_REPORT.md](./PHASE_9_FINAL_REPORT.md)
 
 ## Progress
 
 | Metric | Value |
 |--------|-------|
 | Tasks done | 15 / 15 |
-| Last commit | `5c04a5d` |
-| Tests | 126/126 pass |
+| Closure conditions | C-P9-1..3 ✅ |
+| Tests | 130/130 pass |
 | Typecheck | green |
 | Prisma validate | green |
 
-## Completed tasks
+## Closure conditions (executed)
 
-### P9-001..P9-014 ✅ (CTO APPROVED)
-
-### P9-015 Tests & Hardening ✅
-
-- Added `phase9-hardening.test.ts` (+12): architecture, mapping, registration, correlationId, idempotency, prefs opt-out, route IAM, admin inbox read-only
-- Verified E2E contract: Event → Handler → Gateway → Provider → Delivery → Inbox → API
-- Confirmed: no feature-module provider imports · handlers → gateway only · templates from registry · permissions on all notification routes
+| ID | Item |
+|----|------|
+| C-P9-1 | Notification permission seed docs + automated seed contract test |
+| C-P9-2 | README.md phase/status update |
+| C-P9-3 | D-053 + PHASE_9_CLOSURE_REPORT.md |
 
 ## Debt (carry)
 
@@ -31,4 +28,4 @@ TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1
 
 ## Next
 
-**CTO Phase 9 Closure Review** — do not start Phase 10 until approved.
+**Final CTO sign-off** → tag `v0.10-phase-9`. Phase 10 **not authorized**.

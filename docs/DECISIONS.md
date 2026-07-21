@@ -32,7 +32,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-20 | D-047 | RFC-003 Event Architecture — **CLOSED** (C-003-1/2) | **Closed** |
 | 2026-07-20 | D-048 | RFC-004 Notification Architecture — **CLOSED** | **Closed** |
 | 2026-07-20 | D-049 | RFC-005 Admin Platform — **CLOSED** (C-005-1/2) | **Closed** |
-| 2026-07-20 | D-050 | Phase 9 spec — **APPROVE WITH CONDITIONS** · implementation AUTHORIZED | Active |
+| 2026-07-21 | D-053 | **Phase 9 CLOSED** — APPROVE WITH CONDITIONS (C-P9-1..3) · tag pending sign-off | **Closed** |
+| 2026-07-20 | D-050 | Phase 9 spec — **APPROVE WITH CONDITIONS** · implementation AUTHORIZED | **Closed** |
 | 2026-07-20 | TD-NOTIF-2 | Notification Digest Engine | Active (P2) |
 | 2026-07-20 | D-052 | Phase 9 notification IAM permissions (P9-014) | Active |
 | 2026-07-20 | D-051 | **Core architecture stack complete** (through Events/Notifications/Admin RFCs) | Active |
@@ -72,6 +73,26 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-053: Phase 9 CLOSED — Notification System (APPROVE WITH CONDITIONS)
+
+**Decision (2026-07-21):** Phase 9 implementation **CLOSED** after Closure Review. Tag `v0.10-phase-9` **pending final CTO sign-off**.
+
+| Condition | Requirement | Status |
+|-----------|-------------|--------|
+| C-P9-1 | Document + verify notification permission seed for existing DBs | ✅ |
+| C-P9-2 | Update `README.md` phase/project status; remove stale Phase 0 refs | ✅ |
+| C-P9-3 | Register closure decision (this entry) + closure report | ✅ |
+
+**Delivered:** P9-001..P9-015 · 126 unit tests · EventBus · Catalog · Gateway · Stub providers · User/Admin APIs · IAM (D-052).
+
+**Closure docs:** [PHASE_9_FINAL_REPORT.md](./phase-9/PHASE_9_FINAL_REPORT.md) · [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md)
+
+**Not in scope (deferred):** real Email/SMS vendors · BullMQ EventBus · WEBHOOK channel · Digest engine · Phase 10 UI.
+
+**Next authorized step:** Phase 10 **spec only** after tag sign-off — **no implementation** until CTO authorizes.
 
 ---
 

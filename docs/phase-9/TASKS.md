@@ -33,7 +33,7 @@
 ## Progress
 
 - **Done:** 15 / 15
-- **Current:** none — await **CTO Phase 9 Closure Review**
+- **Current:** CLOSED (D-053) — await **final sign-off + tag**
 - **Blocked:** —
 
 ---

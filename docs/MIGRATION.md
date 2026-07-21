@@ -36,10 +36,53 @@ npx prisma migrate dev --name init
 ## ۳. Seed Data
 
 ```bash
-npx prisma db seed
+npm run db:seed
 ```
 
-Phase 0: seed placeholder خالی — seed واقعی از Phase 2 (Location) و Phase 3 (Taxonomy) شروع می‌شود.
+Seeds IAM permissions/roles, location, taxonomy, billing plans, and notification templates.  
+**Idempotent:** safe to re-run on existing databases (uses `upsert`).
+
+### Phase 9 — notification permissions (existing databases)
+
+Added in P9-014 (D-052). Databases created **before** `dec5cd7` will not have notification permission rows until seed is re-run.
+
+**Required slugs:**
+
+| Slug | Roles |
+|------|--------|
+| `notifications:read:own` | `job_seeker`, `employer`, `super_admin` |
+| `notifications:preferences:own` | `job_seeker`, `employer`, `super_admin` |
+| `notifications:admin` | `admin`, `super_admin` |
+
+**Upgrade steps (staging / production):**
+
+```bash
+# 1. Backup database
+# 2. Apply pending migrations
+npm run db:deploy
+
+# 3. Re-run seed (idempotent — upserts permissions + role mappings only; does not wipe data)
+npm run db:seed
+```
+
+**Verify (MySQL):**
+
+```sql
+SELECT slug FROM Permission WHERE slug LIKE 'notifications:%' AND deletedAt IS NULL;
+-- Expect 3 rows
+
+SELECT r.slug AS role, p.slug AS permission
+FROM RolePermission rp
+JOIN Role r ON r.id = rp.roleId
+JOIN Permission p ON p.id = rp.permissionId
+WHERE p.slug LIKE 'notifications:%' AND rp.deletedAt IS NULL
+ORDER BY r.slug, p.slug;
+-- Expect: job_seeker×2, employer×2, admin×1, super_admin×3
+```
+
+**Automated check:** `src/modules/notifications/permissions.test.ts` (C-P9-1 seed contract).
+
+**Reference:** [docs/phase-9/PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md) · D-052 · D-053
 
 ---
 

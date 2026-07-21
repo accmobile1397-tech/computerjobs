@@ -99,38 +99,43 @@ src/modules/
 | Document | Description |
 |----------|-------------|
 | [.cto/RULEBOOK.md](.cto/RULEBOOK.md) | **CTO rules index** |
+| [docs/ROADMAP.md](docs/ROADMAP.md) | Project roadmap (SoT) |
 | [docs/DECISIONS.md](docs/DECISIONS.md) | Decision log |
+| [docs/AI_CTO_STATUS.md](docs/AI_CTO_STATUS.md) | **Current project status** |
 | [docs/adr/](docs/adr/) | Architecture Decision Records |
 | [docs/rfc/](docs/rfc/) | Feature RFCs |
-| [docs/phase-0/CTO_REPORT.md](docs/phase-0/CTO_REPORT.md) | Phase 0 — **Approved** |
-| [docs/phase-1/README.md](docs/phase-1/README.md) | Phase 1 IAM (next) |
-| [docs/phase-0/ARCHITECTURE.md](docs/phase-0/ARCHITECTURE.md) | معماری |
-| [docs/phase-0/DATABASE_DESIGN.md](docs/phase-0/DATABASE_DESIGN.md) | طراحی DB |
-| [docs/phase-0/API_DESIGN.md](docs/phase-0/API_DESIGN.md) | طراحی API |
-| [docs/phase-0/ACCEPTANCE_CRITERIA.md](docs/phase-0/ACCEPTANCE_CRITERIA.md) | معیارهای پذیرش |
-| [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | استقرار OpenShip VPS |
-| [docs/MIGRATION.md](docs/MIGRATION.md) | Prisma migrations |
-| [docs/CHANGELOG.md](docs/CHANGELOG.md) | تغییرات |
+| [docs/phase-9/PHASE_9_FINAL_REPORT.md](docs/phase-9/PHASE_9_FINAL_REPORT.md) | Phase 9 — final report |
+| [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | OpenShip VPS deployment |
+| [docs/MIGRATION.md](docs/MIGRATION.md) | Prisma migrations & seed |
+| [docs/CHANGELOG.md](docs/CHANGELOG.md) | Changelog |
 
 ---
 
 ## Phase Status
 
-**Phase 0 — Foundation & Architecture** (current)
+**Roadmap SoT:** [docs/ROADMAP.md](docs/ROADMAP.md)
 
-- [x] Next.js scaffold + RTL Persian
-- [x] Docker Compose (MySQL, Redis, MinIO)
-- [x] Prisma + health endpoints
-- [x] CI pipeline
-- [x] OpenShip VPS deployment docs
+| Phase | Scope | Status |
+|-------|--------|--------|
+| 0–5 | Foundation → Resume | Closed (`v0.2`–`v0.6`) |
+| 6 | Search & Matching | Implemented · formal close pending |
+| 7A–7B | Entitlements · Payments | Closed (`v0.7`–`v0.8`) |
+| 8 | AI Gateway & Features | Closed (`v0.9-phase-8`) |
+| **9** | **Notification System** | **Closed** (APPROVE WITH CONDITIONS · tag pending sign-off) |
+| 10 | Admin Platform | Spec next — **not started** |
+| 11–15 | SEO · SSR · Analytics · … | Planned |
+
+**Capabilities live:** Auth · RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI · Events · Notifications.
+
+---
 
 ## CTO Review Process
 
 1. Agent reads [`.cto/RULEBOOK.md`](.cto/RULEBOOK.md) before each phase
-2. Agent produces [`docs/phase-0/CTO_REPORT.md`](docs/phase-0/CTO_REPORT.md) at phase end
-3. Human CTO reviews → feedback → fixes → approval → next phase
+2. Spec → CTO APPROVE → implement → `CTO_REPORT` / closure report
+3. Tag on `main` after final sign-off
 
-**Current status:** Phase 0 **Approved** — Phase 1 IAM spec next
+**Current status:** Phase 9 closure commit submitted — awaiting **final CTO sign-off** before tag `v0.10-phase-9`. Phase 10 **not authorized**.
 
 ---
 

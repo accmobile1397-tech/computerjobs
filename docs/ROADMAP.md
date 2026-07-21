@@ -23,10 +23,13 @@ The project is no longer in the foundation stage. The platform is **technically 
 | 7A | Entitlements, Plans, Quotas, Wallet | `v0.7-phase-7A` |
 | 7B | Payments | `v0.8-phase-7B` |
 | 8 | AI Gateway & Initial AI Features | `v0.9-phase-8` |
+| 9 | Notification System | tag pending (`v0.10-phase-9`) |
 
-**Capabilities live today:** Auth · RBAC · Companies · Jobs · Resumes · Search · Matching · Billing · Payments · AI Gateway.
+**Capabilities live today:** Auth · RBAC · Companies · Jobs · Resumes · Search · Matching · Billing · Payments · AI Gateway · **Notifications**.
 
-**Deferred slice:** Phase **8.1** Resume AI Suggest (from P8-2).
+**Phase 9:** CLOSED (implementation) — tag `v0.10-phase-9` pending final sign-off. See [phase-9/PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md).
+
+**Next:** Phase 10 Admin Platform **spec** (after tag) — implementation not authorized.
 
 ---
 
@@ -48,7 +51,7 @@ Remaining risks (Phase 13+): Analytics · Observability at scale.
 | RFC-004 | Notification Architecture | ✅ CLOSED (D-048) |
 | RFC-005 | Admin Platform Architecture | ✅ CLOSED (D-049) |
 
-**Next:** Phase 9 implementation per [IMPLEMENTATION_PLAN.md](./phase-9/IMPLEMENTATION_PLAN.md) (spec ✅ APPROVED).
+**Next:** Phase 10 spec (RFC-005) after tag — see [phase-9/PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md).
 
 ---
 
@@ -58,7 +61,7 @@ CTO-approved order:
 
 | Phase | Scope |
 |-------|--------|
-| **9** | Notification System |
+| **9** | Notification System — **CLOSED** (D-053 · tag pending) |
 | **10** | Admin Platform |
 | **11** | SEO Foundation |
 | **12** | SSR Public Pages |

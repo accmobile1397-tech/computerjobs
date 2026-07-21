@@ -20,7 +20,15 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ## [Unreleased]
 
-### Phase 9 Spec
+### Phase 9 — Notification System (CLOSED)
+
+- **APPROVE WITH CONDITIONS** at closure (D-053 · C-P9-1..3)
+- P9-001..P9-015 complete · 130 tests
+- Tag `v0.10-phase-9` pending final CTO sign-off
+- Ops: existing DBs must re-run `npm run db:seed` for notification permissions
+- **Next:** Phase 10 spec only (not implemented)
+
+### Phase 9 Spec (historical)
 
 - **APPROVE WITH CONDITIONS** (C-009-1..4) — implementation AUTHORIZED
 - Plan: `docs/phase-9/IMPLEMENTATION_PLAN.md`

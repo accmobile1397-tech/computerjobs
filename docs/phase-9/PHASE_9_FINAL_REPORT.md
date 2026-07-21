@@ -1,8 +1,9 @@
 # Phase 9 Final Report — Notification System
 
-**Phase:** 9 · **Status:** 🟡 Implementation complete · awaiting CTO Closure Review  
+**Phase:** 9 · **Status:** 🟢 **CLOSED** (D-053 · APPROVE WITH CONDITIONS)  
+**Tag:** `v0.10-phase-9` — **pending final CTO sign-off**  
 **Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) ✅ APPROVED (C-009-1..6)  
-**Tasks:** [TASKS.md](./TASKS.md) · **Handoff:** [CTO_REPORT.md](./CTO_REPORT.md)
+**Closure:** [PHASE_9_CLOSURE_REPORT.md](./PHASE_9_CLOSURE_REPORT.md) · [TASKS.md](./TASKS.md)
 
 ---
 
@@ -38,7 +39,7 @@ Feature module
 | ID | Task | Commit |
 |----|------|--------|
 | P9-001 | EventBus (in-memory) | `828f751` |
-| P9-002 | Event Catalog + `EVENTS.*` | `2b33999` / follow-ups |
+| P9-002 | Event Catalog + `EVENTS.*` | `2b33999` |
 | P9-003 | Payment publisher | `097d86b` |
 | P9-004 | Job application publisher | `cb4bb04` |
 | P9-005 | Notification tables / enums | `1ed34df` |
@@ -51,52 +52,36 @@ Feature module
 | P9-012 | User inbox + preferences API | `6fce48c` |
 | P9-013 | Admin templates/mapping/delivery | `4517e65` |
 | P9-014 | IAM permissions (D-052) | `dec5cd7` |
-| P9-015 | Tests & Hardening | `5c04a5d` |
+| P9-015 | Tests & hardening | `5c04a5d` |
+
+**Closure conditions (C-P9-1..3):** executed in closure commit — see [PHASE_9_CLOSURE_REPORT.md](./PHASE_9_CLOSURE_REPORT.md).
 
 ---
 
-## 3. Verification (P9-015)
+## 3. Verification
 
 | Check | Result |
 |-------|--------|
 | Full test suite | **126/126** pass |
 | Typecheck | green |
 | Prisma validate | green |
-| Feature modules → providers | forbidden (static test) |
-| Handlers → gateway only | enforced (static + unit) |
-| Templates from registry | enforced |
-| Admin inbox read-only | GET-only + no writes |
-| Permissions on all notification routes | enforced |
-| Idempotency | `(eventId, channel, recipient, templateKey, version)` |
-| Preferences opt-out | SKIPPED / OPT_OUT |
-| `correlationId` | event → delivery → provider |
+| Seed contract (C-P9-1) | green |
+| Feature modules → providers | forbidden |
+| Handlers → gateway only | enforced |
+| Permissions on all routes | enforced |
+| Idempotency · prefs · correlationId | verified (P9-015) |
 
 ---
 
 ## 4. Open technical debt
 
-| ID | Item | Priority |
-|----|------|----------|
-| TD-NOTIF-1 | WEBHOOK channel (enum reserved) | P2 |
-| TD-NOTIF-2 | Notification Digest Engine | P2 |
-| TD-EVT-1 | Central Event Registry service | P2 |
-| TD-ADMIN-1 | Feature Flag Engine | P2 |
-| TD-P2-1 | HTTP integration tests | P1 |
-
-Carry from prior phases: TD-P5-1 · TD-P6-1/2 · TD-P7A-* · TD-P7B-* · TD-P8-1
+TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1 · prior-phase items — see [DECISIONS.md](../DECISIONS.md)
 
 ---
 
-## 5. Deferred / reserved (not Phase 9)
+## 5. Deferred / reserved
 
-- BullMQ async EventBus (sync-first per RFC-003 NOTE-3)
-- `NotificationPriority` queue behavior
-- Channel capability matrix runtime enforcement
-- Real Push delivery (stub/SKIPPED only)
-- Real Email/SMS vendor SDKs (stubs only)
-- Phase 10 Admin Platform UI
-- Phase 13 Analytics (must consume catalog SoT — NOTE-5)
-- Formal Phase 6 close/tag (still pending)
+BullMQ EventBus · real Email/SMS · WEBHOOK · Digest · Push · Phase 10 UI · Phase 13 analytics (catalog SoT)
 
 ---
 
@@ -104,31 +89,13 @@ Carry from prior phases: TD-P5-1 · TD-P6-1/2 · TD-P7A-* · TD-P7B-* · TD-P8-1
 
 | Item | Status |
 |------|--------|
-| Spec APPROVED (C-009-1..6) | ✅ |
-| Event-driven publish-after-success | ✅ |
-| Idempotent delivery | ✅ |
-| Preference opt-out | ✅ |
-| `correlationId` E2E | ✅ |
-| User inbox + preferences APIs | ✅ |
-| Admin template/mapping/delivery APIs | ✅ |
-| Admin inbox read-only (C-009-6) | ✅ |
-| IAM seeded + enforced (D-052) | ✅ |
-| Unit tests green | ✅ |
-| Typecheck / Prisma validate | ✅ |
-| Live Email/SMS provider config | ❌ deferred (stubs) |
-| HTTP/E2E smoke (TD-P2-1) | ❌ open |
-| Re-seed existing DBs for new perms | ⚠️ ops required |
-| Phase close tag | ⏳ awaiting CTO |
+| Implementation complete | ✅ |
+| Closure conditions C-P9-1..3 | ✅ |
+| Existing DB re-seed documented | ✅ [MIGRATION.md](../MIGRATION.md) |
+| Live Email/SMS vendors | ❌ deferred |
+| HTTP/E2E (TD-P2-1) | ❌ open |
+| Git tag | ⏳ pending final CTO sign-off |
 
 ---
 
-## 7. Recommended CTO actions
-
-1. **Closure Review** of Phase 9 (this report + `CTO_REPORT.md`).
-2. If APPROVE → tag e.g. `v0.10-phase-9` · update ROADMAP.
-3. Authorize **Phase 10 Admin Platform** per roadmap (after close).
-4. Schedule TD-P2-1 HTTP integration tests before production traffic.
-
----
-
-**Do not start Phase 10 until CTO Closure Review completes.**
+**Phase 10 not authorized.** Await final sign-off → tag → Phase 10 spec.
