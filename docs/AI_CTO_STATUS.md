@@ -41,7 +41,7 @@ Docs: [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md) · [PHASE
 
 | Commit | Message |
 |--------|---------|
-| _(closure)_ | docs(phase-9): closure conditions C-P9-1..3 (D-053) |
+| `ba7cad3` | docs(phase-9): close Phase 9 with conditions C-P9-1..3 (D-053) |
 | `cd55fd1` | docs(phase-9): record P9-015 commit ref |
 | `5c04a5d` | test(notifications): Phase 9 hardening + final report (P9-015) |
 | `b16bd69` | docs(phase-9): record P9-014 commit ref |

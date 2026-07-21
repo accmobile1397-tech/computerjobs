@@ -13,7 +13,7 @@
 | Review result | **APPROVE WITH CONDITIONS** |
 | Tasks completed | 15 / 15 (P9-001..P9-015) |
 | Implementation commit range | `828f751` … `5c04a5d` |
-| Closure commit | _(this commit)_ |
+| Closure commit | `ba7cad3` |
 | Suggested tag | `v0.10-phase-9` |
 
 ---
