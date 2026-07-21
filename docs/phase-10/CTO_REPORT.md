@@ -26,7 +26,7 @@
 | P10-002 | D-056 APPROVED | `d4d11b6` |
 | P10-003 | D-057 APPROVED | `e73eabb` |
 | P10-004 | CLOSED | `a420393` |
-| P10-005 | pending review | pending |
+| P10-005 | pending review | `8dbf922` |
 
 ---
 

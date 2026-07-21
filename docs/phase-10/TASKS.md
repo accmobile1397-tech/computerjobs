@@ -19,7 +19,7 @@
 | P10-002 | Permissions registry + alias helper | DONE | `d4d11b6` | D-056 APPROVED · CLOSED |
 | P10-003 | DomainEventLog migration + bus hook | DONE | `e73eabb` | D-057 APPROVED · CLOSED |
 | P10-004 | Dashboard summary API | DONE | `a420393` | CLOSED · P10-005 authorized |
-| P10-005 | Audit viewer API | DONE | pending | GET `/admin/audit` · paginated read-only |
+| P10-005 | Audit viewer API | DONE | `8dbf922` | GET `/admin/audit` · paginated read-only |
 | P10-006 | Events + Settings + Monitoring APIs | OPEN | — | GET `/admin/events` · settings CRUD · monitoring |
 | P10-007 | Billing admin refactor | OPEN | — | Prisma out of route → admin service |
 | P10-008 | Admin UI shell | OPEN | — | `(admin)` layout · RTL · nav · auth gate · C-005-1 |
