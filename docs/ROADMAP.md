@@ -24,13 +24,15 @@ The platform is **technically usable** with notifications MVP live.
 | 7B | Payments | `v0.8-phase-7B` |
 | 8 | AI Gateway & Initial AI Features | `v0.9-phase-8` |
 | 9 | Notification System | `v0.10-phase-9` |
-| 10 | Admin Platform | `v0.11-phase-10` *(recommended — apply tag)* |
+| 10 | Admin Platform | ✅ `v0.11-phase-10` |
 
 **Capabilities live today:** Auth · RBAC · Companies · Jobs · Resumes · Search · Matching · Billing · Payments · AI Gateway · Notifications · **Admin Platform**.
 
 **Phase 9:** ✅ **FULLY CLOSED** · tag `v0.10-phase-9` · [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md)
 
-**Phase 10:** ✅ **CLOSED** (D-055 · C-P10-1 → TD-P10-2) · recommended tag `v0.11-phase-10` · [PHASE_10_CLOSURE_REPORT.md](./phase-10/PHASE_10_CLOSURE_REPORT.md)
+**Phase 10:** ✅ **CLOSED** (D-055 · C-P10-1 → TD-P10-2) · tag ✅ `v0.11-phase-10` · [PHASE_10_CLOSURE_REPORT.md](./phase-10/PHASE_10_CLOSURE_REPORT.md)
+
+**Phase 11:** 📋 **CTO handoff prepared** — [PHASE_11_CTO_HANDOFF.md](./phase-11/PHASE_11_CTO_HANDOFF.md) · **spec/implementation not authorized**
 
 ---
 
@@ -63,8 +65,8 @@ CTO-approved order:
 | Phase | Scope |
 |-------|--------|
 | **9** | Notification System — ✅ **CLOSED** (`v0.10-phase-9`) |
-| **10** | Admin Platform — ✅ **CLOSED** (D-055 · recommend `v0.11-phase-10`) |
-| **11** | SEO Foundation — 📋 Planned (**not authorized**) |
+| **10** | Admin Platform — ✅ **CLOSED** (`v0.11-phase-10`) |
+| **11** | SEO Foundation — 📋 **Handoff ready** · [PHASE_11_CTO_HANDOFF.md](./phase-11/PHASE_11_CTO_HANDOFF.md) · **not authorized** |
 | **12** | SSR Public Pages |
 | **13** | Analytics & Events |
 | **14** | Recommendation Engine |

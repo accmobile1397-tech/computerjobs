@@ -123,12 +123,13 @@ src/modules/
 | 7A–7B | Entitlements · Payments | Closed (`v0.7`–`v0.8`) |
 | 8 | AI Gateway & Features | Closed (`v0.9-phase-8`) |
 | **9** | **Notification System** | **Closed** (`v0.10-phase-9`) |
-| **10** | **Admin Platform** | **Closed** (D-055 · recommend `v0.11-phase-10`) |
-| 11–15 | SEO · SSR · Analytics · … | Planned · Phase 11 **not authorized** |
+| **10** | **Admin Platform** | **Closed** (`v0.11-phase-10`) |
+| **11** | **SEO Foundation** | Handoff ready · **not authorized** |
+| 12–15 | SSR · Analytics · … | Planned |
 
 **Capabilities live:** Auth · RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI · Events · Notifications · **Admin**.
 
-**Debt (C-P10-1):** TD-P10-2 Admin Events Viewer UI — see [docs/ROADMAP.md](docs/ROADMAP.md).
+**Next:** [docs/phase-11/PHASE_11_CTO_HANDOFF.md](docs/phase-11/PHASE_11_CTO_HANDOFF.md) — CTO review for Phase 11 **spec planning** only.
 
 ---
 

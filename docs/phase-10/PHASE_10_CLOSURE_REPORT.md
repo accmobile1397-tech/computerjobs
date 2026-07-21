@@ -1,7 +1,7 @@
 # Phase 10 Closure Report — Admin Platform
 
 **Decision:** D-055 · **Status:** OFFICIALLY CLOSED (APPROVE WITH CONDITIONS)  
-**Closure review:** 2026-07-21 · **Tag recommendation:** `v0.11-phase-10` ⏳ (apply after this docs commit)  
+**Closure review:** 2026-07-21 · **Tag:** ✅ `v0.11-phase-10`  
 **Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) · **Final:** [PHASE_10_FINAL_REPORT.md](./PHASE_10_FINAL_REPORT.md)  
 **Condition:** **C-P10-1** → debt **TD-P10-2** (do not reopen Phase 10)
 
@@ -16,7 +16,7 @@
 | Implementation range | `10a534d` … `a892a17` |
 | Spec decision | D-054 |
 | Closure decision | **D-055** |
-| Tag | **Recommend** `v0.11-phase-10` (not applied by agent) |
+| Tag | ✅ `v0.11-phase-10` |
 
 ---
 

@@ -41,8 +41,9 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 8 AI Gateway & Features | 🟢 Closed (`v0.9-phase-8`) |
 | 8.1 Resume AI Suggest | ⏸ Deferred |
 | **9** Notifications | 🟢 Closed (`v0.10-phase-9`) |
-| **10** Admin Platform | 🟢 Closed (D-055 · recommend `v0.11-phase-10`) · C-P10-1 → TD-P10-2 |
-| **11–15** | 📋 Planned — **Phase 11 not authorized** |
+| **10** Admin Platform | 🟢 Closed (`v0.11-phase-10`) · D-055 · C-P10-1 → TD-P10-2 |
+| **11** SEO Foundation | 📋 Handoff ready · **not authorized** — [PHASE_11_CTO_HANDOFF.md](docs/phase-11/PHASE_11_CTO_HANDOFF.md) |
+| **12–15** | 📋 Planned — see ROADMAP |
 
 ---
 
