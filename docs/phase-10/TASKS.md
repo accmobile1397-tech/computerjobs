@@ -8,7 +8,7 @@
 | P10-011 | Settings UI | DONE | `59f44a9` | D-061 APPROVED |
 | P10-012 | Monitoring UI | DONE | `9e72200` | APPROVED |
 | P10-013 | Notification admin UI | DONE | `03a9fc4` | APPROVED · C-009-6 |
-| P10-014 | IAM seed — admin:* + aliases | DONE | — | idempotent · legacy preserved |
+| P10-014 | IAM seed — admin:* + aliases | DONE | `e4e3ea7` | idempotent · legacy preserved |
 | P10-015 | Tests + C-005-1 guard | OPEN | — | |
 
 ## Progress
