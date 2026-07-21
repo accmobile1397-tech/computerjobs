@@ -13,6 +13,7 @@
 | Separation | Structured-data module only — does not call metadata builders |
 | Out of scope | route/metadata wiring · sitemap · robots |
 | Checks | typecheck ✅ · tests 246/246 ✅ |
+| Commit | [`80c297b`](https://github.com/accmobile1397-tech/computerjobs/commit/80c297b) |
 
 ## Prior
 

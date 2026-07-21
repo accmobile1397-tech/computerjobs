@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — P11-004 JSON-LD builders |
+| **Commit to review** | [`80c297b`](https://github.com/accmobile1397-tech/computerjobs/commit/80c297b) — P11-004 JSON-LD builders |
 
 ---
 
