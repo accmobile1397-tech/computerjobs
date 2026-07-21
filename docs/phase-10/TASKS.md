@@ -20,7 +20,7 @@
 | P10-003 | DomainEventLog migration + bus hook | DONE | `e73eabb` | D-057 APPROVED · CLOSED |
 | P10-004 | Dashboard summary API | DONE | `a420393` | CLOSED |
 | P10-005 | Audit viewer API | DONE | `8dbf922` | D-059 APPROVED · CLOSED |
-| P10-006 | Events + Settings + Monitoring APIs | DONE | pending | events · settings · monitoring |
+| P10-006 | Events + Settings + Monitoring APIs | DONE | `e76d4b0` | events · settings · monitoring |
 | P10-007 | Billing admin refactor | OPEN | — | Prisma out of route → admin service |
 | P10-008 | Admin UI shell | OPEN | — | `(admin)` layout · RTL · nav · auth gate · C-005-1 |
 | P10-009 | Dashboard UI page | OPEN | — | consumes dashboard API |

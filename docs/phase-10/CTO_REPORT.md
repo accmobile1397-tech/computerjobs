@@ -18,7 +18,7 @@
 | P10-003 | D-057 | `e73eabb` |
 | P10-004 | CLOSED | `a420393` |
 | P10-005 | D-059 | `8dbf922` |
-| P10-006 | pending review | pending |
+| P10-006 | pending review | `e76d4b0` |
 
 ## P10-006 — Events · Settings · Monitoring
 
