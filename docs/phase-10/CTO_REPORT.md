@@ -1,16 +1,22 @@
 # CTO Report — Phase 10: Admin Platform
 
-**Tasks:** 14 / 15 · **Awaiting:** P10-014  
-**Tests:** 199/199 · typecheck green · prisma validate green
+**Tasks:** 15 / 15 · **Awaiting:** CTO Closure Review  
+**Tests:** 216/216 · typecheck green · prisma validate green
 
-## P10-014 — IAM Seed (admin:* + legacy)
+## P10-015 — Tests & C-005-1 Guard
 
-- Seeded full Phase 10 `admin:*` namespace from `ADMIN_PERMISSIONS` registry
-- Legacy slugs kept (`billing:admin`, `notifications:admin`, `company:*`, `job:approve`, …) — C-010-3
-- Phase 9 notification IAM unchanged (`notifications:read:own` · `preferences:own` · `admin`)
-- `admin` role: legacy grants + TECHNICAL_SPEC §5.1 `admin:*` subset
-- `super_admin`: all permissions (including new `admin:*`)
-- Idempotent upserts — existing DBs re-run `npm run db:seed`
-- Operator steps documented in `docs/MIGRATION.md` (Phase 10 section)
+- `src/modules/admin/phase10-hardening.test.ts` — final static guards
+- **C-005-1:** Admin UI paths ban Prisma / redis / repositories / admin services / raw SQL
+- **C-010-5:** DomainEventLog append-only (schema · append · GET `/events`)
+- **C-009-6:** Admin inbox GET-only (API · service · UI)
+- Thin platform routes: dashboard · audit · events · settings · monitoring · billing
 
-**Stop.** Await CTO review before P10-015.
+## Closure package (ready for CTO)
+
+| Doc | Purpose |
+|-----|---------|
+| [PHASE_10_FINAL_REPORT.md](./PHASE_10_FINAL_REPORT.md) | Implementation summary |
+| [CLOSURE_PACKAGE.md](./CLOSURE_PACKAGE.md) | Closure review checklist |
+| [TASKS.md](./TASKS.md) | 15/15 complete |
+
+**Stop.** Do **not** tag `v0.11-phase-10` · do **not** start Phase 11 · await CTO Closure Review.
