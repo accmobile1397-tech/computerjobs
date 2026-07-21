@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — Phase 12 TECHNICAL_SPEC draft (Option 1) |
+| **Commit to review** | [`f6486a0`](https://github.com/accmobile1397-tech/computerjobs/commit/f6486a0) — Phase 12 TECHNICAL_SPEC draft (Option 1) |
 
 ---
 
