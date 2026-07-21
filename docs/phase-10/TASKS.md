@@ -19,7 +19,7 @@
 | P10-005 | Audit viewer API | DONE | `8dbf922` | D-059 |
 | P10-006 | Events + Settings + Monitoring APIs | DONE | `e76d4b0` | APPROVED WITH CONDITIONS |
 | P10-007 | Billing admin refactor | DONE | `121edfc` | APPROVED |
-| P10-008 | Admin UI shell | DONE | pending | `(admin)` · RTL · nav · auth gate · C-005-1 |
+| P10-008 | Admin UI shell | DONE | `dc13b25` | `(admin)` · RTL · nav · auth gate · C-005-1 |
 | P10-009 | Dashboard UI page | OPEN | — | consumes dashboard API |
 | P10-010 | Audit viewer UI | OPEN | — | table + filters |
 | P10-011 | Settings UI | OPEN | — | SystemSetting editor · masked secrets |

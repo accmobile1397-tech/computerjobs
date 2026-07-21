@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for CTO review handoff (minimal context).  
 **Update:** After **every** completed task.  
-**Last updated:** 2026-07-21 · **P10-007** awaiting CTO review
+**Last updated:** 2026-07-21 · **P10-008** awaiting CTO review
 
 ---
 
@@ -11,7 +11,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`121edfc`](https://github.com/accmobile1397-tech/computerjobs/commit/121edfc) — `refactor(admin): move billing admin logic into service (P10-007)` |
+| **Commit to review** | [`dc13b25`](https://github.com/accmobile1397-tech/computerjobs/commit/dc13b25) — `feat(admin): add RTL Persian admin UI shell (P10-008)` |
 
 ---
 
@@ -25,8 +25,7 @@ Persian-first job platform.
 
 ## 2. Current Phase
 
-**Phase 10 — Admin Platform** · D-054  
-Tasks: [phase-10/TASKS.md](./phase-10/TASKS.md)
+**Phase 10 — Admin Platform** · D-054 · Tasks: [phase-10/TASKS.md](./phase-10/TASKS.md)
 
 ---
 
@@ -38,7 +37,7 @@ Tasks: [phase-10/TASKS.md](./phase-10/TASKS.md)
 
 ## 4. Branch
 
-`main` (pushed)
+`main` (pushed after handoff commit)
 
 ---
 
@@ -46,47 +45,40 @@ Tasks: [phase-10/TASKS.md](./phase-10/TASKS.md)
 
 | Task | Status | Commit |
 |------|--------|--------|
-| P10-001 | ✅ D-055 | [`10a534d`](https://github.com/accmobile1397-tech/computerjobs/commit/10a534d) |
-| P10-002 | ✅ D-056 | [`d4d11b6`](https://github.com/accmobile1397-tech/computerjobs/commit/d4d11b6) |
-| P10-003 | ✅ D-057 | [`e73eabb`](https://github.com/accmobile1397-tech/computerjobs/commit/e73eabb) |
-| P10-004 | ✅ CLOSED | [`a420393`](https://github.com/accmobile1397-tech/computerjobs/commit/a420393) |
-| P10-005 | ✅ D-059 | [`8dbf922`](https://github.com/accmobile1397-tech/computerjobs/commit/8dbf922) |
-| P10-006 | ✅ APPROVED WITH CONDITIONS | [`e76d4b0`](https://github.com/accmobile1397-tech/computerjobs/commit/e76d4b0) |
-| **P10-007 Billing admin refactor** | ⏳ **Awaiting CTO review** | [`121edfc`](https://github.com/accmobile1397-tech/computerjobs/commit/121edfc) |
-| P10-008..P10-015 | OPEN | — |
+| P10-001..P10-007 | ✅ CLOSED | see TASKS |
+| **P10-008 Admin UI shell** | ⏳ **Awaiting CTO review** | [`dc13b25`](https://github.com/accmobile1397-tech/computerjobs/commit/dc13b25) |
+| P10-009..P10-015 | OPEN | — |
 
 ---
 
-## 6. What P10-007 delivered
+## 6. What P10-008 delivered
 
-- Removed Prisma from `/api/v1/admin/billing` route
-- `billing-admin.service`: overview · grant · setting upsert · versionFeature
-- Thin route: `requireAdminPermission` + zod + service call
-- Actions preserved: `grant` · `setting` · `versionFeature`
-- Tests: service + thin-route static guard
+- `/admin` route group `(admin)` · RTL Persian shell
+- Auth gate: access token → `GET /api/v1/users/me` → admin role/permission check
+- Nav structure (dashboard · audit · events · settings · monitoring · notifications · billing)
+- Placeholder pages only — **no feature data UI yet** (P10-009+)
+- `src/modules/admin/ui` HTTP helpers — **zero Prisma** (C-005-1 test)
 
-**P10-006 conditions still held:** DomainEventLog read-only · settings masking tested · monitoring must not expose secrets/env
-
-**Health:** 168/168 tests · typecheck green
+**Health:** 173/173 tests · typecheck green
 
 ---
 
 ## 7. Recommended CTO action
 
-1. Review commit `121edfc`
+1. Review commit `dc13b25`
 2. APPROVE / request changes
-3. Only then authorize **P10-008**
+3. Only then authorize **P10-009**
 
 ---
 
 ## 8. Open risks / debt (short)
 
-- P10-014 seed for `admin:*` still required  
-- Apply `domain_event_logs` migration on existing DBs  
-- C-005-1 Admin UI never touches DB  
+- P10-014 seed for `admin:*` still required for full nav visibility  
+- Admin login UI not built — token paste gate for shell MVP  
+- C-005-1 must remain enforced on later admin pages  
 
 ---
 
 ## 9. Active decisions
 
-D-059 · D-057 · D-056 · D-055 · D-054 · D-053 · C-005-1/2 · C-010-5 · RFC-003/004/005 frozen
+D-059 · D-057 · D-056 · D-055 · D-054 · D-053 · C-005-1/2 · C-010-5 · RFC-005 frozen

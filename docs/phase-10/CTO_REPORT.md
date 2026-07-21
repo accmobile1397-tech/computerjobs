@@ -12,7 +12,7 @@
 | ID | Commit |
 |----|--------|
 | P10-001..P10-007 | see TASKS.md |
-| P10-008 | pending |
+| P10-008 | `dc13b25` |
 
 ## P10-008 — Admin UI Shell
 
