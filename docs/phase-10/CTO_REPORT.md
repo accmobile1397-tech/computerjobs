@@ -1,14 +1,14 @@
 # CTO Report — Phase 10: Admin Platform
 
-**Tasks:** 10 / 15 · **Awaiting:** P10-010  
-**Tests:** 179/179 · typecheck green
+**Tasks:** 11 / 15 · **Awaiting:** P10-011  
+**Tests:** 184/184 · typecheck green
 
-## P10-010 — Audit Viewer UI
+## P10-011 — Settings UI
 
-- `/admin/audit` consumes `GET /api/v1/admin/audit` only
-- Filters: `action` · `userId` · `from` · `to` + mandatory pagination
-- Read-only table (no write methods)
-- RTL Persian · no Prisma in UI
-- Server remains authoritative for `admin:audit:read`
+- `/admin/settings` consumes `GET` / `PUT` `/api/v1/admin/settings` only
+- Respects server-side masking (`masked` / `***`); editor never prefills secrets
+- `feature.*` treated as ordinary SystemSetting records (TD-ADMIN-1 deferred)
+- RTL Persian · no Prisma / repos / DB in UI
+- Writes go through Admin API (server audit remains authoritative)
 
-**Stop.** Await CTO review before P10-011.
+**Stop.** Await CTO review before P10-012.

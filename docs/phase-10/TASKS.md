@@ -4,8 +4,8 @@
 |----|------|--------|--------|-------|
 | P10-001..P10-008 | (prior) | DONE | see git | |
 | P10-009 | Dashboard UI page | DONE | `f5cce14` | D-059 APPROVED |
-| P10-010 | Audit viewer UI | DONE | `72dc259` | GET /admin/audit · filters · pagination |
-| P10-011 | Settings UI | OPEN | — | |
+| P10-010 | Audit viewer UI | DONE | `72dc259` | D-060 APPROVED |
+| P10-011 | Settings UI | DONE | — | GET/PUT settings · masking · no flag engine |
 | P10-012 | Monitoring UI | OPEN | — | |
 | P10-013 | Notification admin UI | OPEN | — | |
 | P10-014 | IAM seed — admin:* + aliases | OPEN | — | |
@@ -13,5 +13,5 @@
 
 ## Progress
 
-- **Done:** 10 / 15
-- **Current:** P10-010 DONE — awaiting CTO review before P10-011
+- **Done:** 11 / 15
+- **Current:** P10-011 DONE — awaiting CTO review before P10-012

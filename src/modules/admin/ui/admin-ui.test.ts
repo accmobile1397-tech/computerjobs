@@ -8,6 +8,11 @@ import {
 } from "@/modules/admin/ui/nav";
 import { dashboardSummaryToKpis } from "@/modules/admin/ui/dashboard";
 import { buildAuditQueryString, DEFAULT_AUDIT_FILTERS } from "@/modules/admin/ui/audit";
+import {
+  formatSettingValueForEditor,
+  isFeatureSettingKey,
+  parseSettingEditorValue,
+} from "@/modules/admin/ui/settings";
 
 describe("admin UI access (P10-008)", () => {
   it("allows super_admin and admin roles", () => {
@@ -116,6 +121,54 @@ describe("audit page uses Admin API only (P10-010)", () => {
       "utf8",
     );
     expect(source).toContain("/api/v1/admin/audit?");
+  });
+});
+
+describe("settings UI helpers (P10-011)", () => {
+  it("never prefills masked values into the editor", () => {
+    expect(
+      formatSettingValueForEditor({
+        key: "gateway.api_key",
+        value: "***",
+        masked: true,
+        updatedAt: "2026-07-21T00:00:00.000Z",
+        updatedById: null,
+      }),
+    ).toBe("");
+  });
+
+  it("treats feature.* as ordinary keys (not a flag engine)", () => {
+    expect(isFeatureSettingKey("feature.demo")).toBe(true);
+    expect(isFeatureSettingKey("billing.timezone")).toBe(false);
+  });
+
+  it("parses JSON editor input for PUT body", () => {
+    expect(parseSettingEditorValue("true")).toBe(true);
+    expect(parseSettingEditorValue("plain")).toBe("plain");
+  });
+});
+
+describe("settings page uses Admin API only (P10-011)", () => {
+  it("client uses fetchAdminSettings and putAdminSetting", () => {
+    const source = fs.readFileSync(
+      path.join(
+        process.cwd(),
+        "src/app/(admin)/admin/settings/admin-settings-client.tsx",
+      ),
+      "utf8",
+    );
+    expect(source).toContain("fetchAdminSettings");
+    expect(source).toContain("putAdminSetting");
+    expect(source).not.toMatch(/prisma/i);
+    expect(source).toContain("ماسک");
+  });
+
+  it("API client targets /api/v1/admin/settings", () => {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), "src/modules/admin/ui/admin-api-client.ts"),
+      "utf8",
+    );
+    expect(source).toContain('"/api/v1/admin/settings"');
   });
 });
 

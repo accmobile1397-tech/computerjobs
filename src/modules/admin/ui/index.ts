@@ -14,6 +14,8 @@ export {
   fetchAdminBootstrap,
   fetchDashboardSummary,
   fetchAuditLogs,
+  fetchAdminSettings,
+  putAdminSetting,
 } from "./admin-api-client";
 export type { AdminApiEnvelope, MeBootstrap } from "./admin-api-client";
 export { dashboardSummaryToKpis } from "./dashboard";
@@ -29,3 +31,9 @@ export type {
   AuditListResultDto,
   AuditLogItemDto,
 } from "./audit";
+export {
+  formatSettingValueForEditor,
+  parseSettingEditorValue,
+  isFeatureSettingKey,
+} from "./settings";
+export type { SystemSettingItemDto, SettingsListDto } from "./settings";

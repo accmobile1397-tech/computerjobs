@@ -5,6 +5,10 @@ import type {
   AuditListResultDto,
 } from "@/modules/admin/ui/audit";
 import { buildAuditQueryString } from "@/modules/admin/ui/audit";
+import type {
+  SettingsListDto,
+  SystemSettingItemDto,
+} from "@/modules/admin/ui/settings";
 
 export type AdminApiEnvelope<T> = {
   success: boolean;
@@ -62,4 +66,20 @@ export async function fetchAuditLogs(
 ): Promise<AdminApiEnvelope<AuditListResultDto>> {
   const qs = buildAuditQueryString(filters);
   return adminFetch<AuditListResultDto>(`/api/v1/admin/audit?${qs}`);
+}
+
+export async function fetchAdminSettings(): Promise<
+  AdminApiEnvelope<SettingsListDto>
+> {
+  return adminFetch<SettingsListDto>("/api/v1/admin/settings");
+}
+
+export async function putAdminSetting(input: {
+  key: string;
+  value: unknown;
+}): Promise<AdminApiEnvelope<SystemSettingItemDto>> {
+  return adminFetch<SystemSettingItemDto>("/api/v1/admin/settings", {
+    method: "PUT",
+    body: JSON.stringify(input),
+  });
 }

@@ -1,10 +1,6 @@
-import { AdminPagePlaceholder } from "../_components/admin-page-placeholder";
+import { AdminSettingsClient } from "./admin-settings-client";
 
+/** P10-011 — settings UI via Admin API only (C-005-1 · C-005-2). */
 export default function AdminSettingsPage() {
-  return (
-    <AdminPagePlaceholder
-      title="تنظیمات"
-      description="SystemSetting از طریق GET/PUT /api/v1/admin/settings"
-    />
-  );
+  return <AdminSettingsClient />;
 }
