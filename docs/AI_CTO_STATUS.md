@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — P11-007 home metadata + JSON-LD |
+| **Commit to review** | [`e2f6dcf`](https://github.com/accmobile1397-tech/computerjobs/commit/e2f6dcf) — P11-007 home metadata + JSON-LD |
 
 ---
 
