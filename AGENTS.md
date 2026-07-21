@@ -41,7 +41,7 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 8 AI Gateway & Features | 🟢 Closed (`v0.9-phase-8`) |
 | 8.1 Resume AI Suggest | ⏸ Deferred |
 | **9** Notifications | 🟢 Closed (`v0.10-phase-9`) |
-| **10** Admin Platform | 📋 Spec prep — **not authorized** |
+| **10** Admin Platform | 🟡 In Progress (D-054) — implementation authorized |
 | **11–15** | 📋 Planned — see ROADMAP |
 
 ---

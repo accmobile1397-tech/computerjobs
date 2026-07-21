@@ -27,9 +27,9 @@ The platform is **technically usable** with notifications MVP live.
 
 **Capabilities live today:** Auth · RBAC · Companies · Jobs · Resumes · Search · Matching · Billing · Payments · AI Gateway · **Notifications**.
 
-**Phase 9:** ✅ **CLOSED** · tag `v0.10-phase-9` · [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md)
+**Phase 9:** ✅ **FULLY CLOSED** · tag `v0.10-phase-9` · [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md)
 
-**Next:** Phase 10 Admin Platform **spec** — [phase-10/CTO_HANDOFF.md](./phase-10/CTO_HANDOFF.md) · implementation **not authorized**
+**Phase 10:** 🟡 **In Progress** (D-054) — [TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · [TASKS.md](./phase-10/TASKS.md)
 
 ---
 
@@ -51,7 +51,7 @@ Remaining risks (Phase 13+): Analytics · Observability at scale.
 | RFC-004 | Notification Architecture | ✅ CLOSED (D-048) |
 | RFC-005 | Admin Platform Architecture | ✅ CLOSED (D-049) |
 
-**Next:** Phase 10 spec (RFC-005) after tag — see [phase-9/PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md).
+**Phase 10:** Implementation authorized (D-054) — see [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md).
 
 ---
 
@@ -62,7 +62,7 @@ CTO-approved order:
 | Phase | Scope |
 |-------|--------|
 | **9** | Notification System — ✅ **CLOSED** (`v0.10-phase-9`) |
-| **10** | Admin Platform — spec next |
+| **10** | Admin Platform — 🟡 **In Progress** (D-054) |
 | **11** | SEO Foundation |
 | **12** | SSR Public Pages |
 | **13** | Analytics & Events |

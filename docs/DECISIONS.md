@@ -32,6 +32,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-20 | D-047 | RFC-003 Event Architecture — **CLOSED** (C-003-1/2) | **Closed** |
 | 2026-07-20 | D-048 | RFC-004 Notification Architecture — **CLOSED** | **Closed** |
 | 2026-07-20 | D-049 | RFC-005 Admin Platform — **CLOSED** (C-005-1/2) | **Closed** |
+| 2026-07-21 | D-054 | **Phase 10 Admin Platform Spec** — APPROVE WITH CONDITIONS · implementation AUTHORIZED | Active |
 | 2026-07-21 | D-053 | **Phase 9 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.10-phase-9` | **Closed** |
 | 2026-07-20 | D-050 | Phase 9 spec — **APPROVE WITH CONDITIONS** · implementation AUTHORIZED | **Closed** |
 | 2026-07-20 | TD-NOTIF-2 | Notification Digest Engine | Active (P2) |
@@ -73,6 +74,27 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-054: Phase 10 Admin Platform Spec Approval
+
+**Decision (2026-07-21):** **APPROVE WITH CONDITIONS** — Phase 10 implementation authorized.
+
+**Approve according to:**
+- [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md)
+- [phase-10/IMPLEMENTATION_PLAN.md](./phase-10/IMPLEMENTATION_PLAN.md)
+- [phase-10/TASKS.md](./phase-10/TASKS.md)
+
+| Condition | Requirement |
+|-----------|-------------|
+| C-005-1 | Admin UI → Admin API → admin/services → domain modules → DB only (UI never touches DB) |
+| C-005-2 | No Feature Flag Engine in Phase 10 — `SystemSetting feature.*` only (TD-ADMIN-1 deferred) |
+| DomainEventLog | Append-only — no admin edit/delete |
+| Admin notification inbox | Remains read-only (inherits C-009-6) |
+| Feature Flag Engine | **Not** implemented in Phase 10 |
+
+**Next:** P10-001 Admin module skeleton — one task at a time; CTO review before P10-002.
 
 ---
 

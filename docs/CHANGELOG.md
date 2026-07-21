@@ -42,8 +42,15 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ### Phase 10 — Admin Platform
 
-- Spec preparation only — see [docs/phase-10/CTO_HANDOFF.md](./phase-10/CTO_HANDOFF.md)
-- **Not authorized for implementation**
+- Spec **APPROVE WITH CONDITIONS** (D-054) — **implementation authorized**
+- Plan: [docs/phase-10/IMPLEMENTATION_PLAN.md](./phase-10/IMPLEMENTATION_PLAN.md)
+- Tasks: [docs/phase-10/TASKS.md](./phase-10/TASKS.md)
+- Conditions: C-005-1 · C-005-2 · DomainEventLog append-only · admin inbox read-only · no Feature Flag Engine
+
+### Phase 9 closed
+
+- **`v0.10-phase-9`** CLOSED (D-053)
+- Phase 10 implementation authorized by **D-054**
 
 ### Phase 9 Spec (historical)
 

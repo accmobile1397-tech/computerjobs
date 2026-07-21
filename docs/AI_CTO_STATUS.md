@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for external CTO reviews.  
 **Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-21 · **Phase 9 OFFICIALLY CLOSED** · `v0.10-phase-9`
+**Last updated:** 2026-07-21 · **D-054** · Phase 10 implementation authorized
 
 ---
 
@@ -17,14 +17,14 @@ Persian-first job platform for technology professionals.
 
 ## 2. Current Phase
 
-**Phase 10 — Admin Platform** · 📋 **Spec preparation** (implementation NOT authorized)  
-Handoff: [phase-10/CTO_HANDOFF.md](./phase-10/CTO_HANDOFF.md)
+**Phase 10 — Admin Platform (Implementation Authorized)** · D-054  
+Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks: [phase-10/TASKS.md](./phase-10/TASKS.md)
 
 ---
 
 ## 3. Last Closed Phase
 
-**Phase 9 — Notification System** · ✅ **CLOSED** · `v0.10-phase-9` · D-053
+**Phase 9 — Notification System** · ✅ **FULLY CLOSED** · tag **`v0.10-phase-9`** · D-053
 
 ---
 
@@ -38,7 +38,7 @@ Handoff: [phase-10/CTO_HANDOFF.md](./phase-10/CTO_HANDOFF.md)
 
 | Tag | Phase |
 |-----|-------|
-| `v0.10-phase-9` | Phase 9 Notification System |
+| `v0.10-phase-9` | Phase 9 Notification System (CLOSED) |
 
 ---
 
@@ -46,17 +46,18 @@ Handoff: [phase-10/CTO_HANDOFF.md](./phase-10/CTO_HANDOFF.md)
 
 | Milestone | Status |
 |-----------|--------|
-| Phase 9 (P9-001..P9-015) | ✅ CLOSED · tagged |
+| Phase 9 (P9-001..P9-015) | ✅ FULLY CLOSED · tagged `v0.10-phase-9` |
 | Closure C-P9-1..3 | ✅ Executed |
-| Final sign-off | ✅ APPROVED |
-
-**Next:** Phase 10 TECHNICAL_SPEC — **not implemented**
+| Final sign-off | ✅ APPROVED (D-053) |
+| Phase 10 TECHNICAL_SPEC | ✅ APPROVE WITH CONDITIONS (D-054) |
 
 ---
 
 ## 7. In Progress Tasks
 
-None — awaiting Phase 10 spec authorization.
+| Item | Status |
+|------|--------|
+| P10-001 Admin module skeleton | Authorized — start after docs commit |
 
 ---
 
@@ -64,7 +65,7 @@ None — awaiting Phase 10 spec authorization.
 
 | Item | Owner |
 |------|-------|
-| Phase 10 spec draft + APPROVE | CTO |
+| P10-001..P10-015 | Agent (one task at a time) |
 | Phase 6 formal close | Deferred |
 
 ---
@@ -75,12 +76,13 @@ None — awaiting Phase 10 spec authorization.
 - TD-P2-1: no HTTP integration tests
 - Email/SMS: stub adapters only
 - Phase 6 not tagged
+- Admin UI must never touch DB (C-005-1)
 
 ---
 
 ## 10. Architecture Decisions (active)
 
-D-053 · D-052 · D-051 · C-009-1..6 · C-005-1/2 · RFC-003/004/005 frozen
+D-054 · D-053 · D-052 · D-051 · C-005-1/2 · C-009-1..6 · RFC-003/004/005 frozen
 
 ---
 
@@ -93,8 +95,8 @@ D-053 · D-052 · D-051 · C-009-1..6 · C-005-1/2 · RFC-003/004/005 frozen
 
 ## 12. Recommended Next Actions
 
-1. Review [phase-10/CTO_HANDOFF.md](./phase-10/CTO_HANDOFF.md)
-2. Authorize Phase 10 **TECHNICAL_SPEC** drafting
-3. **Do not start Phase 10 implementation**
+1. Implement P10-001 (admin module skeleton) only
+2. Stop for CTO review before P10-002
+3. Enforce C-005-1 · C-005-2 · append-only DomainEventLog · read-only admin inbox
 
-**Health:** 130/130 tests · typecheck green · prisma validate green.
+**Health:** verify tests · typecheck · prisma validate before each task handoff.
