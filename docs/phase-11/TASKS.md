@@ -10,7 +10,7 @@
 | P11-006 | robots SoT `robots.ts` (C-011-5) | DONE | `83e1c1b` | D-062 APPROVED |
 | P11-007 | Wire `/` metadata (± JSON-LD) | DONE | `e2f6dcf` | D-063 APPROVED |
 | P11-008 | Remap SEO_STRATEGY phase labels | DONE | `cde15fa` | D-064 APPROVED |
-| P11-009 | Unit tests + client Prisma guard | DONE | _(pending)_ | C-011-1..6 hardening |
+| P11-009 | Unit tests + client Prisma guard | DONE | `5f5d56b` | C-011-1..6 hardening |
 | P11-010 | CTO_REPORT handoff | OPEN | — | |
 
 ## Progress

@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — P11-009 Phase 11 hardening guards |
+| **Commit to review** | [`5f5d56b`](https://github.com/accmobile1397-tech/computerjobs/commit/5f5d56b) — P11-009 Phase 11 hardening guards |
 
 ---
 
