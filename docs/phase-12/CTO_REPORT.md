@@ -14,6 +14,7 @@
 | JSON-LD | Phase 11 `buildJobPostingJsonLd` (omit if insufficient fields) |
 | Explicitly not | Breadcrumb (P12-007) · sitemap (P12-008) · SearchAction · Prisma in page |
 | Tests | `job-detail.test.ts` · shell/hardening updated |
+| Commit | [`b461561`](https://github.com/accmobile1397-tech/computerjobs/commit/b461561) |
 
 ## Stop
 
