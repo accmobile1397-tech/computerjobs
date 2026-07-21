@@ -1,8 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
-**Purpose:** Single source of truth for CTO review handoff (minimal context).  
-**Update:** After **every** completed task.  
-**Last updated:** 2026-07-21 · **P10-008** awaiting CTO review
+**Purpose:** CTO review handoff (minimal context).  
+**Last updated:** 2026-07-21 · **P10-009** awaiting CTO review
 
 ---
 
@@ -11,74 +10,50 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`dc13b25`](https://github.com/accmobile1397-tech/computerjobs/commit/dc13b25) — `feat(admin): add RTL Persian admin UI shell (P10-008)` |
+| **Commit to review** | [`f5cce14`](https://github.com/accmobile1397-tech/computerjobs/commit/f5cce14) — `feat(admin): add dashboard UI from Admin API (P10-009)` |
 
 ---
 
-## 1. Project Summary
+## Current Phase
 
-Persian-first job platform.  
-**Stack:** Next.js · Prisma/MySQL · Redis · BullMQ · `src/modules/`.  
-**Live:** Auth/RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI Gateway · Notifications (MVP).
+**Phase 10 — Admin Platform** · D-054 · [TASKS.md](./phase-10/TASKS.md)
 
----
+## Last Closed Phase
 
-## 2. Current Phase
+**Phase 9** · ✅ `v0.10-phase-9` · D-053
 
-**Phase 10 — Admin Platform** · D-054 · Tasks: [phase-10/TASKS.md](./phase-10/TASKS.md)
+## Branch
 
----
-
-## 3. Last Closed Phase
-
-**Phase 9** · ✅ CLOSED · `v0.10-phase-9` · D-053
+`main` (pushed)
 
 ---
 
-## 4. Branch
-
-`main` (pushed after handoff commit)
-
----
-
-## 5. Phase 10 task board
+## Phase 10 task board
 
 | Task | Status | Commit |
 |------|--------|--------|
 | P10-001..P10-007 | ✅ CLOSED | see TASKS |
-| **P10-008 Admin UI shell** | ⏳ **Awaiting CTO review** | [`dc13b25`](https://github.com/accmobile1397-tech/computerjobs/commit/dc13b25) |
-| P10-009..P10-015 | OPEN | — |
+| P10-008 Admin UI shell | ✅ D-058 APPROVED WITH CONDITIONS | [`dc13b25`](https://github.com/accmobile1397-tech/computerjobs/commit/dc13b25) |
+| **P10-009 Dashboard UI** | ⏳ **Awaiting CTO review** | [`f5cce14`](https://github.com/accmobile1397-tech/computerjobs/commit/f5cce14) |
+| P10-010..P10-015 | OPEN | — |
 
 ---
 
-## 6. What P10-008 delivered
+## What P10-009 delivered
 
-- `/admin` route group `(admin)` · RTL Persian shell
-- Auth gate: access token → `GET /api/v1/users/me` → admin role/permission check
-- Nav structure (dashboard · audit · events · settings · monitoring · notifications · billing)
-- Placeholder pages only — **no feature data UI yet** (P10-009+)
-- `src/modules/admin/ui` HTTP helpers — **zero Prisma** (C-005-1 test)
+- `/admin/dashboard` consumes `GET /api/v1/admin/dashboard/summary` only
+- KPI cards from API response (users · employers · jobs · applications · payments · notif failures)
+- RTL Persian · no Prisma / repositories in UI
+- UI visibility ≠ authorization (server still enforces `admin:dashboard:read`)
 
-**Health:** 173/173 tests · typecheck green
+**D-058 conditions held:** Admin UI API-only · no DB imports under admin UI
+
+**Health:** 176/176 tests · typecheck green
 
 ---
 
-## 7. Recommended CTO action
+## Recommended CTO action
 
-1. Review commit `dc13b25`
+1. Review `f5cce14`
 2. APPROVE / request changes
-3. Only then authorize **P10-009**
-
----
-
-## 8. Open risks / debt (short)
-
-- P10-014 seed for `admin:*` still required for full nav visibility  
-- Admin login UI not built — token paste gate for shell MVP  
-- C-005-1 must remain enforced on later admin pages  
-
----
-
-## 9. Active decisions
-
-D-059 · D-057 · D-056 · D-055 · D-054 · D-053 · C-005-1/2 · C-010-5 · RFC-005 frozen
+3. Only then authorize **P10-010**

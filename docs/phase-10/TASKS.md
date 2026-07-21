@@ -12,7 +12,7 @@
 | P10-006 | Events + Settings + Monitoring APIs | DONE | `e76d4b0` | APPROVED WITH CONDITIONS |
 | P10-007 | Billing admin refactor | DONE | `121edfc` | APPROVED |
 | P10-008 | Admin UI shell | DONE | `dc13b25` | D-058 APPROVED WITH CONDITIONS |
-| P10-009 | Dashboard UI page | DONE | pending | GET dashboard/summary · API-only |
+| P10-009 | Dashboard UI page | DONE | `f5cce14` | GET dashboard/summary · API-only |
 | P10-010 | Audit viewer UI | OPEN | — | table + filters |
 | P10-011 | Settings UI | OPEN | — | SystemSetting editor |
 | P10-012 | Monitoring UI | OPEN | — | monitoring summary |
