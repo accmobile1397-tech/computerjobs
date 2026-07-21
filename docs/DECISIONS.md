@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-060 | **P11-004 APPROVED** · P11-005 authorized | Active |
 | 2026-07-21 | D-059 | **P11-003 APPROVED** · P11-004 authorized | Active |
 | 2026-07-21 | D-058 | **P11-002 APPROVED** · P11-003 authorized | Active |
 | 2026-07-21 | D-057 | **P11-001 APPROVED** · P11-002 authorized | Active |
@@ -80,6 +81,16 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-060: P11-004 APPROVED · P11-005 authorized
+
+**Decision (2026-07-21):** **APPROVE** P11-004 (`80c297b`) — JSON-LD builders. Authorize **P11-005** (SitemapSource + `sitemap.ts` · C-011-2 honesty · no soft-404).
+
+**Hard reminders:** no metadata wiring · no robots (P11-006) · no SearchAction · Option 1 scope only.
+
+**Next:** P11-005 implementation · then CTO review before P11-006.
 
 ---
 

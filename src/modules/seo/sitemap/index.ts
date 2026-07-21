@@ -1,2 +1,23 @@
-/** Placeholder — SitemapSource providers (P11-005). */
-export {};
+export type {
+  SitemapChangeFrequency,
+  SitemapEntry,
+  SitemapSource,
+} from "@/modules/seo/sitemap/types";
+export { staticCoreSitemapSource } from "@/modules/seo/sitemap/static-core";
+export {
+  aiLandingsSitemapSource,
+  companiesPublicSitemapSource,
+  jobsPublicSitemapSource,
+  locationsSitemapSource,
+  phase11DomainSitemapStubs,
+  taxonomySitemapSource,
+} from "@/modules/seo/sitemap/domain-stubs";
+export {
+  collectSitemapEntries,
+  isBlockedSitemapPath,
+  toNextSitemapEntries,
+} from "@/modules/seo/sitemap/collect";
+export {
+  buildPhase11Sitemap,
+  getPhase11SitemapSources,
+} from "@/modules/seo/sitemap/phase11";
