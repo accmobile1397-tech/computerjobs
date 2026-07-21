@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — RFC-006 + Phase 11 TECHNICAL_SPEC |
+| **Commit to review** | [`bc0c962`](https://github.com/accmobile1397-tech/computerjobs/commit/bc0c962) — `docs(seo): draft RFC-006 and Phase 11 TECHNICAL_SPEC` |
 
 ---
 
@@ -19,7 +19,7 @@
 | Item | Value |
 |------|-------|
 | **Last closed** | Phase 10 · `v0.11-phase-10` · D-055 |
-| **Phase 11** | Option 1 · RFC-006 **DRAFT** · TECHNICAL_SPEC **DRAFT** |
+| **Phase 11** | Option 1 · RFC-006 **DRAFT** · TECHNICAL_SPEC **DRAFT** (D-056) |
 | **Implementation** | ❌ **NOT authorized** |
 
 ---
@@ -28,9 +28,8 @@
 
 | Doc | Link |
 |-----|------|
-| RFC-006 SEO Architecture | [RFC-006-SEO-ARCHITECTURE.md](./rfc/RFC-006-SEO-ARCHITECTURE.md) |
-| Phase 11 TECHNICAL_SPEC | [phase-11/TECHNICAL_SPEC.fa.md](./phase-11/TECHNICAL_SPEC.fa.md) |
-| Handoff (approved) | [PHASE_11_CTO_HANDOFF.md](./phase-11/PHASE_11_CTO_HANDOFF.md) |
+| RFC-006 SEO Architecture | [`RFC-006-SEO-ARCHITECTURE.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/rfc/RFC-006-SEO-ARCHITECTURE.md) |
+| Phase 11 TECHNICAL_SPEC | [`TECHNICAL_SPEC.fa.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/phase-11/TECHNICAL_SPEC.fa.md) |
 
 ---
 
@@ -38,6 +37,6 @@
 
 1. **APPROVE / APPROVE WITH CONDITIONS / REJECT** on **RFC-006** → freeze  
 2. **APPROVE / …** on **TECHNICAL_SPEC.fa.md**  
-3. Only then authorize Phase 11 **implementation** (P11-001…)
+3. Only then authorize Phase 11 **implementation**
 
 **No code until both are approved.**
