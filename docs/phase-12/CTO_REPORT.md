@@ -11,7 +11,7 @@
 | Layout | `src/app/(public)/layout.tsx` — header/footer chrome only |
 | Home | `(public)/page.tsx` · URL still `/` · `generateMetadata` + Phase 11 builders |
 | Explicitly not in P12-001 | job/company/static pages · sitemap · SEO builders · Prisma · domain nav links |
-| Commit | [`ca6e9d9`](https://github.com/accmobile1397-tech/computerjobs/commit/ca6e9d9) |
+| Commit | [`f956d9e`](https://github.com/accmobile1397-tech/computerjobs/commit/f956d9e) (aligns `ca6e9d9`) |
 
 ## Conditions highlight
 
