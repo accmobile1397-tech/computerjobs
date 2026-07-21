@@ -11,6 +11,7 @@
 | Change | Docs only · v1.1 · Data ready vs Public SSR/SEO (**11** / **12**) |
 | Boundary | Foundation = **11** · page inventory = **12** (RFC-006) |
 | Untouched | code · metadata · JSON-LD · sitemap · robots · Phase 12 pages |
+| Commit | [`cde15fa`](https://github.com/accmobile1397-tech/computerjobs/commit/cde15fa) |
 
 ## Prior
 

@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — P11-008 SEO_STRATEGY phase remap |
+| **Commit to review** | [`cde15fa`](https://github.com/accmobile1397-tech/computerjobs/commit/cde15fa) — P11-008 SEO_STRATEGY phase remap |
 
 ---
 
