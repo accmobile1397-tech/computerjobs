@@ -13,6 +13,7 @@
 | UI | Server Component list + pagination · no detail slug links yet |
 | Explicitly not | JobPosting JSON-LD · sitemap · Prisma in page/client · `/jobs/[slug]` |
 | Tests | `jobs-list.test.ts` · shell/hardening updated |
+| Commit | [`5f2c258`](https://github.com/accmobile1397-tech/computerjobs/commit/5f2c258) |
 
 ## Conditions highlight
 
