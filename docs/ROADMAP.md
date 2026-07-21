@@ -35,7 +35,7 @@ The platform is **technically usable** with notifications MVP live.
 
 **Phase 11:** ✅ **CLOSED** (D-065 · APPROVE CLOSE) · tag ✅ `v0.12-phase-11` · [PHASE_11_CLOSURE_REPORT.md](./phase-11/PHASE_11_CLOSURE_REPORT.md)
 
-**Phase 12:** 📋 Handoff prepared — [phase-12/PHASE_12_CTO_HANDOFF.md](./phase-12/PHASE_12_CTO_HANDOFF.md) · **implementation not authorized**
+**Phase 12:** 📝 **TECHNICAL_SPEC DRAFT** (Option 1) · [TECHNICAL_SPEC.fa.md](./phase-12/TECHNICAL_SPEC.fa.md) · **awaiting CTO APPROVE** · implementation **not** authorized
 
 ---
 
@@ -70,7 +70,7 @@ CTO-approved order:
 | **9** | Notification System — ✅ **CLOSED** (`v0.10-phase-9`) |
 | **10** | Admin Platform — ✅ **CLOSED** (`v0.11-phase-10`) |
 | **11** | SEO Foundation — ✅ **CLOSED** (`v0.12-phase-11`) |
-| **12** | SSR Public Pages — 📋 handoff only · **not authorized** |
+| **12** | SSR Public Pages — 📝 TECHNICAL_SPEC **DRAFT** (Option 1) · **not authorized** |
 | **13** | Analytics & Events |
 | **14** | Recommendation Engine |
 | **15** | Advanced AI Layer |
