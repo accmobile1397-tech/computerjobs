@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | _(filled after commit)_ — P11-006 robots SoT (C-011-5) |
+| **Commit to review** | [`83e1c1b`](https://github.com/accmobile1397-tech/computerjobs/commit/83e1c1b) — P11-006 robots SoT (C-011-5) |
 
 ---
 
