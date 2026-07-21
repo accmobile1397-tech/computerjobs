@@ -39,3 +39,4 @@ Feature-first SEO builders per [RFC-006](../../../docs/rfc/RFC-006-SEO-ARCHITECT
 | P11-008 Remap SEO_STRATEGY phase labels (11/12) | ✅ |
 | P11-009 Hardening + C-011 guards | ✅ |
 | P11-010 CTO_REPORT + closure package | ✅ |
+| Phase 11 CLOSED (D-065 · `v0.12-phase-11`) | ✅ |

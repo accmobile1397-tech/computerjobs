@@ -4,7 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
-| 2026-07-21 | D-065 | **P11-009 APPROVED** · P11-010 authorized · closure package | Active |
+| 2026-07-21 | D-065 | **Phase 11 CLOSED** — APPROVE CLOSE · tag `v0.12-phase-11` | **Closed** |
 | 2026-07-21 | D-064 | **P11-008 APPROVED** · P11-009 authorized | Active |
 | 2026-07-21 | D-063 | **P11-007 APPROVED** · P11-008 authorized | Active |
 | 2026-07-21 | D-062 | **P11-006 APPROVED** · P11-007 authorized | Active |
@@ -89,11 +89,23 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 ---
 
-## D-065: P11-009 APPROVED · P11-010 authorized
+## D-065: Phase 11 CLOSED — SEO Foundation (APPROVE CLOSE)
 
-**Decision (2026-07-21):** **APPROVE** P11-009 (`5f5d56b`) — hardening guards. Authorize **P11-010** (CTO_REPORT + closure package · docs only).
+**Decision (2026-07-21):** Phase 11 **CLOSED** · final sign-off **APPROVE CLOSE** · tag **`v0.12-phase-11`**.
 
-**Next:** P11-010 handoff · then **CTO Closure Review** (formal Phase 11 CLOSE / tag). Phase 12 not authorized.
+**Also records:** P11-009 APPROVED (`5f5d56b`) · P11-010 closure package authorized/delivered (`5f3f015`).
+
+| Item | Value |
+|------|-------|
+| Spec | D-056 APPROVE WITH CONDITIONS (C-011-1..6) |
+| Architecture | RFC-006 **FROZEN** |
+| Tasks | P11-001…P11-010 — all DONE |
+| Tag | ✅ `v0.12-phase-11` |
+| Conditions | C-011-1..6 **satisfied** — no reopen for Phase 12 work |
+
+**Closure docs:** [PHASE_11_CLOSURE_REPORT.md](./phase-11/PHASE_11_CLOSURE_REPORT.md) · [CLOSURE_PACKAGE.md](./phase-11/CLOSURE_PACKAGE.md) · [CTO_REPORT.md](./phase-11/CTO_REPORT.md)
+
+**Not authorized:** Phase 12 implementation until CTO authorizes Phase 12 spec. Handoff: [phase-12/PHASE_12_CTO_HANDOFF.md](./phase-12/PHASE_12_CTO_HANDOFF.md).
 
 ---
 

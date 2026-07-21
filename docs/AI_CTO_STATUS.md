@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-21 · P11-010 complete · **await CTO Closure Review**
+**Last updated:** 2026-07-21 · Phase 11 **CLOSED** · Phase 12 handoff only
 
 ---
 
@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`5f3f015`](https://github.com/accmobile1397-tech/computerjobs/commit/5f3f015) — P11-010 Phase 11 closure package |
+| **Commit to review** | _(filled after commit)_ — D-065 Phase 11 CLOSE + Phase 12 handoff |
 
 ---
 
@@ -18,25 +18,18 @@
 
 | Item | Value |
 |------|-------|
-| **Last closed** | Phase 10 · `v0.11-phase-10` · D-055 |
-| **Phase 11** | Implementation **complete** · P11-001…P11-010 DONE |
-| **Next** | **CTO Closure Review** · recommend tag `v0.12-phase-11` |
+| **Last closed** | Phase 11 · ✅ `v0.12-phase-11` · **D-065 APPROVE CLOSE** |
+| **Phase 12** | 📋 [PHASE_12_CTO_HANDOFF.md](./phase-12/PHASE_12_CTO_HANDOFF.md) · **not authorized to implement** |
 
 ---
 
-## Closure package
+## Phase 11 closed
 
-| Doc | Link |
-|-----|------|
-| CLOSURE_PACKAGE | [phase-11/CLOSURE_PACKAGE.md](./phase-11/CLOSURE_PACKAGE.md) |
-| CTO_REPORT | [phase-11/CTO_REPORT.md](./phase-11/CTO_REPORT.md) |
-| TASKS | [phase-11/TASKS.md](./phase-11/TASKS.md) |
-| RFC-006 | FROZEN · C-011-1..6 ✅ |
-
-**Phase 12 is NOT authorized.**
+- C-011-1..6 ✅ · RFC-006 FROZEN · P11-001…P11-010 DONE  
+- Closure: [phase-11/PHASE_11_CLOSURE_REPORT.md](./phase-11/PHASE_11_CLOSURE_REPORT.md)
 
 ---
 
 ## Recommended next action
 
-CTO Closure Review → formal CLOSE + tag (or conditions). Do not start Phase 12 until authorized.
+Review Phase 12 handoff · choose scope option · authorize **TECHNICAL_SPEC draft only**. No Phase 12 code.

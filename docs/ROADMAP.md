@@ -25,14 +25,17 @@ The platform is **technically usable** with notifications MVP live.
 | 8 | AI Gateway & Initial AI Features | `v0.9-phase-8` |
 | 9 | Notification System | `v0.10-phase-9` |
 | 10 | Admin Platform | ✅ `v0.11-phase-10` |
+| 11 | SEO Foundation | ✅ `v0.12-phase-11` |
 
-**Capabilities live today:** Auth · RBAC · Companies · Jobs · Resumes · Search · Matching · Billing · Payments · AI Gateway · Notifications · **Admin Platform**.
+**Capabilities live today:** Auth · RBAC · Companies · Jobs · Resumes · Search · Matching · Billing · Payments · AI Gateway · Notifications · Admin Platform · **SEO Foundation**.
 
 **Phase 9:** ✅ **FULLY CLOSED** · tag `v0.10-phase-9` · [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md)
 
 **Phase 10:** ✅ **CLOSED** (D-055 · C-P10-1 → TD-P10-2) · tag ✅ `v0.11-phase-10` · [PHASE_10_CLOSURE_REPORT.md](./phase-10/PHASE_10_CLOSURE_REPORT.md)
 
-**Phase 11:** 🟡 **Implementation complete** · P11-001…P11-010 · [CLOSURE_PACKAGE](./phase-11/CLOSURE_PACKAGE.md) · **await CTO Closure Review** · recommend `v0.12-phase-11`
+**Phase 11:** ✅ **CLOSED** (D-065 · APPROVE CLOSE) · tag ✅ `v0.12-phase-11` · [PHASE_11_CLOSURE_REPORT.md](./phase-11/PHASE_11_CLOSURE_REPORT.md)
+
+**Phase 12:** 📋 Handoff prepared — [phase-12/PHASE_12_CTO_HANDOFF.md](./phase-12/PHASE_12_CTO_HANDOFF.md) · **implementation not authorized**
 
 ---
 
@@ -66,8 +69,8 @@ CTO-approved order:
 |-------|--------|
 | **9** | Notification System — ✅ **CLOSED** (`v0.10-phase-9`) |
 | **10** | Admin Platform — ✅ **CLOSED** (`v0.11-phase-10`) |
-| **11** | SEO Foundation — 🟡 impl complete · **await Closure Review** · tag `v0.12-phase-11` |
-| **12** | SSR Public Pages |
+| **11** | SEO Foundation — ✅ **CLOSED** (`v0.12-phase-11`) |
+| **12** | SSR Public Pages — 📋 handoff only · **not authorized** |
 | **13** | Analytics & Events |
 | **14** | Recommendation Engine |
 | **15** | Advanced AI Layer |
