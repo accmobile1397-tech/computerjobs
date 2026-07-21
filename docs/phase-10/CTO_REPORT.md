@@ -6,11 +6,32 @@
 
 ---
 
-## Summary
+## Progress
 
-Phase 10 **implementation authorized** (D-054). Spec-first docs complete. Work proceeds one task at a time; stop for CTO review after each task.
+| Metric | Value |
+|--------|-------|
+| Tasks done | 1 / 15 |
+| Current | P10-001 DONE — stop for CTO review |
+| Tests | 131/131 pass |
+| Typecheck | green |
+| Prisma validate | green |
 
-**Goal:** Admin Platform MVP — RTL Persian UI shell, consolidated platform admin APIs (dashboard · audit · events · settings · monitoring), notification admin UI consuming Phase 9 APIs, DomainEventLog for event viewer, IAM `admin:*` seed with legacy aliases.
+---
+
+## P10-001 — Admin module skeleton
+
+**Delivered:** `src/modules/admin/` layout per approved TECHNICAL_SPEC §2.2
+
+| Path | Contents |
+|------|----------|
+| `README.md` | C-005-1 stack · hard rules · task map |
+| `index.ts` | Public type re-exports |
+| `types/` | `AdminListQuery` · `AdminListResult` · `AdminServiceName` |
+| `permissions/` | Stub index (logic → P10-002) |
+| `services/` | Stub files for dashboard · audit · events · settings · monitoring · billing-admin |
+| `admin-skeleton.test.ts` | Smoke import + type contract |
+
+**Not in P10-001:** permission registry, APIs, UI, migrations, DomainEventLog.
 
 ---
 
@@ -18,47 +39,13 @@ Phase 10 **implementation authorized** (D-054). Spec-first docs complete. Work p
 
 | Condition | Status |
 |-----------|--------|
-| C-005-1 enforced | Required |
-| C-005-2 enforced (no Feature Flag Engine) | Required |
-| DomainEventLog append-only | Required |
-| Admin notification inbox read-only | Required |
-
----
-
-## Repository audit (baseline)
-
-| Area | Finding |
-|------|---------|
-| Admin API routes | **18** route files under `src/app/api/v1/admin/` |
-| Admin permissions | Partial `admin:*` seeded; legacy slugs active |
-| Admin UI | **None** — only public landing page |
-| Admin module | `src/modules/admin/` — README skeleton only (pre-P10-001) |
-| Notification admin (P9) | Full API · inbox **read-only** (C-009-6) |
-| Architecture gap | `admin/billing` Prisma in route — P10-007 |
-| Event persistence | No `DomainEventLog` — P10-003 |
-
----
-
-## Progress
-
-| Metric | Value |
-|--------|-------|
-| Tasks done | 0 / 15 |
-| Current | Docs D-054 · then P10-001 |
-| Implementation | **Authorized** (D-054) |
-
----
-
-## Debt (carry / new)
-
-**Carry:** TD-ADMIN-1 · TD-P2-1 · TD-P7B-1 · TD-EVT-1 · TD-NOTIF-* · Phase 6 untagged
-
-**Proposed new:** TD-P10-1 full admin route consolidation
+| C-005-1 enforced | Required (skeleton documents; UI later) |
+| C-005-2 — no Feature Flag Engine | Held |
+| DomainEventLog append-only | P10-003 |
+| Admin notification inbox read-only | Held (P9 / P10-013) |
 
 ---
 
 ## Next
 
-1. Docs commit (D-054)  
-2. P10-001 Admin module skeleton  
-3. CTO review before P10-002
+**Stop.** Await CTO review of P10-001 before P10-002 (permissions registry + alias helper).

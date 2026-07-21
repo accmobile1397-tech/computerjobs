@@ -15,7 +15,7 @@
 
 | ID | Task | Status | Commit | Notes |
 |----|------|--------|--------|-------|
-| P10-001 | Admin module skeleton | OPEN | — | `src/modules/admin/` layout per RFC-005 |
+| P10-001 | Admin module skeleton | DONE | pending | `permissions/` · `services/` stubs · `types/` · README |
 | P10-002 | Permissions registry + alias helper | OPEN | — | `admin:*` + legacy map · C-010-3 |
 | P10-003 | DomainEventLog migration + bus hook | OPEN | — | append-only · C-010-5 |
 | P10-004 | Dashboard summary API | OPEN | — | GET `/admin/dashboard/summary` |
@@ -35,8 +35,8 @@
 
 ## Progress
 
-- **Done:** 0 / 15
-- **Current:** D-054 authorized — start P10-001 after docs commit
+- **Done:** 1 / 15
+- **Current:** P10-001 DONE — awaiting CTO review before P10-002
 - **Blocked:** —
 
 ---

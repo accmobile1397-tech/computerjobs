@@ -57,7 +57,8 @@ Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks:
 
 | Item | Status |
 |------|--------|
-| P10-001 Admin module skeleton | Authorized — start after docs commit |
+| P10-001 Admin module skeleton | DONE — awaiting CTO review |
+| P10-002 Permissions registry | OPEN — do not start until P10-001 reviewed |
 
 ---
 
@@ -65,7 +66,7 @@ Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks:
 
 | Item | Owner |
 |------|-------|
-| P10-001..P10-015 | Agent (one task at a time) |
+| P10-002..P10-015 | Agent (one task at a time after CTO review) |
 | Phase 6 formal close | Deferred |
 
 ---
@@ -95,8 +96,8 @@ D-054 · D-053 · D-052 · D-051 · C-005-1/2 · C-009-1..6 · RFC-003/004/005 f
 
 ## 12. Recommended Next Actions
 
-1. Implement P10-001 (admin module skeleton) only
-2. Stop for CTO review before P10-002
+1. Review P10-001 admin module skeleton
+2. Authorize P10-002 only after review
 3. Enforce C-005-1 · C-005-2 · append-only DomainEventLog · read-only admin inbox
 
-**Health:** verify tests · typecheck · prisma validate before each task handoff.
+**Health:** 131/131 tests · typecheck green · prisma validate green.
