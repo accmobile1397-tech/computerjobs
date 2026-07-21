@@ -1,2 +1,5 @@
-/** Placeholder — robots policy (P11-006 · C-011-5). */
-export {};
+export {
+  ROBOTS_DISALLOW_PATHS,
+  buildRobotsConfig,
+  type RobotsConfig,
+} from "@/modules/seo/robots/policy";

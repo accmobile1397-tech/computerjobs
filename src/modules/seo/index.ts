@@ -4,6 +4,7 @@
  * P11-003: metadata builders.
  * P11-004: JSON-LD structured-data builders (separate from metadata).
  * P11-005: sitemap sources + thin App Router adapter.
+ * P11-006: robots SoT (C-011-5).
  */
 export {
   SeoUrlError,
@@ -43,3 +44,8 @@ export {
   type SitemapEntry,
   type SitemapSource,
 } from "@/modules/seo/sitemap";
+export {
+  ROBOTS_DISALLOW_PATHS,
+  buildRobotsConfig,
+  type RobotsConfig,
+} from "@/modules/seo/robots";

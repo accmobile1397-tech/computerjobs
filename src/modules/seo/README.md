@@ -14,7 +14,7 @@ Feature-first SEO builders per [RFC-006](../../../docs/rfc/RFC-006-SEO-ARCHITECT
 | `urls/` | path builders · normalization · public route registry | ✅ P11-002 (normalize) |
 | `structured-data/` | JSON-LD builders (JobPosting · Organization · Breadcrumb · WebSite) | ✅ P11-004 |
 | `sitemap/` | `SitemapSource` providers (static + domain adapters) | ✅ P11-005 |
-| `robots/` | allow/disallow · sitemap URL policy (C-011-5) | P11-006 |
+| `robots/` | allow/disallow · sitemap URL policy (C-011-5) | ✅ P11-006 · `app/robots.ts` SoT |
 | `types/` | shared DTOs (no Prisma types leaked to pages) | P11-001+ |
 
 ## Rules
@@ -34,4 +34,5 @@ Feature-first SEO builders per [RFC-006](../../../docs/rfc/RFC-006-SEO-ARCHITECT
 | P11-003 Metadata builders | ✅ |
 | P11-004 JSON-LD builders (no SearchAction · C-011-4) | ✅ |
 | P11-005 SitemapSource + `sitemap.ts` (C-011-2) | ✅ |
-| P11-006..P11-010 | Not started — await CTO |
+| P11-006 robots SoT `robots.ts` (C-011-5) | ✅ |
+| P11-007..P11-010 | Not started — await CTO |
