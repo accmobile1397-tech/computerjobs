@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-21 · **P10-009** awaiting CTO review
+**Last updated:** 2026-07-21 · **P10-010** awaiting CTO review
 
 ---
 
@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`f5cce14`](https://github.com/accmobile1397-tech/computerjobs/commit/f5cce14) — `feat(admin): add dashboard UI from Admin API (P10-009)` |
+| **Commit to review** | [`72dc259`](https://github.com/accmobile1397-tech/computerjobs/commit/72dc259) — `feat(admin): add audit viewer UI with filters (P10-010)` |
 
 ---
 
@@ -32,28 +32,27 @@
 
 | Task | Status | Commit |
 |------|--------|--------|
-| P10-001..P10-007 | ✅ CLOSED | see TASKS |
-| P10-008 Admin UI shell | ✅ D-058 APPROVED WITH CONDITIONS | [`dc13b25`](https://github.com/accmobile1397-tech/computerjobs/commit/dc13b25) |
-| **P10-009 Dashboard UI** | ⏳ **Awaiting CTO review** | [`f5cce14`](https://github.com/accmobile1397-tech/computerjobs/commit/f5cce14) |
-| P10-010..P10-015 | OPEN | — |
+| P10-001..P10-008 | ✅ CLOSED | see TASKS |
+| P10-009 Dashboard UI | ✅ APPROVED (D-059) | [`f5cce14`](https://github.com/accmobile1397-tech/computerjobs/commit/f5cce14) |
+| **P10-010 Audit Viewer UI** | ⏳ **Awaiting CTO review** | [`72dc259`](https://github.com/accmobile1397-tech/computerjobs/commit/72dc259) |
+| P10-011..P10-015 | OPEN | — |
 
 ---
 
-## What P10-009 delivered
+## What P10-010 delivered
 
-- `/admin/dashboard` consumes `GET /api/v1/admin/dashboard/summary` only
-- KPI cards from API response (users · employers · jobs · applications · payments · notif failures)
-- RTL Persian · no Prisma / repositories in UI
-- UI visibility ≠ authorization (server still enforces `admin:dashboard:read`)
+- `/admin/audit` → `GET /api/v1/admin/audit` only
+- Pagination + filters: `action` · `userId` · `from` · `to`
+- Read-only table · RTL Persian
+- No Prisma / DB / business logic in UI
+- Server authz remains authoritative (`admin:audit:read`)
 
-**D-058 conditions held:** Admin UI API-only · no DB imports under admin UI
-
-**Health:** 176/176 tests · typecheck green
+**Health:** 179/179 tests · typecheck green
 
 ---
 
 ## Recommended CTO action
 
-1. Review `f5cce14`
+1. Review `72dc259`
 2. APPROVE / request changes
-3. Only then authorize **P10-010**
+3. Only then authorize **P10-011**
