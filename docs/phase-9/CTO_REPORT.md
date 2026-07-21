@@ -10,7 +10,7 @@
 | Metric | Value |
 |--------|-------|
 | Tasks done | 15 / 15 |
-| Last commit | — |
+| Last commit | `5c04a5d` |
 | Tests | 126/126 pass |
 | Typecheck | green |
 | Prisma validate | green |

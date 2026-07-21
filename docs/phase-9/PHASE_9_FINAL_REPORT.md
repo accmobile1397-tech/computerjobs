@@ -51,7 +51,7 @@ Feature module
 | P9-012 | User inbox + preferences API | `6fce48c` |
 | P9-013 | Admin templates/mapping/delivery | `4517e65` |
 | P9-014 | IAM permissions (D-052) | `dec5cd7` |
-| P9-015 | Hardening tests + this report | _(this commit)_ |
+| P9-015 | Tests & Hardening | `5c04a5d` |
 
 ---
 

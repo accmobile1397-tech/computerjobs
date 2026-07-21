@@ -38,7 +38,7 @@ Persian-first job platform for technology professionals.
 
 | Commit | Message |
 |--------|---------|
-| _(P9-015)_ | test(notifications): Phase 9 hardening + final report (P9-015) |
+| `5c04a5d` | test(notifications): Phase 9 hardening + final report (P9-015) |
 | `b16bd69` | docs(phase-9): record P9-014 commit ref |
 | `dec5cd7` | feat(iam): seed notification permissions and enforce on routes (P9-014) |
 | `babadce` | docs(phase-9): record P9-013 commit ref |
