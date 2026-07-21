@@ -10,9 +10,9 @@
 
 | Metric | Value |
 |--------|-------|
-| Tasks done | 4 / 15 |
-| Current | P10-004 DONE — stop for CTO review |
-| Tests | 150/150 pass |
+| Tasks done | 5 / 15 |
+| Current | P10-005 DONE — stop for CTO review |
+| Tests | 154/154 pass |
 | Typecheck | green |
 | Prisma validate | green |
 
@@ -25,36 +25,25 @@
 | P10-001 | D-055 APPROVED | `10a534d` |
 | P10-002 | D-056 APPROVED | `d4d11b6` |
 | P10-003 | D-057 APPROVED | `e73eabb` |
-| P10-004 | pending review | `a420393` |
+| P10-004 | CLOSED | `a420393` |
+| P10-005 | pending review | pending |
 
 ---
 
-## P10-004 — Dashboard summary API
+## P10-005 — Audit viewer API
 
-**Endpoint:** `GET /api/v1/admin/dashboard/summary`  
-**Permission:** `admin:dashboard:read` via `requireAdminPermission`  
-**Service:** `getDashboardSummary()` — read-only Prisma counts
+**Endpoint:** `GET /api/v1/admin/audit`  
+**Permission:** `admin:audit:read` via `requireAdminPermission`  
+**Service:** `listAuditLogs()` — read-only · mandatory pagination
 
-**Response shape:**
-```json
-{
-  "users": { "total": n },
-  "employers": { "total": n },
-  "jobs": { "total": n, "pendingReview": n },
-  "applications": { "total": n },
-  "payments": { "total": n, "stuck": n },
-  "notifications": { "failedDeliveries": n }
-}
-```
+**Query:** `page` · `pageSize` (max 100) · optional `action` · `userId` · `from` · `to`
 
-**Guarantees:** thin route (no Prisma) · no mutations · stuck = PENDING|PROCESSING payments.
+**Guarantees:** thin route (no Prisma) · no mutations · always `skip`/`take`.
 
-**Note:** Seed of `admin:dashboard:read` is P10-014 — until then only roles that already hold the slug (none yet except after seed) will pass; helper + route are ready.
-
-**Not in P10-004:** audit · events · settings · monitoring · UI.
+**Not in P10-005:** events · settings · monitoring · UI.
 
 ---
 
 ## Next
 
-**Stop.** Await CTO review of P10-004 before P10-005 (audit viewer API).
+**Stop.** Await CTO review of P10-005 before P10-006.

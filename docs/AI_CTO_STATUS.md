@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for external CTO reviews.  
 **Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-21 · **P10-004** complete · awaiting review
+**Last updated:** 2026-07-21 · **P10-005** complete · awaiting review
 
 ---
 
@@ -48,10 +48,8 @@ Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks:
 |-----------|--------|
 | Phase 9 | ✅ FULLY CLOSED · `v0.10-phase-9` |
 | Phase 10 TECHNICAL_SPEC | ✅ D-054 |
-| P10-001 | ✅ CLOSED (D-055) |
-| P10-002 | ✅ CLOSED (D-056) |
-| P10-003 | ✅ CLOSED (D-057) |
-| P10-004 Dashboard summary API | ✅ DONE — awaiting CTO review |
+| P10-001..P10-004 | ✅ CLOSED |
+| P10-005 Audit viewer API | ✅ DONE — awaiting CTO review |
 
 ---
 
@@ -59,8 +57,8 @@ Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks:
 
 | Item | Status |
 |------|--------|
-| P10-004 Dashboard summary | DONE — awaiting CTO review |
-| P10-005 Audit viewer API | OPEN — do not start until P10-004 reviewed |
+| P10-005 Audit viewer | DONE — awaiting CTO review |
+| P10-006 Events/Settings/Monitoring | OPEN — do not start until P10-005 reviewed |
 
 ---
 
@@ -68,14 +66,14 @@ Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks:
 
 | Item | Owner |
 |------|-------|
-| P10-005..P10-015 | Agent (after CTO review) |
+| P10-006..P10-015 | Agent (after CTO review) |
 | Phase 6 formal close | Deferred |
 
 ---
 
 ## 9. Open Risks
 
-- Existing DBs: apply Phase 10 migration + P10-014 seed for `admin:*` (incl. `admin:dashboard:read`)
+- Existing DBs: apply Phase 10 migration + P10-014 seed for `admin:*`
 - TD-P2-1: no HTTP integration tests
 - Email/SMS: stub adapters only
 - Phase 6 not tagged
@@ -98,8 +96,8 @@ D-057 · D-056 · D-055 · D-054 · D-053 · C-005-1/2 · C-010-5 · RFC-003/004
 
 ## 12. Recommended Next Actions
 
-1. Review P10-004 (`GET /admin/dashboard/summary`)
-2. Authorize P10-005 only after review
+1. Review P10-005 (`GET /admin/audit`)
+2. Authorize P10-006 only after review
 3. Enforce C-005-1 · C-005-2 · append-only DomainEventLog · read-only admin inbox
 
-**Health:** 150/150 tests · typecheck green · prisma validate green.
+**Health:** 154/154 tests · typecheck green · prisma validate green.
