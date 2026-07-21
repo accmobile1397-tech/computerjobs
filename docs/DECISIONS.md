@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-062 | **P11-006 APPROVED** · P11-007 authorized | Active |
 | 2026-07-21 | D-061 | **P11-005 APPROVED** · P11-006 authorized | Active |
 | 2026-07-21 | D-060 | **P11-004 APPROVED** · P11-005 authorized | Active |
 | 2026-07-21 | D-059 | **P11-003 APPROVED** · P11-004 authorized | Active |
@@ -82,6 +83,16 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-062: P11-006 APPROVED · P11-007 authorized
+
+**Decision (2026-07-21):** **APPROVE** P11-006 (`83e1c1b`) — robots SoT (C-011-5). Authorize **P11-007** (wire `/` metadata + Organization/WebSite JSON-LD).
+
+**Hard reminders:** no new sitemap/robots work · no SearchAction · no Phase 12 SSR inventory · no domain SEO expansion.
+
+**Next:** P11-007 implementation · then CTO review before P11-008.
 
 ---
 

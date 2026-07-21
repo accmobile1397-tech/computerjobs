@@ -5,6 +5,7 @@
  * P11-004: JSON-LD structured-data builders (separate from metadata).
  * P11-005: sitemap sources + thin App Router adapter.
  * P11-006: robots SoT (C-011-5).
+ * P11-007: home (`/`) metadata + JSON-LD wiring.
  */
 export {
   SeoUrlError,
@@ -49,3 +50,8 @@ export {
   buildRobotsConfig,
   type RobotsConfig,
 } from "@/modules/seo/robots";
+export {
+  buildHomeJsonLdGraphs,
+  buildHomeJsonLdScriptContents,
+  buildHomeMetadata,
+} from "@/modules/seo/pages";

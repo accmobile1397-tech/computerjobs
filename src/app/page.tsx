@@ -1,11 +1,28 @@
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { DEPLOYED_PHASE } from "@/modules/shared/config/deploy-phase";
+import {
+  buildHomeJsonLdScriptContents,
+  buildHomeMetadata,
+} from "@/modules/seo/pages/home";
 
 export const dynamic = "force-dynamic";
 
+export const metadata: Metadata = buildHomeMetadata();
+
 export default function Home() {
+  const jsonLdScripts = buildHomeJsonLdScriptContents();
+
   return (
     <div className="flex flex-1 flex-col">
+      {jsonLdScripts.map((json, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: json }}
+        />
+      ))}
+
       <header className="border-b border-border">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <span className="text-lg font-bold">ComputerJobs.ir</span>
