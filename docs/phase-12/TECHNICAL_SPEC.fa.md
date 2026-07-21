@@ -2,15 +2,15 @@
 
 **پروژه:** ComputerJobs.ir  
 **فاز:** 12  
-**وضعیت:** 📝 **DRAFT — awaiting CTO APPROVE** · **implementation NOT authorized**
+**وضعیت:** ✅ **APPROVE WITH CONDITIONS** (D-066 · C-012-1..10) — implementation authorized under conditions
 
 **Prerequisites:**
 - Phase 11 — ✅ CLOSED · tag `v0.12-phase-11` (D-065)
 - [RFC-006 SEO Architecture](../rfc/RFC-006-SEO-ARCHITECTURE.md) — ✅ **FROZEN** (reuse · no new SEO architecture)
-- [SEO_STRATEGY.md](../SEO_STRATEGY.md) v1.1 · [.cto/SEO_RULES.md](../../.cto/SEO_RULES.md)
+- D-014 · [SEO_STRATEGY.md](../SEO_STRATEGY.md) · [.cto/SEO_RULES.md](../../.cto/SEO_RULES.md)
 - CTO handoff: [PHASE_12_CTO_HANDOFF.md](./PHASE_12_CTO_HANDOFF.md) — **Option 1** selected
 
-**مرجع:** RFC-006 · ROADMAP (D-046) · [TASKS.md](./TASKS.md) · Phase 11 `modules/seo`
+**مرجع:** RFC-006 · ROADMAP (D-046) · [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) · [TASKS.md](./TASKS.md) · D-066
 
 ---
 
@@ -197,31 +197,30 @@ seo/sitemap sources: static-core · jobs-public · companies-public
 
 ---
 
-## ۷. شرایط پیشنهادی APPROVE
+## ۷. شرایط APPROVE (D-066 — registered)
 
-| ID | شرط |
-|----|------|
-| C-012-1 | پیاده‌سازی فقط پس از APPROVE این TECHNICAL_SPEC |
-| C-012-2 | Sitemap honesty — بدون soft-404 |
-| C-012-3 | بدون SearchAction · بدون AI landings |
-| C-012-4 | بدون taxonomy/location hubs در Option 1 |
-| C-012-5 | Reuse `modules/seo` — بدون معماری SEO جدید |
-| C-012-6 | Public job/company data only (RFC-001) |
+| ID | شرط | Status |
+|----|------|--------|
+| C-012-1 | پیاده‌سازی فقط پس از APPROVE این TECHNICAL_SPEC | ✅ |
+| C-012-2 | Sitemap honesty — بدون soft-404 | Active |
+| C-012-3 | بدون SearchAction · بدون AI landings | Active |
+| C-012-4 | بدون taxonomy/location hubs در Option 1 | Active |
+| C-012-5 | Reuse `modules/seo` — بدون معماری SEO جدید | Active |
+| C-012-6 | Public job/company data only (RFC-001) | Active |
+| **C-012-7** | **همهٔ صفحات عمومی `generateMetadata()` با builders فاز ۱۱** | Active |
+| **C-012-8** | **`/jobs/[slug]` و `/companies/[slug]` → `notFound()` برای invalid/non-public** | Active |
+| **C-012-9** | **JobPosting JSON-LD فقط برای آگهی PUBLISHED** | Active |
+| **C-012-10** | **فقط public SSR — بدون admin/dashboard/profile** | Active |
 
 ---
 
-## ۸. CTO Decision
+## ۸. CTO Decision (recorded)
 
-| گزینه | معنی |
+| نتیجه | معنی |
 |--------|------|
-| **APPROVE** | implementation مجاز تحت شرایط |
-| **APPROVE WITH CONDITIONS** | شرایط اضافه |
-| **REJECT** | بازنویسی spec |
+| ✅ **APPROVE WITH CONDITIONS** (D-066) | Spec approved · plan in IMPLEMENTATION_PLAN / TASKS |
 
-**implementation NOT authorized** تا APPROVE.
+**Code:** authorized under conditions — one task at a time (start P12-001).
 
-- [ ] APPROVE  
-- [ ] APPROVE WITH CONDITIONS  
+- [x] APPROVE WITH CONDITIONS  
 - [ ] REJECT  
-
-**Next after APPROVE:** IMPLEMENTATION_PLAN (در صورت نیاز) · سپس P12-001… — **هنوز کد نزن** تا دستور صریح CTO.

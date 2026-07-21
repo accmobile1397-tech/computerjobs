@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-066 | **Phase 12 TECHNICAL_SPEC** — APPROVE WITH CONDITIONS (C-012-1..10) · P12-001 authorized | Active |
 | 2026-07-21 | D-065 | **Phase 11 CLOSED** — APPROVE CLOSE · tag `v0.12-phase-11` | **Closed** |
 | 2026-07-21 | D-064 | **P11-008 APPROVED** · P11-009 authorized | Active |
 | 2026-07-21 | D-063 | **P11-007 APPROVED** · P11-008 authorized | Active |
@@ -86,6 +87,26 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-066: Phase 12 TECHNICAL_SPEC — APPROVE WITH CONDITIONS
+
+**Decision (2026-07-21):** **APPROVE WITH CONDITIONS** — Phase 12 TECHNICAL_SPEC (Option 1) · authorize **P12-001** (public route shell).
+
+**Documents:**
+- [phase-12/TECHNICAL_SPEC.fa.md](./phase-12/TECHNICAL_SPEC.fa.md) ✅ APPROVE WITH CONDITIONS
+- [phase-12/IMPLEMENTATION_PLAN.md](./phase-12/IMPLEMENTATION_PLAN.md) · [phase-12/TASKS.md](./phase-12/TASKS.md)
+
+| Condition | Requirement |
+|-----------|-------------|
+| C-012-1..6 | As in TECHNICAL_SPEC §۷ |
+| **C-012-7** | All public pages implement `generateMetadata()` using Phase 11 builders |
+| **C-012-8** | `/jobs/[slug]` and `/companies/[slug]` return `notFound()` for invalid or non-public records |
+| **C-012-9** | JobPosting JSON-LD only for **PUBLISHED** jobs |
+| **C-012-10** | Phase 12 = public SSR only — no admin/dashboard/profile routes |
+
+**Next:** P12-001 → CTO review → authorize subsequent tasks one at a time.
 
 ---
 

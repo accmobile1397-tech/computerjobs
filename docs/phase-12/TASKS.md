@@ -2,12 +2,12 @@
 
 | ID | Task | Status | Commit | Notes |
 |----|------|--------|--------|-------|
-| P12-001 | Public route shell / layout | OPEN | — | thin App Router |
+| P12-001 | Public route shell / layout | DONE | _(pending)_ | `(public)` · C-012-7/10 |
 | P12-002 | Static pages `/about`·`/contact`·`/privacy`·`/terms` | OPEN | — | metadata via Phase 11 |
 | P12-003 | `/jobs` public list | OPEN | — | C-011-6 pagination |
-| P12-004 | `/jobs/[slug]` + JobPosting JSON-LD | OPEN | — | public fields only |
+| P12-004 | `/jobs/[slug]` + JobPosting JSON-LD | OPEN | — | C-012-8/9 |
 | P12-005 | `/companies` public list | OPEN | — | |
-| P12-006 | `/companies/[slug]` + metadata | OPEN | — | |
+| P12-006 | `/companies/[slug]` + metadata | OPEN | — | C-012-8 |
 | P12-007 | Breadcrumb JSON-LD on deep pages | OPEN | — | reuse builder |
 | P12-008 | Sitemap expand (static + jobs + companies) | OPEN | — | live URLs only |
 | P12-009 | Tests + guards | OPEN | — | no Prisma in client |
@@ -15,7 +15,6 @@
 
 ## Progress
 
-- **Done:** 0 / 10  
-- **Scope:** Option 1 (handoff)  
-- **Spec:** 📝 DRAFT — [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) · **awaiting CTO APPROVE**  
-- **Current:** Docs only — **no implementation** · Phase 11 closed `v0.12-phase-11`
+- **Done:** 1 / 10  
+- **Decision:** D-066 APPROVE WITH CONDITIONS (C-012-1..10)  
+- **Current:** P12-001 complete — **STOP** · await CTO review before P12-002

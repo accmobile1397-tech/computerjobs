@@ -69,7 +69,7 @@ describe("P11-009 seo module never touches Prisma", () => {
 
   it("home page and App Router SEO adapters have no Prisma imports", () => {
     for (const rel of [
-      "src/app/page.tsx",
+      "src/app/(public)/page.tsx",
       "src/app/sitemap.ts",
       "src/app/robots.ts",
     ] as const) {
@@ -135,7 +135,7 @@ describe("P11-009 C-011-3 no Phase 12 domain SSR pages", () => {
     }
   });
 
-  it("only public page.tsx outside admin is src/app/page.tsx", () => {
+  it("only public page.tsx outside admin is src/app/(public)/page.tsx", () => {
     const appPages: string[] = [];
     function walk(dir: string) {
       for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -149,7 +149,7 @@ describe("P11-009 C-011-3 no Phase 12 domain SSR pages", () => {
       }
     }
     walk(path.join(ROOT, "src/app"));
-    expect(appPages).toEqual(["src/app/page.tsx"]);
+    expect(appPages).toEqual(["src/app/(public)/page.tsx"]);
   });
 });
 

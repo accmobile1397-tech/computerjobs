@@ -1,38 +1,27 @@
 # CTO Report — Phase 12: SSR Public Pages
 
-**Status:** Spec **DRAFT** · awaiting CTO APPROVE · **code not started**  
-**Scope:** Option 1 — Core public inventory  
-**Prerequisite:** Phase 11 ✅ `v0.12-phase-11` (D-065)
+**Status:** P12-001 **DONE** · awaiting CTO review before P12-002  
+**Scope:** Option 1 · D-066 APPROVE WITH CONDITIONS (C-012-1..10)
 
-## Package
+## Latest delivery
 
-| Item | Status |
+| Item | Detail |
 |------|--------|
-| Handoff | [PHASE_12_CTO_HANDOFF.md](./PHASE_12_CTO_HANDOFF.md) — Option 1 |
-| TECHNICAL_SPEC.fa.md | 📝 DRAFT |
-| TASKS.md | P12-001..P12-010 OPEN |
-| RFC | Reuse RFC-006 FROZEN — **no new SEO architecture** |
+| Task | **P12-001** — public route shell |
+| Layout | `src/app/(public)/layout.tsx` + header/footer |
+| Home | moved to `(public)/page.tsx` · `generateMetadata` (C-012-7) |
+| C-012-10 | No admin/dashboard/profile links in shell |
+| Out of scope | static/jobs/companies pages (P12-002+) |
 
-## Option 1 inventory
+## Conditions highlight
 
-| Area | Routes |
-|------|--------|
-| Static | `/about` · `/contact` · `/privacy` · `/terms` |
-| Jobs | `/jobs` · `/jobs/[slug]` (+ JobPosting) |
-| Companies | `/companies` · `/companies/[slug]` |
-| SEO | Phase 11 builders · Breadcrumb · sitemap expand (live only) |
-
-## Explicit exclusions
-
-- SearchAction (C-011-4)  
-- AI landings  
-- Taxonomy / location hubs  
-- Coding · migrations · implementation  
-
-## Proposed conditions (C-012-1..6)
-
-See TECHNICAL_SPEC §۷ — honesty · no soft-404 · reuse `modules/seo` · public data only.
+| ID | Rule |
+|----|------|
+| C-012-7 | `generateMetadata` + Phase 11 builders |
+| C-012-8 | `notFound()` for invalid/non-public slugs |
+| C-012-9 | JobPosting JSON-LD only PUBLISHED |
+| C-012-10 | Public SSR only |
 
 ## Stop
 
-Await CTO **APPROVE** (or APPROVE WITH CONDITIONS). Do **not** implement until authorized.
+**Do not start P12-002** until CTO review.

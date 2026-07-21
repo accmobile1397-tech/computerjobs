@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-21 · Phase 12 TECHNICAL_SPEC **DRAFT** (Option 1)
+**Last updated:** 2026-07-21 · P12-001 complete · await review before P12-002
 
 ---
 
@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`f6486a0`](https://github.com/accmobile1397-tech/computerjobs/commit/f6486a0) — Phase 12 TECHNICAL_SPEC draft (Option 1) |
+| **Commit to review** | _(filled after commit)_ — P12-001 public route shell |
 
 ---
 
@@ -18,8 +18,9 @@
 
 | Item | Value |
 |------|-------|
-| **Last closed** | Phase 11 · ✅ `v0.12-phase-11` · D-065 |
-| **Phase 12** | 📝 TECHNICAL_SPEC **DRAFT** · Option 1 · **not authorized to implement** |
+| **Last closed** | Phase 11 · `v0.12-phase-11` · D-065 |
+| **Phase 12** | D-066 AWC · **P12-001 DONE** |
+| **Next** | Await CTO review · then authorize **P12-002** |
 
 ---
 
@@ -27,13 +28,13 @@
 
 | Doc | Link |
 |-----|------|
-| TECHNICAL_SPEC | [phase-12/TECHNICAL_SPEC.fa.md](./phase-12/TECHNICAL_SPEC.fa.md) |
+| IMPLEMENTATION_PLAN | [phase-12/IMPLEMENTATION_PLAN.md](./phase-12/IMPLEMENTATION_PLAN.md) |
 | TASKS | [phase-12/TASKS.md](./phase-12/TASKS.md) |
 | CTO_REPORT | [phase-12/CTO_REPORT.md](./phase-12/CTO_REPORT.md) |
-| Handoff | [phase-12/PHASE_12_CTO_HANDOFF.md](./phase-12/PHASE_12_CTO_HANDOFF.md) |
+| TECHNICAL_SPEC | APPROVE WITH CONDITIONS (C-012-1..10) |
 
 ---
 
 ## Recommended next action
 
-CTO review TECHNICAL_SPEC → **APPROVE** / APPROVE WITH CONDITIONS / REJECT. No coding until APPROVE.
+Review P12-001. Authorize **P12-002** when ready.

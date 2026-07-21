@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
-import { DEPLOYED_PHASE } from "@/modules/shared/config/deploy-phase";
 import {
   buildHomeJsonLdScriptContents,
   buildHomeMetadata,
@@ -8,13 +7,16 @@ import {
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = buildHomeMetadata();
+/** C-012-7: public pages use generateMetadata + Phase 11 builders. */
+export async function generateMetadata(): Promise<Metadata> {
+  return buildHomeMetadata();
+}
 
 export default function Home() {
   const jsonLdScripts = buildHomeJsonLdScriptContents();
 
   return (
-    <div className="flex flex-1 flex-col">
+    <>
       {jsonLdScripts.map((json, index) => (
         <script
           key={index}
@@ -22,18 +24,6 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: json }}
         />
       ))}
-
-      <header className="border-b border-border">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4">
-          <span className="text-lg font-bold">ComputerJobs.ir</span>
-          <nav className="flex gap-2">
-            <Button variant="ghost" size="sm">
-              ورود
-            </Button>
-            <Button size="sm">ثبت‌نام</Button>
-          </nav>
-        </div>
-      </header>
 
       <main className="flex flex-1 flex-col items-center justify-center px-4 py-16 text-center">
         <p className="mb-4 text-sm text-muted-foreground">به‌زودی</p>
@@ -51,10 +41,6 @@ export default function Home() {
           </Button>
         </div>
       </main>
-
-      <footer className="border-t border-border py-6 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} ComputerJobs.ir — Phase {DEPLOYED_PHASE}
-      </footer>
-    </div>
+    </>
   );
 }
