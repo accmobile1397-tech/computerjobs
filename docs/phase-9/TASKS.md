@@ -26,14 +26,14 @@
 | P9-012 | User API | DONE | `6fce48c` | inbox + preferences |
 | P9-013 | Admin API | DONE | `4517e65` | templates · mapping · delivery viewer · C-009-6 |
 | P9-014 | Permissions | DONE | `dec5cd7` | IAM seed · route enforcement · D-052 |
-| P9-015 | Tests | OPEN | — | gateway · idempotency · correlationId |
+| P9-015 | Tests | DONE | — | hardening · E2E contract · final report |
 
 ---
 
 ## Progress
 
-- **Done:** 14 / 15
-- **Current:** none — await review before **P9-015**
+- **Done:** 15 / 15
+- **Current:** none — await **CTO Phase 9 Closure Review**
 - **Blocked:** —
 
 ---
