@@ -42,7 +42,7 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 8.1 Resume AI Suggest | ⏸ Deferred |
 | **9** Notifications | 🟢 Closed (`v0.10-phase-9`) |
 | **10** Admin Platform | 🟢 Closed (`v0.11-phase-10`) · D-055 · C-P10-1 → TD-P10-2 |
-| **11** SEO Foundation | 📋 Handoff ready · **not authorized** — [PHASE_11_CTO_HANDOFF.md](docs/phase-11/PHASE_11_CTO_HANDOFF.md) |
+| **11** SEO Foundation | 📝 RFC-006 + TECHNICAL_SPEC DRAFT · **not authorized** |
 | **12–15** | 📋 Planned — see ROADMAP |
 
 ---

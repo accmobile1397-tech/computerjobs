@@ -59,16 +59,15 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ## [Unreleased]
 
+### Phase 11 — SEO Foundation (draft)
+
+- Handoff APPROVED · Option 1 · **RFC-006** drafted (D-056 pending APPROVE)
+- [TECHNICAL_SPEC.fa.md](./phase-11/TECHNICAL_SPEC.fa.md) drafted — **implementation not authorized**
+
 ### Phase 10 closed
 
-- **D-055** CLOSED · recommend tag `v0.11-phase-10`
+- **D-055** CLOSED · tag ✅ `v0.11-phase-10`
 - Condition **C-P10-1** → **TD-P10-2** (Events Viewer UI) — Phase 10 not reopened
-- Phase 11 **not authorized**
-
-### Historical notes
-
-- Phase 10 implementation completed under D-054; closure D-055
-- Phase 9 closed as `v0.10-phase-9` (D-053)
 
 ---
 

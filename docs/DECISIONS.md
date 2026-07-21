@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-056 | **RFC-006 SEO Architecture** — DRAFT (awaiting CTO APPROVE) · Phase 11 Option 1 | Active |
 | 2026-07-21 | D-055 | **Phase 10 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.11-phase-10` | **Closed** |
 | 2026-07-21 | TD-P10-2 | Admin Events Viewer UI completion (C-P10-1) | Active (P2) |
 | 2026-07-18 | D-001 | Master prompt v1.0 — phased delivery, spec-first | Active |
@@ -76,6 +77,24 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+---
+
+## D-056: RFC-006 SEO Architecture (DRAFT)
+
+**Decision (2026-07-21):** Phase 11 handoff **APPROVED** · scope **Option 1 (SEO Foundation)** · **RFC-006 required** before TECHNICAL_SPEC / implementation.
+
+**Documents:**
+- [RFC-006-SEO-ARCHITECTURE.md](./rfc/RFC-006-SEO-ARCHITECTURE.md) — **DRAFT** awaiting CTO APPROVE → FROZEN
+- [phase-11/TECHNICAL_SPEC.fa.md](./phase-11/TECHNICAL_SPEC.fa.md) — **DRAFT** awaiting CTO APPROVE
+
+**Covers:** SEO module · metadata builders · canonical · sitemap sources · robots · JSON-LD · URL normalization · public URL strategy · Phase 11/12 boundary · AI Landing extension points.
+
+**Not authorized:** Phase 11 implementation · migrations · code.
+
+**Next:** CTO APPROVE RFC-006 → FROZEN · APPROVE TECHNICAL_SPEC · then authorize P11 tasks.
 
 ---
 

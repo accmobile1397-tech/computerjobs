@@ -32,7 +32,7 @@ The platform is **technically usable** with notifications MVP live.
 
 **Phase 10:** ✅ **CLOSED** (D-055 · C-P10-1 → TD-P10-2) · tag ✅ `v0.11-phase-10` · [PHASE_10_CLOSURE_REPORT.md](./phase-10/PHASE_10_CLOSURE_REPORT.md)
 
-**Phase 11:** 📋 **CTO handoff prepared** — [PHASE_11_CTO_HANDOFF.md](./phase-11/PHASE_11_CTO_HANDOFF.md) · **spec/implementation not authorized**
+**Phase 11:** 📝 **RFC-006 + TECHNICAL_SPEC drafted** — [RFC-006](./rfc/RFC-006-SEO-ARCHITECTURE.md) · [TECHNICAL_SPEC.fa.md](./phase-11/TECHNICAL_SPEC.fa.md) · **awaiting CTO APPROVE** · implementation **not** authorized
 
 ---
 
@@ -66,7 +66,7 @@ CTO-approved order:
 |-------|--------|
 | **9** | Notification System — ✅ **CLOSED** (`v0.10-phase-9`) |
 | **10** | Admin Platform — ✅ **CLOSED** (`v0.11-phase-10`) |
-| **11** | SEO Foundation — 📋 **Handoff ready** · [PHASE_11_CTO_HANDOFF.md](./phase-11/PHASE_11_CTO_HANDOFF.md) · **not authorized** |
+| **11** | SEO Foundation — 📝 RFC-006 + TECHNICAL_SPEC **DRAFT** · **not authorized to implement** |
 | **12** | SSR Public Pages |
 | **13** | Analytics & Events |
 | **14** | Recommendation Engine |

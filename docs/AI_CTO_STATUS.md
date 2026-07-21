@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-21 · Phase 10 tagged · Phase 11 handoff ready
+**Last updated:** 2026-07-21 · Phase 11 RFC-006 + TECHNICAL_SPEC drafted
 
 ---
 
@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`1939fa4`](https://github.com/accmobile1397-tech/computerjobs/commit/1939fa4) — `docs(phase-11): add Phase 11 SEO CTO handoff package` |
+| **Commit to review** | _(filled after commit)_ — RFC-006 + Phase 11 TECHNICAL_SPEC |
 
 ---
 
@@ -18,32 +18,26 @@
 
 | Item | Value |
 |------|-------|
-| **Last closed phase** | **Phase 10** · D-055 · tag ✅ **`v0.11-phase-10`** |
-| **Next** | Phase 11 SEO Foundation — **handoff only** · **not authorized to implement** |
-| **Branch** | `main` (pushed + tag applied) |
+| **Last closed** | Phase 10 · `v0.11-phase-10` · D-055 |
+| **Phase 11** | Option 1 · RFC-006 **DRAFT** · TECHNICAL_SPEC **DRAFT** |
+| **Implementation** | ❌ **NOT authorized** |
 
 ---
 
-## Phase 11 package
+## Review these
 
 | Doc | Link |
 |-----|------|
-| CTO Handoff | [PHASE_11_CTO_HANDOFF.md](./phase-11/PHASE_11_CTO_HANDOFF.md) |
-| Folder | [phase-11/README.md](./phase-11/README.md) |
-
-**Ask of CTO:** Choose scope (Option 1/2/3) · decide RFC-006 vs TECHNICAL_SPEC-only · then authorize **spec drafting** only.
-
----
-
-## Debt highlight (C-P10-1)
-
-**TD-P10-2** — Admin Events Viewer UI completion (not Phase 11)
+| RFC-006 SEO Architecture | [RFC-006-SEO-ARCHITECTURE.md](./rfc/RFC-006-SEO-ARCHITECTURE.md) |
+| Phase 11 TECHNICAL_SPEC | [phase-11/TECHNICAL_SPEC.fa.md](./phase-11/TECHNICAL_SPEC.fa.md) |
+| Handoff (approved) | [PHASE_11_CTO_HANDOFF.md](./phase-11/PHASE_11_CTO_HANDOFF.md) |
 
 ---
 
 ## Recommended CTO action
 
-1. Review [`1939fa4`](https://github.com/accmobile1397-tech/computerjobs/commit/1939fa4) + [PHASE_11_CTO_HANDOFF.md](./phase-11/PHASE_11_CTO_HANDOFF.md)  
-2. Decide RFC need + MVP option  
-3. Authorize Phase 11 **TECHNICAL_SPEC** drafting (or RFC-006 first)  
-4. **Do not** authorize Phase 11 implementation yet
+1. **APPROVE / APPROVE WITH CONDITIONS / REJECT** on **RFC-006** → freeze  
+2. **APPROVE / …** on **TECHNICAL_SPEC.fa.md**  
+3. Only then authorize Phase 11 **implementation** (P11-001…)
+
+**No code until both are approved.**
