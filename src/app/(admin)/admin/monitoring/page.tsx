@@ -1,10 +1,6 @@
-import { AdminPagePlaceholder } from "../_components/admin-page-placeholder";
+import { AdminMonitoringClient } from "./admin-monitoring-client";
 
+/** P10-012 — monitoring UI via Admin API only (C-005-1 · read-only). */
 export default function AdminMonitoringPage() {
-  return (
-    <AdminPagePlaceholder
-      title="مانیتورینگ"
-      description="وضعیت سرویس‌ها از طریق GET /api/v1/admin/monitoring/summary"
-    />
-  );
+  return <AdminMonitoringClient />;
 }

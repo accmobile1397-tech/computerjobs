@@ -1,14 +1,14 @@
 # CTO Report — Phase 10: Admin Platform
 
-**Tasks:** 11 / 15 · **Awaiting:** P10-011  
-**Tests:** 184/184 · typecheck green
+**Tasks:** 12 / 15 · **Awaiting:** P10-012  
+**Tests:** see AI_CTO_STATUS · typecheck green
 
-## P10-011 — Settings UI
+## P10-012 — Monitoring UI
 
-- `/admin/settings` consumes `GET` / `PUT` `/api/v1/admin/settings` only
-- Respects server-side masking (`masked` / `***`); editor never prefills secrets
-- `feature.*` treated as ordinary SystemSetting records (TD-ADMIN-1 deferred)
-- RTL Persian · no Prisma / repos / DB in UI
-- Writes go through Admin API (server audit remains authoritative)
+- `/admin/monitoring` consumes `GET /api/v1/admin/monitoring/summary` only
+- Displays platform health (`status`, `checks.database` / `checks.redis`) and counters from Admin API
+- Read-only viewer — no restart / flush / repair / execute / maintenance actions
+- No Grafana / Prometheus or direct infra access from UI
+- RTL Persian · C-005-1 (UI → API only · no Prisma / repos / DB clients)
 
-**Stop.** Await CTO review before P10-012.
+**Stop.** Await CTO review before P10-013.

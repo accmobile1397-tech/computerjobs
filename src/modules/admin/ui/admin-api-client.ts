@@ -9,6 +9,7 @@ import type {
   SettingsListDto,
   SystemSettingItemDto,
 } from "@/modules/admin/ui/settings";
+import type { MonitoringSummaryDto } from "@/modules/admin/ui/monitoring";
 
 export type AdminApiEnvelope<T> = {
   success: boolean;
@@ -82,4 +83,12 @@ export async function putAdminSetting(input: {
     method: "PUT",
     body: JSON.stringify(input),
   });
+}
+
+export async function fetchMonitoringSummary(): Promise<
+  AdminApiEnvelope<MonitoringSummaryDto>
+> {
+  return adminFetch<MonitoringSummaryDto>(
+    "/api/v1/admin/monitoring/summary",
+  );
 }

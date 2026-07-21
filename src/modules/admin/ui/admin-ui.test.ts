@@ -13,6 +13,12 @@ import {
   isFeatureSettingKey,
   parseSettingEditorValue,
 } from "@/modules/admin/ui/settings";
+import {
+  formatCheckStatus,
+  formatMonitoringStatus,
+  monitoringChecksToRows,
+  monitoringCountersToRows,
+} from "@/modules/admin/ui/monitoring";
 
 describe("admin UI access (P10-008)", () => {
   it("allows super_admin and admin roles", () => {
@@ -169,6 +175,54 @@ describe("settings page uses Admin API only (P10-011)", () => {
       "utf8",
     );
     expect(source).toContain('"/api/v1/admin/settings"');
+  });
+});
+
+describe("monitoring UI helpers (P10-012)", () => {
+  const sample = {
+    status: "degraded" as const,
+    checks: { database: "ok" as const, redis: "error" as const },
+    counters: { domainEventsLast24h: 12, paymentsStuck: 3 },
+  };
+
+  it("maps API summary to check and counter rows without inventing values", () => {
+    expect(formatMonitoringStatus("ok")).toBe("سالم");
+    expect(formatMonitoringStatus("degraded")).toBe("اختلال");
+    expect(formatCheckStatus("error")).toBe("خطا");
+
+    const checks = monitoringChecksToRows(sample);
+    expect(checks).toEqual([
+      { id: "database", label: "پایگاه‌داده", status: "ok" },
+      { id: "redis", label: "Redis", status: "error" },
+    ]);
+
+    const counters = monitoringCountersToRows(sample);
+    expect(counters.find((c) => c.id === "domain-events-24h")?.value).toBe(12);
+    expect(counters.find((c) => c.id === "payments-stuck")?.value).toBe(3);
+  });
+});
+
+describe("monitoring page uses Admin API only (P10-012)", () => {
+  it("client fetches via fetchMonitoringSummary and stays read-only", () => {
+    const source = fs.readFileSync(
+      path.join(
+        process.cwd(),
+        "src/app/(admin)/admin/monitoring/admin-monitoring-client.tsx",
+      ),
+      "utf8",
+    );
+    expect(source).toContain("fetchMonitoringSummary");
+    expect(source).not.toMatch(/prisma/i);
+    expect(source).not.toMatch(/method:\s*["'](POST|PUT|PATCH|DELETE)["']/);
+    expect(source).not.toMatch(/restart|flush|repair|execute|grafana|prometheus/i);
+  });
+
+  it("API client targets /api/v1/admin/monitoring/summary only", () => {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), "src/modules/admin/ui/admin-api-client.ts"),
+      "utf8",
+    );
+    expect(source).toContain('"/api/v1/admin/monitoring/summary"');
   });
 });
 

@@ -16,6 +16,7 @@ export {
   fetchAuditLogs,
   fetchAdminSettings,
   putAdminSetting,
+  fetchMonitoringSummary,
 } from "./admin-api-client";
 export type { AdminApiEnvelope, MeBootstrap } from "./admin-api-client";
 export { dashboardSummaryToKpis } from "./dashboard";
@@ -37,3 +38,14 @@ export {
   isFeatureSettingKey,
 } from "./settings";
 export type { SystemSettingItemDto, SettingsListDto } from "./settings";
+export {
+  formatMonitoringStatus,
+  formatCheckStatus,
+  monitoringChecksToRows,
+  monitoringCountersToRows,
+} from "./monitoring";
+export type {
+  MonitoringSummaryDto,
+  MonitoringCheckRow,
+  MonitoringCounterRow,
+} from "./monitoring";
