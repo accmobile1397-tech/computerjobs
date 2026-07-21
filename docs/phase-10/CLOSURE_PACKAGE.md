@@ -17,7 +17,7 @@
 | Hardening tests | `src/modules/admin/phase10-hardening.test.ts` |
 | Migration ops | [MIGRATION.md](../MIGRATION.md) § Phase 10 |
 
-**Commit to review:** see AI_CTO_STATUS (P10-015 feat commit).
+**Commit to review:** [`a892a17`](https://github.com/accmobile1397-tech/computerjobs/commit/a892a17) — `test(admin): add Phase 10 hardening and C-005-1 guard (P10-015)`.
 
 ---
 

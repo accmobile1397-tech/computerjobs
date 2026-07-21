@@ -9,7 +9,7 @@
 | P10-012 | Monitoring UI | DONE | `9e72200` | APPROVED |
 | P10-013 | Notification admin UI | DONE | `03a9fc4` | APPROVED · C-009-6 |
 | P10-014 | IAM seed — admin:* + aliases | DONE | `e4e3ea7` | APPROVED |
-| P10-015 | Tests + C-005-1 guard | DONE | — | hardening · closure package |
+| P10-015 | Tests + C-005-1 guard | DONE | `a892a17` | hardening · closure package |
 
 ## Progress
 

@@ -49,7 +49,7 @@ Admin UI (RTL · fa-IR)
 | P10-012 | Monitoring UI | `9e72200` |
 | P10-013 | Notification admin UI | `03a9fc4` |
 | P10-014 | IAM seed admin:* + legacy | `e4e3ea7` |
-| P10-015 | Tests + C-005-1 guard | _(this handoff)_ |
+| P10-015 | Tests + C-005-1 guard | `a892a17` |
 
 ---
 
