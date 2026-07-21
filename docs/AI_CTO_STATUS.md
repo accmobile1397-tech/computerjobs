@@ -1,103 +1,93 @@
 # AI CTO Status — ComputerJobs.ir
 
-**Purpose:** Single source of truth for external CTO reviews.  
-**Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-21 · **P10-005** complete · awaiting review
+**Purpose:** Single source of truth for CTO review handoff (minimal context).  
+**Update:** After **every** completed task.  
+**Last updated:** 2026-07-21 · **P10-005** awaiting CTO review
+
+---
+
+## CTO Handoff (copy these two)
+
+| Item | Value |
+|------|-------|
+| **Status file** | [`docs/AI_CTO_STATUS.md`](./AI_CTO_STATUS.md) |
+| **Commit to review** | [`8dbf922`](https://github.com/accmobile1397-tech/computerjobs/commit/8dbf922) — `feat(admin): add paginated audit viewer API (P10-005)` |
+
+> **Push note:** local `main` may be ahead of `origin`. Push before CTO opens the link.
 
 ---
 
 ## 1. Project Summary
 
-Persian-first job platform for technology professionals.  
+Persian-first job platform.  
 **Stack:** Next.js · Prisma/MySQL · Redis · BullMQ · `src/modules/`.  
-**Live:** Auth/RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI Gateway · **Notifications (MVP)**.  
-**Workflow:** RFC → Spec → CTO APPROVE → Implement → Review → Tag. Commits on `main`.
+**Live:** Auth/RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI Gateway · Notifications (MVP).  
+**Workflow:** Spec → CTO APPROVE → implement one task → update this file + commit link → CTO review → next task.
 
 ---
 
 ## 2. Current Phase
 
 **Phase 10 — Admin Platform (Implementation Authorized)** · D-054  
-Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks: [phase-10/TASKS.md](./phase-10/TASKS.md)
+Tasks: [phase-10/TASKS.md](./phase-10/TASKS.md) · Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md)
 
 ---
 
 ## 3. Last Closed Phase
 
-**Phase 9 — Notification System** · ✅ **FULLY CLOSED** · tag **`v0.10-phase-9`** · D-053
+**Phase 9** · ✅ CLOSED · tag **`v0.10-phase-9`** · D-053
 
 ---
 
-## 4. Current Branch
+## 4. Branch
 
-`main` · local commits may be ahead of `origin/main`
-
----
-
-## 5. Recent Milestone
-
-| Tag | Phase |
-|-----|-------|
-| `v0.10-phase-9` | Phase 9 Notification System (CLOSED) |
+`main`
 
 ---
 
-## 6. Completed Milestones
+## 5. Phase 10 task board (commits)
 
-| Milestone | Status |
-|-----------|--------|
-| Phase 9 | ✅ FULLY CLOSED · `v0.10-phase-9` |
-| Phase 10 TECHNICAL_SPEC | ✅ D-054 |
-| P10-001..P10-004 | ✅ CLOSED |
-| P10-005 Audit viewer API | ✅ DONE — awaiting CTO review |
-
----
-
-## 7. In Progress Tasks
-
-| Item | Status |
-|------|--------|
-| P10-005 Audit viewer | DONE — awaiting CTO review |
-| P10-006 Events/Settings/Monitoring | OPEN — do not start until P10-005 reviewed |
+| Task | Status | Commit |
+|------|--------|--------|
+| P10-001 Admin skeleton | ✅ CLOSED (D-055) | [`10a534d`](https://github.com/accmobile1397-tech/computerjobs/commit/10a534d) |
+| P10-002 Permissions | ✅ CLOSED (D-056) | [`d4d11b6`](https://github.com/accmobile1397-tech/computerjobs/commit/d4d11b6) |
+| P10-003 DomainEventLog | ✅ CLOSED (D-057) | [`e73eabb`](https://github.com/accmobile1397-tech/computerjobs/commit/e73eabb) |
+| P10-004 Dashboard summary | ✅ DONE | [`a420393`](https://github.com/accmobile1397-tech/computerjobs/commit/a420393) |
+| **P10-005 Audit viewer** | ⏳ **Awaiting CTO review** | [`8dbf922`](https://github.com/accmobile1397-tech/computerjobs/commit/8dbf922) |
+| P10-006..P10-015 | OPEN | — |
 
 ---
 
-## 8. Pending Tasks
+## 6. What P10-005 delivered (for review)
 
-| Item | Owner |
-|------|-------|
-| P10-006..P10-015 | Agent (after CTO review) |
-| Phase 6 formal close | Deferred |
+- `GET /api/v1/admin/audit`
+- Permission: `admin:audit:read` (`requireAdminPermission`)
+- Thin route · service-only · **no Prisma in route**
+- Mandatory pagination (`page` / `pageSize` max 100)
+- Optional filters: `action` · `userId` · `from` · `to`
+- Read-only · no mutations
 
----
-
-## 9. Open Risks
-
-- Existing DBs: apply Phase 10 migration + P10-014 seed for `admin:*`
-- TD-P2-1: no HTTP integration tests
-- Email/SMS: stub adapters only
-- Phase 6 not tagged
-- Admin UI must never touch DB (C-005-1)
+**Health:** 154/154 tests · typecheck green · prisma validate green
 
 ---
 
-## 10. Architecture Decisions (active)
+## 7. Recommended CTO action
+
+1. Review commit `8dbf922`
+2. APPROVE / request changes
+3. Only then authorize **P10-006**
+
+---
+
+## 8. Open risks / debt (short)
+
+- P10-014 still needed to seed `admin:*` slugs  
+- Phase 10 migration `domain_event_logs` must be applied on existing DBs  
+- TD-P2-1 no HTTP E2E · C-005-1 Admin UI never touches DB  
+- TD-ADMIN-1 Feature Flag Engine deferred  
+
+---
+
+## 9. Active decisions
 
 D-057 · D-056 · D-055 · D-054 · D-053 · C-005-1/2 · C-010-5 · RFC-003/004/005 frozen
-
----
-
-## 11. Known Technical Debt
-
-**P1:** TD-P2-1 · TD-P5-1 · TD-P6-2 · TD-P7A-4 · TD-P7B-1 · TD-P7B-2  
-**P2:** TD-P6-1 · TD-P8-1 · TD-P7A-1/2/3 · TD-P7B-3 · TD-EVT-1 · TD-NOTIF-1 · TD-NOTIF-2 · TD-ADMIN-1
-
----
-
-## 12. Recommended Next Actions
-
-1. Review P10-005 (`GET /admin/audit`)
-2. Authorize P10-006 only after review
-3. Enforce C-005-1 · C-005-2 · append-only DomainEventLog · read-only admin inbox
-
-**Health:** 154/154 tests · typecheck green · prisma validate green.
