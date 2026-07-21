@@ -11,3 +11,5 @@ export {
   requireAdminPermission,
 } from "./permissions";
 export type { AdminPermissionSlug } from "./permissions";
+export { getDashboardSummary } from "./services";
+export type { DashboardSummary } from "./services";

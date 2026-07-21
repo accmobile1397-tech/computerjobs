@@ -17,8 +17,8 @@
 |----|------|--------|--------|-------|
 | P10-001 | Admin module skeleton | DONE | `10a534d` | D-055 APPROVED · CLOSED |
 | P10-002 | Permissions registry + alias helper | DONE | `d4d11b6` | D-056 APPROVED · CLOSED |
-| P10-003 | DomainEventLog migration + bus hook | DONE | `e73eabb` | append-only · C-010-5 |
-| P10-004 | Dashboard summary API | OPEN | — | GET `/admin/dashboard/summary` |
+| P10-003 | DomainEventLog migration + bus hook | DONE | `e73eabb` | D-057 APPROVED · CLOSED |
+| P10-004 | Dashboard summary API | DONE | pending | GET `/admin/dashboard/summary` |
 | P10-005 | Audit viewer API | OPEN | — | GET `/admin/audit` read-only |
 | P10-006 | Events + Settings + Monitoring APIs | OPEN | — | GET `/admin/events` · settings CRUD · monitoring |
 | P10-007 | Billing admin refactor | OPEN | — | Prisma out of route → admin service |
@@ -35,8 +35,8 @@
 
 ## Progress
 
-- **Done:** 3 / 15
-- **Current:** P10-003 DONE — awaiting CTO review before P10-004
+- **Done:** 4 / 15
+- **Current:** P10-004 DONE — awaiting CTO review before P10-005
 - **Blocked:** —
 
 ---

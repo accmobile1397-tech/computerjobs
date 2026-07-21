@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for external CTO reviews.  
 **Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-21 · **P10-003** complete · awaiting review
+**Last updated:** 2026-07-21 · **P10-004** complete · awaiting review
 
 ---
 
@@ -48,9 +48,10 @@ Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks:
 |-----------|--------|
 | Phase 9 | ✅ FULLY CLOSED · `v0.10-phase-9` |
 | Phase 10 TECHNICAL_SPEC | ✅ D-054 |
-| P10-001 Admin module skeleton | ✅ CLOSED (D-055) |
-| P10-002 Permissions registry | ✅ CLOSED (D-056) |
-| P10-003 DomainEventLog | ✅ DONE — awaiting CTO review |
+| P10-001 | ✅ CLOSED (D-055) |
+| P10-002 | ✅ CLOSED (D-056) |
+| P10-003 | ✅ CLOSED (D-057) |
+| P10-004 Dashboard summary API | ✅ DONE — awaiting CTO review |
 
 ---
 
@@ -58,8 +59,8 @@ Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks:
 
 | Item | Status |
 |------|--------|
-| P10-003 DomainEventLog | DONE — awaiting CTO review |
-| P10-004 Dashboard summary API | OPEN — do not start until P10-003 reviewed |
+| P10-004 Dashboard summary | DONE — awaiting CTO review |
+| P10-005 Audit viewer API | OPEN — do not start until P10-004 reviewed |
 
 ---
 
@@ -67,14 +68,14 @@ Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks:
 
 | Item | Owner |
 |------|-------|
-| P10-004..P10-015 | Agent (after CTO review) |
+| P10-005..P10-015 | Agent (after CTO review) |
 | Phase 6 formal close | Deferred |
 
 ---
 
 ## 9. Open Risks
 
-- Existing DBs: apply Phase 10 migration `domain_event_logs` + re-seed as needed
+- Existing DBs: apply Phase 10 migration + P10-014 seed for `admin:*` (incl. `admin:dashboard:read`)
 - TD-P2-1: no HTTP integration tests
 - Email/SMS: stub adapters only
 - Phase 6 not tagged
@@ -84,7 +85,7 @@ Spec: [phase-10/TECHNICAL_SPEC.fa.md](./phase-10/TECHNICAL_SPEC.fa.md) · Tasks:
 
 ## 10. Architecture Decisions (active)
 
-D-056 · D-055 · D-054 · D-053 · D-052 · D-051 · C-005-1/2 · C-010-5 · C-009-1..6 · RFC-003/004/005 frozen
+D-057 · D-056 · D-055 · D-054 · D-053 · C-005-1/2 · C-010-5 · RFC-003/004/005 frozen
 
 ---
 
@@ -97,8 +98,8 @@ D-056 · D-055 · D-054 · D-053 · D-052 · D-051 · C-005-1/2 · C-010-5 · C-
 
 ## 12. Recommended Next Actions
 
-1. Review P10-003 (DomainEventLog · EventBus append hook · C-010-5)
-2. Authorize P10-004 only after review
+1. Review P10-004 (`GET /admin/dashboard/summary`)
+2. Authorize P10-005 only after review
 3. Enforce C-005-1 · C-005-2 · append-only DomainEventLog · read-only admin inbox
 
-**Health:** 148/148 tests · typecheck green · prisma validate green.
+**Health:** 150/150 tests · typecheck green · prisma validate green.
