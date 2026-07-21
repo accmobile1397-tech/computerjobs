@@ -1,7 +1,7 @@
 # Phase 9 Closure Report — Notification System
 
-**Decision:** D-053 · **Status:** CLOSED (APPROVE WITH CONDITIONS)  
-**Closure review:** 2026-07-21 · **Tag:** `v0.10-phase-9` pending final CTO sign-off  
+**Decision:** D-053 · **Status:** OFFICIALLY CLOSED  
+**Closure review:** 2026-07-21 · **Tag:** `v0.10-phase-9` ✅  
 **Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) · **Final:** [PHASE_9_FINAL_REPORT.md](./PHASE_9_FINAL_REPORT.md)
 
 ---
@@ -10,11 +10,11 @@
 
 | Item | Value |
 |------|-------|
-| Review result | **APPROVE WITH CONDITIONS** |
+| Review result | **APPROVED** (final sign-off) |
 | Tasks completed | 15 / 15 (P9-001..P9-015) |
 | Implementation commit range | `828f751` … `5c04a5d` |
 | Closure commit | `ba7cad3` |
-| Suggested tag | `v0.10-phase-9` |
+| Tag | `v0.10-phase-9` |
 
 ---
 
@@ -98,7 +98,7 @@ TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1 · TD-P5-1 · TD-P
 | **Re-seed for notification perms** | **required on existing DBs** |
 | Stub Email/SMS | dev/staging only |
 | HTTP integration tests (TD-P2-1) | open |
-| Phase 9 git tag | pending CTO sign-off |
+| Phase 9 git tag | ✅ `v0.10-phase-9` |
 
 ---
 

@@ -1,7 +1,6 @@
 # CTO Report — Phase 9: Notification System
 
-**Phase:** 9 · **Status:** 🟢 **CLOSED** (D-053 · APPROVE WITH CONDITIONS)  
-**Tag:** `v0.10-phase-9` pending final CTO sign-off  
+**Phase:** 9 · **Status:** 🟢 **OFFICIALLY CLOSED** · tag `v0.10-phase-9` · D-053  
 **Closure:** [PHASE_9_CLOSURE_REPORT.md](./PHASE_9_CLOSURE_REPORT.md) · [PHASE_9_FINAL_REPORT.md](./PHASE_9_FINAL_REPORT.md)
 
 ## Progress
@@ -28,4 +27,4 @@ TD-NOTIF-1 · TD-NOTIF-2 · TD-EVT-1 · TD-ADMIN-1 · TD-P2-1
 
 ## Next
 
-**Final CTO sign-off** → tag `v0.10-phase-9`. Phase 10 **not authorized**.
+**Phase 10 spec prep** — see [phase-10/CTO_HANDOFF.md](../phase-10/CTO_HANDOFF.md). **Not authorized for implementation.**

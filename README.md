@@ -121,8 +121,8 @@ src/modules/
 | 6 | Search & Matching | Implemented · formal close pending |
 | 7A–7B | Entitlements · Payments | Closed (`v0.7`–`v0.8`) |
 | 8 | AI Gateway & Features | Closed (`v0.9-phase-8`) |
-| **9** | **Notification System** | **Closed** (APPROVE WITH CONDITIONS · tag pending sign-off) |
-| 10 | Admin Platform | Spec next — **not started** |
+| **9** | **Notification System** | **Closed** (`v0.10-phase-9`) |
+| 10 | Admin Platform | Spec next — **not authorized** |
 | 11–15 | SEO · SSR · Analytics · … | Planned |
 
 **Capabilities live:** Auth · RBAC · Companies · Jobs · Resumes · Search · Billing · Payments · AI · Events · Notifications.
@@ -135,7 +135,7 @@ src/modules/
 2. Spec → CTO APPROVE → implement → `CTO_REPORT` / closure report
 3. Tag on `main` after final sign-off
 
-**Current status:** Phase 9 closure commit submitted — awaiting **final CTO sign-off** before tag `v0.10-phase-9`. Phase 10 **not authorized**.
+**Current status:** Phase 9 **CLOSED** · tag `v0.10-phase-9`. Phase 10 spec prep — see [docs/phase-10/CTO_HANDOFF.md](docs/phase-10/CTO_HANDOFF.md). **Implementation not authorized.**
 
 ---
 

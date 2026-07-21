@@ -32,7 +32,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-20 | D-047 | RFC-003 Event Architecture — **CLOSED** (C-003-1/2) | **Closed** |
 | 2026-07-20 | D-048 | RFC-004 Notification Architecture — **CLOSED** | **Closed** |
 | 2026-07-20 | D-049 | RFC-005 Admin Platform — **CLOSED** (C-005-1/2) | **Closed** |
-| 2026-07-21 | D-053 | **Phase 9 CLOSED** — APPROVE WITH CONDITIONS (C-P9-1..3) · tag pending sign-off | **Closed** |
+| 2026-07-21 | D-053 | **Phase 9 CLOSED** — APPROVE WITH CONDITIONS · tag `v0.10-phase-9` | **Closed** |
 | 2026-07-20 | D-050 | Phase 9 spec — **APPROVE WITH CONDITIONS** · implementation AUTHORIZED | **Closed** |
 | 2026-07-20 | TD-NOTIF-2 | Notification Digest Engine | Active (P2) |
 | 2026-07-20 | D-052 | Phase 9 notification IAM permissions (P9-014) | Active |
@@ -78,7 +78,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 ## D-053: Phase 9 CLOSED — Notification System (APPROVE WITH CONDITIONS)
 
-**Decision (2026-07-21):** Phase 9 implementation **CLOSED** after Closure Review. Tag `v0.10-phase-9` **pending final CTO sign-off**.
+**Decision (2026-07-21):** Phase 9 **CLOSED** · final sign-off APPROVED · tag **`v0.10-phase-9`**.
 
 | Condition | Requirement | Status |
 |-----------|-------------|--------|

@@ -1,7 +1,6 @@
 # Phase 9 Final Report — Notification System
 
-**Phase:** 9 · **Status:** 🟢 **CLOSED** (D-053 · APPROVE WITH CONDITIONS)  
-**Tag:** `v0.10-phase-9` — **pending final CTO sign-off**  
+**Phase:** 9 · **Status:** 🟢 **OFFICIALLY CLOSED** · tag `v0.10-phase-9` · D-053  
 **Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) ✅ APPROVED (C-009-1..6)  
 **Closure:** [PHASE_9_CLOSURE_REPORT.md](./PHASE_9_CLOSURE_REPORT.md) · [TASKS.md](./TASKS.md)
 
@@ -98,4 +97,4 @@ BullMQ EventBus · real Email/SMS · WEBHOOK · Digest · Push · Phase 10 UI ·
 
 ---
 
-**Phase 10 not authorized.** Await final sign-off → tag → Phase 10 spec.
+**Phase 10 spec only** — see [phase-10/CTO_HANDOFF.md](../phase-10/CTO_HANDOFF.md). **Implementation not authorized.**

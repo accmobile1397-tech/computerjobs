@@ -1,4 +1,4 @@
-# ComputerJobs.ir — Project Status & Roadmap (After Phase 8)
+# ComputerJobs.ir — Project Status & Roadmap
 
 **Status:** Source of truth until **Version 1.0** · **Decision:** D-046  
 **Flow:** RFC → Spec → CTO APPROVE → Implement → Test → CTO Review → Tag → Close
@@ -7,7 +7,7 @@
 
 ## Current Position
 
-The project is no longer in the foundation stage. The platform is **technically usable**.
+The platform is **technically usable** with notifications MVP live.
 
 ### Completed foundations
 
@@ -23,13 +23,13 @@ The project is no longer in the foundation stage. The platform is **technically 
 | 7A | Entitlements, Plans, Quotas, Wallet | `v0.7-phase-7A` |
 | 7B | Payments | `v0.8-phase-7B` |
 | 8 | AI Gateway & Initial AI Features | `v0.9-phase-8` |
-| 9 | Notification System | tag pending (`v0.10-phase-9`) |
+| 9 | Notification System | `v0.10-phase-9` |
 
 **Capabilities live today:** Auth · RBAC · Companies · Jobs · Resumes · Search · Matching · Billing · Payments · AI Gateway · **Notifications**.
 
-**Phase 9:** CLOSED (implementation) — tag `v0.10-phase-9` pending final sign-off. See [phase-9/PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md).
+**Phase 9:** ✅ **CLOSED** · tag `v0.10-phase-9` · [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md)
 
-**Next:** Phase 10 Admin Platform **spec** (after tag) — implementation not authorized.
+**Next:** Phase 10 Admin Platform **spec** — [phase-10/CTO_HANDOFF.md](./phase-10/CTO_HANDOFF.md) · implementation **not authorized**
 
 ---
 
@@ -61,8 +61,8 @@ CTO-approved order:
 
 | Phase | Scope |
 |-------|--------|
-| **9** | Notification System — **CLOSED** (D-053 · tag pending) |
-| **10** | Admin Platform |
+| **9** | Notification System — ✅ **CLOSED** (`v0.10-phase-9`) |
+| **10** | Admin Platform — spec next |
 | **11** | SEO Foundation |
 | **12** | SSR Public Pages |
 | **13** | Analytics & Events |

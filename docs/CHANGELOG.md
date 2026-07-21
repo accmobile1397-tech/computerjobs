@@ -18,15 +18,32 @@ All notable changes to ComputerJobs.ir are documented here.
 - Tag: `v0.9-phase-8`
 - Debt: TD-P8-1 Local provider
 
-## [Unreleased]
+## [0.10.0-9] — 2026-07-21 — Phase 9 Notification System
 
-### Phase 9 — Notification System (CLOSED)
+### Added
+
+- EventBus (in-memory) + event catalog v1 + `EVENTS.*` constants
+- Publishers: `payment.succeeded` · `job.application.submitted`
+- Notification Gateway (idempotency · preferences · correlationId)
+- Providers: Email/SMS stub · InApp inbox
+- Handlers → gateway (6 MVP events)
+- User APIs: inbox · preferences · unread count
+- Admin APIs: templates · mapping · deliveries · read-only inbox
+- IAM: `notifications:read:own` · `preferences:own` · `admin` (D-052)
+
+### CTO
 
 - **APPROVE WITH CONDITIONS** at closure (D-053 · C-P9-1..3)
-- P9-001..P9-015 complete · 130 tests
-- Tag `v0.10-phase-9` pending final CTO sign-off
-- Ops: existing DBs must re-run `npm run db:seed` for notification permissions
-- **Next:** Phase 10 spec only (not implemented)
+- **Tag:** `v0.10-phase-9`
+- Ops: existing DBs re-run `npm run db:seed` for notification permissions
+- Debt: TD-NOTIF-1 · TD-NOTIF-2
+
+## [Unreleased]
+
+### Phase 10 — Admin Platform
+
+- Spec preparation only — see [docs/phase-10/CTO_HANDOFF.md](./phase-10/CTO_HANDOFF.md)
+- **Not authorized for implementation**
 
 ### Phase 9 Spec (historical)
 

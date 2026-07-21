@@ -2,7 +2,7 @@
 
 **Purpose:** Single source of truth for external CTO reviews.  
 **Update:** After every completed phase or major milestone.  
-**Last updated:** 2026-07-21 · **Phase 9 CLOSED** (D-053) · tag pending sign-off
+**Last updated:** 2026-07-21 · **Phase 9 OFFICIALLY CLOSED** · `v0.10-phase-9`
 
 ---
 
@@ -17,35 +17,28 @@ Persian-first job platform for technology professionals.
 
 ## 2. Current Phase
 
-**Phase 9 — Notification System** · 🟢 **CLOSED** (APPROVE WITH CONDITIONS · D-053)  
-**Tag:** `v0.10-phase-9` — **pending final CTO sign-off**
-
-Docs: [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md) · [PHASE_9_FINAL_REPORT.md](./phase-9/PHASE_9_FINAL_REPORT.md)
+**Phase 10 — Admin Platform** · 📋 **Spec preparation** (implementation NOT authorized)  
+Handoff: [phase-10/CTO_HANDOFF.md](./phase-10/CTO_HANDOFF.md)
 
 ---
 
 ## 3. Last Closed Phase
 
-**Phase 9** · CLOSED (implementation) · tag pending  
-**Phase 8** · ✅ CLOSED · `v0.9-phase-8`
+**Phase 9 — Notification System** · ✅ **CLOSED** · `v0.10-phase-9` · D-053
 
 ---
 
 ## 4. Current Branch
 
-`main` · ahead of `origin/main`
+`main` · synced with `origin/main`
 
 ---
 
-## 5. Recent Commits (last 5)
+## 5. Recent Milestone
 
-| Commit | Message |
-|--------|---------|
-| `ba7cad3` | docs(phase-9): close Phase 9 with conditions C-P9-1..3 (D-053) |
-| `cd55fd1` | docs(phase-9): record P9-015 commit ref |
-| `5c04a5d` | test(notifications): Phase 9 hardening + final report (P9-015) |
-| `b16bd69` | docs(phase-9): record P9-014 commit ref |
-| `dec5cd7` | feat(iam): seed notification permissions and enforce on routes (P9-014) |
+| Tag | Phase |
+|-----|-------|
+| `v0.10-phase-9` | Phase 9 Notification System |
 
 ---
 
@@ -53,18 +46,17 @@ Docs: [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md) · [PHASE
 
 | Milestone | Status |
 |-----------|--------|
-| P9-001..P9-015 | ✅ Done |
-| P9-014 IAM | ✅ APPROVED |
+| Phase 9 (P9-001..P9-015) | ✅ CLOSED · tagged |
 | Closure C-P9-1..3 | ✅ Executed |
-| Phase 9 tag | ⏳ Awaiting final sign-off |
+| Final sign-off | ✅ APPROVED |
 
-**Next (after tag):** Phase 10 Admin Platform **spec only** — not implemented.
+**Next:** Phase 10 TECHNICAL_SPEC — **not implemented**
 
 ---
 
 ## 7. In Progress Tasks
 
-None — **awaiting final CTO sign-off** for tag `v0.10-phase-9`.
+None — awaiting Phase 10 spec authorization.
 
 ---
 
@@ -72,15 +64,14 @@ None — **awaiting final CTO sign-off** for tag `v0.10-phase-9`.
 
 | Item | Owner |
 |------|-------|
-| Final sign-off + tag | CTO |
-| Phase 10 spec authorization | CTO (after tag) |
+| Phase 10 spec draft + APPROVE | CTO |
 | Phase 6 formal close | Deferred |
 
 ---
 
 ## 9. Open Risks
 
-- **Existing DBs:** must re-run `npm run db:seed` for notification permissions ([MIGRATION.md](./MIGRATION.md))
+- Existing DBs: re-run `npm run db:seed` for notification permissions
 - TD-P2-1: no HTTP integration tests
 - Email/SMS: stub adapters only
 - Phase 6 not tagged
@@ -89,7 +80,7 @@ None — **awaiting final CTO sign-off** for tag `v0.10-phase-9`.
 
 ## 10. Architecture Decisions (active)
 
-D-053 · D-052 · C-009-1..6 · Catalog SoT · Handlers → Gateway only
+D-053 · D-052 · D-051 · C-009-1..6 · C-005-1/2 · RFC-003/004/005 frozen
 
 ---
 
@@ -100,17 +91,10 @@ D-053 · D-052 · C-009-1..6 · Catalog SoT · Handlers → Gateway only
 
 ---
 
-## 12. Questions For CTO
+## 12. Recommended Next Actions
 
-1. **Final sign-off** — approve tag `v0.10-phase-9`?
-2. Authorize **Phase 10 spec** after tag?
-
----
-
-## 13. Recommended Next Actions
-
-1. Review [PHASE_9_CLOSURE_REPORT.md](./phase-9/PHASE_9_CLOSURE_REPORT.md)
-2. Sign off → `git tag v0.10-phase-9`
+1. Review [phase-10/CTO_HANDOFF.md](./phase-10/CTO_HANDOFF.md)
+2. Authorize Phase 10 **TECHNICAL_SPEC** drafting
 3. **Do not start Phase 10 implementation**
 
 **Health:** 130/130 tests · typecheck green · prisma validate green.

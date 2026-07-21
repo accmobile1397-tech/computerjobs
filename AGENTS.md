@@ -40,8 +40,8 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | 7B Payment Gateway | 🟢 Closed (`v0.8-phase-7B`) |
 | 8 AI Gateway & Features | 🟢 Closed (`v0.9-phase-8`) |
 | 8.1 Resume AI Suggest | ⏸ Deferred |
-| **9** Notifications | 🟢 Closed (D-053 · tag pending) |
-| **10** Admin Platform | 📋 Spec after P9 tag — **not started** |
+| **9** Notifications | 🟢 Closed (`v0.10-phase-9`) |
+| **10** Admin Platform | 📋 Spec prep — **not authorized** |
 | **11–15** | 📋 Planned — see ROADMAP |
 
 ---

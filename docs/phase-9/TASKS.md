@@ -33,7 +33,7 @@
 ## Progress
 
 - **Done:** 15 / 15
-- **Current:** CLOSED (D-053) — await **final sign-off + tag**
+- **Current:** OFFICIALLY CLOSED · tag `v0.10-phase-9`
 - **Blocked:** —
 
 ---
