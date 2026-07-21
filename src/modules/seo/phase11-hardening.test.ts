@@ -149,6 +149,7 @@ describe("P11-009 C-011-3 no Phase 12 domain SSR pages", () => {
       [
         "src/app/(public)/about/page.tsx",
         "src/app/(public)/contact/page.tsx",
+        "src/app/(public)/jobs/[slug]/page.tsx",
         "src/app/(public)/jobs/page.tsx",
         "src/app/(public)/page.tsx",
         "src/app/(public)/privacy/page.tsx",

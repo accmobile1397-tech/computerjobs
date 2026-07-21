@@ -51,12 +51,9 @@ describe("P12-001 public route shell", () => {
     }
   });
 
-  it("does not add company or job-detail trees yet", () => {
-    for (const rel of [
-      "src/app/(public)/companies",
-      "src/app/(public)/jobs/[slug]",
-    ] as const) {
-      expect(fs.existsSync(path.join(ROOT, rel)), rel).toBe(false);
-    }
+  it("does not add company trees yet", () => {
+    expect(
+      fs.existsSync(path.join(ROOT, "src/app/(public)/companies")),
+    ).toBe(false);
   });
 });

@@ -1,6 +1,6 @@
 /**
- * Public published jobs list UI (P12-003) — Server Component only.
- * No detail links yet (P12-004). No Prisma / Client Components.
+ * Public published jobs list UI (P12-003/004) — Server Component only.
+ * No Prisma / Client Components.
  */
 import Link from "next/link";
 import type { listPublicJobs } from "@/modules/jobs/services/job.service";
@@ -67,7 +67,9 @@ export function PublicJobsList({
               className="border-b border-border pb-4 text-right last:border-b-0"
             >
               <h2 className="text-lg font-semibold text-foreground">
-                {job.title}
+                <Link href={`/jobs/${job.slug}`} className="hover:underline">
+                  {job.title}
+                </Link>
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
                 {job.company.name}

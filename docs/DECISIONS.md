@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-21 | D-069 | **P12-003 APPROVED** · **P12-004 authorized** (`/jobs/[slug]` + JobPosting) | Active |
 | 2026-07-21 | D-068 | **P12-002 APPROVED** · **P12-003 authorized** (`/jobs` public list) | Active |
 | 2026-07-21 | D-067 | **P12-001 APPROVED** · **P12-002 authorized** (static pages ×4) | Active |
 | 2026-07-21 | D-066 | **Phase 12 TECHNICAL_SPEC** — APPROVE WITH CONDITIONS (C-012-1..10) · P12-001 authorized | Active |
@@ -89,6 +90,19 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-069: P12-003 APPROVED · P12-004 authorized
+
+**Decision (2026-07-21):** **P12-003 CLOSED** · authorize **P12-004** — `/jobs/[slug]` detail + JobPosting JSON-LD.
+
+**Scope (P12-004):**
+- C-012-8 `notFound()` for missing / non-published / expired / non-public company
+- C-012-9 JobPosting JSON-LD only for PUBLISHED public jobs via Phase 11 builder
+- `buildPageMetadata()` · no sitemap / SearchAction / AI landings · no Prisma in page layer
+
+**Next:** P12-004 → CTO review → authorize **P12-005**.
 
 ---
 

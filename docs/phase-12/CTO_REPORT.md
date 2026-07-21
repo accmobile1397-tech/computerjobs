@@ -1,28 +1,20 @@
 # CTO Report — Phase 12: SSR Public Pages
 
-**Status:** P12-003 **DONE** · awaiting CTO review before P12-004  
-**Scope:** Option 1 · D-066 AWC · **D-068** (P12-002 APPROVED · P12-003 authorized)
+**Status:** P12-004 **DONE** · awaiting CTO review before P12-005  
+**Scope:** Option 1 · D-066 AWC · **D-069** (P12-003 APPROVED · P12-004 authorized)
 
 ## Latest delivery
 
 | Item | Detail |
 |------|--------|
-| Task | **P12-003** — public `/jobs` list |
-| Data | `listPublicJobs` — PUBLISHED · non-expired · public verified companies |
-| Metadata | `generateMetadata` → `buildPageMetadata` · self-canonical `?page=` (C-011-6) |
-| UI | Server Component list + pagination · no detail slug links yet |
-| Explicitly not | JobPosting JSON-LD · sitemap · Prisma in page/client · `/jobs/[slug]` |
-| Tests | `jobs-list.test.ts` · shell/hardening updated |
-| Commit | [`5f2c258`](https://github.com/accmobile1397-tech/computerjobs/commit/5f2c258) |
-
-## Conditions highlight
-
-| ID | Rule |
-|----|------|
-| C-012-7 | `generateMetadata` + Phase 11 builders ✅ (`/jobs`) |
-| C-011-6 | Self-canonical pagination ✅ |
-| C-012-8/9 | Detail + JobPosting → **P12-004** |
+| Task | **P12-004** — `/jobs/[slug]` detail |
+| Data | `getPublicJobBySlug` via `loadPublicJobBySlug` (PUBLISHED · non-expired · public company) |
+| C-012-8 | `notFound()` when loader returns null |
+| Metadata | `generateMetadata` → `buildPageMetadata` from public job fields |
+| JSON-LD | Phase 11 `buildJobPostingJsonLd` (omit if insufficient fields) |
+| Explicitly not | Breadcrumb (P12-007) · sitemap (P12-008) · SearchAction · Prisma in page |
+| Tests | `job-detail.test.ts` · shell/hardening updated |
 
 ## Stop
 
-**Do not start P12-004** until CTO review.
+**Do not start P12-005** until CTO review.
