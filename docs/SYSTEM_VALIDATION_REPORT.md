@@ -115,6 +115,8 @@ Capabilities that are **implemented and closed at phase level**, with automated 
 
 ## 7. Recommended validation scenarios
 
+See the executable checklist: **[VALIDATION_SPRINT.md](./VALIDATION_SPRINT.md)** (tracks Authentication → Security).
+
 Run these on a seeded local/staging environment **before** Phase 13 implementation:
 
 ### A. Authentication & RBAC

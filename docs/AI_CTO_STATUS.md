@@ -29,6 +29,7 @@
 | Doc | Link |
 |-----|------|
 | SYSTEM_VALIDATION_REPORT | [SYSTEM_VALIDATION_REPORT.md](./SYSTEM_VALIDATION_REPORT.md) |
+| VALIDATION_SPRINT | [VALIDATION_SPRINT.md](./VALIDATION_SPRINT.md) |
 | PHASE_12_CLOSURE_REPORT | [phase-12/PHASE_12_CLOSURE_REPORT.md](./phase-12/PHASE_12_CLOSURE_REPORT.md) |
 | PHASE_13_CTO_HANDOFF | [phase-13/PHASE_13_CTO_HANDOFF.md](./phase-13/PHASE_13_CTO_HANDOFF.md) |
 | ROADMAP | [ROADMAP.md](./ROADMAP.md) |
@@ -37,6 +38,7 @@
 
 ## Recommended next action
 
-1. Review [SYSTEM_VALIDATION_REPORT.md](./SYSTEM_VALIDATION_REPORT.md) (run staging scenarios B–D).  
-2. Review [PHASE_13_CTO_HANDOFF.md](./phase-13/PHASE_13_CTO_HANDOFF.md).  
-3. Authorize Phase 13 **TECHNICAL_SPEC** when ready. **No Phase 13 code** until APPROVE.
+1. Execute [VALIDATION_SPRINT.md](./VALIDATION_SPRINT.md) on staging (P0 tracks first).  
+2. Review [SYSTEM_VALIDATION_REPORT.md](./SYSTEM_VALIDATION_REPORT.md).  
+3. Review [PHASE_13_CTO_HANDOFF.md](./phase-13/PHASE_13_CTO_HANDOFF.md).  
+4. Authorize Phase 13 **TECHNICAL_SPEC** when ready. **No Phase 13 code** until APPROVE.
