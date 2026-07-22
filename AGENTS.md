@@ -43,8 +43,8 @@ See [`docs/reviews/CTO_HANDOFF.md`](docs/reviews/CTO_HANDOFF.md).
 | **9** Notifications | 🟢 Closed (`v0.10-phase-9`) |
 | **10** Admin Platform | 🟢 Closed (`v0.11-phase-10`) · D-055 · C-P10-1 → TD-P10-2 |
 | **11** SEO Foundation | 🟢 Closed (`v0.12-phase-11`) · D-065 · C-011-1..6 |
-| **12** SSR Public Pages | 📦 READY FOR CLOSE · await D-076 · tag proposal `v0.13-phase-12` |
-| **13–15** | 📋 Planned — see ROADMAP |
+| **12** SSR Public Pages | 🟢 Closed (`v0.13-phase-12`) · D-076 · C-012-1..10 |
+| **13–15** | 📋 Planned — Phase 13 handoff only · see ROADMAP |
 
 ---
 

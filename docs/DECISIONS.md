@@ -4,7 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
-| 2026-07-22 | D-076 | **Phase 12 CLOSE** — pending CTO APPROVE CLOSE · tag proposal `v0.13-phase-12` | Pending |
+| 2026-07-22 | D-076 | **Phase 12 CLOSED** — APPROVE CLOSE · tag `v0.13-phase-12` | **Closed** |
 | 2026-07-22 | D-075 | **P12-009 APPROVED** · **P12-010 authorized** (Phase 12 closure package) | Active |
 | 2026-07-22 | D-074 | **P12-008 APPROVED** · **P12-009 authorized** (Hardening + Guards) | Active |
 | 2026-07-22 | D-073 | **P12-007 APPROVED** · **P12-008 authorized** (Sitemap expansion) | Active |
@@ -100,16 +100,20 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 ---
 
-## D-076: Phase 12 CLOSE — pending APPROVE CLOSE
+## D-076: Phase 12 CLOSED — SSR Public Pages (APPROVE CLOSE)
 
-**Decision (2026-07-22):** Closure package delivered (P12-010). **Awaiting CTO APPROVE CLOSE**.
+**Decision (2026-07-22):** Phase 12 **CLOSED** · final sign-off **APPROVE CLOSE** · tag **`v0.13-phase-12`**.
 
-**Tag proposal:** `v0.13-phase-12`  
-**Package:** [phase-12/CLOSURE_PACKAGE.md](./phase-12/CLOSURE_PACKAGE.md) · [phase-12/PHASE_12_CLOSURE_REPORT.md](./phase-12/PHASE_12_CLOSURE_REPORT.md)
+**Also records:** P12-010 closure package delivered (`1ed99bb`) · Option 1 + C-012-1..10 satisfied.
 
-**On APPROVE CLOSE:** apply annotated tag + push · mark Phase 12 🟢 CLOSED · authorize Phase 13 separately.
+| Item | Value |
+|------|-------|
+| Spec | D-066 APPROVE WITH CONDITIONS |
+| Tasks | P12-001…P12-010 DONE |
+| Tag | ✅ `v0.13-phase-12` |
+| Package | [phase-12/CLOSURE_PACKAGE.md](./phase-12/CLOSURE_PACKAGE.md) · [phase-12/PHASE_12_CLOSURE_REPORT.md](./phase-12/PHASE_12_CLOSURE_REPORT.md) |
 
-**Stop:** No Phase 13 implementation until D-076 + Phase 13 authorize.
+**Next:** Phase 13 handoff only — [phase-13/PHASE_13_CTO_HANDOFF.md](./phase-13/PHASE_13_CTO_HANDOFF.md). **No Phase 13 implementation** until CTO APPROVE of Phase 13 spec.
 
 ---
 

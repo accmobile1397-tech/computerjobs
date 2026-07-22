@@ -1,14 +1,27 @@
 # Phase 12 Closure Report — SSR Public Pages
 
-**Decision pending:** **D-076** · **Status:** 📦 **READY FOR CLOSE** (package complete · await APPROVE CLOSE)  
-**Closure package date:** 2026-07-22 · **Tag proposal:** `v0.13-phase-12`  
+**Decision:** D-076 · **Status:** 🟢 **OFFICIALLY CLOSED** (APPROVE CLOSE)  
+**Closure review:** 2026-07-22 · **Tag:** ✅ `v0.13-phase-12`  
 **Spec:** [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) · **Handoff:** [CTO_REPORT.md](./CTO_REPORT.md)  
 **Architecture:** [RFC-006](../rfc/RFC-006-SEO-ARCHITECTURE.md) ✅ FROZEN — reused only  
 **Package:** [CLOSURE_PACKAGE.md](./CLOSURE_PACKAGE.md)
 
 ---
 
-## 1. Closure validation (Option 1 delivered)
+## 1. Closure decision
+
+| Item | Value |
+|------|-------|
+| Review result | **APPROVE CLOSE** |
+| Tasks completed | 10 / 10 (P12-001..P12-010) |
+| Spec decision | D-066 |
+| Closure decision | **D-076** |
+| Tag | ✅ `v0.13-phase-12` |
+| Conditions C-012-1..10 | ✅ satisfied |
+
+---
+
+## 2. Closure validation (Option 1 delivered)
 
 | Path | Status |
 |------|--------|
@@ -46,21 +59,14 @@
 
 ---
 
-## 2. Tasks & conditions
+## 3. Tasks & hardening
 
 | Item | Value |
 |------|-------|
-| Tasks completed | **10 / 10** (P12-001..P12-010) |
-| Spec decision | **D-066** APPROVE WITH CONDITIONS |
-| Conditions C-012-1..10 | ✅ satisfied |
 | Hardening | `phase12-hardening.test.ts` · `phase11-hardening` updated |
 | Public inventory tests | **96/96** (seo public + hardening suite) |
-| Closure decision | **Awaiting D-076 APPROVE CLOSE** |
-| Tag | ⏸ proposed `v0.13-phase-12` — apply only after D-076 |
 
----
-
-## 3. Key commits (implementation)
+### Key commits
 
 | Task | Commit |
 |------|--------|
@@ -73,7 +79,7 @@
 | P12-007 | `4ee8afb` |
 | P12-008 | `998e07c` |
 | P12-009 | `3905eec` |
-| P12-010 | *(this package)* `1ed99bb` |
+| P12-010 | `1ed99bb` |
 
 ---
 
@@ -88,19 +94,7 @@
 
 ---
 
-## 5. Tag proposal (after D-076 only)
+## 5. Next
 
-```bash
-git tag -a v0.13-phase-12 -m "Phase 12 SSR Public Pages CLOSED"
-git push origin v0.13-phase-12
-```
-
-**Do not tag or start Phase 13** until CTO issues **D-076 APPROVE CLOSE**.
-
----
-
-## 6. Next
-
-- CTO reviews this package + [CTO_REPORT.md](./CTO_REPORT.md) + tag proposal  
-- On **D-076 APPROVE CLOSE**: apply tag · update ROADMAP/AGENTS to 🟢 CLOSED  
-- Phase 13: **not authorized**
+- Phase 13 CTO handoff: [../phase-13/PHASE_13_CTO_HANDOFF.md](../phase-13/PHASE_13_CTO_HANDOFF.md)  
+- **Phase 13 implementation NOT authorized** until CTO APPROVE of Phase 13 spec

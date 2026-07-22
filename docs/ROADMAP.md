@@ -26,6 +26,7 @@ The platform is **technically usable** with notifications MVP live.
 | 9 | Notification System | `v0.10-phase-9` |
 | 10 | Admin Platform | ✅ `v0.11-phase-10` |
 | 11 | SEO Foundation | ✅ `v0.12-phase-11` |
+| 12 | SSR Public Pages | ✅ `v0.13-phase-12` |
 
 **Capabilities live today:** Auth · RBAC · Companies · Jobs · Resumes · Search · Matching · Billing · Payments · AI Gateway · Notifications · Admin Platform · SEO Foundation · **SSR Public Pages (Option 1)**.
 
@@ -35,7 +36,7 @@ The platform is **technically usable** with notifications MVP live.
 
 **Phase 11:** ✅ **CLOSED** (D-065 · APPROVE CLOSE) · tag ✅ `v0.12-phase-11` · [PHASE_11_CLOSURE_REPORT.md](./phase-11/PHASE_11_CLOSURE_REPORT.md)
 
-**Phase 12:** 📦 **READY FOR CLOSE** · Option 1 delivered · C-012-1..10 ✅ · await **D-076** · tag proposal `v0.13-phase-12` · [PHASE_12_CLOSURE_REPORT.md](./phase-12/PHASE_12_CLOSURE_REPORT.md)
+**Phase 12:** ✅ **CLOSED** (D-076 · APPROVE CLOSE) · tag ✅ `v0.13-phase-12` · [PHASE_12_CLOSURE_REPORT.md](./phase-12/PHASE_12_CLOSURE_REPORT.md)
 
 ---
 
@@ -70,8 +71,8 @@ CTO-approved order:
 | **9** | Notification System — ✅ **CLOSED** (`v0.10-phase-9`) |
 | **10** | Admin Platform — ✅ **CLOSED** (`v0.11-phase-10`) |
 | **11** | SEO Foundation — ✅ **CLOSED** (`v0.12-phase-11`) |
-| **12** | SSR Public Pages — 📦 READY FOR CLOSE · await D-076 · tag proposal `v0.13-phase-12` |
-| **13** | Analytics & Events |
+| **12** | SSR Public Pages — ✅ **CLOSED** (`v0.13-phase-12`) · D-076 |
+| **13** | Analytics & Events — handoff only · [PHASE_13_CTO_HANDOFF](./phase-13/PHASE_13_CTO_HANDOFF.md) |
 | **14** | Recommendation Engine |
 | **15** | Advanced AI Layer |
 

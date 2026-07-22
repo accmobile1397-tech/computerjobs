@@ -11,11 +11,10 @@
 | P12-007 | Breadcrumb JSON-LD on deep pages | DONE | `4ee8afb` | D-072 · Phase 11 builder only |
 | P12-008 | Sitemap expand (static + jobs + companies) | DONE | `998e07c` | D-073 · C-012-2 honesty |
 | P12-009 | Tests + guards | DONE | `3905eec` | D-074 · hardening only |
-| P12-010 | CTO_REPORT / closure package | DONE | `1ed99bb` | D-075 · await D-076 CLOSE |
+| P12-010 | CTO_REPORT / closure package | DONE | `1ed99bb` | D-076 path |
 
 ## Progress
 
 - **Done:** **10 / 10**  
-- **Decision:** D-075 — P12-009 APPROVED · P12-010 authorized/delivered  
-- **Status:** 📦 **READY FOR CLOSE** · await **D-076 APPROVE CLOSE** · tag proposal `v0.13-phase-12`  
-- **Stop:** No Phase 13 until D-076 + separate authorization
+- **Status:** 🟢 **OFFICIALLY CLOSED** (D-076 · APPROVE CLOSE)  
+- **Tag:** ✅ `v0.13-phase-12`

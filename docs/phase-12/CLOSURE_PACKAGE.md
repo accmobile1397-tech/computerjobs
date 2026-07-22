@@ -1,15 +1,14 @@
 # Phase 12 — Closure Package
 
-**Status:** 📦 **READY FOR CLOSE** · awaiting **D-076 APPROVE CLOSE**  
-**Scope:** Option 1 — SSR Public Pages · C-012-1..10  
-**Tag proposal:** `v0.13-phase-12` (do **not** apply until D-076)
+**Status:** ✅ **CLOSED** (D-076 · APPROVE CLOSE) · tag ✅ `v0.13-phase-12`  
+**Scope:** Option 1 — SSR Public Pages · C-012-1..10 satisfied
 
 ## Package contents
 
 | Doc | Role |
 |-----|------|
-| [PHASE_12_CLOSURE_REPORT.md](./PHASE_12_CLOSURE_REPORT.md) | Formal closure validation |
-| [CTO_REPORT.md](./CTO_REPORT.md) | Final handoff |
+| [PHASE_12_CLOSURE_REPORT.md](./PHASE_12_CLOSURE_REPORT.md) | Formal closure |
+| [CTO_REPORT.md](./CTO_REPORT.md) | Handoff · Option 1 + C-012 summary |
 | [TASKS.md](./TASKS.md) | P12-001…P12-010 — all DONE |
 | [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) | Approved spec (D-066 AWC) |
 | [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) | Conditions + sequence |
@@ -18,11 +17,6 @@
 ## Out of scope (do not reopen Phase 12)
 
 - SearchAction · AI landings · taxonomy/location hubs · programmatic SEO
-- Phase 13 Analytics & Events
+- Analytics & Events → **Phase 13**
 
-## Tag commands (only after D-076 APPROVE CLOSE)
-
-```bash
-git tag -a v0.13-phase-12 -m "Phase 12 SSR Public Pages CLOSED"
-git push origin v0.13-phase-12
-```
+**Phase 13** handoff only: [../phase-13/PHASE_13_CTO_HANDOFF.md](../phase-13/PHASE_13_CTO_HANDOFF.md) · **implementation not authorized**.
