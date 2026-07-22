@@ -1,5 +1,5 @@
 /**
- * Public site header (P12-003): home + live `/jobs` only.
+ * Public site header (P12-005): home + live `/jobs` + `/companies`.
  */
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -12,12 +12,18 @@ export function PublicSiteHeader() {
           <Link href="/" className="text-lg font-bold tracking-tight">
             ComputerJobs.ir
           </Link>
-          <nav aria-label="اصلی">
+          <nav className="flex gap-4" aria-label="اصلی">
             <Link
               href="/jobs"
               className="text-sm text-muted-foreground hover:text-foreground hover:underline"
             >
               فرصت‌های شغلی
+            </Link>
+            <Link
+              href="/companies"
+              className="text-sm text-muted-foreground hover:text-foreground hover:underline"
+            >
+              شرکت‌ها
             </Link>
           </nav>
         </div>

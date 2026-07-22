@@ -34,7 +34,7 @@ describe("P12-001 public route shell", () => {
     expect(fs.existsSync(path.join(ROOT, "src/app/page.tsx"))).toBe(false);
   });
 
-  it("layout has no Prisma or premature company links", () => {
+  it("layout has no Prisma or premature admin links", () => {
     const header = fs.readFileSync(
       path.join(ROOT, "src/app/(public)/_components/public-site-header.tsx"),
       "utf8",
@@ -45,15 +45,14 @@ describe("P12-001 public route shell", () => {
     );
     for (const source of [header, layout]) {
       expect(source).not.toMatch(/@prisma/);
-      expect(source).not.toMatch(/href=["']\/companies/);
       expect(source).not.toMatch(/href=["']\/admin/);
       expect(source).not.toMatch(/href=["']\/dashboard/);
     }
   });
 
-  it("does not add company trees yet", () => {
+  it("does not add company detail tree yet", () => {
     expect(
-      fs.existsSync(path.join(ROOT, "src/app/(public)/companies")),
+      fs.existsSync(path.join(ROOT, "src/app/(public)/companies/[slug]")),
     ).toBe(false);
   });
 });

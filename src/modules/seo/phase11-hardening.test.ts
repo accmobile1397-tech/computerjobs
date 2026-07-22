@@ -131,7 +131,7 @@ describe("P11-009 C-011-3 no Phase 12 domain SSR pages", () => {
     }
   });
 
-  it("public pages outside admin are home + static + /jobs under (public)", () => {
+  it("public pages outside admin are Option 1 inventory under (public)", () => {
     const appPages: string[] = [];
     function walk(dir: string) {
       for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -148,6 +148,7 @@ describe("P11-009 C-011-3 no Phase 12 domain SSR pages", () => {
     expect(appPages.sort()).toEqual(
       [
         "src/app/(public)/about/page.tsx",
+        "src/app/(public)/companies/page.tsx",
         "src/app/(public)/contact/page.tsx",
         "src/app/(public)/jobs/[slug]/page.tsx",
         "src/app/(public)/jobs/page.tsx",

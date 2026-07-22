@@ -53,5 +53,11 @@ export const adminCompanyStatusSchema = z.object({
   reason: z.string().max(500).optional(),
 });
 
+export const listCompaniesQuerySchema = z.object({
+  page: z.coerce.number().int().min(1).optional(),
+  limit: z.coerce.number().int().min(1).max(100).optional(),
+});
+
 export type CreateCompanyInput = z.infer<typeof createCompanySchema>;
 export type UpdateCompanyInput = z.infer<typeof updateCompanySchema>;
+export type ListCompaniesQuery = z.infer<typeof listCompaniesQuerySchema>;

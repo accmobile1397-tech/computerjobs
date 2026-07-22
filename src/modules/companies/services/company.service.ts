@@ -14,7 +14,11 @@ import {
 } from "@/modules/shared/utils/slug.util";
 import { writeAuditLog } from "@/modules/auth/services/audit.service";
 import { assertActiveCategory, TaxonomyError } from "@/modules/taxonomy/services/taxonomy.service";
-import type { CreateCompanyInput, UpdateCompanyInput } from "@/modules/companies/validators/company.schema";
+import type {
+  CreateCompanyInput,
+  ListCompaniesQuery,
+  UpdateCompanyInput,
+} from "@/modules/companies/validators/company.schema";
 
 export class CompanyError extends Error {
   constructor(public code: string) {
@@ -253,6 +257,41 @@ export async function getPublicCompanyBySlug(slug: string) {
   });
   if (!company) throw new CompanyError("NOT_FOUND");
   return toPublicCompany(company);
+}
+
+/** Public company list: ACTIVE + VERIFIED only (same gate as getPublicCompanyBySlug). */
+export async function listPublicCompanies(query: ListCompaniesQuery = {}) {
+  const page = query.page ?? 1;
+  const limit = Math.min(query.limit ?? 20, 100);
+  const where = {
+    deletedAt: null,
+    status: CompanyStatus.ACTIVE,
+    verificationStatus: CompanyVerificationStatus.VERIFIED,
+  } as const;
+
+  const [rows, total] = await Promise.all([
+    prisma.company.findMany({
+      where,
+      orderBy: { name: "asc" },
+      skip: (page - 1) * limit,
+      take: limit,
+      select: {
+        name: true,
+        slug: true,
+        description: true,
+        logoUrl: true,
+        websiteUrl: true,
+        employeeCountRange: true,
+        industryLabel: true,
+      },
+    }),
+    prisma.company.count({ where }),
+  ]);
+
+  return {
+    data: rows.map(toPublicCompany),
+    meta: { page, limit, total },
+  };
 }
 
 export async function updateCompanyVerification(params: {
