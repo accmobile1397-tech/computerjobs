@@ -12,6 +12,7 @@
 | Wired | `/jobs/[slug]` · `/companies/[slug]` · static ×4 |
 | Explicitly not | New SEO builders · SearchAction · sitemap · JobPosting/metadata refactor |
 | Tests | `breadcrumb-wiring.test.ts` · detail tests updated |
+| Commit | [`4ee8afb`](https://github.com/accmobile1397-tech/computerjobs/commit/4ee8afb) |
 
 ## Stop
 

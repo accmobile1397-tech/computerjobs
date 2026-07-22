@@ -8,7 +8,7 @@
 | P12-004 | `/jobs/[slug]` + JobPosting JSON-LD | DONE | `b461561` | D-069 · C-012-8/9 |
 | P12-005 | `/companies` public list | DONE | `e43222e` | D-070 · ACTIVE+VERIFIED |
 | P12-006 | `/companies/[slug]` + metadata | DONE | `33d1989` | D-071 · C-012-8 |
-| P12-007 | Breadcrumb JSON-LD on deep pages | DONE | — | D-072 · Phase 11 builder only |
+| P12-007 | Breadcrumb JSON-LD on deep pages | DONE | `4ee8afb` | D-072 · Phase 11 builder only |
 | P12-008 | Sitemap expand (static + jobs + companies) | OPEN | — | live URLs only |
 | P12-009 | Tests + guards | OPEN | — | no Prisma in client |
 | P12-010 | CTO_REPORT handoff | OPEN | — | |
