@@ -1,6 +1,6 @@
 # Phase 12 — SSR Public Pages
 
-**Status:** ✅ **D-066 AWC** · **D-071** · P12-006 done · **await review before P12-007**  
+**Status:** ✅ **D-066 AWC** · **D-072** · P12-007 done · **await review before P12-008**  
 **Prerequisite:** Phase 11 ✅ `v0.12-phase-11` (D-065)  
 **Scope:** Option 1
 
@@ -10,7 +10,7 @@
 |-----|---------|
 | [TECHNICAL_SPEC.fa.md](./TECHNICAL_SPEC.fa.md) | Spec — APPROVE WITH CONDITIONS |
 | [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) | Commit sequence + C-012-1..10 |
-| [TASKS.md](./TASKS.md) | P12-001..006 DONE · P12-007..010 OPEN |
+| [TASKS.md](./TASKS.md) | P12-001..007 DONE · P12-008..010 OPEN |
 | [CTO_REPORT.md](./CTO_REPORT.md) | Live handoff |
 | [PHASE_12_CTO_HANDOFF.md](./PHASE_12_CTO_HANDOFF.md) | Pre-spec audit |
 

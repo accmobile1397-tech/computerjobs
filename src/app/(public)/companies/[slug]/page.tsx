@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { JsonLdScripts } from "@/app/(public)/_components/json-ld-scripts";
 import { PublicCompanyDetail } from "@/app/(public)/companies/[slug]/_components/public-company-detail";
 import { loadPublicCompanyBySlug } from "@/modules/companies/ui/load-public-company";
-import { buildPublicCompanyPageInput } from "@/modules/companies/ui/public-company-seo";
+import {
+  buildPublicCompanyBreadcrumbScript,
+  buildPublicCompanyPageInput,
+} from "@/modules/companies/ui/public-company-seo";
 import { buildPageMetadata } from "@/modules/seo/metadata";
 
 type CompanyDetailPageProps = {
@@ -26,5 +30,12 @@ export default async function CompanyDetailPage({
   const company = await loadPublicCompanyBySlug(slug);
   if (!company) notFound();
 
-  return <PublicCompanyDetail company={company} />;
+  return (
+    <>
+      <JsonLdScripts
+        payloads={[buildPublicCompanyBreadcrumbScript(company)]}
+      />
+      <PublicCompanyDetail company={company} />
+    </>
+  );
 }

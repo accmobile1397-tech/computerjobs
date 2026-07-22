@@ -1,8 +1,12 @@
 /**
- * Static public page copy + SEO inputs (P12-002).
+ * Static public page copy + SEO inputs (P12-002 / P12-007).
  * Content only — no Prisma / backend.
  */
 import type { SeoPageInput } from "@/modules/seo/types/seo-page-input";
+import {
+  buildBreadcrumbJsonLd,
+  serializeJsonLd,
+} from "@/modules/seo/structured-data";
 
 export type StaticPageId = "about" | "contact" | "privacy" | "terms";
 
@@ -78,4 +82,20 @@ export function staticPageSeoInput(id: StaticPageId): SeoPageInput {
     path: page.path,
     robots: "index",
   };
+}
+
+/** BreadcrumbList JSON-LD via Phase 11 builder (P12-007 · C-012-5). */
+export function staticPageBreadcrumbScript(
+  id: StaticPageId,
+  options?: { baseUrl?: string },
+): string | null {
+  const page = STATIC_PAGES[id];
+  const graph = buildBreadcrumbJsonLd({
+    items: [
+      { name: "خانه", path: "/" },
+      { name: page.title, path: page.path },
+    ],
+    baseUrl: options?.baseUrl,
+  });
+  return graph ? serializeJsonLd(graph) : null;
 }

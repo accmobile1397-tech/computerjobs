@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-22 · P12-006 complete · await review before P12-007
+**Last updated:** 2026-07-22 · P12-007 complete · await review before P12-008
 
 ---
 
@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`33d1989`](https://github.com/accmobile1397-tech/computerjobs/commit/33d1989) — P12-006 `/companies/[slug]` |
+| **Commit to review** | *(set after commit)* — P12-007 Breadcrumb wiring |
 
 ---
 
@@ -19,8 +19,8 @@
 | Item | Value |
 |------|-------|
 | **Last closed** | Phase 11 · `v0.12-phase-11` · D-065 |
-| **Phase 12** | D-066 AWC · **D-071** · **P12-006 DONE** |
-| **Next** | Await CTO review · then authorize **P12-007** |
+| **Phase 12** | D-066 AWC · **D-072** · **P12-007 DONE** |
+| **Next** | Await CTO review · then authorize **P12-008** |
 
 ---
 
@@ -37,4 +37,4 @@
 
 ## Recommended next action
 
-Review P12-006. Authorize **P12-007** when ready.
+Review P12-007. Authorize **P12-008** when ready.

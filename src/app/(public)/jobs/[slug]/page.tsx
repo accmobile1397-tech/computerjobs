@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { JsonLdScripts } from "@/app/(public)/_components/json-ld-scripts";
 import { PublicJobDetail } from "@/app/(public)/jobs/[slug]/_components/public-job-detail";
 import { loadPublicJobBySlug } from "@/modules/jobs/ui/load-public-job";
 import {
+  buildPublicJobBreadcrumbScript,
   buildPublicJobPageInput,
   buildPublicJobPostingScript,
 } from "@/modules/jobs/ui/public-job-seo";
@@ -27,17 +29,15 @@ export default async function JobDetailPage({ params }: JobDetailPageProps) {
   const job = await loadPublicJobBySlug(slug);
   if (!job) notFound();
 
-  // C-012-9: JobPosting only for PUBLISHED public jobs (loader enforces).
-  const jobPostingJsonLd = buildPublicJobPostingScript(job);
-
+  // C-012-9 JobPosting · P12-007 Breadcrumb — Phase 11 builders only (C-012-5).
   return (
     <>
-      {jobPostingJsonLd ? (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jobPostingJsonLd }}
-        />
-      ) : null}
+      <JsonLdScripts
+        payloads={[
+          buildPublicJobPostingScript(job),
+          buildPublicJobBreadcrumbScript(job),
+        ]}
+      />
       <PublicJobDetail job={job} />
     </>
   );

@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-22 | D-072 | **P12-006 APPROVED** · **P12-007 authorized** (Breadcrumb JSON-LD wiring) | Active |
 | 2026-07-22 | D-071 | **P12-005 APPROVED** · **P12-006 authorized** (`/companies/[slug]`) | Active |
 | 2026-07-22 | D-070 | **P12-004 APPROVED** · **P12-005 authorized** (`/companies` public list) | Active |
 | 2026-07-21 | D-069 | **P12-003 APPROVED** · **P12-004 authorized** (`/jobs/[slug]` + JobPosting) | Active |
@@ -92,6 +93,19 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-072: P12-006 APPROVED · P12-007 authorized
+
+**Decision (2026-07-22):** **P12-006 CLOSED** · authorize **P12-007** — Breadcrumb JSON-LD wiring.
+
+**Scope (P12-007):**
+- Reuse Phase 11 `buildBreadcrumbJsonLd` only (C-012-5 — no new SEO builders)
+- Wire on `/jobs/[slug]` · `/companies/[slug]` · static pages as needed
+- No SearchAction · sitemap · taxonomy · AI landings · JobPosting/metadata refactor
+
+**Next:** P12-007 → CTO review → authorize **P12-008**.
 
 ---
 

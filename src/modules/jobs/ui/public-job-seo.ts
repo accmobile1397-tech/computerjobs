@@ -1,9 +1,10 @@
 /**
- * Map public job DTO → Phase 11 SEO inputs (P12-004).
+ * Map public job DTO → Phase 11 SEO inputs (P12-004 / P12-007).
  * No Prisma — domain → SEO only.
  */
 import { buildCanonicalUrl } from "@/modules/seo/canonical";
 import {
+  buildBreadcrumbJsonLd,
   buildJobPostingJsonLd,
   serializeJsonLd,
 } from "@/modules/seo/structured-data";
@@ -57,5 +58,21 @@ export function buildPublicJobPostingScript(
     validThrough: toIsoDate(job.expiresAt) || undefined,
   });
 
+  return graph ? serializeJsonLd(graph) : null;
+}
+
+/** BreadcrumbList JSON-LD via Phase 11 builder (P12-007 · C-012-5). */
+export function buildPublicJobBreadcrumbScript(
+  job: PublicJob,
+  options?: { baseUrl?: string },
+): string | null {
+  const graph = buildBreadcrumbJsonLd({
+    items: [
+      { name: "خانه", path: "/" },
+      { name: "فرصت‌های شغلی", path: "/jobs" },
+      { name: job.title, path: `/jobs/${job.slug}` },
+    ],
+    baseUrl: options?.baseUrl,
+  });
   return graph ? serializeJsonLd(graph) : null;
 }

@@ -6,6 +6,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { buildPageMetadata } from "@/modules/seo/metadata";
 import {
+  buildPublicJobBreadcrumbScript,
   buildPublicJobPageInput,
   buildPublicJobPostingScript,
 } from "@/modules/jobs/ui/public-job-seo";
@@ -38,17 +39,17 @@ describe("P12-004 public job detail", () => {
     expect(fs.existsSync(PAGE)).toBe(true);
   });
 
-  it("uses generateMetadata, notFound, JobPosting builder, no Prisma", () => {
+  it("uses generateMetadata, notFound, JobPosting + Breadcrumb wiring, no Prisma", () => {
     const source = fs.readFileSync(PAGE, "utf8");
     expect(source).toContain("generateMetadata");
     expect(source).toContain("buildPageMetadata");
     expect(source).toContain("notFound");
     expect(source).toContain("loadPublicJobBySlug");
     expect(source).toContain("buildPublicJobPostingScript");
+    expect(source).toContain("buildPublicJobBreadcrumbScript");
     expect(source).not.toMatch(/@prisma/);
     expect(source).not.toContain("prisma.");
     expect(source).not.toContain("SearchAction");
-    expect(source).not.toContain("buildBreadcrumbJsonLd");
   });
 
   it("detail UI is a Server Component without Prisma", () => {
@@ -88,6 +89,14 @@ describe("P12-004 public job detail", () => {
       "@type": "Organization",
       name: "اکمی",
     });
+  });
+
+  it("emits BreadcrumbList JSON-LD for job detail (P12-007)", () => {
+    const script = buildPublicJobBreadcrumbScript(sampleJob(), {
+      baseUrl: "https://computerjobs.ir",
+    });
+    expect(script).toBeTruthy();
+    expect(JSON.parse(script!)["@type"]).toBe("BreadcrumbList");
   });
 
   it("omits JobPosting JSON-LD when required fields missing", () => {

@@ -5,7 +5,10 @@ import { describe, expect, it } from "vitest";
 import * as fs from "fs";
 import * as path from "path";
 import { buildPageMetadata } from "@/modules/seo/metadata";
-import { buildPublicCompanyPageInput } from "@/modules/companies/ui/public-company-seo";
+import {
+  buildPublicCompanyBreadcrumbScript,
+  buildPublicCompanyPageInput,
+} from "@/modules/companies/ui/public-company-seo";
 import type { PublicCompany } from "@/modules/companies/ui/load-public-company";
 
 const ROOT = process.cwd();
@@ -31,16 +34,16 @@ describe("P12-006 public company detail", () => {
     expect(fs.existsSync(PAGE)).toBe(true);
   });
 
-  it("uses generateMetadata, notFound, no Prisma / Breadcrumb / SearchAction", () => {
+  it("uses generateMetadata, notFound, Breadcrumb wiring, no Prisma / SearchAction", () => {
     const source = fs.readFileSync(PAGE, "utf8");
     expect(source).toContain("generateMetadata");
     expect(source).toContain("buildPageMetadata");
     expect(source).toContain("notFound");
     expect(source).toContain("loadPublicCompanyBySlug");
+    expect(source).toContain("buildPublicCompanyBreadcrumbScript");
     expect(source).not.toMatch(/@prisma/);
     expect(source).not.toContain("prisma.");
     expect(source).not.toContain("SearchAction");
-    expect(source).not.toContain("buildBreadcrumbJsonLd");
   });
 
   it("detail UI is a Server Component without Prisma", () => {
@@ -74,5 +77,13 @@ describe("P12-006 public company detail", () => {
       baseUrl: "https://computerjobs.ir",
     });
     expect(meta.description).toContain("اکمی");
+  });
+
+  it("emits BreadcrumbList JSON-LD for company detail (P12-007)", () => {
+    const script = buildPublicCompanyBreadcrumbScript(sampleCompany(), {
+      baseUrl: "https://computerjobs.ir",
+    });
+    expect(script).toBeTruthy();
+    expect(JSON.parse(script!)["@type"]).toBe("BreadcrumbList");
   });
 });

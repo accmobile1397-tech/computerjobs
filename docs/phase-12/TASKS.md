@@ -8,13 +8,13 @@
 | P12-004 | `/jobs/[slug]` + JobPosting JSON-LD | DONE | `b461561` | D-069 · C-012-8/9 |
 | P12-005 | `/companies` public list | DONE | `e43222e` | D-070 · ACTIVE+VERIFIED |
 | P12-006 | `/companies/[slug]` + metadata | DONE | `33d1989` | D-071 · C-012-8 |
-| P12-007 | Breadcrumb JSON-LD on deep pages | OPEN | — | reuse builder |
+| P12-007 | Breadcrumb JSON-LD on deep pages | DONE | — | D-072 · Phase 11 builder only |
 | P12-008 | Sitemap expand (static + jobs + companies) | OPEN | — | live URLs only |
 | P12-009 | Tests + guards | OPEN | — | no Prisma in client |
 | P12-010 | CTO_REPORT handoff | OPEN | — | |
 
 ## Progress
 
-- **Done:** 6 / 10  
-- **Decision:** D-071 — P12-005 APPROVED · P12-006 authorized/delivered  
-- **Current:** P12-006 complete — **STOP** · await CTO review before P12-007
+- **Done:** 7 / 10  
+- **Decision:** D-072 — P12-006 APPROVED · P12-007 authorized/delivered  
+- **Current:** P12-007 complete — **STOP** · await CTO review before P12-008

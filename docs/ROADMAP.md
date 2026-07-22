@@ -35,7 +35,7 @@ The platform is **technically usable** with notifications MVP live.
 
 **Phase 11:** ✅ **CLOSED** (D-065 · APPROVE CLOSE) · tag ✅ `v0.12-phase-11` · [PHASE_11_CLOSURE_REPORT.md](./phase-11/PHASE_11_CLOSURE_REPORT.md)
 
-**Phase 12:** ✅ **D-066 AWC** · **D-071** · [IMPLEMENTATION_PLAN](./phase-12/IMPLEMENTATION_PLAN.md) · **P12-006 done** · await review before P12-007
+**Phase 12:** ✅ **D-066 AWC** · **D-072** · [IMPLEMENTATION_PLAN](./phase-12/IMPLEMENTATION_PLAN.md) · **P12-007 done** · await review before P12-008
 
 ---
 
@@ -70,7 +70,7 @@ CTO-approved order:
 | **9** | Notification System — ✅ **CLOSED** (`v0.10-phase-9`) |
 | **10** | Admin Platform — ✅ **CLOSED** (`v0.11-phase-10`) |
 | **11** | SEO Foundation — ✅ **CLOSED** (`v0.12-phase-11`) |
-| **12** | SSR Public Pages — ✅ D-066 AWC · D-071 · P12-006 done · **await P12-007** |
+| **12** | SSR Public Pages — ✅ D-066 AWC · D-072 · P12-007 done · **await P12-008** |
 | **13** | Analytics & Events |
 | **14** | Recommendation Engine |
 | **15** | Advanced AI Layer |
