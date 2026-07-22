@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | *(set after commit)* — P12-008 Sitemap expansion |
+| **Commit to review** | [`998e07c`](https://github.com/accmobile1397-tech/computerjobs/commit/998e07c) — P12-008 Sitemap expansion |
 
 ---
 
