@@ -109,6 +109,8 @@ describe("isBlockedSitemapPath", () => {
     expect(isBlockedSitemapPath("/admin/settings")).toBe(true);
     expect(isBlockedSitemapPath("/api/v1/x")).toBe(true);
     expect(isBlockedSitemapPath("/dashboard")).toBe(true);
+    expect(isBlockedSitemapPath("/profile")).toBe(true);
+    expect(isBlockedSitemapPath("/profile/me")).toBe(true);
     expect(isBlockedSitemapPath("/categories")).toBe(true);
     expect(isBlockedSitemapPath("/locations/x")).toBe(true);
     expect(isBlockedSitemapPath("/skills")).toBe(true);

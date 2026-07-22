@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-22 · P12-008 complete · await review before P12-009
+**Last updated:** 2026-07-22 · P12-009 complete · await review before P12-010
 
 ---
 
@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | [`998e07c`](https://github.com/accmobile1397-tech/computerjobs/commit/998e07c) — P12-008 Sitemap expansion |
+| **Commit to review** | *(set after commit)* — P12-009 Hardening + Guards |
 
 ---
 
@@ -19,8 +19,8 @@
 | Item | Value |
 |------|-------|
 | **Last closed** | Phase 11 · `v0.12-phase-11` · D-065 |
-| **Phase 12** | D-066 AWC · **D-073** · **P12-008 DONE** |
-| **Next** | Await CTO review · then authorize **P12-009** |
+| **Phase 12** | D-066 AWC · **D-074** · **P12-009 DONE** |
+| **Next** | Await CTO review · then authorize **P12-010** |
 
 ---
 
@@ -37,4 +37,4 @@
 
 ## Recommended next action
 
-Review P12-008. Authorize **P12-009** when ready.
+Review P12-009. Authorize **P12-010** when ready.

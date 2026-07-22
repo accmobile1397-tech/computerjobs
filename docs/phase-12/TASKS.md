@@ -10,11 +10,11 @@
 | P12-006 | `/companies/[slug]` + metadata | DONE | `33d1989` | D-071 · C-012-8 |
 | P12-007 | Breadcrumb JSON-LD on deep pages | DONE | `4ee8afb` | D-072 · Phase 11 builder only |
 | P12-008 | Sitemap expand (static + jobs + companies) | DONE | `998e07c` | D-073 · C-012-2 honesty |
-| P12-009 | Tests + guards | OPEN | — | no Prisma in client |
+| P12-009 | Tests + guards | DONE | — | D-074 · hardening only |
 | P12-010 | CTO_REPORT handoff | OPEN | — | |
 
 ## Progress
 
-- **Done:** 8 / 10  
-- **Decision:** D-073 — P12-007 APPROVED · P12-008 authorized/delivered  
-- **Current:** P12-008 complete — **STOP** · await CTO review before P12-009
+- **Done:** 9 / 10  
+- **Decision:** D-074 — P12-008 APPROVED · P12-009 authorized/delivered  
+- **Current:** P12-009 complete — **STOP** · await CTO review before P12-010

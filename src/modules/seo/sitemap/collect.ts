@@ -12,6 +12,7 @@ const BLOCKED_PREFIXES = [
   "/login",
   "/register",
   "/dashboard",
+  "/profile",
   "/categories",
   "/locations",
   "/skills",

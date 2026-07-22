@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-22 | D-074 | **P12-008 APPROVED** · **P12-009 authorized** (Hardening + Guards) | Active |
 | 2026-07-22 | D-073 | **P12-007 APPROVED** · **P12-008 authorized** (Sitemap expansion) | Active |
 | 2026-07-22 | D-072 | **P12-006 APPROVED** · **P12-007 authorized** (Breadcrumb JSON-LD wiring) | Active |
 | 2026-07-22 | D-071 | **P12-005 APPROVED** · **P12-006 authorized** (`/companies/[slug]`) | Active |
@@ -94,6 +95,19 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-074: P12-008 APPROVED · P12-009 authorized
+
+**Decision (2026-07-22):** **P12-008 CLOSED** · authorize **P12-009** — Hardening + Guards.
+
+**Scope (P12-009):**
+- Guards only: public-route · UUID · sitemap honesty · SearchAction · phase-boundary
+- No metadata / sitemap inventory / JSON-LD / new routes / Phase 13 work
+- Defensive: `/profile` blocked from sitemap inventory (same class as admin/dashboard/api)
+
+**Next:** P12-009 → CTO review → authorize **P12-010**.
 
 ---
 
