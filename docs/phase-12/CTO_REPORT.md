@@ -13,6 +13,7 @@
 | UI | Server Component list + pagination · no slug detail links |
 | Explicitly not | `/companies/[slug]` · Breadcrumb · sitemap · SearchAction · taxonomy hubs |
 | Tests | `companies-list.test.ts` · shell/hardening updated |
+| Commit | [`e43222e`](https://github.com/accmobile1397-tech/computerjobs/commit/e43222e) |
 
 ## Stop
 

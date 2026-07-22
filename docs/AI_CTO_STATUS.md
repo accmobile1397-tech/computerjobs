@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | *(set after commit)* — P12-005 `/companies` list |
+| **Commit to review** | [`e43222e`](https://github.com/accmobile1397-tech/computerjobs/commit/e43222e) — P12-005 `/companies` list |
 
 ---
 
