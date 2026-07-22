@@ -49,10 +49,4 @@ describe("P12-001 public route shell", () => {
       expect(source).not.toMatch(/href=["']\/dashboard/);
     }
   });
-
-  it("does not add company detail tree yet", () => {
-    expect(
-      fs.existsSync(path.join(ROOT, "src/app/(public)/companies/[slug]")),
-    ).toBe(false);
-  });
 });

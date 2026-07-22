@@ -27,7 +27,7 @@ describe("P12-005 public companies list", () => {
     expect(source).not.toContain("buildBreadcrumbJsonLd");
   });
 
-  it("list UI has no Client Components, Prisma, or slug detail links", () => {
+  it("list UI has no Client Components or Prisma", () => {
     const list = fs.readFileSync(
       path.join(
         ROOT,
@@ -38,14 +38,12 @@ describe("P12-005 public companies list", () => {
     expect(list).not.toContain("use client");
     expect(list).not.toMatch(/@prisma/);
     expect(list).not.toContain("prisma.");
-    expect(list).not.toMatch(/href=\{`\/companies\/\$\{/);
-    expect(list).not.toMatch(/href=["']\/companies\//);
   });
 
-  it("does not add company detail tree yet", () => {
+  it("company detail tree is delivered in P12-006", () => {
     expect(
-      fs.existsSync(path.join(ROOT, "src/app/(public)/companies/[slug]")),
-    ).toBe(false);
+      fs.existsSync(path.join(ROOT, "src/app/(public)/companies/[slug]/page.tsx")),
+    ).toBe(true);
   });
 
   it("metadata includes title, description, canonical without page", () => {

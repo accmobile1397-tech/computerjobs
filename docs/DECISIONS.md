@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-22 | D-071 | **P12-005 APPROVED** · **P12-006 authorized** (`/companies/[slug]`) | Active |
 | 2026-07-22 | D-070 | **P12-004 APPROVED** · **P12-005 authorized** (`/companies` public list) | Active |
 | 2026-07-21 | D-069 | **P12-003 APPROVED** · **P12-004 authorized** (`/jobs/[slug]` + JobPosting) | Active |
 | 2026-07-21 | D-068 | **P12-002 APPROVED** · **P12-003 authorized** (`/jobs` public list) | Active |
@@ -91,6 +92,21 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-071: P12-005 APPROVED · P12-006 authorized
+
+**Decision (2026-07-22):** **P12-005 CLOSED** · authorize **P12-006** — `/companies/[slug]` public detail.
+
+**Scope (P12-006):**
+- C-012-8 `notFound()` via `getPublicCompanyBySlug` (missing / not ACTIVE / not VERIFIED)
+- `buildPageMetadata()` from real company fields · canonical
+- No SearchAction · Breadcrumb (P12-007) · sitemap (P12-008) · Prisma in page layer
+
+**Also:** `git push origin main` before implementation (remote sync through P12-005).
+
+**Next:** P12-006 → CTO review → authorize **P12-007**.
 
 ---
 

@@ -1,6 +1,6 @@
 /**
- * Public company list UI (P12-005) — Server Component only.
- * No detail slug links yet (P12-006). No Prisma / Client Components.
+ * Public company list UI (P12-005/006) — Server Component only.
+ * No Prisma / Client Components.
  */
 import Link from "next/link";
 import type { listPublicCompanies } from "@/modules/companies/services/company.service";
@@ -55,7 +55,12 @@ export function PublicCompaniesList({
               className="border-b border-border pb-4 text-right last:border-b-0"
             >
               <h2 className="text-lg font-semibold text-foreground">
-                {company.name}
+                <Link
+                  href={`/companies/${company.slug}`}
+                  className="hover:underline"
+                >
+                  {company.name}
+                </Link>
               </h2>
               {company.industryLabel ? (
                 <p className="mt-1 text-sm text-muted-foreground">
