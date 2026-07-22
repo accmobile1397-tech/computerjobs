@@ -9,9 +9,7 @@ import { buildCanonicalUrl } from "@/modules/seo/canonical";
 import { buildHomeJsonLdScriptContents } from "@/modules/seo/pages/home";
 import { buildRobotsConfig } from "@/modules/seo/robots";
 import {
-  buildPhase11Sitemap,
   getPhase11SitemapSources,
-  jobsPublicSitemapSource,
   staticCoreSitemapSource,
 } from "@/modules/seo/sitemap";
 import { buildWebSiteJsonLd } from "@/modules/seo/structured-data";
@@ -105,22 +103,39 @@ describe("P11-009 C-011-1 RFC-006 frozen", () => {
   });
 });
 
-describe("P11-009 C-011-2 sitemap honesty", () => {
-  it("Phase 11 sitemap emits only live /", async () => {
-    const rows = await buildPhase11Sitemap({
-      baseUrl: "https://computerjobs.ir",
-    });
-    expect(rows.map((r) => r.url)).toEqual(["https://computerjobs.ir/"]);
-  });
-
-  it("domain stubs are empty and static-core is / only", async () => {
-    expect(await jobsPublicSitemapSource.listEntries()).toEqual([]);
-    expect((await staticCoreSitemapSource.listEntries()).map((e) => e.path)).toEqual([
-      "/",
-    ]);
+describe("P11-009 C-011-2 / C-012-2 sitemap honesty", () => {
+  it("sitemap sources include static-core + jobs-public + companies-public", () => {
     const ids = getPhase11SitemapSources().map((s) => s.id);
     expect(ids).toContain("static-core");
     expect(ids).toContain("jobs-public");
+    expect(ids).toContain("companies-public");
+    expect(ids).toContain("taxonomy");
+    expect(ids).toContain("locations");
+    expect(ids).toContain("ai-landings");
+  });
+
+  it("static-core lists live static inventory (P12-008)", async () => {
+    expect((await staticCoreSitemapSource.listEntries()).map((e) => e.path)).toEqual([
+      "/",
+      "/about",
+      "/contact",
+      "/privacy",
+      "/terms",
+    ]);
+  });
+
+  it("seo sitemap adapters never import Prisma directly", () => {
+    for (const rel of [
+      "src/modules/seo/sitemap/jobs-public.ts",
+      "src/modules/seo/sitemap/companies-public.ts",
+      "src/modules/seo/sitemap/static-core.ts",
+      "src/app/sitemap.ts",
+    ] as const) {
+      const source = fs.readFileSync(path.join(ROOT, rel), "utf8");
+      for (const pattern of BANNED_SEO_IMPORTS) {
+        expect(source, `${rel} matched ${pattern}`).not.toMatch(pattern);
+      }
+    }
   });
 });
 

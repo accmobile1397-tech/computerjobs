@@ -3,7 +3,7 @@ import { buildPhase11Sitemap } from "@/modules/seo/sitemap";
 
 /**
  * Thin App Router adapter — SEO rules live in `modules/seo/sitemap` (RFC-006).
- * Honesty (C-011-2): only live public paths (Phase 11 = `/`).
+ * Honesty (C-012-2): only live Option 1 public paths via SitemapSource collectors.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return buildPhase11Sitemap();

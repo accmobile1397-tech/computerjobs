@@ -4,6 +4,7 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-22 | D-073 | **P12-007 APPROVED** · **P12-008 authorized** (Sitemap expansion) | Active |
 | 2026-07-22 | D-072 | **P12-006 APPROVED** · **P12-007 authorized** (Breadcrumb JSON-LD wiring) | Active |
 | 2026-07-22 | D-071 | **P12-005 APPROVED** · **P12-006 authorized** (`/companies/[slug]`) | Active |
 | 2026-07-22 | D-070 | **P12-004 APPROVED** · **P12-005 authorized** (`/companies` public list) | Active |
@@ -93,6 +94,20 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-073: P12-007 APPROVED · P12-008 authorized
+
+**Decision (2026-07-22):** **P12-007 CLOSED** · authorize **P12-008** — Sitemap expansion for live Option 1 URLs.
+
+**Scope (P12-008):**
+- Expand via Phase 11 `SitemapSource` + `collectSitemapEntries` only (RFC-006 · C-012-5)
+- Live: static · `/jobs` + public slugs · `/companies` + public slugs
+- C-012-2: no soft-404 — same public gates as detail `notFound()`
+- Taxonomy / locations / skills / technologies / SearchAction / AI landings remain out
+
+**Next:** P12-008 → CTO review → authorize **P12-009**.
 
 ---
 

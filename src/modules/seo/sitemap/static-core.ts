@@ -2,10 +2,16 @@ import { normalizePublicPath } from "@/modules/seo/urls";
 import type { SitemapEntry, SitemapSource } from "@/modules/seo/sitemap/types";
 
 /**
- * Already-rendered public static routes only.
- * Phase 11 live inventory: `/` (`src/app/page.tsx`).
+ * Live static public routes (P12-008 · C-012-2).
+ * Only paths with real App Router pages under `(public)`.
  */
-const LIVE_STATIC_PATHS = ["/"] as const;
+const LIVE_STATIC_PATHS = [
+  "/",
+  "/about",
+  "/contact",
+  "/privacy",
+  "/terms",
+] as const;
 
 export const staticCoreSitemapSource: SitemapSource = {
   id: "static-core",
@@ -13,7 +19,7 @@ export const staticCoreSitemapSource: SitemapSource = {
     return LIVE_STATIC_PATHS.map((path) => ({
       path: normalizePublicPath(path),
       changeFrequency: "weekly" as const,
-      priority: 1,
+      priority: path === "/" ? 1 : 0.6,
     }));
   },
 };

@@ -294,6 +294,27 @@ export async function listPublicCompanies(query: ListCompaniesQuery = {}) {
   };
 }
 
+/**
+ * Sitemap inventory (P12-008 · C-012-2): same public gate as getPublicCompanyBySlug.
+ * Slug-only — pages that would notFound() are never listed.
+ */
+export async function listPublicCompanySlugsForSitemap() {
+  const rows = await prisma.company.findMany({
+    where: {
+      deletedAt: null,
+      status: CompanyStatus.ACTIVE,
+      verificationStatus: CompanyVerificationStatus.VERIFIED,
+    },
+    select: { slug: true, updatedAt: true },
+    orderBy: { name: "asc" },
+  });
+
+  return rows.map((row) => ({
+    slug: row.slug,
+    lastModified: row.updatedAt,
+  }));
+}
+
 export async function updateCompanyVerification(params: {
   companyId: string;
   status: CompanyVerificationStatus;

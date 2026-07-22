@@ -4,12 +4,13 @@ export type {
   SitemapSource,
 } from "@/modules/seo/sitemap/types";
 export { staticCoreSitemapSource } from "@/modules/seo/sitemap/static-core";
+export { jobsPublicSitemapSource } from "@/modules/seo/sitemap/jobs-public";
+export { companiesPublicSitemapSource } from "@/modules/seo/sitemap/companies-public";
 export {
   aiLandingsSitemapSource,
-  companiesPublicSitemapSource,
-  jobsPublicSitemapSource,
   locationsSitemapSource,
   phase11DomainSitemapStubs,
+  phase12DeferredSitemapStubs,
   taxonomySitemapSource,
 } from "@/modules/seo/sitemap/domain-stubs";
 export {

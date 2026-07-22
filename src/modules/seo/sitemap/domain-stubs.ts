@@ -1,8 +1,8 @@
 import type { SitemapSource } from "@/modules/seo/sitemap/types";
 
 /**
- * Domain sources reserved for Phase 12+.
- * Always empty until real public SSR pages exist (C-011-2 · C-011-3).
+ * Domain sources still outside Option 1 — always empty (C-012-2 · C-012-4).
+ * jobs-public / companies-public live in dedicated modules (P12-008).
  */
 function emptySource(id: string): SitemapSource {
   return {
@@ -13,16 +13,15 @@ function emptySource(id: string): SitemapSource {
   };
 }
 
-export const jobsPublicSitemapSource = emptySource("jobs-public");
-export const companiesPublicSitemapSource = emptySource("companies-public");
 export const taxonomySitemapSource = emptySource("taxonomy");
 export const locationsSitemapSource = emptySource("locations");
 export const aiLandingsSitemapSource = emptySource("ai-landings");
 
-export const phase11DomainSitemapStubs: SitemapSource[] = [
-  jobsPublicSitemapSource,
-  companiesPublicSitemapSource,
+export const phase12DeferredSitemapStubs: SitemapSource[] = [
   taxonomySitemapSource,
   locationsSitemapSource,
   aiLandingsSitemapSource,
 ];
+
+/** @deprecated alias — deferred stubs only (jobs/companies moved out). */
+export const phase11DomainSitemapStubs = phase12DeferredSitemapStubs;

@@ -1,4 +1,6 @@
-import { phase11DomainSitemapStubs } from "@/modules/seo/sitemap/domain-stubs";
+import { companiesPublicSitemapSource } from "@/modules/seo/sitemap/companies-public";
+import { phase12DeferredSitemapStubs } from "@/modules/seo/sitemap/domain-stubs";
+import { jobsPublicSitemapSource } from "@/modules/seo/sitemap/jobs-public";
 import { staticCoreSitemapSource } from "@/modules/seo/sitemap/static-core";
 import type { SitemapSource } from "@/modules/seo/sitemap/types";
 import {
@@ -6,9 +8,17 @@ import {
   toNextSitemapEntries,
 } from "@/modules/seo/sitemap/collect";
 
-/** Default Phase 11 sources — live static-core + empty domain stubs. */
+/**
+ * Public sitemap sources (Phase 11 mechanism · Phase 12 Option 1 inventory).
+ * Taxonomy / locations / AI landings remain empty stubs.
+ */
 export function getPhase11SitemapSources(): SitemapSource[] {
-  return [staticCoreSitemapSource, ...phase11DomainSitemapStubs];
+  return [
+    staticCoreSitemapSource,
+    jobsPublicSitemapSource,
+    companiesPublicSitemapSource,
+    ...phase12DeferredSitemapStubs,
+  ];
 }
 
 /**

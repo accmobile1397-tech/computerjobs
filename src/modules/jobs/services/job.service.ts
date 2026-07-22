@@ -677,3 +677,26 @@ export async function getPublicJobBySlug(slug: string) {
   if (!job) throw new JobError("JOB_NOT_FOUND");
   return toPublicJob(job);
 }
+
+/**
+ * Sitemap inventory (P12-008 · C-012-2): same public gate as getPublicJobBySlug.
+ * Slug-only — pages that would notFound() are never listed.
+ */
+export async function listPublicJobSlugsForSitemap() {
+  const now = new Date();
+  const rows = await prisma.job.findMany({
+    where: {
+      deletedAt: null,
+      status: JobStatus.PUBLISHED,
+      expiresAt: { gt: now },
+      company: PUBLIC_COMPANY_WHERE,
+    },
+    select: { slug: true, updatedAt: true },
+    orderBy: { publishedAt: "desc" },
+  });
+
+  return rows.map((row) => ({
+    slug: row.slug,
+    lastModified: row.updatedAt,
+  }));
+}

@@ -12,6 +12,10 @@ const BLOCKED_PREFIXES = [
   "/login",
   "/register",
   "/dashboard",
+  "/categories",
+  "/locations",
+  "/skills",
+  "/technologies",
 ] as const;
 
 export function isBlockedSitemapPath(path: string): boolean {
