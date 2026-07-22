@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | *(set after commit)* — P12-010 Phase 12 closure package |
+| **Commit to review** | [`1ed99bb`](https://github.com/accmobile1397-tech/computerjobs/commit/1ed99bb) — P12-010 Phase 12 closure package |
 
 ---
 
