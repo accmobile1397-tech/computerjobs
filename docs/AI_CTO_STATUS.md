@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | *(set after commit)* — P12-006 `/companies/[slug]` |
+| **Commit to review** | [`33d1989`](https://github.com/accmobile1397-tech/computerjobs/commit/33d1989) — P12-006 `/companies/[slug]` |
 
 ---
 
