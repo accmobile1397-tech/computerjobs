@@ -59,6 +59,15 @@ All notable changes to ComputerJobs.ir are documented here.
 
 ## [Unreleased]
 
+### Phase 12 — SSR Public Pages
+
+- **Status:** 📦 READY FOR CLOSE · await **D-076** · tag proposal `v0.13-phase-12`
+- Option 1: static · `/jobs` · `/jobs/[slug]` · `/companies` · `/companies/[slug]`
+- SEO: metadata · canonical · JobPosting · Breadcrumb · honest sitemap (RFC-006 reuse)
+- Excluded: SearchAction · AI landings · taxonomy/location hubs · programmatic SEO
+- Hardening: P12-009 guards · C-012-1..10 ✅
+- Closure: [PHASE_12_CLOSURE_REPORT.md](./phase-12/PHASE_12_CLOSURE_REPORT.md)
+
 ### Phase 11 — SEO Foundation
 
 - **D-065 CLOSED** · tag ✅ `v0.12-phase-11`

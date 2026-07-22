@@ -4,6 +4,8 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 
 | Date | ID | Decision | Status |
 |------|-----|----------|--------|
+| 2026-07-22 | D-076 | **Phase 12 CLOSE** — pending CTO APPROVE CLOSE · tag proposal `v0.13-phase-12` | Pending |
+| 2026-07-22 | D-075 | **P12-009 APPROVED** · **P12-010 authorized** (Phase 12 closure package) | Active |
 | 2026-07-22 | D-074 | **P12-008 APPROVED** · **P12-009 authorized** (Hardening + Guards) | Active |
 | 2026-07-22 | D-073 | **P12-007 APPROVED** · **P12-008 authorized** (Sitemap expansion) | Active |
 | 2026-07-22 | D-072 | **P12-006 APPROVED** · **P12-007 authorized** (Breadcrumb JSON-LD wiring) | Active |
@@ -95,6 +97,27 @@ Chronological record of significant decisions. For detailed rationale see `docs/
 | 2026-07-19 | D-023 | No feature branches | **Superseded by D-024** |
 | 2026-07-19 | D-024 | **Direct commits on `main`** — no develop branch | Active |
 | 2026-07-19 | D-025 | **`develop` branch deleted** from local + remote | Active |
+
+---
+
+## D-076: Phase 12 CLOSE — pending APPROVE CLOSE
+
+**Decision (2026-07-22):** Closure package delivered (P12-010). **Awaiting CTO APPROVE CLOSE**.
+
+**Tag proposal:** `v0.13-phase-12`  
+**Package:** [phase-12/CLOSURE_PACKAGE.md](./phase-12/CLOSURE_PACKAGE.md) · [phase-12/PHASE_12_CLOSURE_REPORT.md](./phase-12/PHASE_12_CLOSURE_REPORT.md)
+
+**On APPROVE CLOSE:** apply annotated tag + push · mark Phase 12 🟢 CLOSED · authorize Phase 13 separately.
+
+**Stop:** No Phase 13 implementation until D-076 + Phase 13 authorize.
+
+---
+
+## D-075: P12-009 APPROVED · P12-010 authorized
+
+**Decision (2026-07-22):** **P12-009 CLOSED** · authorize **P12-010** — Phase 12 closure package (CTO_REPORT · CLOSURE_REPORT · CLOSURE_PACKAGE · docs).
+
+**Next:** P12-010 package → CTO **D-076** APPROVE CLOSE.
 
 ---
 
