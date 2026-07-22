@@ -10,7 +10,7 @@
 | P12-006 | `/companies/[slug]` + metadata | DONE | `33d1989` | D-071 · C-012-8 |
 | P12-007 | Breadcrumb JSON-LD on deep pages | DONE | `4ee8afb` | D-072 · Phase 11 builder only |
 | P12-008 | Sitemap expand (static + jobs + companies) | DONE | `998e07c` | D-073 · C-012-2 honesty |
-| P12-009 | Tests + guards | DONE | — | D-074 · hardening only |
+| P12-009 | Tests + guards | DONE | `3905eec` | D-074 · hardening only |
 | P12-010 | CTO_REPORT handoff | OPEN | — | |
 
 ## Progress

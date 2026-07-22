@@ -12,6 +12,7 @@
 | Artifact | `src/modules/seo/phase12-hardening.test.ts` |
 | Defensive | `/profile` added to sitemap blocked prefixes (inventory unchanged) |
 | Explicitly not | Metadata/JSON-LD/sitemap source changes · new routes · Phase 13 |
+| Commit | [`3905eec`](https://github.com/accmobile1397-tech/computerjobs/commit/3905eec) |
 
 ## Stop
 

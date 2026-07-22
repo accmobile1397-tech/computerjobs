@@ -10,7 +10,7 @@
 | Item | Value |
 |------|-------|
 | **Status file** | [`docs/AI_CTO_STATUS.md`](https://github.com/accmobile1397-tech/computerjobs/blob/main/docs/AI_CTO_STATUS.md) |
-| **Commit to review** | *(set after commit)* — P12-009 Hardening + Guards |
+| **Commit to review** | [`3905eec`](https://github.com/accmobile1397-tech/computerjobs/commit/3905eec) — P12-009 Hardening + Guards |
 
 ---
 
