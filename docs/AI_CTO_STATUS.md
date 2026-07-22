@@ -1,7 +1,7 @@
 # AI CTO Status — ComputerJobs.ir
 
 **Purpose:** CTO review handoff (minimal context).  
-**Last updated:** 2026-07-22 · Phase 12 CLOSED · Phase 13 handoff only
+**Last updated:** 2026-07-22 · Phase 12 CLOSED · System Validation Report ready · Phase 13 handoff only
 
 ---
 
@@ -28,6 +28,7 @@
 
 | Doc | Link |
 |-----|------|
+| SYSTEM_VALIDATION_REPORT | [SYSTEM_VALIDATION_REPORT.md](./SYSTEM_VALIDATION_REPORT.md) |
 | PHASE_12_CLOSURE_REPORT | [phase-12/PHASE_12_CLOSURE_REPORT.md](./phase-12/PHASE_12_CLOSURE_REPORT.md) |
 | PHASE_13_CTO_HANDOFF | [phase-13/PHASE_13_CTO_HANDOFF.md](./phase-13/PHASE_13_CTO_HANDOFF.md) |
 | ROADMAP | [ROADMAP.md](./ROADMAP.md) |
@@ -36,4 +37,6 @@
 
 ## Recommended next action
 
-Review [PHASE_13_CTO_HANDOFF.md](./phase-13/PHASE_13_CTO_HANDOFF.md). Authorize Phase 13 **TECHNICAL_SPEC** when ready. **No Phase 13 code** until APPROVE.
+1. Review [SYSTEM_VALIDATION_REPORT.md](./SYSTEM_VALIDATION_REPORT.md) (run staging scenarios B–D).  
+2. Review [PHASE_13_CTO_HANDOFF.md](./phase-13/PHASE_13_CTO_HANDOFF.md).  
+3. Authorize Phase 13 **TECHNICAL_SPEC** when ready. **No Phase 13 code** until APPROVE.
